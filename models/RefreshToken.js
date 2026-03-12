@@ -9,7 +9,6 @@ const refreshTokenSchema = new mongoose.Schema({
   collection: 'refresh_tokens'
 });
 
-refreshTokenSchema.index({ token: 1 }, { unique: true });
 refreshTokenSchema.index({ user_id: 1 });
 refreshTokenSchema.index({ expires_at: 1 }, { expireAfterSeconds: 0 });
 

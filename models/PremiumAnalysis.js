@@ -44,6 +44,7 @@ const premiumAnalysisSchema = new mongoose.Schema({
   collection: 'premium_analyses'
 });
 
+premiumAnalysisSchema.index({ user_id: 1, scenario_id: 1 }, { unique: true });
 premiumAnalysisSchema.index({ scenario_id: 1 });
 premiumAnalysisSchema.index({ user_id: 1 });
 

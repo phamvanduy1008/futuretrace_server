@@ -77,6 +77,20 @@ router.post('/', auth, async (req, res) => {
     const savedScenarios = [];
     if (aiResult.scenarios && aiResult.scenarios.length > 0) {
       for (const s of aiResult.scenarios) {
+        // Helper to normalize SWOT types in case AI deviates
+        if (s.deepAnalysis && s.deepAnalysis.swot) {
+          s.deepAnalysis.swot = s.deepAnalysis.swot.map(item => {
+            let type = item.type;
+            if (typeof type === 'string') {
+              const firstChar = type.trim().toUpperCase()[0];
+              if (['S', 'W', 'O', 'T'].includes(firstChar)) {
+                type = firstChar;
+              }
+            }
+            return { ...item, type };
+          });
+        }
+
         const scenario = new SimulationScenario({
           simulation_id: simulation._id,
           scenario_type: s.type || 'Neutral',
@@ -149,10 +163,25 @@ router.post('/', auth, async (req, res) => {
 // GET /api/simulations - List user's simulations (for history page)
 router.get('/', auth, async (req, res) => {
   try {
-    const { page = 1, limit = 20, search = '' } = req.query;
+    const { page = 1, limit = 20, search = '', saved = 'false' } = req.query;
     const skip = (parseInt(page) - 1) * parseInt(limit);
 
+    // Fetch user to check tier
+    const User = require('../models/User');
+    const user = await User.findById(req.user.userId);
+
     const query = { user_id: req.user.userId, status: 'completed' };
+    
+    // Filter by saved status if requested
+    if (saved === 'true') {
+      query.is_saved = true;
+    }
+
+    // Tier filtering: if user is free, exclude simulations that were tagged as premium
+    if (user && user.tier === 'free') {
+      query['input.tier'] = { $ne: 'premium' };
+    }
+
     if (search) {
       query.$or = [
         { title: { $regex: search, $options: 'i' } },
@@ -169,6 +198,10 @@ router.get('/', auth, async (req, res) => {
     const results = [];
     for (const sim of simulations) {
       const scenarios = await SimulationScenario.find({ simulation_id: sim._id });
+      
+      // Filter out simulations with 0 scenarios (as per requirement: không lưu các mô phỏng không tạo được kịch bản)
+      if (scenarios.length === 0) continue;
+
       const dateStr = sim.created_at.toLocaleDateString('vi-VN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
 
       const scenariosFormatted = scenarios.map(s => ({
@@ -198,6 +231,7 @@ router.get('/', auth, async (req, res) => {
         desc: `Bao gồm ${scenarios.length} kịch bản mô phỏng cho quyết định: ${sim.input?.decision || ''}`,
         reliability: 95,
         isFolder: true,
+        isSaved: sim.is_saved || false,
         scenarios: scenariosFormatted,
         metrics: {
           career: scenariosFormatted.length > 0 ? Math.round(scenariosFormatted.reduce((acc, s) => acc + (s.metrics?.career || 0), 0) / scenariosFormatted.length) : 0,
@@ -215,6 +249,42 @@ router.get('/', auth, async (req, res) => {
     });
   } catch (error) {
     console.error('Get simulations error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
+// POST /api/simulations/:id/save - Save a simulation
+router.post('/:id/save', auth, async (req, res) => {
+  try {
+    const simulation = await Simulation.findOneAndUpdate(
+      { _id: req.params.id, user_id: req.user.userId },
+      { is_saved: true },
+      { new: true }
+    );
+    if (!simulation) {
+      return res.status(404).json({ message: 'Không tìm thấy mô phỏng.' });
+    }
+    res.json({ message: 'Đã lưu mô phỏng thành công.', isSaved: true });
+  } catch (error) {
+    console.error('Save simulation error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
+// DELETE /api/simulations/:id/save - Unsave a simulation
+router.delete('/:id/save', auth, async (req, res) => {
+  try {
+    const simulation = await Simulation.findOneAndUpdate(
+      { _id: req.params.id, user_id: req.user.userId },
+      { is_saved: false },
+      { new: true }
+    );
+    if (!simulation) {
+      return res.status(404).json({ message: 'Không tìm thấy mô phỏng.' });
+    }
+    res.json({ message: 'Đã bỏ lưu mô phỏng.', isSaved: false });
+  } catch (error) {
+    console.error('Unsave simulation error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống.' });
   }
 });

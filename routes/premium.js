@@ -83,7 +83,32 @@ router.post('/analyze', auth, async (req, res) => {
       completed_milestones: [],
       timeframe: timeframe || 12
     });
-    await premiumAnalysis.save();
+    
+    try {
+      await premiumAnalysis.save();
+    } catch (saveError) {
+      // If a race condition occurred and it was already saved, just return the existing one
+      if (saveError.code === 11000) {
+        const existingAgain = await PremiumAnalysis.findOne({
+          user_id: req.user.userId,
+          scenario_id: scenario.id
+        });
+        return res.json({
+          id: existingAgain._id.toString(),
+          scenarioId: existingAgain.scenario_id,
+          title: existingAgain.title,
+          category: existingAgain.category,
+          date: existingAgain.created_at.toLocaleDateString('vi-VN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase(),
+          report: existingAgain.report,
+          context: existingAgain.context,
+          scenario: existingAgain.scenario,
+          completedMilestones: existingAgain.completed_milestones,
+          timeframe: existingAgain.timeframe,
+          isExisting: true
+        });
+      }
+      throw saveError;
+    }
 
     res.status(201).json({
       id: premiumAnalysis._id.toString(),

@@ -26,7 +26,8 @@ const simulationSchema = new mongoose.Schema({
     threeYears: { type: String }
   },
   is_folder: { type: Boolean, default: true },
-  folder_name: { type: String }
+  folder_name: { type: String },
+  is_saved: { type: Boolean, default: false }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: false },
   collection: 'simulations'

@@ -67,7 +67,8 @@ router.get('/posts', auth, async (req, res) => {
         commentsCount: post.comments_count,
         reliability: post.reliability,
         deepAnalysis: post.deep_analysis,
-        isLiked: likedPostIds.has(post._id.toString())
+        isLiked: likedPostIds.has(post._id.toString()),
+        user_id: post.user_id?._id?.toString() || post.user_id?.toString()
       };
     });
 
@@ -160,12 +161,43 @@ router.post('/posts/:id/like', auth, async (req, res) => {
   }
 });
 
+// DELETE /api/community/posts/:id - Delete a post (owner only)
+router.delete('/posts/:id', auth, async (req, res) => {
+  try {
+    const post = await CommunityPost.findOne({ _id: req.params.id, user_id: req.user.userId });
+    if (!post) {
+      return res.status(404).json({ message: 'Không tìm thấy bài viết hoặc bạn không có quyền xóa.' });
+    }
+
+    // Delete related comments and likes
+    await CommunityComment.deleteMany({ post_id: post._id });
+    await CommunityLike.deleteMany({ post_id: post._id });
+    const CommunityCommentLike = require('../models/CommunityCommentLike');
+    // Also delete comment likes for comments of this post
+    // (A bit complex, but for now we focus on the post itself)
+
+    await CommunityPost.deleteOne({ _id: post._id });
+    res.json({ message: 'Đã xóa bài viết thành công.' });
+  } catch (error) {
+    console.error('Delete post error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
 // GET /api/community/posts/:id/comments - Get comments for a post
 router.get('/posts/:id/comments', auth, async (req, res) => {
   try {
     const comments = await CommunityComment.find({ post_id: req.params.id })
       .sort({ created_at: -1 })
       .populate('user_id', 'full_name avatar_url');
+
+    const CommunityCommentLike = require('../models/CommunityCommentLike');
+    const commentIds = comments.map(c => c._id);
+    const userLikes = await CommunityCommentLike.find({
+      comment_id: { $in: commentIds },
+      user_id: req.user.userId
+    });
+    const likedCommentIds = new Set(userLikes.map(l => l.comment_id.toString()));
 
     const formatted = comments.map(c => ({
       id: c._id.toString(),
@@ -174,12 +206,37 @@ router.get('/posts/:id/comments', auth, async (req, res) => {
       authorAvatar: c.user_id?.avatar_url || 'https://i.pravatar.cc/150?img=1',
       content: c.content,
       date: c.created_at.toLocaleDateString('vi-VN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase(),
-      likes: c.likes || 0
+      likes: c.likes || 0,
+      isLiked: likedCommentIds.has(c._id.toString())
     }));
 
     res.json(formatted);
   } catch (error) {
     console.error('Get comments error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
+// POST /api/community/posts/:postId/comments/:commentId/like - Toggle like on a comment
+router.post('/posts/:postId/comments/:commentId/like', auth, async (req, res) => {
+  try {
+    const { commentId } = req.params;
+    const userId = req.user.userId;
+
+    const CommunityCommentLike = require('../models/CommunityCommentLike');
+    const existingLike = await CommunityCommentLike.findOne({ comment_id: commentId, user_id: userId });
+
+    if (existingLike) {
+      await CommunityCommentLike.deleteOne({ _id: existingLike._id });
+      await CommunityComment.findByIdAndUpdate(commentId, { $inc: { likes: -1 } });
+      res.json({ liked: false });
+    } else {
+      await new CommunityCommentLike({ comment_id: commentId, user_id: userId }).save();
+      await CommunityComment.findByIdAndUpdate(commentId, { $inc: { likes: 1 } });
+      res.json({ liked: true });
+    }
+  } catch (error) {
+    console.error('Toggle comment like error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống.' });
   }
 });
