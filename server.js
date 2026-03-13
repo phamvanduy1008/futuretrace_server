@@ -12,26 +12,35 @@ const paymentRoutes = require('./routes/payment');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
+/* ================= CORS ================= */
+
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:3000',
-  'https://www.futuretrace.cloud/',
-].filter(Boolean);
+  'https://futuretrace.cloud',
+  'https://www.futuretrace.cloud'
+];
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+
+    // allow requests with no origin (mobile apps, postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log("Blocked CORS:", origin);
       callback(new Error('Not allowed by CORS'));
     }
+
   },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  credentials: true
 }));
+
+/* ================= Middleware ================= */
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -41,36 +50,50 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
+/* ================= Routes ================= */
+
 app.use('/api/auth', authRoutes);
 app.use('/api/simulations', simulationRoutes);
 app.use('/api/community', communityRoutes);
 app.use('/api/premium', premiumRoutes);
 app.use('/api/payment', paymentRoutes);
 
-// Health check
+/* ================= Health Check ================= */
+
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.json({
+    status: 'ok',
+    time: new Date().toISOString()
+  });
 });
 
-// Error handling middleware
+/* ================= Error Handler ================= */
+
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
-  res.status(500).json({ message: 'Internal server error.' });
+  res.status(500).json({ message: 'Internal server error' });
 });
 
-// Connect to MongoDB and start server
+/* ================= MongoDB ================= */
+
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log('✅ Connected to MongoDB');
+
+    console.log('✅ MongoDB connected');
+
     app.listen(PORT, () => {
-      console.log(`🚀 FutureTrace Server running on http://localhost:${PORT}`);
-      console.log(`📡 API base: http://localhost:${PORT}/api`);
+
+      console.log(`🚀 FutureTrace server running on port ${PORT}`);
+      console.log(`📡 API base: /api`);
+
     });
+
   })
   .catch((err) => {
+
     console.error('❌ MongoDB connection error:', err.message);
     process.exit(1);
+
   });
 
 module.exports = app;
