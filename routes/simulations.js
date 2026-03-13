@@ -180,7 +180,7 @@ router.get('/', auth, async (req, res) => {
     const user = await User.findById(req.user.userId);
 
     const query = { user_id: req.user.userId, status: 'completed' };
-    
+
     // Filter by saved status if requested
     if (saved === 'true') {
       query.is_saved = true;
@@ -207,7 +207,7 @@ router.get('/', auth, async (req, res) => {
     const results = [];
     for (const sim of simulations) {
       const scenarios = await SimulationScenario.find({ simulation_id: sim._id });
-      
+
       // Filter out simulations with 0 scenarios (as per requirement: không lưu các mô phỏng không tạo được kịch bản)
       if (scenarios.length === 0) continue;
 
