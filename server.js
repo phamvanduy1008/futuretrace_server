@@ -9,6 +9,7 @@ const communityRoutes = require('./routes/community');
 const premiumRoutes = require('./routes/premium');
 const paymentRoutes = require('./routes/payment');
 const adminRoutes = require('./routes/admin');
+const dashboardRoutes = require('./routes/dashboard');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -58,6 +59,7 @@ app.use('/api/simulations', simulationRoutes);
 app.use('/api/community', communityRoutes);
 app.use('/api/premium', premiumRoutes);
 app.use('/api/payment', paymentRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 /* ================= Health Check ================= */
 app.use('/api/admin', adminRoutes);

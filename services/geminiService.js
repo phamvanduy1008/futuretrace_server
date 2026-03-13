@@ -1,4 +1,160 @@
 const { GoogleGenAI, Type } = require('@google/genai');
+const path = require('path');
+const fs = require('fs');
+
+/**
+ * Utility to repair truncated JSON by closing open brackets
+ */
+const repairJson = (str) => {
+  let json = str.trim();
+  const stack = [];
+  let isInsideString = false;
+  let isEscaped = false;
+
+  for (let i = 0; i < json.length; i++) {
+    const char = json[i];
+    if (char === '"' && !isEscaped) {
+      isInsideString = !isInsideString;
+    }
+    if (isInsideString) {
+      isEscaped = (char === '\\' && !isEscaped);
+      continue;
+    }
+    if (char === '{') stack.push('}');
+    else if (char === '[') stack.push(']');
+    else if (char === '}' || char === ']') {
+      if (stack.length > 0 && stack[stack.length - 1] === char) {
+        stack.pop();
+      }
+    }
+  }
+  
+  // Close open string if truncated mid-string
+  if (isInsideString) json += '"';
+  
+  // Close all open brackets in reverse order
+  while (stack.length > 0) {
+    json += stack.pop();
+  }
+  return json;
+};
+
+/**
+ * Ensures the simulation result has all required fields to prevent frontend crashes
+ */
+const normalizeSimulationResponse = (data) => {
+  const defaults = {
+    isEnterprise: false,
+    summary: "Báo cáo phân tích tương lai từ FutureTrace.",
+    scenarios: [],
+    timeline: {
+      start: "Bắt đầu hành trình.",
+      sixMonths: "Giai đoạn thích nghi.",
+      oneYear: "Giai đoạn ổn định.",
+      threeYears: "Giai đoạn phát triển."
+    }
+  };
+
+  const normalized = { ...defaults, ...data };
+  
+  // Deep merge for timeline
+  normalized.timeline = { ...defaults.timeline, ...(data.timeline || {}) };
+  
+  // Ensure scenarios is an array and each scenario has required structure
+  if (!Array.isArray(normalized.scenarios)) {
+    normalized.scenarios = [];
+  }
+  
+  normalized.scenarios = normalized.scenarios.map(s => ({
+    title: s.title || "Kịch bản tiềm năng",
+    description: s.description || "Phân tích kịch bản chưa hoàn thiện.",
+    careerGrowth: s.careerGrowth || 0,
+    happiness: s.happiness || 0,
+    roi: s.roi || 0,
+    type: s.type || "Neutral",
+    deepAnalysis: {
+      swot: Array.isArray(s.deepAnalysis?.swot) ? s.deepAnalysis.swot : [],
+      resources: Array.isArray(s.deepAnalysis?.resources) ? s.deepAnalysis.resources : [],
+      sprint90: Array.isArray(s.deepAnalysis?.sprint90) ? s.deepAnalysis.sprint90 : [],
+      criticalAdvice: s.deepAnalysis?.criticalAdvice || "Đang cập nhật lời khuyên..."
+    }
+  }));
+
+  return normalized;
+};
+
+// =========================================================
+// RAG (Retrieval-Augmented Generation) Knowledge Base Layer
+// =========================================================
+
+let _knowledgeBase = null;
+const getKnowledgeBase = () => {
+  if (!_knowledgeBase) {
+    try {
+      const kbPath = path.join(__dirname, '../data/knowledge_base.json');
+      _knowledgeBase = JSON.parse(fs.readFileSync(kbPath, 'utf-8'));
+    } catch (e) {
+      console.warn('[RAG] Could not load knowledge_base.json:', e.message);
+      _knowledgeBase = { fields: {} };
+    }
+  }
+  return _knowledgeBase;
+};
+
+/**
+ * Detect the relevant field from user's decision text
+ * Returns the field data object or null if no match
+ */
+const detectFieldFromText = (text) => {
+  if (!text) return null;
+  const kb = getKnowledgeBase();
+  const lowerText = text.toLowerCase();
+  for (const [, fieldData] of Object.entries(kb.fields)) {
+    const keywords = fieldData.keywords || [];
+    if (keywords.some(kw => lowerText.includes(kw.toLowerCase()))) {
+      return fieldData;
+    }
+  }
+  return null;
+};
+
+/**
+ * Build a RAG context string from the matched field data to inject into prompt
+ */
+const buildRAGContext = (fieldData) => {
+  if (!fieldData) return '';
+  const s = fieldData.salary || {};
+  const fresher = s.fresher_0_1year || s.bac_si_cong_lap || {};
+  const mid = s.mid_3_5year || {};
+  return `
+--- DỮ LIỆU THỰC TẾ THỊ TRƯỜNG LAO ĐỘNG VIỆT NAM 2024 (BẮT BUỘC THAM KHẢO) ---
+Ngành: ${fieldData.name}
+Nguồn dữ liệu: ${(fieldData.source || []).join(', ')}
+
+💰 Mức lương thực tế:
+- Fresher (0-1 năm KN): ${fresher.min || '?'}–${fresher.max || '?'} triệu/tháng (TB: ~${fresher.avg || '?'} triệu)
+- 3-5 năm KN: ${mid.min || '?'}–${mid.max || '?'} triệu/tháng (TB: ~${mid.avg || '?'} triệu)
+${fieldData.salary?.marketAverage ? `- Trung bình toàn thị trường ngành: ${fieldData.salary.marketAverage} triệu/tháng` : ''}
+${fieldData.salary?.bac_si_tu_nhan ? `- Bác sĩ khu vực tư nhân: ${fieldData.salary.bac_si_tu_nhan.min}–${fieldData.salary.bac_si_tu_nhan.max} triệu/tháng` : ''}
+${fieldData.salary?.fresher_tu_nhan ? `- Fresher khu vực tư nhân/quốc tế: ${fieldData.salary.fresher_tu_nhan.min}–${fieldData.salary.fresher_tu_nhan.max} triệu/tháng` : ''}
+
+📊 Thị trường lao động:
+- Tỉ lệ có việc làm sau tốt nghiệp: ~${fieldData.employmentRate || '?'}%
+- Tỉ lệ thất nghiệp: ~${fieldData.unemploymentRate || '?'}%
+${fieldData.shortage ? `- ⚠️ ${fieldData.shortage}` : ''}
+
+🎯 Kỹ năng cần thiết: ${(fieldData.topSkills || []).slice(0, 5).join(', ')}
+${(fieldData.trendingFields || []).length > 0 ? `📈 Xu hướng nổi bật: ${fieldData.trendingFields.join(', ')}` : ''}
+
+🏫 Điểm chuẩn 2024: ${fieldData.entranceScore2024?.note || `TB ~${fieldData.entranceScore2024?.avg || '?'} điểm`}
+
+📌 Nhận định thị trường: ${fieldData.outlook || fieldData.outlet || ''}
+${fieldData.trainingDuration ? `⏱️ Thời gian đào tạo: ${JSON.stringify(fieldData.trainingDuration)}` : ''}
+--- KẾT THÚC DỮ LIỆU THỰC TẾ ---
+`.trim();
+};
+
+// =========================================================
 
 const getAI = () => {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -8,6 +164,16 @@ const getAI = () => {
 
 const generateSimulation = async (data) => {
   const ai = getAI();
+
+  // RAG: Detect and inject relevant field knowledge
+  const searchText = `${data.decision || ''} ${data.otherFactors || ''}`;
+  const fieldData = detectFieldFromText(searchText);
+  const ragContext = buildRAGContext(fieldData);
+  if (fieldData) {
+    console.log(`[RAG] Matched field: ${fieldData.name}`);
+  } else {
+    console.log('[RAG] No field match – using AI general knowledge (fallback)');
+  }
 
   const prompt = `
     Bạn là chuyên gia phân tích tương lai của hệ thống FutureTrace.
@@ -29,29 +195,25 @@ const generateSimulation = async (data) => {
     - Chỉ số rủi ro: ${data.risk}/5 (Ảnh hưởng đến mức độ nghiêm trọng của kịch bản Rủi ro và phân tích SWOT)
     - Các yếu tố khác: ${data.otherFactors || "Không có"} (PHẢI được tích hợp vào nội dung phân tích và kịch bản)
 
-    YÊU CẦU PHÂN TÍCH CHI TIẾT:
-    - Các chỉ số Career Growth, Happiness, ROI trong từng kịch bản phải phản ánh logic từ dữ liệu đầu vào. Ví dụ: Nếu áp lực cao (5/5), chỉ số Hạnh phúc không nên quá cao trừ khi có giải pháp cụ thể.
-    - Phần "deepAnalysis" -> "resources" (Thời gian, Tài chính, Năng lượng): Tỷ lệ phần trăm phải thay đổi dựa trên dữ liệu đầu vào. Nếu tài chính yếu (1/5), nguồn lực tài chính cần được ưu tiên phân bổ hoặc cảnh báo.
-    - Phần "criticalAdvice": Phải đưa ra lời khuyên thực tế dựa trên sự kết hợp giữa "Quyết định" và "Yếu tố khác".
-    - Timeline: Các cột mốc phải thực tế với trình độ học vấn và bối cảnh của học sinh/sinh viên Việt Nam.
+    ${ragContext ? ragContext + '\n\n    HƯỚNG DẪN SỬ DỤNG DỮ LIỆU: Tất cả các con số về lương, tỉ lệ việc làm, điểm chuẩn, xu hướng trong các kịch bản PHẢI được lấy từ hoặc dựa trên bộ dữ liệu thực tế cung cấp ở trên. Không được tự bịa đặt các con số về thị trường lao động.' : ''}
 
-    YÊU CẦU ĐẦU RA (JSON):
-    Nếu isEnterprise là false:
-    Tạo 3 kịch bản: Tích cực (Positive), Trung lập (Neutral), và Rủi ro (Risk).
-    Mỗi kịch bản PHẢI có phần "deepAnalysis" bằng tiếng Việt gồm:
-    1. Phân tích SWOT (ít nhất 4 mục). Đối với mỗi mục SWOT, trường "type" CHỈ ĐƯỢC PHÉP nhận một trong các giá trị sau: 'S' (Strengths), 'W' (Weaknesses), 'O' (Opportunities), 'T' (Threats). KHÔNG ĐƯỢC viết đầy đủ cả từ.
-    2. Nhu cầu nguồn lực: Thời gian, Tài chính, Năng lượng tinh thần (Tổng 3 giá trị này phải bằng đúng 100).
-    3. Chiến thuật cơ bản (3 giai đoạn).
-    4. Một lời khuyên chiến lược quan trọng dựa trên tình hình tài chính.
-    
-    LUU Ý VỀ ĐỊNH DẠNG: Trường 'type' trong mỗi kịch bản PHẢI là một trong 3 giá trị: 'Positive', 'Neutral', hoặc 'Risk'. KHÔNG viết tiếng Việt cho trường này.
-    
+    YÊU CẦU ĐẦU RA (JSON - BẮT BUỘC):
+    - isEnterprise: false.
+    - summary: Phải tích hợp các con số thực tế từ bộ dữ liệu RAG (Lương, thị trường, điểm chuẩn) vào đây để bao quát bức tranh thị trường. (~40-50 từ).
+    - scenarios: 3 kịch bản. Tích hợp dữ liệu thị trường thực tế vào 'description' và 'criticalAdvice'.
+    - timeline: 4 mốc (start, sixMonths, oneYear, threeYears). 
+        + BẮT BUỘC: CHỈ nói về lộ trình cá nhân (vd: "Bắt đầu học", "Thực tập", "Tốt nghiệp").
+        + TUYỆT ĐỐI KHÔNG đưa con số lương, tỉ lệ việc làm, điểm chuẩn vào Timeline.
+        + ĐỘ DÀI: Mỗi mốc đúng 20-30 từ. Đảm bảo 4 cột có độ dài text tương đồng để cân bằng UI.
+    - deepAnalysis cho mỗi kịch bản: Restore structural rules (SWOT, Resources).
+
+    Lưu ý: Viết súc tích, chuyên nghiệp. Không viết lan man.
     Ngôn ngữ: Tiếng Việt.
   `;
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-lite',
+      model: 'gemini-2.5-flash',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
@@ -132,16 +294,47 @@ const generateSimulation = async (data) => {
       }
     });
 
-    let text = response.text.trim();
-    if (text.startsWith('```')) {
-      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
+    // Safe text extraction handling potential SDK variations
+    let text = "";
+    try {
+      if (typeof response.text === 'string') {
+        text = response.text.trim();
+      } else if (typeof response.text === 'function') {
+        text = response.text().trim();
+      } else if (response.response && typeof response.response.text === 'function') {
+        text = response.response.text().trim();
+      } else if (response.candidates && response.candidates[0]?.content?.parts?.[0]?.text) {
+        text = response.candidates[0].content.parts[0].text.trim();
+      }
+    } catch (e) {
+      console.error('[AI Text Extraction Error]:', e);
+    }
+
+    if (!text) {
+      console.error('[AI RESPONSE STRUCTURE ERROR]: Could not extract text. Keys:', Object.keys(response));
+      throw new Error('AI không trả về nội dung văn bản. Vui lòng thử lại.');
+    }
+
+    // Robustly extract JSON if it's wrapped in markdown or contains extra text
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      text = jsonMatch[0];
     }
 
     try {
-      return JSON.parse(text);
+      const parsed = JSON.parse(text);
+      return normalizeSimulationResponse(parsed);
     } catch (parseError) {
-      console.error('[AI Simulation Parse Error]:', parseError);
-      throw new Error('AI trả về dữ liệu không hợp lệ.');
+      console.warn('[AI Simulation] Truncation detected, attempting repair...');
+      try {
+        const repaired = repairJson(text);
+        const parsed = JSON.parse(repaired);
+        return normalizeSimulationResponse(parsed);
+      } catch (repairError) {
+        console.error('[AI Simulation Parse Error]:', parseError);
+        console.error('[RAW AI RESPONSE SAMPLED]:', text.substring(0, 1000) + (text.length > 1000 ? '...' : ''));
+        throw new Error('AI trả về dữ liệu không hợp lệ. Vui lòng thử lại.');
+      }
     }
   } catch (error) {
     console.error('[AI Error Details - Simulation]:', error);
@@ -151,6 +344,13 @@ const generateSimulation = async (data) => {
 
 const generatePremiumAnalysis = async (title, description, context, timeframe) => {
   const ai = getAI();
+
+  // RAG: Detect and inject relevant field knowledge
+  const premiumSearchText = `${title || ''} ${description || ''} ${context?.decision || ''} ${context?.otherFactors || ''}`;
+  const premiumFieldData = detectFieldFromText(premiumSearchText);
+  const premiumRagContext = buildRAGContext(premiumFieldData);
+  if (premiumFieldData) console.log(`[RAG Premium] Matched field: ${premiumFieldData.name}`);
+
 
   const prompt = `
     Generate a PREMIUM DETAILED SCENARIO REPORT for the following scenario:
@@ -166,6 +366,8 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
     - Other Factors: ${context.otherFactors || 'None'}
     ` : ''}
     ${timeframe ? `Target Completion Timeframe: ${timeframe} months.` : ''}
+
+    ${premiumRagContext ? premiumRagContext + '\n\n    HƯỚNG DẪN SỬ DỤNG DỮ LIỆU: Các cột mốc, mức lương kỳ vọng, và nhận định thị trường trong báo cáo PHẢI được dựa trên bộ dữ liệu thực tế ở trên. Không được tự bịa đặt con số.' : ''}
 
     CRITICAL INSTRUCTION FOR MILESTONES:
     - The milestones MUST be realistic based on the user's current situation, age/grade, and academic performance.
@@ -246,10 +448,16 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
     }
 
     try {
+      // Robustly extract JSON
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        text = jsonMatch[0];
+      }
       return JSON.parse(text);
     } catch (parseError) {
       console.error('[AI Premium Analysis Parse Error]:', parseError);
-      throw new Error('AI trả về dữ liệu không hợp lệ.');
+      console.error('[RAW AI PREMIUM RESPONSE SAMPLED]:', text.substring(0, 1000) + (text.length > 1000 ? '...' : ''));
+      throw new Error('AI trả về dữ liệu không hợp lệ. Vui lòng thử lại.');
     }
   } catch (error) {
     console.error('[AI Error Details - Premium]:', error);
