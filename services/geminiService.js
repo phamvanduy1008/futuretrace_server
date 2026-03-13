@@ -44,15 +44,18 @@ const generateSimulation = async (data) => {
     3. Chiến thuật cơ bản (3 giai đoạn).
     4. Một lời khuyên chiến lược quan trọng dựa trên tình hình tài chính.
     
+    LUU Ý VỀ ĐỊNH DẠNG: Trường 'type' trong mỗi kịch bản PHẢI là một trong 3 giá trị: 'Positive', 'Neutral', hoặc 'Risk'. KHÔNG viết tiếng Việt cho trường này.
+    
     Ngôn ngữ: Tiếng Việt.
   `;
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.5-flash-lite',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
+        maxOutputTokens: 8192,
         responseSchema: {
           type: Type.OBJECT,
           properties: {
@@ -68,7 +71,7 @@ const generateSimulation = async (data) => {
                   careerGrowth: { type: Type.NUMBER },
                   happiness: { type: Type.NUMBER },
                   roi: { type: Type.NUMBER },
-                  type: { type: Type.STRING },
+                  type: { type: Type.STRING, description: "Must be exactly 'Positive', 'Neutral', or 'Risk'" },
                   deepAnalysis: {
                     type: Type.OBJECT,
                     properties: {
@@ -129,13 +132,19 @@ const generateSimulation = async (data) => {
       }
     });
 
-    if (!response || !response.text) {
-      throw new Error('AI không trả về kết quả.');
+    let text = response.text.trim();
+    if (text.startsWith('```')) {
+      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
     }
 
-    return JSON.parse(response.text.trim());
+    try {
+      return JSON.parse(text);
+    } catch (parseError) {
+      console.error('[AI Simulation Parse Error]:', parseError);
+      throw new Error('AI trả về dữ liệu không hợp lệ.');
+    }
   } catch (error) {
-    console.error('[AI Error Details]:', error);
+    console.error('[AI Error Details - Simulation]:', error);
     throw error;
   }
 }
@@ -169,15 +178,19 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
       4. strategicPivotPoints: 3 critical "If/Then" decision points.
       5. longTermProjection: A final outlook on the 3-5 year horizon.
 
+    - BẮT BUỘC: Không được để trống bất kỳ trường nào trong kết quả trả về. Mọi cột mốc phải có đầy đủ month, event, impact, probability và details.
+    - TUYỆT ĐỐI KHÔNG sử dụng các cụm từ như "tương tự như trên", "không thay đổi" hoặc để trống chuỗi. Mọi nội dung phải được viết chi tiết bằng tiếng Việt.
+
     Language: Vietnamese. Use a professional, analytical tone.
   `;
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.5-flash-lite',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
+        maxOutputTokens: 8192,
         responseSchema: {
           type: Type.OBJECT,
           properties: {
@@ -192,7 +205,8 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
                   impact: { type: Type.STRING },
                   probability: { type: Type.NUMBER },
                   details: { type: Type.STRING }
-                }
+                },
+                required: ['month', 'event', 'impact', 'probability', 'details']
               }
             },
             influencingFactors: {
@@ -204,7 +218,8 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
                   factor: { type: Type.STRING },
                   influence: { type: Type.STRING },
                   description: { type: Type.STRING }
-                }
+                },
+                required: ['category', 'factor', 'influence', 'description']
               }
             },
             strategicPivotPoints: {
@@ -214,7 +229,8 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
                 properties: {
                   condition: { type: Type.STRING },
                   action: { type: Type.STRING }
-                }
+                },
+                required: ['condition', 'action']
               }
             },
             longTermProjection: { type: Type.STRING }
@@ -224,7 +240,17 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
       }
     });
 
-    return JSON.parse(response.text.trim());
+    let text = response.text.trim();
+    if (text.startsWith('```')) {
+      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
+    }
+
+    try {
+      return JSON.parse(text);
+    } catch (parseError) {
+      console.error('[AI Premium Analysis Parse Error]:', parseError);
+      throw new Error('AI trả về dữ liệu không hợp lệ.');
+    }
   } catch (error) {
     console.error('[AI Error Details - Premium]:', error);
     throw error;
@@ -240,8 +266,8 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
     ORIGINAL SCENARIO:
     - Narrative: ${currentReport.detailedNarrative}
     
-    COMPLETED MILESTONES:
-    ${completedMilestones.map(m => `- ${m.month}: ${m.event}`).join('\n')}
+    COMPLETED MILESTONES (DO NOT CHANGE THESE):
+    ${JSON.stringify(completedMilestones)}
     
     USER FEEDBACK/DIFFICULTIES:
     "${feedback}"
@@ -258,22 +284,25 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
     ${timeframe ? `Target Completion Timeframe: ${timeframe} months.` : ''}
 
     TASK:
-    - Keep the COMPLETED milestones as they are.
-    - REGENERATE all remaining milestones (the ones that were not completed yet) to better fit the user's current difficulties and feedback.
-    - Adjust the detailedNarrative, influencingFactors, strategicPivotPoints, and longTermProjection to reflect this new reality.
-    - Ensure the total number of milestones remains 5 (including the completed ones).
-    - The new milestones must be realistic and address the feedback provided.
+    - BẮT BUỘC: Giữ nguyên 100% nội dung của các cột mốc trong danh sách "COMPLETED MILESTONES" ở trên. Copy chính xác từng trường (month, event, impact, probability, details) vào mảng milestones mới ở các vị trí đầu tiên.
+    - Dựa vào Feedback của người dùng ("${feedback}") và bối cảnh các bước đã hoàn thành, hãy GIẢ LẬP và TẠO MỚI các cột mốc còn thiếu để hoàn thiện lộ trình.
+    - Các cột mốc mới phải là bước tiếp theo logic từ cột mốc cuối cùng đã hoàn thành và phải giải quyết được vấn đề người dùng đang gặp phải.
+    - Điều chỉnh 'detailedNarrative', 'influencingFactors', 'strategicPivotPoints' và 'longTermProjection' để phản ánh sự thay đổi này nhưng không được mâu thuẫn với quá khứ.
+    - Đảm bảo tổng số milestones trong kết quả trả về luôn là 5.
+    - BẮT BUỘC: Không được để trống bất kỳ trường nào. Mọi cột mốc (kể cả cũ và mới) đều phải có đầy đủ month, event, impact, probability và details.
+    - TUYỆT ĐỐI KHÔNG lười biếng: Không viết "giữ nguyên", "như cũ" hay để trống. Phải copy lại đúng nội dung hoặc viết mới chi tiết.
 
     Return ONLY a valid JSON object matching the PremiumAnalysisReport interface.
-    Language: Vietnamese.
+     Ngôn ngữ: Tiếng Việt.
   `;
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.5-flash-lite',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
+        maxOutputTokens: 8192,
         responseSchema: {
           type: Type.OBJECT,
           properties: {
@@ -288,7 +317,8 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
                   impact: { type: Type.STRING },
                   probability: { type: Type.NUMBER },
                   details: { type: Type.STRING }
-                }
+                },
+                required: ['month', 'event', 'impact', 'probability', 'details']
               }
             },
             influencingFactors: {
@@ -300,7 +330,8 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
                   factor: { type: Type.STRING },
                   influence: { type: Type.STRING },
                   description: { type: Type.STRING }
-                }
+                },
+                required: ['category', 'factor', 'influence', 'description']
               }
             },
             strategicPivotPoints: {
@@ -310,7 +341,8 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
                 properties: {
                   condition: { type: Type.STRING },
                   action: { type: Type.STRING }
-                }
+                },
+                required: ['condition', 'action']
               }
             },
             longTermProjection: { type: Type.STRING }
@@ -320,10 +352,26 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
       }
     });
 
-    return JSON.parse(response.text.trim());
+    let text = response.text.trim();
+    // Handle potential markdown fences even with responseMimeType
+    if (text.startsWith('```')) {
+      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
+    }
+
+    try {
+      return JSON.parse(text);
+    } catch (parseError) {
+      console.error('[AI JSON Parse Error]: Failed to parse response text.');
+      console.error('Raw Text Sample:', text.substring(0, 500) + '...');
+      console.error('Truncated at:', text.length);
+      throw new Error('AI trả về dữ liệu không hợp lệ. Vui lòng thử lại.');
+    }
   } catch (error) {
+    if (error.message.includes('AI trả về dữ liệu không hợp lệ')) {
+      throw error;
+    }
     console.error('[AI Error Details - Pivot]:', error);
-    throw error;
+    throw new Error('Lỗi khi xử lý dữ liệu từ AI. Vui lòng thử lại sau.');
   }
 };
 

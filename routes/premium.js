@@ -240,18 +240,24 @@ router.get('/progress/:id', auth, async (req, res) => {
 router.put('/progress/:id', auth, async (req, res) => {
   try {
     const { completedMilestones, report } = req.body;
-    const item = await PremiumAnalysis.findOne({ _id: req.params.id, user_id: req.user.userId });
+    
+    const updateData = {};
+    if (completedMilestones !== undefined) {
+      updateData.completed_milestones = completedMilestones;
+    }
+    if (report) {
+      updateData.report = report;
+    }
+
+    const item = await PremiumAnalysis.findOneAndUpdate(
+      { _id: req.params.id, user_id: req.user.userId },
+      { $set: updateData },
+      { new: true }
+    );
+
     if (!item) {
       return res.status(404).json({ message: 'Không tìm thấy tiến trình.' });
     }
-
-    if (completedMilestones !== undefined) {
-      item.completed_milestones = completedMilestones;
-    }
-    if (report) {
-      item.report = report;
-    }
-    await item.save();
 
     res.json({
       id: item._id.toString(),

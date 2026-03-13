@@ -91,9 +91,18 @@ router.post('/', auth, async (req, res) => {
           });
         }
 
+        // Helper to normalize scenario type from AI labels
+        const normalizeScenarioType = (type) => {
+          if (!type) return 'Neutral';
+          const t = type.toLowerCase();
+          if (t.includes('tích cực') || t.includes('positive')) return 'Positive';
+          if (t.includes('rủi ro') || t.includes('risk')) return 'Risk';
+          return 'Neutral';
+        };
+
         const scenario = new SimulationScenario({
           simulation_id: simulation._id,
-          scenario_type: s.type || 'Neutral',
+          scenario_type: normalizeScenarioType(s.type),
           title: s.title,
           description: s.description,
           career_growth: s.careerGrowth,
