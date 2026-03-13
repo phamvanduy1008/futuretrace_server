@@ -10,8 +10,8 @@ const config = {
   secretKey: process.env.MOMO_SECRET_KEY || 'K951B6PE1waDMi640xX08PD3vg6EkVlz',
   orderInfo: 'Thanh toan FutureTrace Premium',
   partnerCode: process.env.MOMO_PARTNER_CODE || 'MOMO',
-  redirectUrl: process.env.MOMO_REDIRECT_URL || 'http://localhost:5173/payment-result',
-  ipnUrl: process.env.MOMO_IPN_URL || 'https://0778-14-178-58-205.ngrok-free.app/callback', // In production, this must be a public URL
+  redirectUrl: process.env.MOMO_REDIRECT_URL || 'https://futuretrace.vercel.app/payment-result', // Update this to your frontend domain
+  ipnUrl: process.env.MOMO_IPN_URL || 'https://futuretrace-server.onrender.com/api/payment/callback',
   requestType: 'captureWallet',
   extraData: '',
   orderGroupId: '',
