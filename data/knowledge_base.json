@@ -1,0 +1,451 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "description": "Knowledge Base thực tế – thị trường lao động sinh viên Việt Nam 2024",
+    "lastUpdated": "2024-Q4",
+    "coverage": "15 nhóm ngành nghề chính tại Việt Nam",
+    "sources": [
+      { "id": "itviec_2024", "name": "ITviec Salary & Recruitment Market Report 2024-2025", "url": "https://itviec.com/bao-cao-luong", "note": "Khảo sát 2.324 người (9-10/2024): IT professionals, HR leaders, CxO" },
+      { "id": "topdev_2024", "name": "TopDev Vietnam IT Market Report 2024", "url": "https://topdev.vn/blog/bao-cao-thi-truong-it-viet-nam-2024", "note": "Fresher IT: 415-510 USD/tháng" },
+      { "id": "vietnamworks_2024", "name": "VietnamWorks Annual Salary Report 2024", "url": "https://www.vietnamworks.com/bao-cao-thi-truong-nhan-su", "note": "Lương nhiều ngành: kế toán, kinh tế, marketing, luật" },
+      { "id": "molisa_q4_2024", "name": "Cục Việc làm – MOLISA – Báo cáo TTLĐ Q4/2024", "url": "https://molisa.gov.vn", "note": "Tỉ lệ thất nghiệp thanh niên: 7.3%, sinh viên ra trường: 6.1%" },
+      { "id": "hoidieuduong_2024", "name": "Hội Điều dưỡng Việt Nam 2024", "url": "https://hoidieuduong.org.vn", "note": "Thiếu 75.000 điều dưỡng, tỉ lệ thất nghiệp ~2%" },
+      { "id": "moet_tuyen_sinh_2024", "name": "Bộ GD&ĐT – Tuyển sinh ĐH 2024", "url": "https://tuyensinh.moet.gov.vn", "note": "Điểm chuẩn, chỉ tiêu tuyển sinh chính thức" },
+      { "id": "logistics_report_2024", "name": "Báo cáo Logistics Việt Nam 2024 – Bộ Công Thương", "url": "https://tapchicongthuong.vn", "note": "Tăng trưởng 14-16%/năm, đến 2030 cần 2.2 triệu nhân lực" },
+      { "id": "bo_xay_dung_2023", "name": "Bộ Xây dựng – Báo cáo nhân lực ngành xây dựng 2023", "url": "https://moc.gov.vn", "note": "Cần bổ sung 400.000-500.000 lao động/năm" },
+      { "id": "careerlink_2024", "name": "CareerLink – Khảo sát lương thực tế 2024", "url": "https://careerlink.vn", "note": "Mức lương logistics, kỹ thuật, marketing theo vị trí" },
+      { "id": "vnexpress_2024", "name": "VnExpress – Thu nhập sinh viên ra trường 2024", "url": "https://vnexpress.net", "note": "Khảo sát thu nhập sinh viên Hoa Sen, NEU, UEH sau tốt nghiệp" }
+    ]
+  },
+
+  "fields": {
+
+    "cntt": {
+      "name": "Công nghệ Thông tin (IT/CNTT/Software)",
+      "keywords": ["cntt", "công nghệ thông tin", "it", "lập trình", "phần mềm", "developer", "kỹ sư phần mềm", "software", "web", "mobile", "data", "ai", "machine learning", "deep learning", "devops", "cloud", "aws", "cybersecurity", "an toàn thông tin", "blockchain", "game", "iot", "embedded", "fullstack", "backend", "frontend"],
+      "salary_vnd_million": {
+        "intern": { "min": 3, "avg": 5, "max": 8 },
+        "fresher_year0_1": { "min": 8, "avg": 11, "max": 13 },
+        "junior_year1_3": { "min": 15, "avg": 22, "max": 30 },
+        "mid_year3_5": { "min": 28, "avg": 38, "max": 55 },
+        "senior_year5_plus": { "min": 45, "avg": 65, "max": 120 },
+        "lead_manager": { "min": 60, "avg": 90, "max": 200 },
+        "market_average_all_levels": 34.4
+      },
+      "employment": {
+        "rate_percent": 95,
+        "unemployment_rate_percent": 5,
+        "job_within_6months_percent": 90,
+        "note": "Cạnh tranh gay gắt ở vị trí Intern/Fresher, dễ có việc hơn với portfolio thực tế"
+      },
+      "top_in_demand_skills": ["JavaScript/TypeScript", "Python", "Java", "ReactJS/NextJS", "NodeJS", "SQL/NoSQL", "Docker/Kubernetes", "AWS/GCP/Azure", "Git", "REST API"],
+      "hot_trends_2024_2025": ["AI/Generative AI", "Cloud Native", "DevSecOps", "Web3/Blockchain", "Edge Computing", "Cybersecurity"],
+      "career_paths": [
+        "Software Engineer → Senior → Tech Lead → Engineering Manager",
+        "Data Analyst → Data Scientist → ML Engineer → AI Researcher",
+        "Frontend/Backend Developer → Fullstack → Solution Architect",
+        "System Admin → DevOps → Cloud Architect"
+      ],
+      "certifications_valued": ["AWS Certified Solutions Architect", "Google Cloud Professional", "CKA (Kubernetes)", "OSCP (Security)", "Oracle Java Certified"],
+      "entrance_score_2024": {
+        "min": 21, "avg": 24, "max": 28,
+        "top_universities": ["BK HN ~27-28", "UIT HCM ~24-25", "HCMUS ~25-26", "BK HCM ~24-25", "FPT Uni ~18-22 (thi riêng)"]
+      },
+      "top_employers": ["FPT Software", "VNG", "Viettel", "VNPT", "Axon (FDS)", "Tiki", "Shopee Vietnam", "Samsung Vietnam", "Bosch Vietnam", "Gameloft"],
+      "salary_comparison_domestic_vs_foreign": "Công ty nước ngoài (Samsung, Bosch, Siemens) trả lương cao hơn 30-70% so với công ty Việt Nam cùng cấp",
+      "remote_work_trend": "~40% vị trí IT cho phép hybrid hoặc remote toàn phần (2024)",
+      "outlook_3_5year": "Dự kiến Việt Nam cần thêm 500.000 kỹ sư IT đến 2025. Lương senior dự kiến tăng 15-25% tới 2026 do thiếu hụt nhân lực AI/Cloud.",
+      "source": ["itviec_2024", "topdev_2024"]
+    },
+
+    "kinh_te_tai_chinh": {
+      "name": "Kinh tế / Quản trị Kinh doanh / Tài chính – Ngân hàng",
+      "keywords": ["kinh tế", "quản trị kinh doanh", "tài chính", "ngân hàng", "bảo hiểm", "chứng khoán", "đầu tư", "business", "mba", "kinh doanh quốc tế", "thương mại quốc tế", "quản trị", "quản lý kinh doanh", "kinhtế", "kinh tê"],
+      "salary_vnd_million": {
+        "intern": { "min": 2, "avg": 3.5, "max": 5 },
+        "fresher_year0_1": { "min": 7, "avg": 10, "max": 15 },
+        "junior_year1_3": { "min": 12, "avg": 18, "max": 25 },
+        "mid_year3_5": { "min": 20, "avg": 30, "max": 45 },
+        "senior_year5_plus": { "min": 35, "avg": 55, "max": 100 },
+        "director_level": { "min": 50, "avg": 100, "max": 300 }
+      },
+      "employment": {
+        "rate_percent": 85,
+        "unemployment_rate_percent": 15,
+        "note": "45% sinh viên Hoa Sen có thu nhập 9-12M/tháng; 25% đạt 12-15M sau tốt nghiệp (ZNews 2024)"
+      },
+      "top_in_demand_skills": ["Excel nâng cao", "Power BI / Tableau", "Financial Modeling", "Tiếng Anh thương mại (B2+)", "SQL cơ bản", "Kỹ năng thuyết trình", "SAP/ERP"],
+      "hot_trends": ["Fintech", "ESG Finance / Green Finance", "Digital Banking", "M&A tư vấn", "VC/PE Investments"],
+      "career_paths": [
+        "Business Analyst → Senior BA → Product Manager",
+        "Nhân viên Ngân hàng → Chuyên viên tín dụng → Giám đốc quan hệ khách hàng",
+        "Financial Analyst → Finance Manager → CFO",
+        "Chuyên viên tư vấn → Manager → Partner (tại Big4)"
+      ],
+      "certifications_valued": ["CFA (Chartered Financial Analyst)", "ACCA", "CPA Việt Nam", "FRM", "PMP"],
+      "entrance_score_2024": {
+        "min": 18, "avg": 22, "max": 26,
+        "top_universities": ["NEU (ĐH Kinh tế Quốc dân) ~24-25", "UEH ~22-24", "FTU (Ngoại Thương) ~23-25", "ĐH Ngân hàng HCM ~21-22"]
+      },
+      "top_employers": ["Vietcombank", "BIDV", "Techcombank", "VPBank", "MB Bank", "Vingroup", "Masan", "Deloitte", "KPMG", "PwC", "EY"],
+      "salary_note": "Khu vực ngân hàng tư nhân lớn (Techcombank, VPBank, MB) trả lương cao hơn 20-40% so với ngân hàng nhà nước",
+      "outlook_3_5year": "Fintech, BNPL, và Digital Banking đang tạo ra hàng nghìn vị trí mới. Nhu cầu nhân sự phân tích dữ liệu tài chính tăng 25% mỗi năm.",
+      "source": ["vietnamworks_2024", "vnexpress_2024"]
+    },
+
+    "ke_toan_kiem_toan": {
+      "name": "Kế toán / Kiểm toán",
+      "keywords": ["kế toán", "kiểm toán", "accounting", "audit", "thuế", "tài chính kế toán", "kế toán viên"],
+      "salary_vnd_million": {
+        "intern": { "min": 2, "avg": 3, "max": 5 },
+        "fresher_year0_1": { "min": 6, "avg": 8, "max": 12 },
+        "junior_year1_3": { "min": 9, "avg": 13, "max": 18 },
+        "mid_year3_5": { "min": 15, "avg": 22, "max": 35 },
+        "senior_chief_accountant": { "min": 25, "avg": 40, "max": 80 },
+        "big4_senior": { "min": 20, "avg": 32, "max": 60, "note": "Big4: Deloitte, KPMG, PwC, EY – thường cao hơn 30-50%" }
+      },
+      "employment": {
+        "rate_percent": 88,
+        "unemployment_rate_percent": 12,
+        "note": "DN FDI tăng → nhu cầu kế toán IFRS, tiếng Anh kế toán tăng mạnh"
+      },
+      "top_in_demand_skills": ["Excel nâng cao (Pivot, VLOOKUP, Power Query)", "Phần mềm kế toán (MISA, Fast, Bravo)", "Thuế VAT/TNCN/TNDN", "IFRS (Chuẩn mực kế toán quốc tế)", "Tiếng Anh chuyên ngành kế toán"],
+      "certifications_valued": ["Chứng chỉ hành nghề CPA Việt Nam", "ACCA (UK)", "ICAEW", "CMA (US)"],
+      "entrance_score_2024": {
+        "min": 17, "avg": 21, "max": 24,
+        "top_universities": ["NEU Kế toán ~22-23", "UEH Kế toán ~20-22", "Học viện Tài chính ~20-21"]
+      },
+      "career_paths": [
+        "Thực tập → Nhân viên kế toán → Kế toán trưởng → CFO",
+        "Auditor (Junior) → Senior Auditor → Manager → Partner (Big4)"
+      ],
+      "outlook_3_5year": "Luôn có nhu cầu ổn định. Kế toán IFRS, tiếng Anh kế toán và kỹ năng phân tích dữ liệu là yếu tố tăng lương rõ rệt nhất.",
+      "source": ["vietnamworks_2024"]
+    },
+
+    "y_duoc": {
+      "name": "Y Dược / Điều dưỡng / Y tế Công cộng",
+      "keywords": ["y khoa", "bác sĩ", "dược", "điều dưỡng", "y tế", "y sĩ", "y học cổ truyền", "yhct", "răng hàm mặt", "nha khoa", "dược sĩ", "y tế công cộng", "kiểm nghiệm", "xét nghiệm", "vật lý trị liệu", "phục hồi chức năng"],
+      "salary_vnd_million": {
+        "bac_si_cong_lap_fresher": { "min": 5.5, "avg": 8, "max": 12, "note": "Chưa bao gồm phụ cấp trực đêm, trực lễ, vùng sâu" },
+        "bac_si_tu_nhan_fresher": { "min": 10, "avg": 18, "max": 40 },
+        "bac_si_nha_khoa_fresher": { "min": 12, "avg": 20, "max": 50, "note": "Nha sĩ mở phòng khám riêng có thể đạt 50-100M/tháng" },
+        "duoc_si_fresher": { "min": 7, "avg": 10, "max": 15 },
+        "dieu_duong_fresher": { "min": 5, "avg": 7, "max": 10 },
+        "dieu_duong_nuoc_ngoai": { "min": 50, "avg": 90, "max": 150, "note": "Làm việc tại Nhật, Đức, Australia qua chương trình hợp tác" }
+      },
+      "employment": {
+        "rate_percent": 92,
+        "unemployment_rate_percent": 2,
+        "bac_si_employment_note": "Y khoa đạt 99.5%, Răng HM đạt 100% có việc trong 12 tháng (ĐH Y Phạm Ngọc Thạch 2025)",
+        "dieu_duong_note": "75% có việc sau 6 tháng, 81% sau 12 tháng"
+      },
+      "national_shortage": "Việt Nam thiếu ~75.000 điều dưỡng (mục tiêu WHO: 25/10.000 dân, hiện có: 11.4/10.000 dân). Cần thêm 500.000 nhân lực y tế đến 2030.",
+      "training_duration": {
+        "bac_si_da_khoa": "6 năm ĐH + 18 tháng thực hành nội trú",
+        "nha_khoa": "5 năm + thực hành",
+        "duoc_si_dai_hoc": "5 năm",
+        "dieu_duong_dai_hoc": "4 năm",
+        "y_si_cao_dang": "3 năm",
+        "ky_thuat_xet_nghiem": "4 năm"
+      },
+      "entrance_score_2024": {
+        "min": 23, "avg": 26, "max": 29,
+        "top_universities": ["ĐH Y HN ~27-28", "ĐH Y Dược HCM ~27", "Y khoa Phạm Ngọc Thạch ~26", "ĐH Y Dược Cần Thơ ~23-25", "ĐH Y Dược Huế ~23-24"]
+      },
+      "international_opportunity": "Chương trình điều dưỡng Nhật Bản (EPA), Đức, Australia: lương 50-120M VND/tháng. Yêu cầu: bằng cử nhân + chứng chỉ ngôn ngữ (N3 tiếng Nhật hoặc B2 tiếng Anh/Đức).",
+      "outlook_3_5year": "Già hóa dân số, bảo hiểm toàn dân → nhu cầu y tế tăng mạnh đến 2030. Nhân lực y tế xuất khẩu sang Nhật, Đức là xu hướng cực lớn.",
+      "source": ["hoidieuduong_2024", "molisa_q4_2024"]
+    },
+
+    "ky_thuat_co_dien": {
+      "name": "Kỹ thuật / Cơ khí / Điện – Điện tử / Tự động hóa",
+      "keywords": ["cơ khí", "điện", "điện tử", "kỹ thuật", "cơ điện tử", "tự động hóa", "hóa học", "vật liệu", "nhiệt lạnh", "kỹ thuật hóa học", "kỹ thuật vật liệu", "kỹ thuật nhiệt", "mechatronics", "electrical", "mechanical", "automation"],
+      "salary_vnd_million": {
+        "intern": { "min": 3, "avg": 4.5, "max": 7 },
+        "fresher_year0_1": { "min": 7, "avg": 10, "max": 15 },
+        "junior_year1_3": { "min": 12, "avg": 18, "max": 28 },
+        "mid_year3_5": { "min": 20, "avg": 30, "max": 50 },
+        "senior_year5_plus": { "min": 35, "avg": 55, "max": 100 },
+        "fdi_company_premium": "Công ty Nhật, Đức, Hàn tại KCN: lương cao hơn DN Việt 30-60%"
+      },
+      "employment": {
+        "rate_percent": 87,
+        "unemployment_rate_percent": 13,
+        "note": "Kỹ sư tự động hóa, embedded systems khan hiếm → lương tăng nhanh"
+      },
+      "hot_segments": ["Tự động hóa (PLC/SCADA/HMI)", "Năng lượng tái tạo (điện mặt trời, điện gió)", "FDI Manufacturing (Samsung, LG, Intel, Foxconn)", "Smart Factory / Industry 4.0", "EV (xe điện) – xu hướng toàn cầu"],
+      "top_in_demand_skills": ["AutoCAD / SolidWorks / CATIA", "PLC (Siemens, Mitsubishi)", "SCADA", "Tiêu chuẩn ISO 9001/14001", "Tiếng Anh kỹ thuật", "Tiếng Nhật / Hàn (lợi thế lớn tại FDI)"],
+      "entrance_score_2024": {
+        "min": 17, "avg": 21, "max": 28,
+        "top_universities": ["BK HN Điện tử ~27", "BK HN Cơ khí ~24", "HCMUT Cơ khí ~23", "HCMUT Điện ~24-25"]
+      },
+      "certifications_valued": ["Chứng chỉ PLC (Siemens, Omron)", "AWS IoT Certified", "Chứng nhận ISO", "Chứng chỉ hàn (6G)"],
+      "internship_to_fulltime_rate": "80% thực tập sinh tại DN FDI được nhận vào làm toàn thời gian",
+      "outlook_3_5year": "FDI sản xuất chip, điện tử của Samsung, Intel, Apple (đối tác) dự kiến tạo 200.000 việc làm kỹ thuật đến 2026. Tự động hóa và AI sản xuất sẽ thay thế lao động thủ công nhưng tạo nhu cầu kỹ sư cấp cao.",
+      "source": ["molisa_q4_2024", "vietnamworks_2024"]
+    },
+
+    "xay_dung_kien_truc": {
+      "name": "Xây dựng / Kiến trúc / Bất động sản",
+      "keywords": ["xây dựng", "kiến trúc", "bất động sản", "quy hoạch", "kỹ thuật công trình", "địa chính", "trắc địa", "hạ tầng", "construction", "architecture", "real estate"],
+      "salary_vnd_million": {
+        "intern": { "min": 2, "avg": 3, "max": 5 },
+        "fresher_year0_1": { "min": 7, "avg": 10, "max": 15 },
+        "junior_year1_3": { "min": 12, "avg": 18, "max": 30 },
+        "mid_year3_5": { "min": 20, "avg": 30, "max": 55 },
+        "senior_year5_plus": { "min": 35, "avg": 55, "max": 120 },
+        "kts_nuoc_ngoai_premium": "KTS có kinh nghiệm tại công ty nước ngoài (HOK, Gensler, Atkins): 50-120M/tháng"
+      },
+      "employment": {
+        "rate_percent": 88,
+        "unemployment_rate_percent": 12,
+        "kts_note": "85% kiến trúc sư có việc trong 6 tháng sau tốt nghiệp",
+        "national_demand": "Cần bổ sung 400.000-500.000 lao động xây dựng mỗi năm; đến 2030 tổng lực lượng 12-13 triệu người"
+      },
+      "top_in_demand_skills": ["AutoCAD / Revit (BIM)", "SketchUp / Rhino / Lumion (3D)", "Quản lý dự án (MS Project)", "Đọc bản vẽ kỹ thuật", "Phần mềm Dự toán (G8, Eta)"],
+      "hot_trends": ["BIM (Building Information Modeling)", "Green Building (LEED, LOTUS)", "Smart City / Đô thị thông minh", "Căn hộ cao cấp và BĐS nghỉ dưỡng"],
+      "entrance_score_2024": {
+        "min": 18, "avg": 21, "max": 26,
+        "top_universities": ["BK HN Xây dựng ~23-24", "BK HN Kiến trúc ~22", "HCMUT Xây dựng ~21-23", "ĐH Kiến trúc HN ~18-20", "ĐH Kiến trúc HCM ~18-20"]
+      },
+      "market_note": "Thị trường BĐS trầm lắng 2023-2024 ảnh hưởng đến lĩnh vực tư vấn thiết kế. Tuy nhiên đầu tư hạ tầng công (đường cao tốc, sân bay Long Thành, Metro) giữ nhu cầu nhân lực ổn định.",
+      "outlook_3_5year": "Chương trình nhà ở xã hội 1 triệu căn đến 2025 + đầu tư hạ tầng công tư hỗn hợp sẽ hồi phục mạnh sau 2025.",
+      "source": ["bo_xay_dung_2023", "careerlink_2024"]
+    },
+
+    "logistics_xnk": {
+      "name": "Logistics / Xuất nhập khẩu / Chuỗi cung ứng",
+      "keywords": ["logistics", "xuất nhập khẩu", "xnk", "chuỗi cung ứng", "supply chain", "vận tải", "kho vận", "hải quan", "freight", "forwarder", "thương mại điện tử", "e-commerce logistics", "thương mại quốc tế"],
+      "salary_vnd_million": {
+        "intern": { "min": 3, "avg": 4, "max": 6 },
+        "fresher_chung_tu": { "min": 7, "avg": 9, "max": 12, "note": "Nhân viên chứng từ xuất nhập khẩu" },
+        "fresher_kho_van": { "min": 6, "avg": 8, "max": 10 },
+        "fresher_hai_quan": { "min": 8, "avg": 10, "max": 14 },
+        "fresher_sales_logistics": { "min": 7, "avg": 11, "max": 20, "note": "Sales có hoa hồng, thu nhập biến động rất cao" },
+        "mid_year3_5": { "min": 18, "avg": 28, "max": 50 },
+        "senior_year5_plus": { "min": 30, "avg": 50, "max": 100 }
+      },
+      "employment": {
+        "rate_percent": 90,
+        "unemployment_rate_percent": 10,
+        "national_shortage_note": "Đến 2030 cần bổ sung 2.2 triệu nhân lực logistics; đến 2035 thêm 350.000 người. Hiện chỉ ~10% nhu cầu được đáp ứng (Tạp chí Công Thương)"
+      },
+      "market_data": {
+        "market_size_2024_usd": "40-42 tỷ USD/năm",
+        "growth_rate_annual_percent": "14-16",
+        "vietnam_lpi_ranking_2023": "Xếp thứ 10/50 thị trường mới nổi, top 5 ASEAN (World Bank LPI 2023)"
+      },
+      "top_in_demand_skills": ["Khai báo hải quan (phần mềm VNACCS)", "Tiếng Anh thương mại (IELTS 6.0+)", "Incoterms 2020", "ERP/WMS", "Kỹ năng đàm phán"],
+      "hot_segments": ["E-commerce Fulfillment (Lazada, Shopee, TikTok Shop)", "Cold Chain Logistics (thực phẩm, dược phẩm)", "Cross-border Logistics", "FDI Logistics (Maersk, DHL, Fedex VN)"],
+      "entrance_score_2024": {
+        "min": 17, "avg": 20, "max": 24,
+        "top_universities": ["FTU Logistics ~20-22", "ĐH GTVT ~20-21", "UEH Logistics ~19-21", "ĐH Hàng hải VN ~18-20"]
+      },
+      "outlook_3_5year": "Việt Nam trở thành trung tâm sản xuất thế giới (China+1) → nhu cầu logistics tăng vọt. Nhân lực biết cả logistics + tiếng Anh/Nhật = cực kỳ hiếm.",
+      "source": ["logistics_report_2024", "careerlink_2024"]
+    },
+
+    "marketing_truyen_thong": {
+      "name": "Marketing / Digital Marketing / Truyền thông / PR",
+      "keywords": ["marketing", "truyền thông", "pr", "quảng cáo", "social media", "digital marketing", "content", "seo", "branding", "báo chí", "quan hệ công chúng", "tiktok", "influencer", "creative", "copywriter", "media"],
+      "salary_vnd_million": {
+        "intern": { "min": 2, "avg": 3.5, "max": 6 },
+        "fresher_year0_1": { "min": 6, "avg": 9, "max": 14 },
+        "junior_year1_3": { "min": 10, "avg": 16, "max": 25 },
+        "mid_year3_5": { "min": 18, "avg": 28, "max": 45 },
+        "senior_year5_plus": { "min": 30, "avg": 50, "max": 100 },
+        "freelance_note": "Marketing Freelance (Performance, Content) có thể đạt 20-50M/tháng với portfolio tốt"
+      },
+      "employment": {
+        "rate_percent": 82,
+        "unemployment_rate_percent": 18,
+        "note": "Ngành sáng tạo – portfolio và kết quả thực tế quan trọng hơn bằng cấp"
+      },
+      "top_in_demand_skills": ["Meta Ads (Facebook/Instagram)", "Google Ads / SEA", "TikTok Ads", "Google Analytics 4 / Data Studio", "SEO kỹ thuật và Content", "Canva / Adobe Suite", "Email Marketing (HubSpot, Mailchimp)"],
+      "hot_trends": ["Performance Marketing (đo lường ROI)", "Video Short-form (TikTok, Reels)", "Influencer/KOL Marketing", "Marketing Automation", "AI-powered Personalization"],
+      "entrance_score_2024": {
+        "min": 17, "avg": 21, "max": 25,
+        "top_universities": ["ĐH RMIT VN ~IELTS 6.5 (thi riêng)", "UEH Marketing ~21-22", "ĐH Kinh tế HN ~20-21", "FPT Uni ~18-20 (thi riêng)"]
+      },
+      "career_paths": [
+        "Marketing Executive → Senior Marketing → Marketing Manager → CMO",
+        "Content Writer → Content Manager → Brand Manager",
+        "Media Planner → Account Manager → Group Account Director (Agency)"
+      ],
+      "outlook_3_5year": "Digital Ad spend tại VN tăng 20%/năm. AI content tools (ChatGPT, Midjourney) đang thay thế content thủ công nhưng tạo nhu cầu Marketing Strategist cấp cao hơn.",
+      "source": ["vietnamworks_2024", "careerlink_2024"]
+    },
+
+    "su_pham_giao_duc": {
+      "name": "Sư phạm / Giáo dục",
+      "keywords": ["sư phạm", "giáo viên", "giáo dục", "mầm non", "tiểu học", "trung học", "thpt", "thcs", "tiếng anh", "toán", "vật lý", "hóa học", "sinh học", "giáo dục học", "tâm lý giáo dục"],
+      "salary_vnd_million": {
+        "gv_cong_lap_fresher": { "min": 4, "avg": 5.5, "max": 7, "note": "Lương cơ sở 2.34M × hệ số 2.1 + phụ cấp sư phạm 35% (từ 1/7/2024)" },
+        "gv_tu_nhan_international": { "min": 10, "avg": 18, "max": 40, "note": "Trường quốc tế, bilingual, chứng chỉ IELTS/TEFL" },
+        "gia_su_freelance": { "min": 5, "avg": 15, "max": 40, "note": "Tùy môn, tùy cấp độ, dạy nhóm hoặc dạy online" },
+        "gv_trung_tam_ngoai_ngu": { "min": 7, "avg": 15, "max": 30 },
+        "giang_vien_dai_hoc_fresher": { "min": 6, "avg": 9, "max": 15, "note": "Cần bằng Thạc sĩ trở lên" }
+      },
+      "employment": {
+        "rate_percent": 78,
+        "unemployment_rate_percent": 22,
+        "note": "Thiếu GV mầm non, tiểu học ở vùng nông thôn. Thừa cục bộ GV THPT một số môn ở thành thị. Thừa GV Toán, Văn; thiếu GV STEM, Tiếng Anh."
+      },
+      "special_policy": "Theo NĐ 105/2020: sinh viên sư phạm được miễn học phí và hỗ trợ 3.63 triệu đồng/tháng. Đổi lại cam kết dạy tại địa phương sau tốt nghiệp.",
+      "certifications_valued": ["Chứng chỉ IELTS 7.0+ (GV Tiếng Anh)", "TESOL/TEFL (dạy tiếng Anh)", "Chứng chỉ tin học (GV Tin học)", "Thạc sĩ (bắt buộc cho Giảng viên ĐH)"],
+      "entrance_score_2024": {
+        "min": 16, "avg": 20, "max": 26,
+        "top_universities": ["ĐH Sư phạm HN ~22-25 (tùy môn)", "ĐH Sư phạm HCM ~20-23", "ĐH Giáo dục VNU ~20-22"]
+      },
+      "outlook_3_5year": "Cải cách CT GDPT 2018 → tăng nhu cầu GV tích hợp, STEAM, GV CNTT. Dạy online bùng nổ sau COVID → Edtech tạo cơ hội thu nhập mới.",
+      "source": ["molisa_q4_2024", "moet_tuyen_sinh_2024"]
+    },
+
+    "luat_phap_ly": {
+      "name": "Luật / Pháp lý / Tư pháp",
+      "keywords": ["luật", "pháp lý", "tư pháp", "luật sư", "thẩm phán", "công tố viên", "pháp luật", "luật kinh tế", "luật quốc tế", "luật dân sự", "luật hình sự", "luật thương mại", "luật lao động"],
+      "salary_vnd_million": {
+        "intern": { "min": 2, "avg": 3, "max": 5 },
+        "fresher_year0_1": { "min": 6, "avg": 9, "max": 15 },
+        "junior_year1_3": { "min": 12, "avg": 20, "max": 35 },
+        "mid_year3_5": { "min": 25, "avg": 45, "max": 100 },
+        "partner_level": { "min": 80, "avg": 150, "max": 500, "note": "Partner tại các law firm quốc tế (VILAF, Allen & Overy, Baker McKenzie)" }
+      },
+      "employment": {
+        "rate_percent": 83,
+        "unemployment_rate_percent": 17,
+        "note": "FDI tăng tạo nhiều vị trí Luật sư tư vấn doanh nghiệp, M&A"
+      },
+      "training_note": "5 năm ĐH Luật → 2 năm tập sự hành nghề → Kỳ thi Luật sư quốc gia → Chứng chỉ hành nghề bắt buộc",
+      "top_in_demand_skills": ["Soạn thảo hợp đồng", "Tiếng Anh pháp lý (Legal English – IELTS 7.0+)", "Research pháp lý (LexisNexis, Westlaw)", "Kỹ năng đàm phán / litigation"],
+      "hot_segments": ["M&A Tư vấn", "FDI Legal (hỗ trợ NĐT nước ngoài)", "Sở hữu trí tuệ (IP)", "E-commerce Law", "Fintech / Crypto Law"],
+      "certifications_valued": ["Chứng chỉ hành nghề Luật sư (Liên đoàn Luật sư VN)", "LLM (Thạc sĩ Luật tại nước ngoài)", "CIArb (Trọng tài quốc tế)"],
+      "entrance_score_2024": {
+        "min": 18, "avg": 22, "max": 26,
+        "top_universities": ["ĐH Luật HN ~24-25", "ĐH Luật HCM ~23-25", "Khoa Luật VNU HN ~23-24"]
+      },
+      "outlook_3_5year": "FDI và M&A tại Việt Nam tăng → nhu cầu Luật sư tư vấn doanh nghiệp tăng 20-30%/năm. Luật sư biết tiếng Anh + chuyên môn M&A/Sở hữu trí tuệ có mức lương cực kỳ cạnh tranh.",
+      "source": ["vietnamworks_2024"]
+    },
+
+    "thiet_ke_sang_tao": {
+      "name": "Thiết kế Đồ họa / UI-UX / Truyền thông Sáng tạo",
+      "keywords": ["thiết kế", "đồ họa", "graphic design", "ui ux", "product design", "motion graphic", "animation", "truyền thông sáng tạo", "multimedia", "game design", "illustration", "branding design"],
+      "salary_vnd_million": {
+        "intern": { "min": 2, "avg": 4, "max": 7 },
+        "fresher_year0_1": { "min": 6, "avg": 9, "max": 14 },
+        "junior_year1_3": { "min": 10, "avg": 15, "max": 25 },
+        "mid_year3_5": { "min": 18, "avg": 28, "max": 50 },
+        "senior_ui_ux": { "min": 30, "avg": 50, "max": 100, "note": "UX Designer senior tại công ty product (Grab, Tiki, VNG) rất cao" },
+        "freelance_note": "Graphic Freelancer với portfolio tốt: 15-40M/tháng"
+      },
+      "employment": {
+        "rate_percent": 80,
+        "unemployment_rate_percent": 20,
+        "note": "Portfolio cực quan trọng hơn bằng cấp. UX Designer khan hiếm hơn Graphic Designer."
+      },
+      "top_in_demand_skills": ["Figma / Adobe XD (UI/UX)", "Adobe Illustrator / Photoshop", "After Effects (Motion)", "Blender / Cinema 4D (3D)", "User Research & Prototyping (UX)", "Design System"],
+      "hot_trends": ["Product Design (UX tích hợp)", "Motion Design & 3D", "AI Design Tools (Midjourney, Adobe Firefly)", "Design for AR/VR"],
+      "entrance_score_2024": {
+        "min": 17, "avg": 20, "max": 24,
+        "top_universities": ["ĐH Mỹ thuật CN HN", "ĐH Kiến trúc HN / HCM", "FPT Uni Design ~17-20", "RMIT Creative (thi riêng)"]
+      },
+      "outlook_3_5year": "UX/Product Design tăng trưởng nhanh nhất: các startup và công ty tech đầu tư mạnh vào thiết kế sản phẩm. AI đang thay thế một phần công việc thuần sáng tạo nhưng tăng nhu cầu Design Strategist.",
+      "source": ["vietnamworks_2024", "careerlink_2024"]
+    },
+
+    "du_lich_khach_san": {
+      "name": "Du lịch / Khách sạn / Nhà hàng",
+      "keywords": ["du lịch", "khách sạn", "nhà hàng", "hotel", "hospitality", "tourism", "lễ tân", "buồng phòng", "hướng dẫn viên", "ẩm thực", "quản trị khách sạn", "event"],
+      "salary_vnd_million": {
+        "fresher_hotel_desk": { "min": 5, "avg": 7, "max": 10 },
+        "fresher_guide": { "min": 6, "avg": 9, "max": 15, "note": "HDV có language skills (Anh, Trung, Nhật, Hàn) += 30-50%" },
+        "mid_hotel_manager": { "min": 15, "avg": 25, "max": 45 },
+        "5star_gm": { "min": 60, "avg": 100, "max": 200, "note": "GM khách sạn 5 sao quốc tế" }
+      },
+      "employment": {
+        "rate_percent": 80,
+        "unemployment_rate_percent": 20,
+        "note": "Ngành hồi phục mạnh sau COVID. Dự báo du lịch VN đón 20 triệu khách quốc tế năm 2025."
+      },
+      "top_in_demand_skills": ["Tiếng Anh giao tiếp tốt (IELTS 6.0+)", "Ngoại ngữ thứ 2 (Trung, Nhật, Hàn, Pháp)", "Opera PMS (quản lý khách sạn)", "Kỹ năng phục vụ và giao tiếp khách hàng"],
+      "hot_segments": ["Luxury & Resort Hospitality (Phú Quốc, Đà Nẵng, Hội An)", "Wellness & Medical Tourism", "MICE (Meetings, Incentives, Conferences, Events)"],
+      "outlook_3_5year": "VN mục tiêu đón 25 triệu khách quốc tế đến 2025. Thiếu nhân lực chất lượng cao (thông thạo ngoại ngữ) nghiêm trọng. Nhân viên biết Tiếng Hàn/Nhật được trả lương rất cao.",
+      "source": ["molisa_q4_2024", "careerlink_2024"]
+    },
+
+    "nong_lam_ngu": {
+      "name": "Nông nghiệp / Lâm nghiệp / Thủy sản / Môi trường",
+      "keywords": ["nông nghiệp", "lâm nghiệp", "thủy sản", "môi trường", "nông học", "chăn nuôi", "thú y", "công nghệ sinh học", "biotechnology", "sinh học", "kỹ thuật môi trường", "khoa học đất", "nuôi trồng thủy sản"],
+      "salary_vnd_million": {
+        "fresher_year0_1": { "min": 6, "avg": 8, "max": 12 },
+        "mid_year3_5": { "min": 12, "avg": 18, "max": 30 },
+        "senior_rd_expert": { "min": 20, "avg": 35, "max": 60, "note": "Chuyên gia R&D tại công ty nước ngoài (De Heus, CP, Greenfeed)" }
+      },
+      "employment": {
+        "rate_percent": 80,
+        "unemployment_rate_percent": 20,
+        "note": "Nông nghiệp công nghệ cao (Hydroponics, Greenhouse, Precision Agriculture) tạo nhiều việc làm mới"
+      },
+      "top_in_demand_skills": ["Kỹ thuật nông nghiệp công nghệ cao", "Công nghệ sinh học ứng dụng", "GIS / Viễn thám", "Quản lý môi trường (ISO 14001)", "Tiếng Anh chuyên ngành"],
+      "hot_segments": ["AgriTech", "ESG & Carbon Credits", "Nuôi trồng thủy sản xuất khẩu", "Nông nghiệp hữu cơ"],
+      "entrance_score_2024": {
+        "min": 16, "avg": 19, "max": 22,
+        "top_universities": ["ĐH Nông Lâm HCM", "ĐH Nông nghiệp HN", "ĐH Cần Thơ Nông nghiệp"]
+      },
+      "outlook_3_5year": "AgriTech và Nông nghiệp công nghệ cao nhận nhiều đầu tư. VN là nước xuất khẩu nông sản top 15 thế giới → cơ hội cho chuyên gia nông nghiệp xuất khẩu.",
+      "source": ["molisa_q4_2024"]
+    },
+
+    "khoa_hoc_xa_hoi": {
+      "name": "Khoa học Xã hội / Nhân văn / Tâm lý / Xã hội học",
+      "keywords": ["xã hội học", "tâm lý học", "tâm lý", "nhân văn", "ngôn ngữ", "văn học", "lịch sử", "địa lý", "triết học", "công tác xã hội", "quản lý văn hóa"],
+      "salary_vnd_million": {
+        "fresher_year0_1": { "min": 5, "avg": 7, "max": 12 },
+        "mid_year3_5": { "min": 10, "avg": 15, "max": 25 }
+      },
+      "employment": {
+        "rate_percent": 72,
+        "unemployment_rate_percent": 28,
+        "note": "Tâm lý học lâm sàng và tư vấn tâm lý đang tăng nhu cầu mạnh do nhận thức về sức khỏe tinh thần tăng"
+      },
+      "hot_segments": ["Tâm lý học lâm sàng / tư vấn học đường", "HR & Organizational Psychology", "UX Research", "Social Work NGO"],
+      "certifications_valued": ["Chứng chỉ tư vấn tâm lý (APA, VAPA)", "Thạc sĩ Tâm lý lâm sàng (gần bắt buộc để hành nghề)"],
+      "outlook_3_5year": "Sức khỏe tâm thần: 1 trong 10 vấn đề y tế hàng đầu VN. Nhu cầu tư vấn viên tâm lý tăng 30%/năm nhưng tổng số vẫn còn rất ít.",
+      "source": ["molisa_q4_2024"]
+    }
+
+  },
+
+  "general_labor_market_2024": {
+    "source": ["molisa_q4_2024", "vnexpress_2024"],
+    "youth_unemployment_rate_percent": 7.3,
+    "graduate_unemployment_rate_percent": 6.1,
+    "average_monthly_income_all_sectors_million": 7.5,
+    "minimum_wage_2024_million": {
+      "region1_hcm_hanoi": 4.96,
+      "region2": 4.41,
+      "region3": 3.86,
+      "region4_rural": 3.45
+    },
+    "top_hiring_sectors_2024": [
+      "Công nghệ thông tin",
+      "Logistics & Chuỗi cung ứng",
+      "Y tế & Dược phẩm",
+      "Xây dựng & Hạ tầng",
+      "Bán lẻ & E-commerce",
+      "Tài chính Ngân hàng",
+      "Sản xuất FDI (điện tử, cơ khí)"
+    ],
+    "salary_growth_rate_2024_percent": 8.3,
+    "fdi_impact": "FDI tăng 9.4% YoY trong 2024 → trực tiếp tạo thêm hàng trăm nghìn việc làm chất lượng cao",
+    "key_megatrends_affecting_youth_careers": [
+      "AI & Tự động hóa: thay thế lao động lặp lẹp, tạo nhu cầu AI Skills mới",
+      "Già hóa dân số: tăng nhu cầu y tế và chăm sóc sức khỏe",
+      "Chuyển dịch sản xuất China+1: hàng nghìn nhà máy FDI mới tại VN",
+      "Số hóa toàn diện: mọi ngành cần người biết dùng công nghệ số",
+      "ESG & Kinh tế xanh: tạo nhu cầu cho chuyên gia môi trường, năng lượng tái tạo"
+    ]
+  }
+}
