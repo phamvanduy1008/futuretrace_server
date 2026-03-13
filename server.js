@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth');
 const simulationRoutes = require('./routes/simulations');
 const communityRoutes = require('./routes/community');
 const premiumRoutes = require('./routes/premium');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -32,6 +33,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/simulations', simulationRoutes);
 app.use('/api/community', communityRoutes);
 app.use('/api/premium', premiumRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
