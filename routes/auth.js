@@ -228,4 +228,33 @@ router.put('/profile', auth, async (req, res) => {
   }
 });
 
+// PUT /api/auth/password
+router.put('/password', auth, async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({ message: 'Vui lòng cung cấp mật khẩu cũ và mới.' });
+    }
+
+    const user = await User.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'Người dùng không tìm thấy.' });
+    }
+
+    const isMatch = await bcrypt.compare(currentPassword, user.password_hash);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Mật khẩu cũ không đúng.' });
+    }
+
+    const password_hash = await bcrypt.hash(newPassword, 12);
+    user.password_hash = password_hash;
+    await user.save();
+
+    res.json({ message: 'Đổi mật khẩu thành công.' });
+  } catch (error) {
+    console.error('Change password error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
 module.exports = router;
