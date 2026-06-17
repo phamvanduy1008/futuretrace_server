@@ -8,6 +8,10 @@ const crypto = require('crypto');
 
 const router = express.Router();
 
+const FREE_SIGNUP_TOKENS = 10000;
+const INVITER_REWARD_TOKENS = 10000;
+const INVITEE_REWARD_TOKENS = 5000;
+
 const generateTokens = (user) => {
   const accessToken = jwt.sign(
     { userId: user._id, email: user.email },
@@ -17,6 +21,20 @@ const generateTokens = (user) => {
   const refreshToken = crypto.randomBytes(40).toString('hex');
   return { accessToken, refreshToken };
 };
+
+const formatUser = (user) => ({
+  id: user._id,
+  email: user.email,
+  full_name: user.full_name,
+  avatar_url: user.avatar_url,
+  roles: user.roles,
+  tier: user.tier,
+  bio: user.bio,
+  token: user.token || 0,
+  code_invite: user.code_invite,
+  invite_redeemed: !!user.invite_redeemed,
+  created_at: user.created_at
+});
 
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
@@ -38,7 +56,9 @@ router.post('/register', async (req, res) => {
       password_hash,
       full_name,
       roles: role === 'worker' ? ['user', 'worker'] : ['user'],
-      avatar_url: `https://i.pravatar.cc/150?u=${email}`
+      avatar_url: `https://i.pravatar.cc/150?u=${email}`,
+      token: FREE_SIGNUP_TOKENS,
+      code_invite: await User.generateUniqueInviteCode()
     });
 
     await user.save();
@@ -54,14 +74,7 @@ router.post('/register', async (req, res) => {
       message: 'Đăng ký thành công.',
       accessToken: tokens.accessToken,
       refreshToken: tokens.refreshToken,
-      user: {
-        id: user._id,
-        email: user.email,
-        full_name: user.full_name,
-        avatar_url: user.avatar_url,
-        roles: user.roles,
-        tier: user.tier
-      }
+      user: formatUser(user)
     });
   } catch (error) {
     console.error('Register error:', error);
@@ -120,15 +133,7 @@ router.post('/login', async (req, res) => {
       message: 'Đăng nhập thành công.',
       accessToken: tokens.accessToken,
       refreshToken: tokens.refreshToken,
-      user: {
-        id: user._id,
-        email: user.email,
-        full_name: user.full_name,
-        avatar_url: user.avatar_url,
-        roles: user.roles,
-        tier: user.tier,
-        bio: user.bio
-      }
+      user: formatUser(user)
     });
   } catch (error) {
     console.error('Login error:', error);
@@ -177,21 +182,28 @@ router.post('/refresh', async (req, res) => {
 // GET /api/auth/me
 router.get('/me', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.userId).select('-password_hash');
+    const user = await User.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({ message: 'Người dùng không tìm thấy.' });
     }
 
-    res.json({
-      id: user._id,
-      email: user.email,
-      full_name: user.full_name,
-      avatar_url: user.avatar_url,
-      roles: user.roles,
-      tier: user.tier,
-      bio: user.bio,
-      created_at: user.created_at
-    });
+    let shouldSaveUser = false;
+
+    if (!user.code_invite) {
+      user.code_invite = await User.generateUniqueInviteCode();
+      shouldSaveUser = true;
+    }
+
+    if (user.token === undefined || user.token === null) {
+      user.token = FREE_SIGNUP_TOKENS;
+      shouldSaveUser = true;
+    }
+
+    if (shouldSaveUser) {
+      await user.save();
+    }
+
+    res.json(formatUser(user));
   } catch (error) {
     console.error('Get me error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống.' });
@@ -213,18 +225,69 @@ router.put('/profile', auth, async (req, res) => {
 
     await user.save();
 
-    res.json({
-      id: user._id,
-      email: user.email,
-      full_name: user.full_name,
-      avatar_url: user.avatar_url,
-      roles: user.roles,
-      tier: user.tier,
-      bio: user.bio
-    });
+    res.json(formatUser(user));
   } catch (error) {
     console.error('Update profile error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
+// POST /api/auth/redeem-invite
+router.post('/redeem-invite', auth, async (req, res) => {
+  try {
+    const code = String(req.body.code_invite || '').trim();
+
+    if (!/^[A-Za-z0-9]{8}$/.test(code)) {
+      return res.status(400).json({ message: 'Mã mời không hợp lệ.' });
+    }
+
+    const user = await User.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'Người dùng không tìm thấy.' });
+    }
+
+    if (user.invite_redeemed) {
+      return res.status(409).json({ message: 'Tài khoản này đã nhập mã mời trước đó.' });
+    }
+
+    if (user.code_invite === code) {
+      return res.status(400).json({ message: 'Bạn không thể nhập mã mời của chính mình.' });
+    }
+
+    const inviter = await User.findOne({ code_invite: code });
+    if (!inviter) {
+      return res.status(404).json({ message: 'Không tìm thấy mã mời này.' });
+    }
+
+    const redeemed = await User.findOneAndUpdate(
+      { _id: user._id, invite_redeemed: { $ne: true } },
+      {
+        $inc: { token: INVITEE_REWARD_TOKENS },
+        $set: { invite_redeemed: true, invited_by: inviter._id }
+      },
+      { new: true }
+    );
+
+    if (!redeemed) {
+      return res.status(409).json({ message: 'Tài khoản này đã nhập mã mời trước đó.' });
+    }
+
+    await User.updateOne(
+      { _id: inviter._id },
+      { $inc: { token: INVITER_REWARD_TOKENS } }
+    );
+
+    res.json({
+      message: 'Nhập mã mời thành công.',
+      user: formatUser(redeemed),
+      rewards: {
+        inviter: INVITER_REWARD_TOKENS,
+        invitee: INVITEE_REWARD_TOKENS
+      }
+    });
+  } catch (error) {
+    console.error('Redeem invite error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống khi nhập mã mời.' });
   }
 });
 
