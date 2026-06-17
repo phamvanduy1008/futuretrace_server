@@ -53,6 +53,7 @@ router.get('/summary', auth, async (req, res) => {
           title: s.title,
           description: s.description,
           type: s.scenario_type,
+          deepAnalysis: s.deep_analysis,
           metrics: {
             career: s.career_growth,
             happiness: s.happiness,
