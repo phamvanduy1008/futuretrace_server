@@ -10,13 +10,13 @@ const router = express.Router();
 // POST /api/simulations - Create a new simulation (calls Gemini AI)
 router.post('/', auth, async (req, res) => {
   try {
-    const { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, folderName } = req.body;
+    const { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, folderName, timeHorizon } = req.body;
 
     if (!decision || !decision.trim()) {
       return res.status(400).json({ message: 'Vui lòng nhập quyết định cần phân tích.' });
     }
 
-    const inputData = { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier };
+    const inputData = { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, timeHorizon: timeHorizon || 5 };
 
     // Create simulation record
     const simulation = new Simulation({

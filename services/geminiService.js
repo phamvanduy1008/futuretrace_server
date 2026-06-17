@@ -194,6 +194,7 @@ const generateSimulation = async (data) => {
     - Học lực/Năng lực: ${data.academicPerformance}/5 (Ảnh hưởng đến Tăng trưởng sự nghiệp và tính khả thi của lộ trình)
     - Chỉ số rủi ro: ${data.risk}/5 (Ảnh hưởng đến mức độ nghiêm trọng của kịch bản Rủi ro và phân tích SWOT)
     - Các yếu tố khác: ${data.otherFactors || "Không có"} (PHẢI được tích hợp vào nội dung phân tích và kịch bản)
+    - Tầm nhìn dự báo (Thời gian phân tích): ${data.timeHorizon || 5} năm. Bạn phải tính toán các kịch bản tương lai và tỷ suất hoàn vốn (ROI) chính xác sau đúng ${data.timeHorizon || 5} năm.
 
     ${ragContext ? ragContext + '\n\n    HƯỚNG DẪN SỬ DỤNG DỮ LIỆU: Tất cả các con số về lương, tỉ lệ việc làm, điểm chuẩn, xu hướng trong các kịch bản PHẢI được lấy từ hoặc dựa trên bộ dữ liệu thực tế cung cấp ở trên. Không được tự bịa đặt các con số về thị trường lao động.' : ''}
 
@@ -232,7 +233,7 @@ const generateSimulation = async (data) => {
                   description: { type: Type.STRING },
                   careerGrowth: { type: Type.NUMBER },
                   happiness: { type: Type.NUMBER },
-                  roi: { type: Type.NUMBER },
+                  roi: { type: Type.NUMBER, description: "Tỷ suất hoàn vốn đầu tư dự kiến (ROI) sau đúng " + (data.timeHorizon || 5) + " năm" },
                   type: { type: Type.STRING, description: "Must be exactly 'Positive', 'Neutral', or 'Risk'" },
                   deepAnalysis: {
                     type: Type.OBJECT,
