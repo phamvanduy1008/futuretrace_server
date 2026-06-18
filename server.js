@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const User = require('./models/User');
+const { MS_PER_DAY, resetPremiumTokensForAllUsers } = require('./services/subscriptionService');
 
 const authRoutes = require('./routes/auth');
 const simulationRoutes = require('./routes/simulations');
@@ -84,6 +86,16 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
 
     console.log('✅ MongoDB connected');
+
+    resetPremiumTokensForAllUsers(User).catch((error) => {
+      console.error('Premium token reset error:', error.message);
+    });
+
+    setInterval(() => {
+      resetPremiumTokensForAllUsers(User).catch((error) => {
+        console.error('Premium token reset error:', error.message);
+      });
+    }, MS_PER_DAY);
 
     app.listen(PORT, () => {
 

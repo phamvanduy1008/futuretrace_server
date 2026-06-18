@@ -38,7 +38,7 @@ async function run() {
       password_hash: passwordHash,
       full_name: ADMIN_FULL_NAME,
       roles: ['user', 'super_admin'],
-      tier: 'premium_demo',
+      tier: 'premium',
       status: 'active',
       avatar_url: `https://i.pravatar.cc/150?u=${ADMIN_EMAIL}`,
     });
