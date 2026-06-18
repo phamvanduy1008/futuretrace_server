@@ -10,17 +10,44 @@ const router = express.Router();
 const PREMIUM_ANALYSIS_COST = 10000;
 const PIVOT_COST = 5000;
 
-const getTokenBalance = async (userId) => {
-  const user = await User.findById(userId).select('token');
-  return user?.token || 0;
+const formatTokenBalance = (user) => {
+  const tokenFree = user?.token_free || 0;
+  const tokenPremium = user?.token_premium || 0;
+  return {
+    total: tokenFree + tokenPremium,
+    token_free: tokenFree,
+    token_premium: tokenPremium
+  };
 };
 
 const spendTokens = async (userId, amount) => {
-  return User.findOneAndUpdate(
-    { _id: userId, token: { $gte: amount } },
-    { $inc: { token: -amount } },
-    { new: true }
-  ).select('token');
+  const user = await User.findById(userId);
+  if (!user) return null;
+
+  user.refreshPremiumQuota();
+  const balance = formatTokenBalance(user);
+  if (balance.total < amount) return null;
+
+  const premiumSpend = Math.min(user.token_premium || 0, amount);
+  const freeSpend = amount - premiumSpend;
+
+  user.token_premium = (user.token_premium || 0) - premiumSpend;
+  user.token_free = (user.token_free || 0) - freeSpend;
+  await user.save();
+
+  return user;
+};
+
+const getTokenBalance = async (userId) => {
+  const user = await User.findById(userId);
+  if (!user) return formatTokenBalance(null);
+
+  user.refreshPremiumQuota();
+  if (user.isModified('tier') || user.isModified('token_premium') || user.isModified('premium_last_token_reset_date')) {
+    await user.save();
+  }
+
+  return formatTokenBalance(user);
 };
 
 // POST /api/premium/analyze - Generate premium analysis via Gemini
@@ -52,17 +79,19 @@ router.post('/analyze', auth, async (req, res) => {
         completedMilestones: existing.completed_milestones,
         timeframe: existing.timeframe,
         isExisting: true,
-        remainingToken: await getTokenBalance(req.user.userId)
+        remainingToken: (await getTokenBalance(req.user.userId)).total,
+        remainingTokens: await getTokenBalance(req.user.userId)
       });
     }
 
     const currentToken = await getTokenBalance(req.user.userId);
-    if (currentToken < PREMIUM_ANALYSIS_COST) {
+    if (currentToken.total < PREMIUM_ANALYSIS_COST) {
       return res.status(402).json({
         message: 'Không đủ token để tạo kịch bản chi tiết. Vui lòng nâng cấp gói premium.',
         code: 'INSUFFICIENT_TOKENS',
         requiredToken: PREMIUM_ANALYSIS_COST,
-        currentToken
+        currentToken: currentToken.total,
+        currentTokens: currentToken
       });
     }
 
@@ -133,7 +162,8 @@ router.post('/analyze', auth, async (req, res) => {
           completedMilestones: existingAgain.completed_milestones,
           timeframe: existingAgain.timeframe,
           isExisting: true,
-          remainingToken: await getTokenBalance(req.user.userId)
+          remainingToken: (await getTokenBalance(req.user.userId)).total,
+          remainingTokens: await getTokenBalance(req.user.userId)
         });
       }
       throw saveError;
@@ -146,7 +176,8 @@ router.post('/analyze', auth, async (req, res) => {
         message: 'Không đủ token để tạo kịch bản chi tiết. Vui lòng nâng cấp gói premium.',
         code: 'INSUFFICIENT_TOKENS',
         requiredToken: PREMIUM_ANALYSIS_COST,
-        currentToken: await getTokenBalance(req.user.userId)
+        currentToken: (await getTokenBalance(req.user.userId)).total,
+        currentTokens: await getTokenBalance(req.user.userId)
       });
     }
 
@@ -162,7 +193,8 @@ router.post('/analyze', auth, async (req, res) => {
       completedMilestones: premiumAnalysis.completed_milestones,
       timeframe: premiumAnalysis.timeframe,
       tokenSpent: PREMIUM_ANALYSIS_COST,
-      remainingToken: chargedUser.token
+      remainingToken: formatTokenBalance(chargedUser).total,
+      remainingTokens: formatTokenBalance(chargedUser)
     });
   } catch (error) {
     console.error('Premium analyze error:', error);
@@ -176,12 +208,13 @@ router.post('/pivot', auth, async (req, res) => {
     const { progressId, currentReport, completedMilestones, feedback, context, timeframe } = req.body;
 
     const currentToken = await getTokenBalance(req.user.userId);
-    if (currentToken < PIVOT_COST) {
+    if (currentToken.total < PIVOT_COST) {
       return res.status(402).json({
         message: 'Không đủ token để tối ưu lộ trình. Vui lòng nâng cấp gói premium.',
         code: 'INSUFFICIENT_TOKENS',
         requiredToken: PIVOT_COST,
-        currentToken
+        currentToken: currentToken.total,
+        currentTokens: currentToken
       });
     }
 
@@ -228,7 +261,8 @@ router.post('/pivot', auth, async (req, res) => {
         message: 'Không đủ token để tối ưu lộ trình. Vui lòng nâng cấp gói premium.',
         code: 'INSUFFICIENT_TOKENS',
         requiredToken: PIVOT_COST,
-        currentToken: await getTokenBalance(req.user.userId)
+        currentToken: (await getTokenBalance(req.user.userId)).total,
+        currentTokens: await getTokenBalance(req.user.userId)
       });
     }
 
@@ -239,7 +273,12 @@ router.post('/pivot', auth, async (req, res) => {
       });
     }
 
-    res.json({ report: newReport, tokenSpent: PIVOT_COST, remainingToken: chargedUser.token });
+    res.json({
+      report: newReport,
+      tokenSpent: PIVOT_COST,
+      remainingToken: formatTokenBalance(chargedUser).total,
+      remainingTokens: formatTokenBalance(chargedUser)
+    });
   } catch (error) {
     console.error('Premium pivot error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống khi điều chỉnh lộ trình.' });

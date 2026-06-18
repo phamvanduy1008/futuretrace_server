@@ -4,6 +4,63 @@ const crypto = require('crypto');
 const axios = require('axios');
 const User = require('../models/User');
 
+const PREMIUM_DAILY_TOKENS = User.PREMIUM_DAILY_TOKENS || 30000;
+const PLAN_DURATION_MONTHS = {
+  monthly: 1,
+  yearly: 12
+};
+
+const addMonths = (date, months) => {
+  const next = new Date(date);
+  const day = next.getDate();
+  next.setMonth(next.getMonth() + months);
+  if (next.getDate() !== day) {
+    next.setDate(0);
+  }
+  return next;
+};
+
+const parsePremiumOrderId = (orderId) => {
+  const parts = String(orderId || '').split('_');
+  const timestamp = parts.pop();
+  const planType = parts.pop();
+  const userId = parts.join('_');
+
+  if (!userId || !PLAN_DURATION_MONTHS[planType] || !timestamp) {
+    return { userId: '', planType: 'monthly' };
+  }
+
+  return { userId, planType };
+};
+
+const applyPremiumPayment = async (orderId) => {
+  const { userId, planType } = parsePremiumOrderId(orderId);
+  if (!userId) return null;
+
+  const user = await User.findById(userId).select('+premium_order_ids');
+  if (!user) return null;
+
+  if (user.premium_order_ids?.includes(orderId)) {
+    return user;
+  }
+
+  const now = new Date();
+  const isActivePremium = (user.tier === 'premium' || user.tier === 'premium_demo') &&
+    user.premium_due_date &&
+    new Date(user.premium_due_date) > now;
+  const baseDate = isActivePremium ? new Date(user.premium_due_date) : now;
+
+  user.tier = 'premium';
+  user.premium_create_date = isActivePremium && user.premium_create_date ? user.premium_create_date : now;
+  user.premium_due_date = addMonths(baseDate, PLAN_DURATION_MONTHS[planType]);
+  user.token_premium = PREMIUM_DAILY_TOKENS;
+  user.premium_last_token_reset_date = now;
+  user.premium_order_ids = [...(user.premium_order_ids || []), orderId];
+
+  await user.save();
+  return user;
+};
+
 // Configure MoMo credentials
 const config = {
   accessKey: process.env.MOMO_ACCESS_KEY || 'F8BBA842ECF85',
@@ -43,8 +100,9 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: 'Missing total_price or userId' });
     }
 
+    const planType = PLAN_DURATION_MONTHS[orderData.planType] ? orderData.planType : 'monthly';
     const amount = orderData.total_price.toString();
-    const orderId = orderData.userId + '_' + new Date().getTime();
+    const orderId = `${orderData.userId}_${planType}_${new Date().getTime()}`;
     const requestId = orderId;
 
     const rawSignature =
@@ -149,15 +207,8 @@ router.post('/check-status', async (req, res) => {
 
     // If transaction is successful, update user tier
     if (result.data.resultCode === 0) {
-      const parts = orderId.split('_');
-      // orderId format is like user_12345_1731231231, or 60a123_1731231231
-      // Assuming the userId is the part before the last underscore
-      // Reconstruct userId if it had underscores:
-      parts.pop();
-      const userId = parts.join('_');
-
       try {
-        await User.findByIdAndUpdate(userId, { tier: 'premium_demo' });
+        await applyPremiumPayment(orderId);
       } catch (err) {
         console.error("Error updating user tier:", err);
       }
@@ -171,10 +222,15 @@ router.post('/check-status', async (req, res) => {
 });
 
 // Callback/IPN Handler
-router.post('/callback', (req, res) => {
+router.post('/callback', async (req, res) => {
   console.log("MoMo IPN Callback received:", req.body);
-  // Implement logic to update order status in DB based on req.body.resultCode
-  // resultCode == 0 means success
+  if (req.body?.resultCode === 0 && req.body?.orderId) {
+    try {
+      await applyPremiumPayment(req.body.orderId);
+    } catch (err) {
+      console.error("Error applying premium from callback:", err);
+    }
+  }
   return res.status(204).send(); // Always return 204 to MoMo
 });
 
