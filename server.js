@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const User = require('./models/User');
 
 const authRoutes = require('./routes/auth');
 const simulationRoutes = require('./routes/simulations');
@@ -14,52 +13,6 @@ const dashboardRoutes = require('./routes/dashboard');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const PREMIUM_DAILY_TOKENS = User.PREMIUM_DAILY_TOKENS || 30000;
-
-const getVietnamDayStartUtc = (value = new Date()) => {
-  const vietnamTime = new Date(value.getTime() + 7 * 60 * 60 * 1000);
-  return new Date(Date.UTC(
-    vietnamTime.getUTCFullYear(),
-    vietnamTime.getUTCMonth(),
-    vietnamTime.getUTCDate()
-  ) - 7 * 60 * 60 * 1000);
-};
-
-const refreshPremiumAccounts = async () => {
-  const now = new Date();
-  const vietnamDayStart = getVietnamDayStartUtc(now);
-
-  await User.updateMany(
-    {
-      tier: { $in: ['premium', 'premium_demo'] },
-      premium_due_date: { $lte: now }
-    },
-    {
-      $set: {
-        tier: 'free',
-        token_premium: 0
-      }
-    }
-  );
-
-  await User.updateMany(
-    {
-      tier: { $in: ['premium', 'premium_demo'] },
-      premium_due_date: { $gt: now },
-      $or: [
-        { premium_last_token_reset_date: { $exists: false } },
-        { premium_last_token_reset_date: null },
-        { premium_last_token_reset_date: { $lt: vietnamDayStart } }
-      ]
-    },
-    {
-      $set: {
-        token_premium: PREMIUM_DAILY_TOKENS,
-        premium_last_token_reset_date: now
-      }
-    }
-  );
-};
 
 /* ================= CORS ================= */
 

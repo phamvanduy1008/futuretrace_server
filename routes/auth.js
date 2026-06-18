@@ -12,9 +12,6 @@ const FREE_SIGNUP_TOKENS = 10000;
 const INVITER_REWARD_TOKENS = 10000;
 const INVITEE_REWARD_TOKENS = 5000;
 
-const getTokenFree = (user) => user.token_free ?? user.token ?? 0;
-const getTokenPremium = (user) => user.token_premium ?? 0;
-
 const generateTokens = (user) => {
   const accessToken = jwt.sign(
     { userId: user._id, email: user.email },
@@ -33,14 +30,9 @@ const formatUser = (user) => ({
   roles: user.roles,
   tier: user.tier,
   bio: user.bio,
-  token: getTokenFree(user) + getTokenPremium(user),
-  token_free: getTokenFree(user),
-  token_premium: getTokenPremium(user),
+  token: user.token || 0,
   code_invite: user.code_invite,
   invite_redeemed: !!user.invite_redeemed,
-  premium_create_date: user.premium_create_date,
-  premium_due_date: user.premium_due_date,
-  premium_last_token_reset_date: user.premium_last_token_reset_date,
   created_at: user.created_at
 });
 
@@ -65,8 +57,7 @@ router.post('/register', async (req, res) => {
       full_name,
       roles: role === 'worker' ? ['user', 'worker'] : ['user'],
       avatar_url: `https://i.pravatar.cc/150?u=${email}`,
-      token_free: FREE_SIGNUP_TOKENS,
-      token_premium: 0,
+      token: FREE_SIGNUP_TOKENS,
       code_invite: await User.generateUniqueInviteCode()
     });
 
@@ -100,7 +91,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Email và mật khẩu là bắt buộc.' });
     }
 
-    const user = await User.findOne({ email: email.toLowerCase() }).select('+token');
+    const user = await User.findOne({ email: email.toLowerCase() });
     if (!user) {
       return res.status(401).json({ message: 'Email hoặc mật khẩu không đúng.' });
     }
@@ -123,17 +114,10 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Email hoặc mật khẩu không đúng.' });
     }
 
-    user.syncLegacyToken();
-    user.refreshPremiumQuota();
-
     // Reset failed attempts on successful login
     user.failed_login_attempts = 0;
     user.last_login = new Date();
     await user.save();
-    if (user.token !== undefined && user.token !== null) {
-      await User.updateOne({ _id: user._id }, { $unset: { token: '' } });
-      user.token = undefined;
-    }
 
     const tokens = generateTokens(user);
 
@@ -198,7 +182,7 @@ router.post('/refresh', async (req, res) => {
 // GET /api/auth/me
 router.get('/me', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.userId).select('+token');
+    const user = await User.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({ message: 'Người dùng không tìm thấy.' });
     }
@@ -210,24 +194,13 @@ router.get('/me', auth, async (req, res) => {
       shouldSaveUser = true;
     }
 
-    user.syncLegacyToken();
-    user.refreshPremiumQuota();
-
-    if (user.token_free === undefined || user.token_free === null) {
-      user.token_free = FREE_SIGNUP_TOKENS;
-      shouldSaveUser = true;
-    }
-
-    if (user.isModified('token_free') || user.isModified('token_premium') || user.isModified('tier') || user.isModified('premium_last_token_reset_date')) {
+    if (user.token === undefined || user.token === null) {
+      user.token = FREE_SIGNUP_TOKENS;
       shouldSaveUser = true;
     }
 
     if (shouldSaveUser) {
       await user.save();
-      if (user.token !== undefined && user.token !== null) {
-        await User.updateOne({ _id: user._id }, { $unset: { token: '' } });
-        user.token = undefined;
-      }
     }
 
     res.json(formatUser(user));
@@ -289,7 +262,7 @@ router.post('/redeem-invite', auth, async (req, res) => {
     const redeemed = await User.findOneAndUpdate(
       { _id: user._id, invite_redeemed: { $ne: true } },
       {
-        $inc: { token_free: INVITEE_REWARD_TOKENS },
+        $inc: { token: INVITEE_REWARD_TOKENS },
         $set: { invite_redeemed: true, invited_by: inviter._id }
       },
       { new: true }
@@ -301,7 +274,7 @@ router.post('/redeem-invite', auth, async (req, res) => {
 
     await User.updateOne(
       { _id: inviter._id },
-      { $inc: { token_free: INVITER_REWARD_TOKENS } }
+      { $inc: { token: INVITER_REWARD_TOKENS } }
     );
 
     res.json({
