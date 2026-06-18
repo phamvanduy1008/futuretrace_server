@@ -3,6 +3,10 @@ const router = express.Router();
 const crypto = require('crypto');
 const axios = require('axios');
 const User = require('../models/User');
+const {
+  applyPremiumPurchase,
+  normalizeUserSubscription
+} = require('../services/subscriptionService');
 
 // Configure MoMo credentials
 const config = {
@@ -19,6 +23,17 @@ const config = {
   lang: 'vi',
 };
 
+const VALID_PLAN_TYPES = ['monthly', 'yearly'];
+
+const parseOrderId = (orderId) => {
+  const parts = String(orderId || '').split('_');
+  const timestamp = parts.pop();
+  const maybePlanType = parts[parts.length - 1];
+  const planType = VALID_PLAN_TYPES.includes(maybePlanType) ? parts.pop() : 'monthly';
+  const userId = parts.join('_');
+  return { userId, planType, timestamp };
+};
+
 // Create payment
 router.post('/', async (req, res) => {
   try {
@@ -30,7 +45,6 @@ router.post('/', async (req, res) => {
       redirectUrl,
       ipnUrl,
       requestType,
-      extraData,
       orderGroupId,
       autoCapture,
       lang,
@@ -43,8 +57,10 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: 'Missing total_price or userId' });
     }
 
+    const planType = VALID_PLAN_TYPES.includes(orderData.planType) ? orderData.planType : 'monthly';
+    const extraData = Buffer.from(JSON.stringify({ planType })).toString('base64');
     const amount = orderData.total_price.toString();
-    const orderId = orderData.userId + '_' + new Date().getTime();
+    const orderId = `${orderData.userId}_${planType}_${new Date().getTime()}`;
     const requestId = orderId;
 
     const rawSignature =
@@ -149,17 +165,18 @@ router.post('/check-status', async (req, res) => {
 
     // If transaction is successful, update user tier
     if (result.data.resultCode === 0) {
-      const parts = orderId.split('_');
-      // orderId format is like user_12345_1731231231, or 60a123_1731231231
-      // Assuming the userId is the part before the last underscore
-      // Reconstruct userId if it had underscores:
-      parts.pop();
-      const userId = parts.join('_');
+      const { userId, planType } = parseOrderId(orderId);
 
       try {
-        await User.findByIdAndUpdate(userId, { tier: 'premium_demo' });
+        const user = await User.findById(userId);
+        if (user && !user.premium_paid_orders.includes(orderId)) {
+          await normalizeUserSubscription(user);
+          await applyPremiumPurchase(user, planType);
+          user.premium_paid_orders.addToSet(orderId);
+          await user.save();
+        }
       } catch (err) {
-        console.error("Error updating user tier:", err);
+        console.error("Error updating user premium subscription:", err);
       }
     }
 

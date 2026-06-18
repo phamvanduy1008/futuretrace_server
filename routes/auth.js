@@ -5,6 +5,10 @@ const User = require('../models/User');
 const RefreshToken = require('../models/RefreshToken');
 const auth = require('../middleware/auth');
 const crypto = require('crypto');
+const {
+  normalizeUserSubscription,
+  getTokenBalance
+} = require('../services/subscriptionService');
 
 const router = express.Router();
 
@@ -22,19 +26,27 @@ const generateTokens = (user) => {
   return { accessToken, refreshToken };
 };
 
-const formatUser = (user) => ({
-  id: user._id,
-  email: user.email,
-  full_name: user.full_name,
-  avatar_url: user.avatar_url,
-  roles: user.roles,
-  tier: user.tier,
-  bio: user.bio,
-  token: user.token || 0,
-  code_invite: user.code_invite,
-  invite_redeemed: !!user.invite_redeemed,
-  created_at: user.created_at
-});
+const formatUser = (user) => {
+  const tokenBalance = getTokenBalance(user);
+  return {
+    id: user._id,
+    email: user.email,
+    full_name: user.full_name,
+    avatar_url: user.avatar_url,
+    roles: user.roles,
+    tier: user.tier,
+    bio: user.bio,
+    token: tokenBalance.token_total,
+    token_free: tokenBalance.token_free,
+    token_premium: tokenBalance.token_premium,
+    premium_create_date: user.premium_create_date,
+    premium_due_date: user.premium_due_date,
+    premium_token_reset_date: user.premium_token_reset_date,
+    code_invite: user.code_invite,
+    invite_redeemed: !!user.invite_redeemed,
+    created_at: user.created_at
+  };
+};
 
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
@@ -57,7 +69,8 @@ router.post('/register', async (req, res) => {
       full_name,
       roles: role === 'worker' ? ['user', 'worker'] : ['user'],
       avatar_url: `https://i.pravatar.cc/150?u=${email}`,
-      token: FREE_SIGNUP_TOKENS,
+      token_free: FREE_SIGNUP_TOKENS,
+      token_premium: 0,
       code_invite: await User.generateUniqueInviteCode()
     });
 
@@ -113,6 +126,8 @@ router.post('/login', async (req, res) => {
       await user.save();
       return res.status(401).json({ message: 'Email hoặc mật khẩu không đúng.' });
     }
+
+    await normalizeUserSubscription(user);
 
     // Reset failed attempts on successful login
     user.failed_login_attempts = 0;
@@ -194,14 +209,16 @@ router.get('/me', auth, async (req, res) => {
       shouldSaveUser = true;
     }
 
-    if (user.token === undefined || user.token === null) {
-      user.token = FREE_SIGNUP_TOKENS;
+    if (user.token_free === undefined || user.token_free === null) {
+      user.token_free = FREE_SIGNUP_TOKENS;
       shouldSaveUser = true;
     }
 
     if (shouldSaveUser) {
       await user.save();
     }
+
+    await normalizeUserSubscription(user);
 
     res.json(formatUser(user));
   } catch (error) {
@@ -262,7 +279,7 @@ router.post('/redeem-invite', auth, async (req, res) => {
     const redeemed = await User.findOneAndUpdate(
       { _id: user._id, invite_redeemed: { $ne: true } },
       {
-        $inc: { token: INVITEE_REWARD_TOKENS },
+        $inc: { token_free: INVITEE_REWARD_TOKENS },
         $set: { invite_redeemed: true, invited_by: inviter._id }
       },
       { new: true }
@@ -274,7 +291,7 @@ router.post('/redeem-invite', auth, async (req, res) => {
 
     await User.updateOne(
       { _id: inviter._id },
-      { $inc: { token: INVITER_REWARD_TOKENS } }
+      { $inc: { token_free: INVITER_REWARD_TOKENS } }
     );
 
     res.json({
