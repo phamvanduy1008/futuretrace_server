@@ -83,7 +83,20 @@ router.post('/analyze', auth, async (req, res) => {
         latency_ms: Date.now() - startTime
       }).save();
 
-      return res.status(500).json({ message: aiError.message });
+      let type = 'GENERAL';
+      let statusCode = 500;
+      let message = aiError.message;
+      if (aiError.status === 503 || (aiError.message && aiError.message.includes('503'))) {
+        type = 'OVERLOADED';
+        statusCode = 503;
+        message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
+      } else if (aiError.status === 429 || (aiError.message && aiError.message.includes('429'))) {
+        type = 'RATE_LIMIT';
+        statusCode = 429;
+        message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
+      }
+
+      return res.status(statusCode).json({ message, type });
     }
 
     // Log success
@@ -217,7 +230,20 @@ router.post('/pivot', auth, async (req, res) => {
         latency_ms: Date.now() - startTime
       }).save();
 
-      return res.status(500).json({ message: aiError.message });
+      let type = 'GENERAL';
+      let statusCode = 500;
+      let message = aiError.message;
+      if (aiError.status === 503 || (aiError.message && aiError.message.includes('503'))) {
+        type = 'OVERLOADED';
+        statusCode = 503;
+        message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
+      } else if (aiError.status === 429 || (aiError.message && aiError.message.includes('429'))) {
+        type = 'RATE_LIMIT';
+        statusCode = 429;
+        message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
+      }
+
+      return res.status(statusCode).json({ message, type });
     }
 
     // Log success
