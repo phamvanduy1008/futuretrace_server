@@ -166,13 +166,27 @@ router.post('/check-status', async (req, res) => {
         const user = await User.findById(userId);
         if (user && tokenAmount > 0) {
           // Use atomic update to prevent double-crediting
-          await User.updateOne(
+          const updateResult = await User.updateOne(
             { _id: userId, processed_orders: { $ne: orderId } },
             {
               $inc: { token: tokenAmount },
               $addToSet: { processed_orders: orderId }
             }
           );
+
+          if (updateResult.modifiedCount === 1) {
+            const Transaction = require('../models/Transaction');
+            await Transaction.create({
+              userId,
+              amount: result.data.amount || 0,
+              tokenAmount,
+              paymentMethod: 'momo',
+              status: 'success',
+              orderId: orderId,
+              description: `Mua gói ${tokenAmount} token qua MoMo`,
+              metadata: result.data
+            });
+          }
         }
       } catch (err) {
         console.error("Error updating user tokens:", err);
