@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const INVITE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-const FREE_SIGNUP_TOKENS = 10000;
+const FREE_SIGNUP_TOKENS = 100;
 
 const generateInviteCode = () => Array.from({ length: 8 }, () => (
   INVITE_CHARS[Math.floor(Math.random() * INVITE_CHARS.length)]
@@ -12,14 +12,7 @@ const userSchema = new mongoose.Schema({
   password_hash: { type: String, required: true },
   full_name: { type: String, required: true, trim: true },
   roles: { type: [String], default: ['user'] },
-  tier: { type: String, enum: ['free', 'premium', 'premium_demo'], default: 'free' },
-  token: { type: Number, min: 0 },
-  token_free: { type: Number, default: FREE_SIGNUP_TOKENS, min: 0 },
-  token_premium: { type: Number, default: 0, min: 0 },
-  premium_create_date: { type: Date, default: null },
-  premium_due_date: { type: Date, default: null },
-  premium_token_reset_date: { type: Date, default: null },
-  premium_paid_orders: { type: [String], default: [] },
+  token: { type: Number, default: FREE_SIGNUP_TOKENS, min: 0 },
   code_invite: { type: String, required: true, unique: true, sparse: true, trim: true },
   invite_redeemed: { type: Boolean, default: false },
   invited_by: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null },
@@ -27,7 +20,8 @@ const userSchema = new mongoose.Schema({
   failed_login_attempts: { type: Number, default: 0 },
   last_login: { type: Date },
   avatar_url: { type: String, default: '' },
-  bio: { type: String, default: '' }
+  bio: { type: String, default: '' },
+  processed_orders: [{ type: String }]
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
   collection: 'users'

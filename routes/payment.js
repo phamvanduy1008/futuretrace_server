@@ -3,18 +3,14 @@ const router = express.Router();
 const crypto = require('crypto');
 const axios = require('axios');
 const User = require('../models/User');
-const {
-  applyPremiumPurchase,
-  normalizeUserSubscription
-} = require('../services/subscriptionService');
 
 // Configure MoMo credentials
 const config = {
   accessKey: process.env.MOMO_ACCESS_KEY || 'F8BBA842ECF85',
   secretKey: process.env.MOMO_SECRET_KEY || 'K951B6PE1waDMi640xX08PD3vg6EkVlz',
-  orderInfo: 'Thanh toan FutureTrace Premium',
+  orderInfo: 'Mua token FutureTrace',
   partnerCode: process.env.MOMO_PARTNER_CODE || 'MOMO',
-  redirectUrl: process.env.MOMO_REDIRECT_URL || 'https://futuretrace.vercel.app/payment-result', // Update this to your frontend domain
+  redirectUrl: process.env.MOMO_REDIRECT_URL || 'https://futuretrace.vercel.app/payment-result',
   ipnUrl: process.env.MOMO_IPN_URL || 'https://futuretrace-server.onrender.com/api/payment/callback',
   requestType: 'captureWallet',
   extraData: '',
@@ -23,15 +19,16 @@ const config = {
   lang: 'vi',
 };
 
-const VALID_PLAN_TYPES = ['monthly', 'yearly'];
+// Valid token pack amounts
+const VALID_TOKEN_AMOUNTS = [100, 250, 550, 1200, 2500, 5000];
 
 const parseOrderId = (orderId) => {
+  // Format: userId_tokenAmount_timestamp
   const parts = String(orderId || '').split('_');
   const timestamp = parts.pop();
-  const maybePlanType = parts[parts.length - 1];
-  const planType = VALID_PLAN_TYPES.includes(maybePlanType) ? parts.pop() : 'monthly';
+  const tokenAmount = parseInt(parts.pop()) || 0;
   const userId = parts.join('_');
-  return { userId, planType, timestamp };
+  return { userId, tokenAmount, timestamp };
 };
 
 // Create payment
@@ -57,10 +54,10 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: 'Missing total_price or userId' });
     }
 
-    const planType = VALID_PLAN_TYPES.includes(orderData.planType) ? orderData.planType : 'monthly';
-    const extraData = Buffer.from(JSON.stringify({ planType })).toString('base64');
+    const tokenAmount = VALID_TOKEN_AMOUNTS.includes(orderData.tokenAmount) ? orderData.tokenAmount : 0;
+    const extraData = Buffer.from(JSON.stringify({ tokenAmount })).toString('base64');
     const amount = orderData.total_price.toString();
-    const orderId = `${orderData.userId}_${planType}_${new Date().getTime()}`;
+    const orderId = `${orderData.userId}_${tokenAmount}_${new Date().getTime()}`;
     const requestId = orderId;
 
     const rawSignature =
@@ -75,13 +72,11 @@ router.post('/', async (req, res) => {
       '&requestId=' + requestId +
       '&requestType=' + requestType;
 
-    // signature
     const signature = crypto
       .createHmac('sha256', secretKey)
       .update(rawSignature)
       .digest('hex');
 
-    // json object send to MoMo endpoint
     const requestBody = JSON.stringify({
       partnerCode: partnerCode,
       partnerName: 'FutureTrace',
@@ -163,20 +158,24 @@ router.post('/check-status', async (req, res) => {
     };
     const result = await axios(options);
 
-    // If transaction is successful, update user tier
+    // If transaction is successful, add tokens to user
     if (result.data.resultCode === 0) {
-      const { userId, planType } = parseOrderId(orderId);
+      const { userId, tokenAmount } = parseOrderId(orderId);
 
       try {
         const user = await User.findById(userId);
-        if (user && !user.premium_paid_orders.includes(orderId)) {
-          await normalizeUserSubscription(user);
-          await applyPremiumPurchase(user, planType);
-          user.premium_paid_orders.addToSet(orderId);
-          await user.save();
+        if (user && tokenAmount > 0) {
+          // Use atomic update to prevent double-crediting
+          await User.updateOne(
+            { _id: userId, processed_orders: { $ne: orderId } },
+            {
+              $inc: { token: tokenAmount },
+              $addToSet: { processed_orders: orderId }
+            }
+          );
         }
       } catch (err) {
-        console.error("Error updating user premium subscription:", err);
+        console.error("Error updating user tokens:", err);
       }
     }
 
@@ -190,9 +189,7 @@ router.post('/check-status', async (req, res) => {
 // Callback/IPN Handler
 router.post('/callback', (req, res) => {
   console.log("MoMo IPN Callback received:", req.body);
-  // Implement logic to update order status in DB based on req.body.resultCode
-  // resultCode == 0 means success
-  return res.status(204).send(); // Always return 204 to MoMo
+  return res.status(204).send();
 });
 
 module.exports = router;

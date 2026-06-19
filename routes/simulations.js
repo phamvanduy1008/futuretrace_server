@@ -4,9 +4,11 @@ const Simulation = require('../models/Simulation');
 const SimulationScenario = require('../models/SimulationScenario');
 const { generateSimulation, analyzeInputReadiness } = require('../services/geminiService');
 const GeminiLog = require('../models/GeminiLog');
+const { spendTokens } = require('../services/subscriptionService');
+const User = require('../models/User');
 
 const router = express.Router();
-
+const SIMULATION_COST = 100;
 // POST /api/simulations/pre-check - Check if input is detailed enough
 router.post('/pre-check', auth, async (req, res) => {
   try {
@@ -31,6 +33,18 @@ router.post('/', auth, async (req, res) => {
       return res.status(400).json({ message: 'Vui lòng nhập quyết định cần phân tích.' });
     }
 
+    // Check and deduct tokens
+    const chargeResult = await spendTokens(User, req.user.userId, SIMULATION_COST);
+    if (!chargeResult) {
+      const user = await User.findById(req.user.userId);
+      return res.status(402).json({
+        message: 'Không đủ token để tạo mô phỏng. Vui lòng mua thêm token tại Cửa hàng.',
+        code: 'INSUFFICIENT_TOKENS',
+        requiredToken: SIMULATION_COST,
+        currentToken: user ? (user.token || 0) : 0
+      });
+    }
+
     const inputData = { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, timeHorizon: timeHorizon || 5 };
 
     // Create simulation record
@@ -51,6 +65,9 @@ router.post('/', auth, async (req, res) => {
       simulation.status = 'failed';
       simulation.error_message = aiError.message;
       await simulation.save();
+
+      // Refund tokens on AI failure
+      await User.updateOne({ _id: req.user.userId }, { $inc: { token: SIMULATION_COST } });
 
       // Log failure
       await new GeminiLog({
