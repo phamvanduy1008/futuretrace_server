@@ -199,6 +199,16 @@ router.post('/pivot', auth, async (req, res) => {
     }
 
     const startTime = Date.now();
+    
+    // Retrieve past feedback history if this progress exists
+    let feedbackHistory = [];
+    if (progressId) {
+      const existingProgress = await PremiumAnalysis.findById(progressId);
+      if (existingProgress && existingProgress.feedback_history) {
+        feedbackHistory = existingProgress.feedback_history;
+      }
+    }
+
     let newReport;
     try {
       newReport = await pivotPremiumAnalysis(
@@ -206,7 +216,8 @@ router.post('/pivot', auth, async (req, res) => {
         completedMilestones || [],
         feedback,
         context,
-        timeframe
+        timeframe,
+        feedbackHistory
       );
     } catch (aiError) {
       await new GeminiLog({
@@ -244,7 +255,8 @@ router.post('/pivot', auth, async (req, res) => {
     // Update the progress in DB if progressId provided
     if (progressId) {
       await PremiumAnalysis.findByIdAndUpdate(progressId, {
-        report: newReport
+        report: newReport,
+        $push: { feedback_history: feedback }
       });
     }
 

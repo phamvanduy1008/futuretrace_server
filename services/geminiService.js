@@ -162,6 +162,87 @@ const getAI = () => {
   return new GoogleGenAI({ apiKey });
 };
 
+const analyzeInputReadiness = async (data) => {
+  const ai = getAI();
+  const prompt = `
+    Bạn là AI phân tích đầu vào của hệ thống FutureTrace chuyên tư vấn lộ trình học tập, sự nghiệp cho học sinh/sinh viên Việt Nam.
+    
+    ĐẦU VÀO CỦA NGƯỜI DÙNG:
+    "${data.decision}"
+    
+    NHIỆM VỤ:
+    Đánh giá xem nội dung trên đã ĐỦ CHI TIẾT để tư vấn một lộ trình cụ thể hay chưa.
+    - Một nội dung ĐỦ CHI TIẾT thường sẽ nói rõ về: Ngành học quan tâm, định hướng công việc mong muốn, hoặc bối cảnh phân vân giữa 2 lựa chọn rõ ràng.
+    - Một nội dung QUÁ NGẮN/CHUNG CHUNG (ví dụ: "Em muốn học IT", "Nên làm gì để giàu", "Học Marketing") là KHÔNG ĐỦ để cá nhân hóa lộ trình.
+    
+    Nếu ĐỦ CHI TIẾT:
+    Trả về status "ready" và để mảng questions trống.
+    
+    Nếu THIẾU CHI TIẾT (QUÁ NGẮN/CHUNG CHUNG):
+    Trả về status "needs_clarification".
+    Sinh ra từ 1 đến 2 câu hỏi (question) mang tính chất gợi mở, MỖI CÂU HỎI phải kèm theo từ 2 đến 4 lựa chọn (options) rõ ràng để người dùng có thể bấm chọn ngay.
+    Mục đích của câu hỏi là để đào sâu thêm ý định, mong muốn cụ thể hoặc chuyên ngành hẹp mà họ quan tâm.
+    
+    OUTPUT PHẢI LÀ JSON HỢP LỆ THEO SCHEMA YÊU CẦU.
+  `;
+
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+      config: {
+        responseMimeType: 'application/json',
+        maxOutputTokens: 2048,
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            status: { type: Type.STRING, description: "Must be 'ready' or 'needs_clarification'" },
+            questions: {
+              type: Type.ARRAY,
+              items: {
+                type: Type.OBJECT,
+                properties: {
+                  question: { type: Type.STRING },
+                  options: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING }
+                  }
+                },
+                required: ['question', 'options']
+              }
+            }
+          },
+          required: ['status', 'questions']
+        }
+      }
+    });
+
+    let text = "";
+    try {
+      if (typeof response.text === 'string') {
+        text = response.text.trim();
+      } else if (typeof response.text === 'function') {
+        text = response.text().trim();
+      } else if (response.response && typeof response.response.text === 'function') {
+        text = response.response.text().trim();
+      } else if (response.candidates && response.candidates[0]?.content?.parts?.[0]?.text) {
+        text = response.candidates[0].content.parts[0].text.trim();
+      }
+    } catch (e) {
+      console.error('[AI Text Extraction Error]:', e);
+    }
+    
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) text = jsonMatch[0];
+    
+    return JSON.parse(text);
+  } catch (error) {
+    console.error('[AI Pre-check Error]:', error);
+    // Fallback to ready if error so the flow doesn't break completely
+    return { status: 'ready', questions: [] };
+  }
+};
+
 const generateSimulation = async (data) => {
   const ai = getAI();
 
@@ -187,23 +268,28 @@ const generateSimulation = async (data) => {
        - Phần 'summary' phải ghi chính xác là: "Hệ thống nhận diện bạn đang yêu cầu phân tích chuyên sâu về lĩnh vực nghề nghiệp hoặc các vấn đề dành cho người lao động. Phiên bản này hiện chỉ tối ưu cho học sinh và sinh viên (16-22 tuổi). Vui lòng Nâng cấp lên bản dành cho doanh nghiệp để nhận được các phân tích chuyên sâu về thị trường lao động, lộ trình thăng tiến và chiến lược kinh doanh."
        - Các trường 'scenarios' và 'timeline' để trống hoặc giá trị mặc định tối thiểu.
 
-    Dữ liệu đầu vào (BẠN PHẢI DỰA VÀO ĐÂY ĐỂ PHÂN TÍCH):
+    Dữ liệu đầu vào (BẠN PHẢI DỰA VÀO ĐÂY ĐỂ PHÂN TÍCH VÀ CÁ NHÂN HÓA):
     - Quyết định/Vấn đề: ${data.decision}
+    - Tâm trạng hiện tại: ${data.mood || 'Bình thường'} (YÊU CẦU: Hãy dùng giọng văn phù hợp ở phần \`summary\` và \`criticalAdvice\`. Nếu kiệt sức/lo lắng, hãy đồng cảm và đưa ra bước đi an toàn. Nếu lạc quan, hãy khích lệ chinh phục thử thách).
     - Mức độ áp lực hiện tại: ${data.stress}/5 (Ảnh hưởng trực tiếp đến chỉ số Hạnh phúc và Năng lượng tinh thần)
     - Tài chính cá nhân: ${data.personalFinance}/5 (Ảnh hưởng đến ROI và Nguồn lực Tài chính)
     - Học lực/Năng lực: ${data.academicPerformance}/5 (Ảnh hưởng đến Tăng trưởng sự nghiệp và tính khả thi của lộ trình)
     - Chỉ số rủi ro: ${data.risk}/5 (Ảnh hưởng đến mức độ nghiêm trọng của kịch bản Rủi ro và phân tích SWOT)
+    - Giai đoạn học vấn: ${data.educationLevel || 'Học sinh/Sinh viên'} (Các cột mốc Timeline PHẢI bám sát thời điểm và độ tuổi này).
+    - Vị trí địa lý dự kiến: ${data.location || 'Chưa rõ'} (Tính toán chi phí/cơ hội tại nơi này).
+    - Giá trị cốt lõi ưu tiên: ${data.coreValues || 'Cân bằng'} (Định hướng sự nghiệp).
     - Các yếu tố khác: ${data.otherFactors || "Không có"} (PHẢI được tích hợp vào nội dung phân tích và kịch bản)
     - Tầm nhìn dự báo (Thời gian phân tích): ${data.timeHorizon || 5} năm. Bạn phải tính toán các kịch bản tương lai và tỷ suất hoàn vốn (ROI) chính xác sau đúng ${data.timeHorizon || 5} năm.
 
-    ${ragContext ? ragContext + '\n\n    HƯỚNG DẪN SỬ DỤNG DỮ LIỆU: Tất cả các con số về lương, tỉ lệ việc làm, điểm chuẩn, xu hướng trong các kịch bản PHẢI được lấy từ hoặc dựa trên bộ dữ liệu thực tế cung cấp ở trên. Không được tự bịa đặt các con số về thị trường lao động.' : ''}
+    ${ragContext ? ragContext + '\n\n    HƯỚNG DẪN SỬ DỤNG DỮ LIỆU: Tất cả các con số về lương, tỉ lệ việc làm, điểm chuẩn, xu hướng trong các kịch bản PHẢI được lấy từ hoặc dựa trên bộ dữ liệu thực tế cung cấp ở trên. KHÔNG được bịa đặt các con số về thị trường lao động.' : ''}
 
     YÊU CẦU ĐẦU RA (JSON - BẮT BUỘC):
     - isEnterprise: false.
-    - summary: Phải tích hợp các con số thực tế từ bộ dữ liệu RAG (Lương, thị trường, điểm chuẩn) vào đây để bao quát bức tranh thị trường. (~40-50 từ).
+    - summary: Dùng giọng văn dựa trên \`mood\`. Tích hợp các con số thực tế từ bộ dữ liệu RAG vào đây để bao quát bức tranh thị trường. (~40-50 từ).
     - scenarios: 3 kịch bản. Tích hợp dữ liệu thị trường thực tế vào 'description' và 'criticalAdvice'.
+      + BẮT BUỘC: Mỗi kịch bản PHẢI phân tích độ phù hợp (\`marketFit\`) giữa thị trường (RAG) và người dùng (Học lực, Rủi ro, Tài chính, Core Values).
     - timeline: 4 mốc (start, sixMonths, oneYear, threeYears). 
-        + BẮT BUỘC: CHỈ nói về lộ trình cá nhân (vd: "Bắt đầu học", "Thực tập", "Tốt nghiệp").
+        + BẮT BUỘC: CHỈ nói về lộ trình cá nhân theo \`educationLevel\` (vd: Lớp 12 thì có thi THPT, thi ĐGNL).
         + TUYỆT ĐỐI KHÔNG đưa con số lương, tỉ lệ việc làm, điểm chuẩn vào Timeline.
         + ĐỘ DÀI: Mỗi mốc đúng 20-30 từ. Đảm bảo 4 cột có độ dài text tương đồng để cân bằng UI.
     - deepAnalysis cho mỗi kịch bản: Restore structural rules (SWOT, Resources).
@@ -275,9 +361,17 @@ const generateSimulation = async (data) => {
                       },
                       criticalAdvice: { type: Type.STRING }
                     }
+                  },
+                  marketFit: {
+                    type: Type.OBJECT,
+                    properties: {
+                      score: { type: Type.NUMBER, description: "Score from 0 to 100 representing how well the market trend fits this user." },
+                      analysis: { type: Type.STRING, description: "Detailed analysis comparing the user's capabilities, core values, and location with the market trend." }
+                    },
+                    required: ['score', 'analysis']
                   }
                 },
-                required: ['title', 'description', 'careerGrowth', 'happiness', 'roi', 'type', 'deepAnalysis']
+                required: ['title', 'description', 'careerGrowth', 'happiness', 'roi', 'type', 'deepAnalysis', 'marketFit']
               }
             },
             timeline: {
@@ -466,7 +560,7 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
   }
 };
 
-const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback, context, timeframe) => {
+const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback, context, timeframe, feedbackHistory = []) => {
   const ai = getAI();
 
   const prompt = `
@@ -478,7 +572,12 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
     COMPLETED MILESTONES (DO NOT CHANGE THESE):
     ${JSON.stringify(completedMilestones)}
     
-    USER FEEDBACK/DIFFICULTIES:
+    ${feedbackHistory && feedbackHistory.length > 0 ? `
+    PAST FEEDBACKS (What the user faced and reported previously in this scenario):
+    ${feedbackHistory.map((fb, i) => `[Pivot ${i + 1}]: "${fb}"`).join('\n    ')}
+    ` : ''}
+
+    CURRENT FEEDBACK/DIFFICULTIES (What they are facing right now):
     "${feedback}"
     
     ${context ? `
@@ -494,8 +593,8 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
 
     TASK:
     - BẮT BUỘC: Giữ nguyên 100% nội dung của các cột mốc trong danh sách "COMPLETED MILESTONES" ở trên. Copy chính xác từng trường (month, event, impact, probability, details) vào mảng milestones mới ở các vị trí đầu tiên.
-    - Dựa vào Feedback của người dùng ("${feedback}") và bối cảnh các bước đã hoàn thành, hãy GIẢ LẬP và TẠO MỚI các cột mốc còn thiếu để hoàn thiện lộ trình.
-    - Các cột mốc mới phải là bước tiếp theo logic từ cột mốc cuối cùng đã hoàn thành và phải giải quyết được vấn đề người dùng đang gặp phải.
+    - Dựa vào chuỗi biến cố từ "PAST FEEDBACKS" (nếu có) kéo dài đến "CURRENT FEEDBACK" ("${feedback}") và bối cảnh các bước đã hoàn thành, hãy GIẢ LẬP và TẠO MỚI các cột mốc còn thiếu để hoàn thiện lộ trình.
+    - Phải có tính nối tiếp: Nếu trước đó người dùng đã báo cáo khó khăn X, và giờ lại gặp biến cố Y, hãy thể hiện sự thấu hiểu chuỗi biến cố này trong \`detailedNarrative\`.
     - Điều chỉnh 'detailedNarrative', 'influencingFactors', 'strategicPivotPoints' và 'longTermProjection' để phản ánh sự thay đổi này nhưng không được mâu thuẫn với quá khứ.
     - Đảm bảo tổng số milestones trong kết quả trả về luôn là 5.
     - BẮT BUỘC: Không được để trống bất kỳ trường nào. Mọi cột mốc (kể cả cũ và mới) đều phải có đầy đủ month, event, impact, probability và details.
@@ -584,4 +683,4 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
   }
 };
 
-module.exports = { generateSimulation, generatePremiumAnalysis, pivotPremiumAnalysis };
+module.exports = { generateSimulation, generatePremiumAnalysis, pivotPremiumAnalysis, analyzeInputReadiness };

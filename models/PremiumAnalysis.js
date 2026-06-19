@@ -38,7 +38,8 @@ const premiumAnalysisSchema = new mongoose.Schema({
   },
   scenario: { type: mongoose.Schema.Types.Mixed },
   completed_milestones: { type: [Number], default: [] },
-  timeframe: { type: Number, required: true, default: 12 }
+  timeframe: { type: Number, required: true, default: 12 },
+  feedback_history: { type: [String], default: [] }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
   collection: 'premium_analyses'

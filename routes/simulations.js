@@ -2,10 +2,25 @@ const express = require('express');
 const auth = require('../middleware/auth');
 const Simulation = require('../models/Simulation');
 const SimulationScenario = require('../models/SimulationScenario');
-const { generateSimulation } = require('../services/geminiService');
+const { generateSimulation, analyzeInputReadiness } = require('../services/geminiService');
 const GeminiLog = require('../models/GeminiLog');
 
 const router = express.Router();
+
+// POST /api/simulations/pre-check - Check if input is detailed enough
+router.post('/pre-check', auth, async (req, res) => {
+  try {
+    const { decision } = req.body;
+    if (!decision || !decision.trim()) {
+      return res.status(400).json({ message: 'Vui lòng nhập quyết định cần phân tích.' });
+    }
+    const result = await analyzeInputReadiness({ decision });
+    res.json(result);
+  } catch (error) {
+    console.error('Pre-check error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống khi kiểm tra dữ liệu.' });
+  }
+});
 
 // POST /api/simulations - Create a new simulation (calls Gemini AI)
 router.post('/', auth, async (req, res) => {
