@@ -62,6 +62,7 @@ app.use('/api/community', communityRoutes);
 app.use('/api/premium', premiumRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/evaluations', require('./routes/evaluations'));
 
 /* ================= Health Check ================= */
 app.use('/api/admin', adminRoutes);
