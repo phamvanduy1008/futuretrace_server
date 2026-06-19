@@ -34,7 +34,7 @@ router.post('/seed', async (req, res) => {
 // Submit kết quả đánh giá
 router.post('/', auth, async (req, res) => {
   try {
-    const { answers } = req.body; // array of { questionId, score }
+    const { answers } = req.body; // array of { questionId, selectedValue }
 
     if (!answers || !Array.isArray(answers)) {
       return res.status(400).json({ message: 'Dữ liệu trả lời không hợp lệ.' });
@@ -46,48 +46,67 @@ router.post('/', auth, async (req, res) => {
       return res.status(400).json({ message: 'Chưa có câu hỏi trong hệ thống.' });
     }
 
-    const detailedAnswers = [];
-    const categoryScores = { stress: 0, finance: 0, capability: 0, risk: 0 };
+    const validAnswers = [];
+    const rawScore = { stress: 0, finance: 0, capability: 0, risk: 0 };
     
     for (const ans of answers) {
       const q = questions.find(qu => qu.questionId === ans.questionId);
       if (q) {
-        // Validate if score is a valid option
-        const validOption = q.options.find(opt => opt.score === ans.score);
+        // Validate if selectedValue is a valid option
+        const validOption = q.options.find(opt => opt.value === ans.selectedValue);
         if (!validOption) continue;
 
-        categoryScores[q.category] += validOption.score;
-        detailedAnswers.push({
+        let finalValue = validOption.value;
+        if (q.isReverse) {
+          finalValue = 6 - finalValue;
+        }
+
+        rawScore[q.category] += finalValue;
+        validAnswers.push({
           questionId: q.questionId,
-          category: q.category,
-          questionText: q.text,
-          selectedOptionText: validOption.text,
-          score: validOption.score
+          selectedValue: validOption.value
         });
       }
     }
 
-    // Calculate normalized scores (/10 since 10 questions max 100 each -> total 1000)
-    const normalizedScores = {
-      stress: categoryScores.stress / 10,
-      finance: categoryScores.finance / 10,
-      capability: categoryScores.capability / 10,
-      risk: categoryScores.risk / 10
+    // Calculate normalized scores: min=10, max=50 for 10 questions. Formula: ((rawScore - 10) / 40) * 100
+    const normalizedScore = {
+      stress: Math.round(((rawScore.stress - 10) / 40) * 100),
+      finance: Math.round(((rawScore.finance - 10) / 40) * 100),
+      capability: Math.round(((rawScore.capability - 10) / 40) * 100),
+      risk: Math.round(((rawScore.risk - 10) / 40) * 100)
+    };
+
+    // Helper to map 0-100 to 1-5 level
+    const mapEvalToLevel = (score) => {
+      if (score <= 20) return 1;
+      if (score <= 40) return 2;
+      if (score <= 60) return 3;
+      if (score <= 80) return 4;
+      return 5;
+    };
+
+    const level = {
+      stress: mapEvalToLevel(normalizedScore.stress),
+      finance: mapEvalToLevel(normalizedScore.finance),
+      capability: mapEvalToLevel(normalizedScore.capability),
+      risk: mapEvalToLevel(normalizedScore.risk)
     };
 
     const newResult = new UserEvaluationResult({
-      userId: req.user.userId,
-      categoryScores,
-      normalizedScores,
-      detailedAnswers,
-      version: '1.0'
+      user_id: req.user.userId,
+      answers: validAnswers,
+      rawScore,
+      normalizedScore,
+      level,
+      version: '2.0'
     });
 
     await newResult.save();
 
     res.status(201).json({
       message: 'Lưu kết quả thành công.',
-      normalizedScores
+      normalizedScores: normalizedScore // keep response key backwards compatible if UI needs it
     });
   } catch (error) {
     console.error('Error saving evaluation:', error);
@@ -98,14 +117,17 @@ router.post('/', auth, async (req, res) => {
 // Lấy kết quả đánh giá mới nhất
 router.get('/latest', auth, async (req, res) => {
   try {
-    const latestResult = await UserEvaluationResult.findOne({ userId: req.user.userId })
+    const latestResult = await UserEvaluationResult.findOne({ user_id: req.user.userId })
       .sort({ createdAt: -1 });
     
     if (!latestResult) {
       return res.json(null); // return null to indicate no evaluation done
     }
 
-    res.json(latestResult);
+    const responseData = latestResult.toObject();
+    responseData.normalizedScores = responseData.normalizedScore;
+
+    res.json(responseData);
   } catch (error) {
     console.error('Error fetching latest evaluation:', error);
     res.status(500).json({ message: 'Lỗi server khi lấy kết quả đánh giá.' });
