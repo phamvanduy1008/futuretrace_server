@@ -7,6 +7,7 @@ const CommunityPost = require('../models/CommunityPost');
 const GeminiLog = require('../models/GeminiLog');
 const AuditLog = require('../models/AuditLog');
 const ContentReport = require('../models/ContentReport');
+const Transaction = require('../models/Transaction');
 const adminAuth = require('../middleware/adminAuth');
 const requireRoles = require('../middleware/requireRoles');
 const {
@@ -32,6 +33,7 @@ router.get(
         aiLogs,
         auditLogs,
         reports,
+        successTx
       ] = await Promise.all([
         User.countDocuments(),
         User.countDocuments({ status: 'active' }),
@@ -41,6 +43,10 @@ router.get(
         GeminiLog.find({}).sort({ created_at: -1 }).limit(30),
         AuditLog.find({}).sort({ created_at: -1 }).limit(5),
         ContentReport.find({ status: { $in: ['pending', 'escalated'] } }).sort({ created_at: -1 }).limit(10),
+        Transaction.aggregate([
+          { $match: { status: 'success' } },
+          { $group: { _id: null, totalRevenue: { $sum: '$amount' }, totalTokens: { $sum: '$tokenAmount' } } }
+        ])
       ]);
 
       const failedSimulations = simulations.filter((item) => item.status === 'failed').length;
@@ -82,6 +88,8 @@ router.get(
 
       res.json({
         stats: {
+          totalRevenue: successTx[0]?.totalRevenue || 0,
+          totalTokensSold: successTx[0]?.totalTokens || 0,
           totalUsers,
           activeUsers,
           totalSimulations,

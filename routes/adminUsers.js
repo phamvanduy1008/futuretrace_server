@@ -5,6 +5,7 @@ const RefreshToken = require('../models/RefreshToken');
 const Simulation = require('../models/Simulation');
 const PremiumAnalysis = require('../models/PremiumAnalysis');
 const CommunityPost = require('../models/CommunityPost');
+const UserEvaluationResult = require('../models/UserEvaluationResult');
 const adminAuth = require('../middleware/adminAuth');
 const requireRoles = require('../middleware/requireRoles');
 const { createAuditLog } = require('../services/auditService');
@@ -32,7 +33,7 @@ const serializeUser = async (user) => {
       .toUpperCase(),
     role: getPrimaryRole(user.roles),
     roles: user.roles,
-    tier: user.tier,
+    token: user.token,
     status: user.status,
     location: user.location || '',
     joinedAt: formatDate(user.created_at),
@@ -47,12 +48,11 @@ const serializeUser = async (user) => {
 
 router.get('/', adminAuth, requireRoles('super_admin', 'ops_support'), async (req, res) => {
   try {
-    const { page = 1, limit = 20, q = '', role = 'all', status = 'all', tier = 'all' } = req.query;
+    const { page = 1, limit = 20, q = '', role = 'all', status = 'all' } = req.query;
     const skip = (parseInt(page, 10) - 1) * parseInt(limit, 10);
 
     const query = {};
     if (status !== 'all') query.status = status;
-    if (tier !== 'all') query.tier = tier;
     if (role !== 'all') query.roles = role;
     if (q) {
       query.$or = [
@@ -81,21 +81,36 @@ router.get('/', adminAuth, requireRoles('super_admin', 'ops_support'), async (re
 
 router.get('/:id', adminAuth, requireRoles('super_admin', 'ops_support'), async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).populate('invited_by', 'full_name email');
     if (!user) {
       return res.status(404).json({ message: 'Khong tim thay user.' });
     }
 
-    const [summary, recentSimulations, analyses, posts, sessions] = await Promise.all([
+    const [summary, recentSimulations, analyses, posts, sessions, evaluation, invitedCount] = await Promise.all([
       serializeUser(user),
       Simulation.find({ user_id: user._id }).sort({ created_at: -1 }).limit(5),
       PremiumAnalysis.find({ user_id: user._id }).sort({ updated_at: -1, created_at: -1 }).limit(5),
       CommunityPost.find({ user_id: user._id }).sort({ created_at: -1 }).limit(5),
       RefreshToken.find({ user_id: user._id }).sort({ created_at: -1 }).limit(10),
+      UserEvaluationResult.findOne({ user_id: user._id }).sort({ created_at: -1 }),
+      User.countDocuments({ invited_by: user._id }),
     ]);
+
+    summary.codeInvite = user.code_invite;
+    summary.invitedBy = user.invited_by ? {
+      id: user.invited_by._id.toString(),
+      name: user.invited_by.full_name,
+      email: user.invited_by.email
+    } : null;
+    summary.affiliateCount = invitedCount;
 
     res.json({
       user: summary,
+      evaluation: evaluation ? {
+        level: evaluation.level,
+        rawScore: evaluation.rawScore,
+        normalizedScore: evaluation.normalizedScore,
+      } : null,
       simulations: recentSimulations.map((item) => ({
         id: item._id.toString(),
         title: item.title,
@@ -254,6 +269,61 @@ router.post('/:id/sessions/revoke-all', adminAuth, requireRoles('super_admin', '
   } catch (error) {
     console.error('Admin revoke user sessions error:', error);
     res.status(500).json({ message: 'Loi he thong khi thu hoi sessions user.' });
+  }
+});
+
+router.post('/:id/tokens', adminAuth, requireRoles('super_admin', 'ops_support'), async (req, res) => {
+  try {
+    const { amount, reason } = req.body;
+    if (!amount || isNaN(amount)) {
+      return res.status(400).json({ message: 'Số token điều chỉnh không hợp lệ.' });
+    }
+    if (!reason || reason.trim() === '') {
+      return res.status(400).json({ message: 'Bắt buộc phải nhập lý do điều chỉnh token.' });
+    }
+
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: 'Không tìm thấy user.' });
+    }
+
+    const before = user.toObject();
+    const tokenAmount = parseInt(amount, 10);
+    
+    user.token = (user.token || 0) + tokenAmount;
+    // Don't allow negative balance
+    if (user.token < 0) user.token = 0;
+    
+    await user.save();
+
+    await createAuditLog({
+      actor: req.admin,
+      action: 'adjust_user_tokens',
+      resourceType: 'user',
+      resourceId: user._id,
+      resourceName: user.full_name,
+      summary: `Điều chỉnh ${tokenAmount} token cho user.`,
+      severity: tokenAmount < 0 ? 'warning' : 'info',
+      reason,
+      before,
+      after: user.toObject(),
+      req,
+    });
+
+    const Transaction = require('../models/Transaction');
+    await Transaction.create({
+      userId: user._id,
+      amount: 0,
+      tokenAmount: tokenAmount,
+      paymentMethod: 'manual',
+      status: 'success',
+      description: `Điều chỉnh bởi Admin: ${reason}`,
+    });
+
+    res.json(await serializeUser(user));
+  } catch (error) {
+    console.error('Admin update tokens error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống khi điều chỉnh token user.' });
   }
 });
 
