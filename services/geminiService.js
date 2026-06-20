@@ -40,6 +40,48 @@ const repairJson = (str) => {
 };
 
 /**
+ * Parse and repair JSON returned by Gemini AI
+ */
+const parseAndRepairJson = (text) => {
+  if (!text || typeof text !== 'string') {
+    throw new Error('Dữ liệu AI trả về trống hoặc không hợp lệ.');
+  }
+
+  let cleaned = text.trim();
+
+  // Strip markdown code blocks if present
+  if (cleaned.includes('```')) {
+    const matches = cleaned.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+    if (matches && matches[1]) {
+      cleaned = matches[1].trim();
+    } else {
+      cleaned = cleaned.replace(/```json/g, '').replace(/```/g, '').trim();
+    }
+  }
+
+  // Extract from the first '{' to the last '}'
+  const firstBrace = cleaned.indexOf('{');
+  const lastBrace = cleaned.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+    cleaned = cleaned.substring(firstBrace, lastBrace + 1);
+  }
+
+  try {
+    return JSON.parse(cleaned);
+  } catch (e) {
+    console.warn('[AI JSON Parse] Parsing failed, trying to repair truncated JSON...');
+    try {
+      const repaired = repairJson(cleaned);
+      return JSON.parse(repaired);
+    } catch (repairError) {
+      console.error('[AI JSON Repair Error]:', repairError);
+      console.error('[Raw AI text failed]:', text);
+      throw new Error('Dữ liệu AI trả về không đúng định dạng cấu trúc JSON.');
+    }
+  }
+};
+
+/**
  * Ensures the simulation result has all required fields to prevent frontend crashes
  */
 const normalizeSimulationResponse = (data) => {
@@ -188,7 +230,7 @@ const analyzeInputReadiness = async (data) => {
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.1-flash-lite',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
@@ -232,10 +274,7 @@ const analyzeInputReadiness = async (data) => {
       console.error('[AI Text Extraction Error]:', e);
     }
     
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (jsonMatch) text = jsonMatch[0];
-    
-    return JSON.parse(text);
+    return parseAndRepairJson(text);
   } catch (error) {
     console.error('[AI Pre-check Error]:', error);
     // Fallback to ready if error so the flow doesn't break completely
@@ -300,7 +339,7 @@ const generateSimulation = async (data) => {
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.1-flash-lite',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
@@ -410,27 +449,8 @@ const generateSimulation = async (data) => {
       throw new Error('AI không trả về nội dung văn bản. Vui lòng thử lại.');
     }
 
-    // Robustly extract JSON if it's wrapped in markdown or contains extra text
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      text = jsonMatch[0];
-    }
-
-    try {
-      const parsed = JSON.parse(text);
-      return normalizeSimulationResponse(parsed);
-    } catch (parseError) {
-      console.warn('[AI Simulation] Truncation detected, attempting repair...');
-      try {
-        const repaired = repairJson(text);
-        const parsed = JSON.parse(repaired);
-        return normalizeSimulationResponse(parsed);
-      } catch (repairError) {
-        console.error('[AI Simulation Parse Error]:', parseError);
-        console.error('[RAW AI RESPONSE SAMPLED]:', text.substring(0, 1000) + (text.length > 1000 ? '...' : ''));
-        throw new Error('AI trả về dữ liệu không hợp lệ. Vui lòng thử lại.');
-      }
-    }
+    const parsed = parseAndRepairJson(text);
+    return normalizeSimulationResponse(parsed);
   } catch (error) {
     console.error('[AI Error Details - Simulation]:', error);
     throw error;
@@ -491,7 +511,7 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-lite',
+      model: 'gemini-3.5-flash',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
@@ -570,23 +590,24 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
       }
     });
 
-    let text = response.text.trim();
-    if (text.startsWith('```')) {
-      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
+    let text = "";
+    try {
+      if (typeof response.text === 'string') {
+        text = response.text.trim();
+      } else if (typeof response.text === 'function') {
+        text = response.text().trim();
+      } else if (response.response && typeof response.response.text === 'function') {
+        text = response.response.text().trim();
+      }
+    } catch (e) {
+      console.error('[AI Text Extraction Error]:', e);
     }
 
-    try {
-      // Robustly extract JSON
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        text = jsonMatch[0];
-      }
-      return JSON.parse(text);
-    } catch (parseError) {
-      console.error('[AI Premium Analysis Parse Error]:', parseError);
-      console.error('[RAW AI PREMIUM RESPONSE SAMPLED]:', text.substring(0, 1000) + (text.length > 1000 ? '...' : ''));
-      throw new Error('AI trả về dữ liệu không hợp lệ. Vui lòng thử lại.');
+    if (!text) {
+      throw new Error('AI không trả về nội dung văn bản. Vui lòng thử lại.');
     }
+
+    return parseAndRepairJson(text);
   } catch (error) {
     console.error('[AI Error Details - Premium]:', error);
     throw error;
@@ -727,20 +748,24 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
       }
     });
 
-    let text = response.text.trim();
-    // Handle potential markdown fences even with responseMimeType
-    if (text.startsWith('```')) {
-      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
+    let text = "";
+    try {
+      if (typeof response.text === 'string') {
+        text = response.text.trim();
+      } else if (typeof response.text === 'function') {
+        text = response.text().trim();
+      } else if (response.response && typeof response.response.text === 'function') {
+        text = response.response.text().trim();
+      }
+    } catch (e) {
+      console.error('[AI Text Extraction Error]:', e);
     }
 
-    try {
-      return JSON.parse(text);
-    } catch (parseError) {
-      console.error('[AI JSON Parse Error]: Failed to parse response text.');
-      console.error('Raw Text Sample:', text.substring(0, 500) + '...');
-      console.error('Truncated at:', text.length);
-      throw new Error('AI trả về dữ liệu không hợp lệ. Vui lòng thử lại.');
+    if (!text) {
+      throw new Error('AI không trả về nội dung văn bản. Vui lòng thử lại.');
     }
+
+    return parseAndRepairJson(text);
   } catch (error) {
     if (error.message.includes('AI trả về dữ liệu không hợp lệ')) {
       throw error;

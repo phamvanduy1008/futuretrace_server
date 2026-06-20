@@ -22,6 +22,10 @@ const formatTokenResponse = (token) => ({
 
 // POST /api/premium/analyze - Generate premium analysis via Gemini
 router.post('/analyze', auth, async (req, res) => {
+  let tokensCharged = false;
+  let premiumAnalysisId = null;
+  const startTime = Date.now();
+
   try {
     const { scenario, context, timeframe } = req.body;
 
@@ -36,7 +40,7 @@ router.post('/analyze', auth, async (req, res) => {
     });
 
     if (existing) {
-      // Return existing progress
+      // Return existing progress (no token deduction)
       return res.json({
         id: existing._id.toString(),
         scenarioId: existing.scenario_id,
@@ -49,10 +53,11 @@ router.post('/analyze', auth, async (req, res) => {
         completedMilestones: existing.completed_milestones,
         timeframe: existing.timeframe,
         isExisting: true,
-        ...formatTokenResponse(await getUserTokenBalance(req.user.userId))
+        ...formatTokenResponse(await getUserToken(req.user.userId))
       });
     }
 
+    // Deduct tokens first
     const currentToken = await getUserToken(req.user.userId);
     if (currentToken < PREMIUM_ANALYSIS_COST) {
       return res.status(402).json({
@@ -63,47 +68,30 @@ router.post('/analyze', auth, async (req, res) => {
       });
     }
 
-    // Call Gemini AI
-    const startTime = Date.now();
-    let report;
-    try {
-      report = await generatePremiumAnalysis(
-        scenario.title,
-        scenario.description,
-        context,
-        timeframe
-      );
-    } catch (aiError) {
-      await new GeminiLog({
-        user_id: req.user.userId,
-        prompt_version: 1,
-        model: 'gemini-2.0-flash',
-        status: 'error',
-        error_message: aiError.message,
-        latency_ms: Date.now() - startTime
-      }).save();
-
-      let type = 'GENERAL';
-      let statusCode = 500;
-      let message = aiError.message;
-      if (aiError.status === 503 || (aiError.message && aiError.message.includes('503'))) {
-        type = 'OVERLOADED';
-        statusCode = 503;
-        message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
-      } else if (aiError.status === 429 || (aiError.message && aiError.message.includes('429'))) {
-        type = 'RATE_LIMIT';
-        statusCode = 429;
-        message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
-      }
-
-      return res.status(statusCode).json({ message, type });
+    const chargeResult = await spendTokens(User, req.user.userId, PREMIUM_ANALYSIS_COST);
+    if (!chargeResult) {
+      return res.status(402).json({
+        message: 'Không đủ token để tạo phân tích chuyên sâu. Vui lòng mua thêm token tại Cửa hàng.',
+        code: 'INSUFFICIENT_TOKENS',
+        requiredToken: PREMIUM_ANALYSIS_COST,
+        currentToken
+      });
     }
+    tokensCharged = true;
+
+    // Call Gemini AI
+    const report = await generatePremiumAnalysis(
+      scenario.title,
+      scenario.description,
+      context,
+      timeframe
+    );
 
     // Log success
     await new GeminiLog({
       user_id: req.user.userId,
       prompt_version: 1,
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.5-flash',
       status: 'success',
       latency_ms: Date.now() - startTime,
       output: report
@@ -124,9 +112,16 @@ router.post('/analyze', auth, async (req, res) => {
     
     try {
       await premiumAnalysis.save();
+      premiumAnalysisId = premiumAnalysis._id;
     } catch (saveError) {
       // If a race condition occurred and it was already saved, just return the existing one
       if (saveError.code === 11000) {
+        // Refund since we didn't end up creating a new analysis
+        if (tokensCharged) {
+          await User.updateOne({ _id: req.user.userId }, { $inc: { token: PREMIUM_ANALYSIS_COST } });
+          tokensCharged = false;
+        }
+
         const existingAgain = await PremiumAnalysis.findOne({
           user_id: req.user.userId,
           scenario_id: scenario.id
@@ -143,21 +138,10 @@ router.post('/analyze', auth, async (req, res) => {
           completedMilestones: existingAgain.completed_milestones,
           timeframe: existingAgain.timeframe,
           isExisting: true,
-          ...formatTokenResponse(await getUserTokenBalance(req.user.userId))
+          ...formatTokenResponse(await getUserToken(req.user.userId))
         });
       }
       throw saveError;
-    }
-
-    const chargeResult = await spendTokens(User, req.user.userId, PREMIUM_ANALYSIS_COST);
-    if (!chargeResult) {
-      await PremiumAnalysis.deleteOne({ _id: premiumAnalysis._id });
-      return res.status(402).json({
-        message: 'Không đủ token để tạo phân tích chuyên sâu. Vui lòng mua thêm token tại Cửa hàng.',
-        code: 'INSUFFICIENT_TOKENS',
-        requiredToken: PREMIUM_ANALYSIS_COST,
-        currentToken: await getUserToken(req.user.userId)
-      });
     }
 
     res.status(201).json({
@@ -176,14 +160,72 @@ router.post('/analyze', auth, async (req, res) => {
     });
   } catch (error) {
     console.error('Premium analyze error:', error);
-    res.status(500).json({ message: 'Lỗi hệ thống khi tạo phân tích premium.' });
+
+    // Refund tokens on error
+    if (tokensCharged) {
+      try {
+        await User.updateOne({ _id: req.user.userId }, { $inc: { token: PREMIUM_ANALYSIS_COST } });
+        console.log(`[Token Refund] Refunded ${PREMIUM_ANALYSIS_COST} tokens to user ${req.user.userId}`);
+      } catch (refundError) {
+        console.error('Failed to refund tokens:', refundError);
+      }
+    }
+
+    // Clean up created record if DB save succeeded but we still failed
+    if (premiumAnalysisId) {
+      try {
+        await PremiumAnalysis.deleteOne({ _id: premiumAnalysisId });
+      } catch (dbError) {
+        console.error('Failed to clean up failed premium analysis:', dbError);
+      }
+    }
+
+    // Log failure
+    try {
+      await new GeminiLog({
+        user_id: req.user.userId,
+        prompt_version: 1,
+        model: 'gemini-3.5-flash',
+        status: 'error',
+        error_message: error.message,
+        latency_ms: Date.now() - startTime
+      }).save();
+    } catch (logError) {
+      console.error('Failed to log Gemini error:', logError);
+    }
+
+    let type = 'GENERAL';
+    let statusCode = 500;
+    let message = error.message || 'Lỗi hệ thống khi tạo phân tích premium.';
+
+    const errStr = typeof message === 'string' ? message : JSON.stringify(message);
+    const is503 = errStr.includes('503') || errStr.includes('UNAVAILABLE') || errStr.includes('overloaded');
+    const is429 = errStr.includes('429') || errStr.includes('RESOURCE_EXHAUSTED') || errStr.includes('quota');
+
+    if (is503) {
+      type = 'OVERLOADED';
+      statusCode = 503;
+      message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
+    } else if (is429) {
+      type = 'RATE_LIMIT';
+      statusCode = 429;
+      message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
+    }
+
+    res.status(statusCode).json({ message, type });
   }
 });
 
 // POST /api/premium/pivot - Re-plan with feedback via Gemini
 router.post('/pivot', auth, async (req, res) => {
+  let tokensCharged = false;
+  const startTime = Date.now();
+  const { progressId, currentReport, completedMilestones, feedback, context, timeframe } = req.body;
+
   try {
-    const { progressId, currentReport, completedMilestones, feedback, context, timeframe } = req.body;
+    if (!currentReport || !feedback) {
+      return res.status(400).json({ message: 'Báo cáo hiện tại và feedback là bắt buộc.' });
+    }
 
     const pivotToken = await getUserToken(req.user.userId);
     if (pivotToken < PIVOT_COST) {
@@ -195,67 +237,6 @@ router.post('/pivot', auth, async (req, res) => {
       });
     }
 
-    if (!currentReport || !feedback) {
-      return res.status(400).json({ message: 'Báo cáo hiện tại và feedback là bắt buộc.' });
-    }
-
-    const startTime = Date.now();
-    
-    // Retrieve past feedback history if this progress exists
-    let feedbackHistory = [];
-    if (progressId) {
-      const existingProgress = await PremiumAnalysis.findById(progressId);
-      if (existingProgress && existingProgress.feedback_history) {
-        feedbackHistory = existingProgress.feedback_history;
-      }
-    }
-
-    let newReport;
-    try {
-      newReport = await pivotPremiumAnalysis(
-        currentReport,
-        completedMilestones || [],
-        feedback,
-        context,
-        timeframe,
-        feedbackHistory
-      );
-    } catch (aiError) {
-      await new GeminiLog({
-        user_id: req.user.userId,
-        prompt_version: 1,
-        model: 'gemini-2.0-flash',
-        status: 'error',
-        error_message: aiError.message,
-        latency_ms: Date.now() - startTime
-      }).save();
-
-      let type = 'GENERAL';
-      let statusCode = 500;
-      let message = aiError.message;
-      if (aiError.status === 503 || (aiError.message && aiError.message.includes('503'))) {
-        type = 'OVERLOADED';
-        statusCode = 503;
-        message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
-      } else if (aiError.status === 429 || (aiError.message && aiError.message.includes('429'))) {
-        type = 'RATE_LIMIT';
-        statusCode = 429;
-        message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
-      }
-
-      return res.status(statusCode).json({ message, type });
-    }
-
-    // Log success
-    await new GeminiLog({
-      user_id: req.user.userId,
-      prompt_version: 1,
-      model: 'gemini-2.0-flash',
-      status: 'success',
-      latency_ms: Date.now() - startTime,
-      output: newReport
-    }).save();
-
     const pivotChargeResult = await spendTokens(User, req.user.userId, PIVOT_COST);
     if (!pivotChargeResult) {
       return res.status(402).json({
@@ -265,6 +246,36 @@ router.post('/pivot', auth, async (req, res) => {
         currentToken: await getUserToken(req.user.userId)
       });
     }
+    tokensCharged = true;
+
+    // Retrieve past feedback history if this progress exists
+    let feedbackHistory = [];
+    if (progressId) {
+      const existingProgress = await PremiumAnalysis.findById(progressId);
+      if (existingProgress && existingProgress.feedback_history) {
+        feedbackHistory = existingProgress.feedback_history;
+      }
+    }
+
+    // Call Gemini AI
+    const newReport = await pivotPremiumAnalysis(
+      currentReport,
+      completedMilestones || [],
+      feedback,
+      context,
+      timeframe,
+      feedbackHistory
+    );
+
+    // Log success
+    await new GeminiLog({
+      user_id: req.user.userId,
+      prompt_version: 1,
+      model: 'gemini-2.5-flash-lite',
+      status: 'success',
+      latency_ms: Date.now() - startTime,
+      output: newReport
+    }).save();
 
     // Update the progress in DB if progressId provided
     if (progressId) {
@@ -281,7 +292,50 @@ router.post('/pivot', auth, async (req, res) => {
     });
   } catch (error) {
     console.error('Premium pivot error:', error);
-    res.status(500).json({ message: 'Lỗi hệ thống khi điều chỉnh lộ trình.' });
+
+    // Refund tokens on failure
+    if (tokensCharged) {
+      try {
+        await User.updateOne({ _id: req.user.userId }, { $inc: { token: PIVOT_COST } });
+        console.log(`[Token Refund] Refunded ${PIVOT_COST} tokens to user ${req.user.userId}`);
+      } catch (refundError) {
+        console.error('Failed to refund tokens:', refundError);
+      }
+    }
+
+    // Log failure
+    try {
+      await new GeminiLog({
+        user_id: req.user.userId,
+        prompt_version: 1,
+        model: 'gemini-2.5-flash-lite',
+        status: 'error',
+        error_message: error.message,
+        latency_ms: Date.now() - startTime
+      }).save();
+    } catch (logError) {
+      console.error('Failed to log Gemini error:', logError);
+    }
+
+    let type = 'GENERAL';
+    let statusCode = 500;
+    let message = error.message || 'Lỗi hệ thống khi điều chỉnh lộ trình.';
+
+    const errStr = typeof message === 'string' ? message : JSON.stringify(message);
+    const is503 = errStr.includes('503') || errStr.includes('UNAVAILABLE') || errStr.includes('overloaded');
+    const is429 = errStr.includes('429') || errStr.includes('RESOURCE_EXHAUSTED') || errStr.includes('quota');
+
+    if (is503) {
+      type = 'OVERLOADED';
+      statusCode = 503;
+      message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
+    } else if (is429) {
+      type = 'RATE_LIMIT';
+      statusCode = 429;
+      message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
+    }
+
+    res.status(statusCode).json({ message, type });
   }
 });
 

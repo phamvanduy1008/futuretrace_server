@@ -38,6 +38,10 @@ router.post('/pre-check', auth, async (req, res) => {
 
 // POST /api/simulations - Create a new simulation (calls Gemini AI)
 router.post('/', auth, async (req, res) => {
+  let tokensCharged = false;
+  let simulationId = null;
+  const startTime = Date.now();
+
   try {
     const { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, folderName, timeHorizon } = req.body;
 
@@ -56,6 +60,7 @@ router.post('/', auth, async (req, res) => {
         currentToken: user ? (user.token || 0) : 0
       });
     }
+    tokensCharged = true;
 
     const inputData = { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, timeHorizon: timeHorizon || 5 };
 
@@ -67,46 +72,10 @@ router.post('/', auth, async (req, res) => {
       status: 'processing'
     });
     await simulation.save();
+    simulationId = simulation._id;
 
     // Call Gemini AI
-    const startTime = Date.now();
-    let aiResult;
-    try {
-      aiResult = await generateSimulation(inputData);
-    } catch (aiError) {
-      simulation.status = 'failed';
-      simulation.error_message = aiError.message;
-      await simulation.save();
-
-      // Refund tokens on AI failure
-      await User.updateOne({ _id: req.user.userId }, { $inc: { token: SIMULATION_COST } });
-
-      // Log failure
-      await new GeminiLog({
-        user_id: req.user.userId,
-        simulation_id: simulation._id,
-        prompt_version: 1,
-        model: 'gemini-2.0-flash',
-        status: 'error',
-        error_message: aiError.message,
-        latency_ms: Date.now() - startTime
-      }).save();
-
-      let type = 'GENERAL';
-      let statusCode = 500;
-      let message = aiError.message;
-      if (aiError.status === 503 || (aiError.message && aiError.message.includes('503'))) {
-        type = 'OVERLOADED';
-        statusCode = 503;
-        message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
-      } else if (aiError.status === 429 || (aiError.message && aiError.message.includes('429'))) {
-        type = 'RATE_LIMIT';
-        statusCode = 429;
-        message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
-      }
-
-      return res.status(statusCode).json({ message, type });
-    }
+    const aiResult = await generateSimulation(inputData);
 
     const latency = Date.now() - startTime;
 
@@ -115,7 +84,7 @@ router.post('/', auth, async (req, res) => {
       user_id: req.user.userId,
       simulation_id: simulation._id,
       prompt_version: 1,
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.1-flash-lite',
       status: 'success',
       latency_ms: latency,
       output: aiResult
@@ -222,7 +191,62 @@ router.post('/', auth, async (req, res) => {
     });
   } catch (error) {
     console.error('Create simulation error:', error);
-    res.status(500).json({ message: 'Lỗi hệ thống khi tạo mô phỏng.' });
+
+    // Refund tokens on AI/DB failure
+    if (tokensCharged) {
+      try {
+        await User.updateOne({ _id: req.user.userId }, { $inc: { token: SIMULATION_COST } });
+        console.log(`[Token Refund] Refunded ${SIMULATION_COST} tokens to user ${req.user.userId}`);
+      } catch (refundError) {
+        console.error('Failed to refund tokens:', refundError);
+      }
+    }
+
+    if (simulationId) {
+      try {
+        await Simulation.findByIdAndUpdate(simulationId, {
+          status: 'failed',
+          error_message: error.message
+        });
+      } catch (dbError) {
+        console.error('Failed to update simulation error status:', dbError);
+      }
+    }
+
+    // Log failure
+    try {
+      await new GeminiLog({
+        user_id: req.user.userId,
+        simulation_id: simulationId,
+        prompt_version: 1,
+        model: 'gemini-3.1-flash-lite',
+        status: 'error',
+        error_message: error.message,
+        latency_ms: Date.now() - startTime
+      }).save();
+    } catch (logError) {
+      console.error('Failed to log Gemini error:', logError);
+    }
+
+    let type = 'GENERAL';
+    let statusCode = 500;
+    let message = error.message || 'Lỗi hệ thống khi tạo mô phỏng.';
+
+    const errStr = typeof message === 'string' ? message : JSON.stringify(message);
+    const is503 = errStr.includes('503') || errStr.includes('UNAVAILABLE') || errStr.includes('overloaded');
+    const is429 = errStr.includes('429') || errStr.includes('RESOURCE_EXHAUSTED') || errStr.includes('quota');
+
+    if (is503) {
+      type = 'OVERLOADED';
+      statusCode = 503;
+      message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
+    } else if (is429) {
+      type = 'RATE_LIMIT';
+      statusCode = 429;
+      message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
+    }
+
+    res.status(statusCode).json({ message, type });
   }
 });
 
