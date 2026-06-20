@@ -1,7 +1,7 @@
 const express = require('express');
 const auth = require('../middleware/auth');
 const PremiumAnalysis = require('../models/PremiumAnalysis');
-const { generatePremiumAnalysis, pivotPremiumAnalysis } = require('../services/geminiService');
+const { generatePremiumAnalysis, pivotPremiumAnalysis, expandStepDetail } = require('../services/geminiService');
 const GeminiLog = require('../models/GeminiLog');
 const User = require('../models/User');
 const { spendTokens } = require('../services/subscriptionService');
@@ -418,6 +418,73 @@ router.get('/progress/by-scenario/:scenarioId', auth, async (req, res) => {
   } catch (error) {
     console.error('Get progress by scenario error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
+// PATCH /api/premium/expand-step - Expand details of a specific step in milestones
+router.patch('/expand-step', auth, async (req, res) => {
+  try {
+    const { scenarioId, stepId } = req.body;
+
+    if (!scenarioId || !stepId) {
+      return res.status(400).json({ message: 'Thiếu scenarioId hoặc stepId.' });
+    }
+
+    const item = await PremiumAnalysis.findOne({
+      user_id: req.user.userId,
+      scenario_id: scenarioId
+    });
+
+    if (!item) {
+      return res.status(404).json({ message: 'Không tìm thấy kịch bản và lộ trình tương ứng.' });
+    }
+
+    // Find the step in milestones
+    let foundStep = null;
+    let foundMilestone = null;
+    for (let milestone of item.report.milestones) {
+      if (Array.isArray(milestone.details)) {
+        const step = milestone.details.find(s => s.id === stepId);
+        if (step) {
+          foundStep = step;
+          foundMilestone = milestone;
+          break;
+        }
+      }
+    }
+
+    if (!foundStep) {
+      return res.status(404).json({ message: 'Không tìm thấy nhiệm vụ chi tiết.' });
+    }
+
+    // Call Gemini to generate the expanded step details
+    const expanded = await expandStepDetail(
+      item.title,
+      foundMilestone.event,
+      foundStep.title,
+      foundStep.description,
+      item.context
+    );
+
+    // Update the step in-place
+    foundStep.description = expanded.description;
+    foundStep.objectives = expanded.objectives;
+    foundStep.actions = expanded.actions;
+    foundStep.tools = expanded.tools;
+    foundStep.expectedResult = expanded.expectedResult;
+
+    // Save back to MongoDB
+    item.markModified('report.milestones');
+    await item.save();
+
+    res.json({
+      success: true,
+      step: foundStep,
+      report: item.report
+    });
+  } catch (error) {
+    console.error('Expand step detail error:', error);
+    res.status(500).json({ message: error.message || 'Lỗi hệ thống khi tối ưu chi tiết nhiệm vụ.' });
   }
 });
 

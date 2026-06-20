@@ -13,7 +13,7 @@ const premiumAnalysisSchema = new mongoose.Schema({
       event: String,
       impact: String,
       probability: Number,
-      details: String
+      details: mongoose.Schema.Types.Mixed
     }],
     influencingFactors: [{
       category: String,

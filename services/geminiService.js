@@ -469,8 +469,16 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
     - ${timeframe ? `The ENTIRE roadmap must be compressed or expanded to fit exactly within ${timeframe} months.` : 'The timeline should be logical and progressive.'}
     - For example, if the user is in Grade 10 (lớp 10), do not suggest university entrance exams within 12 months. Instead, suggest milestones like "Kết thúc học kỳ 1 lớp 10", "Chọn khối thi", "Ôn tập hè", etc.
     - The report must include:
-      1. detailedNarrative: A long, detailed description of how the next ${timeframe || 12} months (or relevant period) will unfold day-by-day (Vietnamese).
-      2. milestones: 5 key events with month, description, impact level, probability (0-100), and a "details" field containing a step-by-step instruction on HOW to achieve or handle this milestone (Vietnamese).
+      1. detailedNarrative: A long, detailed chronological description of how the next ${timeframe || 12} months (or relevant period) will unfold. It MUST be structured into chronological paragraphs where each paragraph starts with a clear time phase marker like "Tháng X:", "Tháng X-Y:" or "Giai đoạn từ tháng X-Y:" to outline the roadmap clearly (Vietnamese).
+      2. milestones: 5 key events with month, description, impact level, probability (0-100). The "details" field MUST be a JSON array of exactly 3 structured step objects. Each step object must have:
+         - id: A unique string ID like "step_X_Y" (where X is milestone index 1-5, Y is step index 1-5), e.g. "step_1_1", "step_1_2".
+         - title: Tên công việc cụ thể (Vietnamese).
+         - description: Mô tả ngắn gọn nhiệm vụ (Vietnamese).
+         - objectives: Mảng chứa 2-3 mục tiêu chính (Vietnamese).
+         - actions: Mảng chứa 2-3 hành động cơ bản (Vietnamese).
+         - tools: Mảng chứa 2-3 công cụ cơ bản đề xuất (Vietnamese).
+         - expectedResult: Kết quả đầu ra cơ bản (Vietnamese).
+         - completed: false.
       3. influencingFactors: 4 external or internal factors (Economic, Personal, Social, or Technical) with their influence level (High, Medium, Low).
       4. strategicPivotPoints: 3 critical "If/Then" decision points.
       5. longTermProjection: A final outlook on the 3-5 year horizon.
@@ -501,7 +509,32 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
                   event: { type: Type.STRING },
                   impact: { type: Type.STRING },
                   probability: { type: Type.NUMBER },
-                  details: { type: Type.STRING }
+                  details: {
+                    type: Type.ARRAY,
+                    items: {
+                      type: Type.OBJECT,
+                      properties: {
+                        id: { type: Type.STRING },
+                        title: { type: Type.STRING },
+                        description: { type: Type.STRING },
+                        objectives: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING }
+                        },
+                        actions: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING }
+                        },
+                        tools: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING }
+                        },
+                        expectedResult: { type: Type.STRING },
+                        completed: { type: Type.BOOLEAN }
+                      },
+                      required: ['id', 'title', 'description', 'objectives', 'actions', 'tools', 'expectedResult', 'completed']
+                    }
+                  }
                 },
                 required: ['month', 'event', 'impact', 'probability', 'details']
               }
@@ -595,9 +628,18 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
     - BẮT BUỘC: Giữ nguyên 100% nội dung của các cột mốc trong danh sách "COMPLETED MILESTONES" ở trên. Copy chính xác từng trường (month, event, impact, probability, details) vào mảng milestones mới ở các vị trí đầu tiên.
     - Dựa vào chuỗi biến cố từ "PAST FEEDBACKS" (nếu có) kéo dài đến "CURRENT FEEDBACK" ("${feedback}") và bối cảnh các bước đã hoàn thành, hãy GIẢ LẬP và TẠO MỚI các cột mốc còn thiếu để hoàn thiện lộ trình.
     - Phải có tính nối tiếp: Nếu trước đó người dùng đã báo cáo khó khăn X, và giờ lại gặp biến cố Y, hãy thể hiện sự thấu hiểu chuỗi biến cố này trong \`detailedNarrative\`.
-    - Điều chỉnh 'detailedNarrative', 'influencingFactors', 'strategicPivotPoints' và 'longTermProjection' để phản ánh sự thay đổi này nhưng không được mâu thuẫn với quá khứ.
+    - Điều chỉnh 'detailedNarrative', 'influencingFactors', 'strategicPivotPoints' và 'longTermProjection' để phản ánh sự thay đổi này nhưng không được mâu thuẫn với quá khứ. Đảm bảo \`detailedNarrative\` luôn được chia thành các đoạn văn bắt đầu bằng mốc thời gian rõ ràng (ví dụ: 'Tháng X:', 'Tháng X-Y:').
     - Đảm bảo tổng số milestones trong kết quả trả về luôn là 5.
     - BẮT BUỘC: Không được để trống bất kỳ trường nào. Mọi cột mốc (kể cả cũ và mới) đều phải có đầy đủ month, event, impact, probability và details.
+    - The "details" field for any NEW milestones MUST be a JSON array of exactly 3 structured step objects. Each step object must have:
+      - id: A unique string ID like "step_X_Y" (where X is milestone index 1-5, Y is step index 1-5), e.g. "step_1_1", "step_1_2".
+      - title: Tên công việc cụ thể (Vietnamese).
+      - description: Mô tả ngắn gọn nhiệm vụ (Vietnamese).
+      - objectives: Mảng chứa 2-3 mục tiêu chính (Vietnamese).
+      - actions: Mảng chứa 2-3 hành động cơ bản (Vietnamese).
+      - tools: Mảng chứa 2-3 công cụ cơ bản đề xuất (Vietnamese).
+      - expectedResult: Kết quả đầu ra cơ bản (Vietnamese).
+      - completed: false.
     - TUYỆT ĐỐI KHÔNG lười biếng: Không viết "giữ nguyên", "như cũ" hay để trống. Phải copy lại đúng nội dung hoặc viết mới chi tiết.
 
     Return ONLY a valid JSON object matching the PremiumAnalysisReport interface.
@@ -624,7 +666,32 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
                   event: { type: Type.STRING },
                   impact: { type: Type.STRING },
                   probability: { type: Type.NUMBER },
-                  details: { type: Type.STRING }
+                  details: {
+                    type: Type.ARRAY,
+                    items: {
+                      type: Type.OBJECT,
+                      properties: {
+                        id: { type: Type.STRING },
+                        title: { type: Type.STRING },
+                        description: { type: Type.STRING },
+                        objectives: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING }
+                        },
+                        actions: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING }
+                        },
+                        tools: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING }
+                        },
+                        expectedResult: { type: Type.STRING },
+                        completed: { type: Type.BOOLEAN }
+                      },
+                      required: ['id', 'title', 'description', 'objectives', 'actions', 'tools', 'expectedResult', 'completed']
+                    }
+                  }
                 },
                 required: ['month', 'event', 'impact', 'probability', 'details']
               }
@@ -683,4 +750,85 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
   }
 };
 
-module.exports = { generateSimulation, generatePremiumAnalysis, pivotPremiumAnalysis, analyzeInputReadiness };
+const expandStepDetail = async (scenarioTitle, milestoneEvent, stepTitle, stepDescription, context) => {
+  const ai = getAI();
+
+  const prompt = `
+    Bạn là một chuyên gia tư vấn hướng nghiệp chuyên sâu và cố vấn học tập hàng đầu.
+    Nhiệm vụ của bạn là tối ưu hóa và viết hướng dẫn cực kỳ chi tiết cho một bước cụ thể trong lộ trình phát triển.
+
+    Thông tin bối cảnh:
+    - Kịch bản tổng thể: ${scenarioTitle}
+    - Cột mốc hiện tại: ${milestoneEvent}
+    - Tên nhiệm vụ cần chi tiết hóa: ${stepTitle}
+    - Mô tả sơ bộ hiện tại: ${stepDescription}
+    ${context ? `- Bối cảnh cá nhân của học sinh: ${JSON.stringify(context)}` : ''}
+
+    YÊU CẦU:
+    Hãy mở rộng và viết lại nhiệm vụ này thành một hướng dẫn thực thi thực tế, chi tiết và vô cùng rõ ràng. Bạn PHẢI trả về một đối tượng JSON chứa các trường sau:
+    1. description: Mô tả cực kỳ chi tiết và sâu sắc về nhiệm vụ, giải thích tại sao nhiệm vụ này quan trọng, cần lưu ý điều gì, làm thế nào để chuẩn bị tâm lý/kiến thức trước khi thực hiện. (Viết chi tiết bằng Tiếng Việt, độ dài từ 80 đến 150 từ).
+    2. objectives: Danh sách gồm 3 đến 5 mục tiêu cụ thể, định lượng được và thực tế cần đạt được khi hoàn thành nhiệm vụ này. (Viết bằng Tiếng Việt).
+    3. actions: Danh sách gồm 5 đến 8 hành động cực kỳ chi tiết từng bước một để thực hiện nhiệm vụ. Mỗi hành động phải là một chỉ dẫn thực tế rõ ràng:
+       - Chỉ rõ CÁCH LÀM (làm như thế nào, phương pháp cụ thể).
+       - Chỉ rõ LÀM Ở ĐÂU (ở website nào, học ở đâu, sử dụng tài nguyên/nền tảng cụ thể nào, ví dụ: Udemy, Coursera, Figma, VS Code, W3Schools, các trang web chính thức,...).
+       - TUYỆT ĐỐI KHÔNG ghi chung chung như "đọc sách", "học kỹ năng", "xem video". Mỗi hành động phải dài ít nhất 15-20 từ.
+    4. tools: Danh sách gồm 3 đến 5 công cụ, phần mềm, website hoặc tài nguyên học tập cụ thể khuyên dùng để làm nhiệm vụ này. (Viết bằng Tiếng Việt).
+    5. expectedResult: Kết quả đầu ra mong muốn và sản phẩm thực tế cụ thể (ví dụ: một chứng chỉ hoàn thành khóa học, một project code trên GitHub, một bản thiết kế Figma link public,...) để người dùng tự đánh giá đã đạt yêu cầu hay chưa. (Viết bằng Tiếng Việt).
+
+    Return ONLY a valid JSON object matching this schema:
+    {
+      "description": string,
+      "objectives": string[],
+      "actions": string[],
+      "tools": string[],
+      "expectedResult": string
+    }
+
+    Ngôn ngữ: Tiếng Việt.
+  `;
+
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+      config: {
+        responseMimeType: 'application/json',
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            description: { type: Type.STRING },
+            objectives: {
+              type: Type.ARRAY,
+              items: { type: Type.STRING }
+            },
+            actions: {
+              type: Type.ARRAY,
+              items: { type: Type.STRING }
+            },
+            tools: {
+              type: Type.ARRAY,
+              items: { type: Type.STRING }
+            },
+            expectedResult: { type: Type.STRING }
+          },
+          required: ['description', 'objectives', 'actions', 'tools', 'expectedResult']
+        }
+      }
+    });
+
+    let text = response.text.trim();
+    if (text.startsWith('```')) {
+      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
+    }
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      text = jsonMatch[0];
+    }
+    return JSON.parse(text);
+  } catch (error) {
+    console.error('[AI Expand Step Detail Error]:', error);
+    throw error;
+  }
+};
+
+module.exports = { generateSimulation, generatePremiumAnalysis, pivotPremiumAnalysis, expandStepDetail, analyzeInputReadiness };
