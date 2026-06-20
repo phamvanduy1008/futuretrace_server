@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const INVITE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-const FREE_SIGNUP_TOKENS = 100;
+const FREE_SIGNUP_TOKENS = 200;
 
 const generateInviteCode = () => Array.from({ length: 8 }, () => (
   INVITE_CHARS[Math.floor(Math.random() * INVITE_CHARS.length)]
@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema({
   last_login: { type: Date },
   avatar_url: { type: String, default: '' },
   bio: { type: String, default: '' },
-  processed_orders: [{ type: String }]
+  processed_orders: [{ type: String }],
+  has_claimed_free_pack: { type: Boolean, default: false }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
   collection: 'users'

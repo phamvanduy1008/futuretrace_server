@@ -8,8 +8,8 @@ const crypto = require('crypto');
 
 const router = express.Router();
 
-const FREE_SIGNUP_TOKENS = 100;
-const INVITE_REWARD_TOKENS = 20;
+const FREE_SIGNUP_TOKENS = 200;
+const INVITE_REWARD_TOKENS = 40;
 
 const generateTokens = (user) => {
   const accessToken = jwt.sign(
@@ -32,6 +32,7 @@ const formatUser = (user) => {
     token: user.token || 0,
     code_invite: user.code_invite,
     invite_redeemed: !!user.invite_redeemed,
+    has_claimed_free_pack: !!user.has_claimed_free_pack,
     created_at: user.created_at
   };
 };

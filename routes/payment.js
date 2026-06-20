@@ -3,7 +3,7 @@ const router = express.Router();
 const crypto = require('crypto');
 const axios = require('axios');
 const User = require('../models/User');
-
+const auth = require('../middleware/auth');
 // Configure MoMo credentials
 const config = {
   accessKey: process.env.MOMO_ACCESS_KEY || 'F8BBA842ECF85',
@@ -204,6 +204,39 @@ router.post('/check-status', async (req, res) => {
 router.post('/callback', (req, res) => {
   console.log("MoMo IPN Callback received:", req.body);
   return res.status(204).send();
+});
+// POST /api/payment/claim-free-pack
+router.post('/claim-free-pack', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'Không tìm thấy người dùng' });
+    }
+    if (user.has_claimed_free_pack) {
+      return res.status(400).json({ message: 'Bạn đã nhận gói trải nghiệm này rồi' });
+    }
+
+    user.has_claimed_free_pack = true;
+    user.token = (user.token || 0) + 100;
+    await user.save();
+
+    const Transaction = require('../models/Transaction');
+    await Transaction.create({
+      userId: user._id,
+      amount: 0,
+      tokenAmount: 100,
+      paymentMethod: 'free_claim',
+      status: 'success',
+      orderId: `FREE_${user._id}_${Date.now()}`,
+      description: 'Nhận gói trải nghiệm 0đ',
+      metadata: {}
+    });
+
+    res.json({ message: 'Nhận token thành công', token: user.token });
+  } catch (error) {
+    console.error('Claim free pack error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống' });
+  }
 });
 
 module.exports = router;
