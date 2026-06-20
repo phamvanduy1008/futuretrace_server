@@ -64,6 +64,47 @@ app.use('/api/payment', paymentRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/evaluations', require('./routes/evaluations'));
 
+const auth = require('./middleware/auth');
+const PremiumAnalysis = require('./models/PremiumAnalysis');
+
+app.patch('/api/scenario/step-status', auth, async (req, res) => {
+  try {
+    const { scenarioId, stepId, completed } = req.body;
+    if (!scenarioId || !stepId) {
+      return res.status(400).json({ message: 'scenarioId and stepId are required.' });
+    }
+
+    const analysis = await PremiumAnalysis.findOne({ _id: scenarioId, user_id: req.user.userId });
+    if (!analysis) {
+      return res.status(404).json({ message: 'Scenario progress not found.' });
+    }
+
+    let stepUpdated = false;
+    for (let milestone of analysis.report.milestones) {
+      if (Array.isArray(milestone.details)) {
+        const step = milestone.details.find(s => s.id === stepId);
+        if (step) {
+          step.completed = completed;
+          stepUpdated = true;
+          break;
+        }
+      }
+    }
+
+    if (!stepUpdated) {
+      return res.status(404).json({ message: 'Step not found in scenario milestones.' });
+    }
+
+    analysis.markModified('report');
+    await analysis.save();
+
+    res.json({ message: 'Step status updated successfully', report: analysis.report });
+  } catch (error) {
+    console.error('Update step status error:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 /* ================= Health Check ================= */
 app.use('/api/admin', adminRoutes);
 
