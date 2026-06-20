@@ -4,7 +4,7 @@ const transactionSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   amount: { type: Number, required: true }, // VND amount
   tokenAmount: { type: Number, required: true },
-  paymentMethod: { type: String, enum: ['momo', 'vnpay', 'manual'], required: true },
+  paymentMethod: { type: String, enum: ['momo', 'vnpay', 'manual', 'free_claim'], required: true },
   status: { type: String, enum: ['success', 'failed', 'pending'], default: 'pending' },
   orderId: { type: String, unique: true, sparse: true },
   description: { type: String, default: '' },

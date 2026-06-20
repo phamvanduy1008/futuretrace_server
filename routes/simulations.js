@@ -8,7 +8,7 @@ const { spendTokens } = require('../services/subscriptionService');
 const User = require('../models/User');
 
 const router = express.Router();
-const SIMULATION_COST = 100;
+const SIMULATION_COST = 80;
 // POST /api/simulations/pre-check - Check if input is detailed enough
 router.post('/pre-check', auth, async (req, res) => {
   try {

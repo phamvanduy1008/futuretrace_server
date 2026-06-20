@@ -5,13 +5,14 @@ const getTokenBalance = (user) => ({
 });
 
 const spendTokens = async (User, userId, amount) => {
-  const user = await User.findById(userId);
+  // Use atomic findOneAndUpdate to prevent race conditions (double clicking)
+  const user = await User.findOneAndUpdate(
+    { _id: userId, token: { $gte: amount } },
+    { $inc: { token: -amount } },
+    { new: true }
+  );
   if (!user) return null;
-
-  if ((user.token || 0) < amount) return null;
-
-  user.token -= amount;
-  await user.save();
+  
   return { user, token: user.token };
 };
 

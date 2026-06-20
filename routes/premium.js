@@ -8,7 +8,7 @@ const { spendTokens } = require('../services/subscriptionService');
 
 const router = express.Router();
 
-const PREMIUM_ANALYSIS_COST = 80;
+const PREMIUM_ANALYSIS_COST = 120;
 const PIVOT_COST = 50;
 
 const getUserToken = async (userId) => {
