@@ -9,6 +9,7 @@ const generateInviteCode = () => Array.from({ length: 8 }, () => (
 
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  googleId: { type: String, unique: true, sparse: true },
   password_hash: { type: String, required: true },
   full_name: { type: String, required: true, trim: true },
   roles: { type: [String], default: ['user'] },
@@ -22,7 +23,8 @@ const userSchema = new mongoose.Schema({
   avatar_url: { type: String, default: '' },
   bio: { type: String, default: '' },
   processed_orders: [{ type: String }],
-  has_claimed_free_pack: { type: Boolean, default: false }
+  has_claimed_free_pack: { type: Boolean, default: false },
+  has_manual_password: { type: Boolean, default: true }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
   collection: 'users'
