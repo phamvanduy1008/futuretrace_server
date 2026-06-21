@@ -7,7 +7,10 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
-  }
+  },
+  connectionTimeout: 10000, // 10 giây giới hạn kết nối
+  greetingTimeout: 10000,   // 10 giây giới hạn chào hỏi SMTP
+  socketTimeout: 10000      // 10 giây giới hạn socket
 });
 
 const sendOtpEmail = async (email, otp) => {
