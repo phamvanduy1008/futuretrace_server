@@ -27,6 +27,6 @@ const systemSettingSchema = new mongoose.Schema(
   },
 );
 
-systemSettingSchema.index({ group_key: 1 }, { unique: true });
+
 
 module.exports = mongoose.model('SystemSetting', systemSettingSchema);
