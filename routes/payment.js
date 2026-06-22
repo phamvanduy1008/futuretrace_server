@@ -239,4 +239,33 @@ router.post('/claim-free-pack', auth, async (req, res) => {
   }
 });
 
+// Get user transaction history
+router.get('/history', auth, async (req, res) => {
+  try {
+    const Transaction = require('../models/Transaction');
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 4;
+    const skip = (page - 1) * limit;
+
+    const query = { userId: req.user.userId };
+
+    const transactions = await Transaction.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    const total = await Transaction.countDocuments(query);
+
+    res.json({
+      transactions,
+      currentPage: page,
+      totalPages: Math.ceil(total / limit),
+      totalTransactions: total
+    });
+  } catch (error) {
+    console.error('Get history error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống' });
+  }
+});
+
 module.exports = router;

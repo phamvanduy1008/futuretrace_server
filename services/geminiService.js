@@ -28,10 +28,10 @@ const repairJson = (str) => {
       }
     }
   }
-  
+
   // Close open string if truncated mid-string
   if (isInsideString) json += '"';
-  
+
   // Close all open brackets in reverse order
   while (stack.length > 0) {
     json += stack.pop();
@@ -98,15 +98,15 @@ const normalizeSimulationResponse = (data) => {
   };
 
   const normalized = { ...defaults, ...data };
-  
+
   // Deep merge for timeline
   normalized.timeline = { ...defaults.timeline, ...(data.timeline || {}) };
-  
+
   // Ensure scenarios is an array and each scenario has required structure
   if (!Array.isArray(normalized.scenarios)) {
     normalized.scenarios = [];
   }
-  
+
   normalized.scenarios = normalized.scenarios.map(s => ({
     title: s.title || "Kịch bản tiềm năng",
     description: s.description || "Phân tích kịch bản chưa hoàn thiện.",
@@ -309,7 +309,7 @@ const analyzeInputReadiness = async (data) => {
     } catch (e) {
       console.error('[AI Text Extraction Error]:', e);
     }
-    
+
     return parseAndRepairJson(text);
   } catch (error) {
     console.error('[AI Pre-check Error]:', error);
@@ -364,12 +364,16 @@ const generateSimulation = async (data) => {
     - scenarios: 3 kịch bản. Tích hợp dữ liệu thị trường thực tế vào 'description' và 'criticalAdvice'.
       + BẮT BUỘC: Mỗi kịch bản PHẢI phân tích độ phù hợp (\`marketFit\`) giữa thị trường (RAG) và người dùng (Học lực, Rủi ro, Tài chính, Core Values).
     - timeline: 4 mốc (start, sixMonths, oneYear, threeYears). 
-        + BẮT BUỘC: CHỈ nói về lộ trình cá nhân theo \`educationLevel\` (vd: Lớp 12 thì có thi THPT, thi ĐGNL).
+        + BẮT BUỘC: Điền ĐẦY ĐỦ THÔNG TIN CHI TIẾT cho cả 4 mốc (khởi điểm, thích ứng 6 tháng, cân bằng 12 tháng, đột phá 36 tháng). TUYỆT ĐỐI KHÔNG ĐƯỢC để nội dung chung chung kiểu "Giai đoạn thích nghi" hay "Giai đoạn ổn định".
+        + CHỈ nói về lộ trình cá nhân theo \`educationLevel\` (vd: Lớp 12 thì có thi THPT, thi ĐGNL).
         + TUYỆT ĐỐI KHÔNG đưa con số lương, tỉ lệ việc làm, điểm chuẩn vào Timeline.
-        + ĐỘ DÀI: Mỗi mốc đúng 20-30 từ. Đảm bảo 4 cột có độ dài text tương đồng để cân bằng UI.
-    - deepAnalysis cho mỗi kịch bản: Restore structural rules (SWOT, Resources).
+        + ĐỘ DÀI: Mỗi mốc đúng 30-40 từ, phân tích rõ ràng hành động cần làm. Đảm bảo 4 cột có độ dài text tương đồng để UI hiển thị cân đối.
+    - deepAnalysis cho mỗi kịch bản (BẮT BUỘC):
+      + swot: Phải trả về MỘT MẢNG CHÍNH XÁC 4 PHẦN TỬ: 'S', 'W', 'O', 'T'. TRỌNG TÂM: Nội dung (value) phải cực kỳ CHI TIẾT, trực quan và thực tế (từ 30-45 từ cho mỗi mục), mô tả rõ ràng tác động của nó đến người dùng. Không được viết các cụm từ ngắn ngủn.
+      + sprint90 (Chiến thuật cơ bản 12 tháng): Phải đưa ra một lộ trình cơ bản nhưng rõ ràng trong vòng 12 tháng tới (Ví dụ: chia thành 3 giai đoạn: 3 tháng đầu, 3-6 tháng, 6-12 tháng). Mỗi giai đoạn phải có 'tasks' chứa 2-3 hành động thực tế để người dùng biết phải làm gì tiếp theo.
+      + resources: Mảng 3 nguồn lực trọng tâm cần chuẩn bị.
 
-    Lưu ý: Viết súc tích, chuyên nghiệp. Không viết lan man.
+    Lưu ý: Viết súc tích, chuyên nghiệp. Không viết lan man. Tuân thủ tuyệt đối cấu trúc JSON.
     Ngôn ngữ: Tiếng Việt.
   `;
 

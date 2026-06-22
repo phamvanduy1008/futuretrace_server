@@ -31,7 +31,6 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.index({ status: 1 });
-userSchema.index({ code_invite: 1 }, { unique: true, sparse: true });
 
 userSchema.statics.generateUniqueInviteCode = async function () {
   for (let i = 0; i < 10; i += 1) {
