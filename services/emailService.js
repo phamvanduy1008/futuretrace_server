@@ -1,17 +1,47 @@
 const nodemailer = require('nodemailer');
 
 const smtpPort = parseInt(process.env.SMTP_PORT || '587');
+const smtpHost = process.env.SMTP_HOST || 'smtp.gmail.com';
+const smtpUser = process.env.SMTP_USER;
+const smtpPass = process.env.SMTP_PASS;
+
+console.log('✉️ [SMTP Init] Khởi tạo dịch vụ email:', {
+  host: smtpHost,
+  port: smtpPort,
+  secure: smtpPort === 465,
+  user: smtpUser,
+  hasPassword: !!smtpPass,
+  passwordLength: smtpPass ? smtpPass.length : 0
+});
+
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
+  host: smtpHost,
   port: smtpPort,
   secure: smtpPort === 465, // true nếu là cổng 465 (SSL), false cho các cổng khác như 587 (STARTTLS)
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS
+    user: smtpUser,
+    pass: smtpPass
   },
   connectionTimeout: 10000, // 10 giây giới hạn kết nối
   greetingTimeout: 10000,   // 10 giây giới hạn chào hỏi SMTP
-  socketTimeout: 10000      // 10 giây giới hạn socket
+  socketTimeout: 10000,     // 10 giây giới hạn socket
+  family: 4                 // Ép buộc sử dụng IPv4 để tránh lỗi kết nối IPv6 trên Render
+});
+
+// Kiểm tra kết nối SMTP ngay khi khởi chạy server
+transporter.verify((error, success) => {
+  if (error) {
+    console.error('❌ [SMTP Verify] Kết nối tới máy chủ SMTP thất bại:', {
+      message: error.message,
+      code: error.code,
+      command: error.command,
+      response: error.response,
+      responseCode: error.responseCode,
+      stack: error.stack
+    });
+  } else {
+    console.log('✅ [SMTP Verify] Kết nối tới máy chủ SMTP thành công. Sẵn sàng gửi thư!');
+  }
 });
 
 const sendOtpEmail = async (email, otp) => {
@@ -47,12 +77,27 @@ const sendOtpEmail = async (email, otp) => {
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"FutureTrace" <${process.env.SMTP_USER}>`,
-    to: email,
-    subject: `[FutureTrace] Mã xác thực: ${otp}`,
-    html
-  });
+  console.log(`✉️ [SMTP Send] Đang gửi mã OTP đến email: ${email}`);
+  try {
+    const info = await transporter.sendMail({
+      from: `"FutureTrace" <${smtpUser}>`,
+      to: email,
+      subject: `[FutureTrace] Mã xác thực: ${otp}`,
+      html
+    });
+    console.log(`✅ [SMTP Send] Gửi email thành công tới ${email}. MessageId: ${info.messageId}`);
+    return info;
+  } catch (error) {
+    console.error(`❌ [SMTP Send] Gửi email thất bại tới ${email}:`, {
+      message: error.message,
+      code: error.code,
+      command: error.command,
+      response: error.response,
+      responseCode: error.responseCode,
+      stack: error.stack
+    });
+    throw error;
+  }
 };
 
 module.exports = { sendOtpEmail };

@@ -134,10 +134,26 @@ router.post('/register/send-otp', async (req, res) => {
     res.json({ message: 'Mã xác thực đã được gửi đến email của bạn.' });
   } catch (error) {
     console.error('Send OTP error:', error);
+    
+    // Phân loại lỗi SMTP để trả về thông điệp hữu ích mà không lộ thông tin nhạy cảm
     if (error.code === 'EAUTH' || error.responseCode === 535) {
-      return res.status(500).json({ message: 'Lỗi cấu hình email server. Vui lòng liên hệ quản trị viên.' });
+      return res.status(500).json({ 
+        message: 'Lỗi xác thực với máy chủ email (Gmail App Password sai hoặc bị chặn đăng nhập). Vui lòng liên hệ quản trị viên.',
+        error_code: error.code || 'EAUTH'
+      });
     }
-    res.status(500).json({ message: 'Lỗi hệ thống khi gửi mã xác thực.' });
+    
+    if (error.code === 'ETIMEDOUT' || error.code === 'ECONNREFUSED' || error.syscall === 'connect') {
+      return res.status(500).json({ 
+        message: 'Không thể kết nối đến máy chủ email SMTP (Hết hạn kết nối hoặc bị chặn cổng kết nối). Vui lòng thử lại sau.',
+        error_code: error.code || 'ETIMEOUT'
+      });
+    }
+    
+    res.status(500).json({ 
+      message: `Lỗi hệ thống khi gửi mã xác thực: ${error.message}`,
+      error_code: error.code || 'GENERIC_ERROR'
+    });
   }
 });
 
