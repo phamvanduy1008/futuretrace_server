@@ -198,10 +198,46 @@ ${fieldData.trainingDuration ? `⏱️ Thời gian đào tạo: ${JSON.stringify
 
 // =========================================================
 
+let currentKeyIndex = 0;
 const getAI = () => {
-  const apiKey = process.env.GEMINI_API_KEY;
-  console.log(`[AI] Using API Key starting with: ${apiKey ? apiKey.substring(0, 7) + '...' : 'MISSING'}`);
+  const keysStr = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY;
+  if (!keysStr) {
+    console.log('[AI] MISSING API KEY');
+    return new GoogleGenAI({ apiKey: '' });
+  }
+  const keys = keysStr.split(',').map(k => k.trim()).filter(k => k);
+  if (keys.length === 0) return new GoogleGenAI({ apiKey: '' });
+  
+  const apiKey = keys[currentKeyIndex % keys.length];
+  currentKeyIndex++;
+  
+  console.log(`[AI] Using API Key starting with: ${apiKey.substring(0, 7) + '...'}`);
   return new GoogleGenAI({ apiKey });
+};
+
+const callGeminiWithRetry = async (modelName, contents, config, maxRetries = 2) => {
+  let lastError;
+  for (let i = 0; i <= maxRetries; i++) {
+    try {
+      const ai = getAI();
+      const response = await ai.models.generateContent({
+        model: modelName,
+        contents: contents,
+        config: config
+      });
+      return response;
+    } catch (error) {
+      lastError = error;
+      console.warn(`[AI Retry ${i}/${maxRetries}] Failed with key:`, error.message);
+      if (error.status === 400 && !error.message.includes('API key not valid')) {
+        throw error; 
+      }
+      if (i < maxRetries) {
+        await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+      }
+    }
+  }
+  throw lastError;
 };
 
 const analyzeInputReadiness = async (data) => {
@@ -229,10 +265,10 @@ const analyzeInputReadiness = async (data) => {
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.1-flash-lite',
-      contents: prompt,
-      config: {
+    const response = await callGeminiWithRetry(
+      'gemini-3.1-flash-lite',
+      prompt,
+      {
         responseMimeType: 'application/json',
         maxOutputTokens: 2048,
         responseSchema: {
@@ -257,7 +293,7 @@ const analyzeInputReadiness = async (data) => {
           required: ['status', 'questions']
         }
       }
-    });
+    );
 
     let text = "";
     try {
@@ -338,10 +374,10 @@ const generateSimulation = async (data) => {
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.1-flash-lite',
-      contents: prompt,
-      config: {
+    const response = await callGeminiWithRetry(
+      'gemini-3.1-flash-lite',
+      prompt,
+      {
         responseMimeType: 'application/json',
         maxOutputTokens: 8192,
         responseSchema: {
@@ -426,7 +462,7 @@ const generateSimulation = async (data) => {
           required: ['isEnterprise', 'summary', 'scenarios', 'timeline']
         }
       }
-    });
+    );
 
     // Safe text extraction handling potential SDK variations
     let text = "";
@@ -510,10 +546,10 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.5-flash',
-      contents: prompt,
-      config: {
+    const response = await callGeminiWithRetry(
+      'gemini-3.5-flash',
+      prompt,
+      {
         responseMimeType: 'application/json',
         maxOutputTokens: 8192,
         responseSchema: {
@@ -588,7 +624,7 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
           required: ['detailedNarrative', 'milestones', 'influencingFactors', 'strategicPivotPoints', 'longTermProjection']
         }
       }
-    });
+    );
 
     let text = "";
     try {
@@ -668,10 +704,10 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-lite',
-      contents: prompt,
-      config: {
+    const response = await callGeminiWithRetry(
+      'gemini-2.5-flash-lite',
+      prompt,
+      {
         responseMimeType: 'application/json',
         maxOutputTokens: 8192,
         responseSchema: {
@@ -746,7 +782,7 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
           required: ['detailedNarrative', 'milestones', 'influencingFactors', 'strategicPivotPoints', 'longTermProjection']
         }
       }
-    });
+    );
 
     let text = "";
     try {

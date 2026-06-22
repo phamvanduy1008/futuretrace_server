@@ -23,14 +23,10 @@ router.post('/pre-check', auth, async (req, res) => {
     let type = 'GENERAL';
     let statusCode = 500;
     let message = 'Lỗi hệ thống khi kiểm tra dữ liệu.';
-    if (error.status === 503 || (error.message && error.message.includes('503'))) {
+    if (error.status === 503 || is429 || (error.message && (error.message.includes('503') || error.message.includes('429')))) {
       type = 'OVERLOADED';
       statusCode = 503;
-      message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
-    } else if (error.status === 429 || (error.message && error.message.includes('429'))) {
-      type = 'RATE_LIMIT';
-      statusCode = 429;
-      message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
+      message = 'Lượng truy cập đang tăng cao khiến hệ thống AI phản hồi chậm. Vui lòng thử lại sau vài phút.';
     }
     res.status(statusCode).json({ message: error.message || message, type });
   }
@@ -236,14 +232,10 @@ router.post('/', auth, async (req, res) => {
     const is503 = errStr.includes('503') || errStr.includes('UNAVAILABLE') || errStr.includes('overloaded');
     const is429 = errStr.includes('429') || errStr.includes('RESOURCE_EXHAUSTED') || errStr.includes('quota');
 
-    if (is503) {
+    if (is503 || is429) {
       type = 'OVERLOADED';
       statusCode = 503;
-      message = 'Hệ thống AI hiện đang quá tải. Vui lòng thử lại sau giây lát.';
-    } else if (is429) {
-      type = 'RATE_LIMIT';
-      statusCode = 429;
-      message = 'Hệ thống AI đã hết lượt sử dụng (Rate Limit). Vui lòng thử lại sau.';
+      message = 'Lượng truy cập đang tăng cao khiến hệ thống AI phản hồi chậm. Quá trình phân tích đã bị gián đoạn, token của bạn KHÔNG bị trừ. Vui lòng thử lại sau vài phút.';
     }
 
     res.status(statusCode).json({ message, type });
