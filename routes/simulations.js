@@ -80,7 +80,7 @@ router.post('/', auth, async (req, res) => {
       user_id: req.user.userId,
       simulation_id: simulation._id,
       prompt_version: 1,
-      model: 'gemini-3.1-flash-lite',
+      model: aiResult.modelUsed || 'gemini-3.1-flash-lite',
       status: 'success',
       latency_ms: latency,
       output: aiResult
@@ -215,7 +215,7 @@ router.post('/', auth, async (req, res) => {
         user_id: req.user.userId,
         simulation_id: simulationId,
         prompt_version: 1,
-        model: 'gemini-3.1-flash-lite',
+        model: error.modelUsed || 'gemini-3.1-flash-lite',
         status: 'error',
         error_message: error.message,
         latency_ms: Date.now() - startTime

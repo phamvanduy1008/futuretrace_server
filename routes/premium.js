@@ -91,7 +91,7 @@ router.post('/analyze', auth, async (req, res) => {
     await new GeminiLog({
       user_id: req.user.userId,
       prompt_version: 1,
-      model: 'gemini-3.5-flash',
+      model: report.modelUsed || 'gemini-3.5-flash',
       status: 'success',
       latency_ms: Date.now() - startTime,
       output: report
@@ -185,7 +185,7 @@ router.post('/analyze', auth, async (req, res) => {
       await new GeminiLog({
         user_id: req.user.userId,
         prompt_version: 1,
-        model: 'gemini-3.5-flash',
+        model: error.modelUsed || 'gemini-3.5-flash',
         status: 'error',
         error_message: error.message,
         latency_ms: Date.now() - startTime
@@ -267,7 +267,7 @@ router.post('/pivot', auth, async (req, res) => {
     await new GeminiLog({
       user_id: req.user.userId,
       prompt_version: 1,
-      model: 'gemini-2.5-flash-lite',
+      model: newReport.modelUsed || 'gemini-2.5-flash-lite',
       status: 'success',
       latency_ms: Date.now() - startTime,
       output: newReport
@@ -304,7 +304,7 @@ router.post('/pivot', auth, async (req, res) => {
       await new GeminiLog({
         user_id: req.user.userId,
         prompt_version: 1,
-        model: 'gemini-2.5-flash-lite',
+        model: error.modelUsed || 'gemini-2.5-flash-lite',
         status: 'error',
         error_message: error.message,
         latency_ms: Date.now() - startTime

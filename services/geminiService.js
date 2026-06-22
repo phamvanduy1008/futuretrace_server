@@ -207,34 +207,71 @@ const getAI = () => {
   }
   const keys = keysStr.split(',').map(k => k.trim()).filter(k => k);
   if (keys.length === 0) return new GoogleGenAI({ apiKey: '' });
-  
+
   const apiKey = keys[currentKeyIndex % keys.length];
   currentKeyIndex++;
-  
+
   console.log(`[AI] Using API Key starting with: ${apiKey.substring(0, 7) + '...'}`);
   return new GoogleGenAI({ apiKey });
 };
 
-const callGeminiWithRetry = async (modelName, contents, config, maxRetries = 2) => {
+const callGeminiWithRetry = async (modelNames, contents, config, maxRetries = 2) => {
+  const models = Array.isArray(modelNames) ? modelNames : [modelNames];
   let lastError;
-  for (let i = 0; i <= maxRetries; i++) {
-    try {
-      const ai = getAI();
-      const response = await ai.models.generateContent({
-        model: modelName,
-        contents: contents,
-        config: config
-      });
+
+  for (const model of models) {
+    console.log(`[AI] Attempting call with model: ${model}`);
+    let success = false;
+    let response;
+
+    for (let i = 0; i <= maxRetries; i++) {
+      try {
+        const ai = getAI();
+        response = await ai.models.generateContent({
+          model: model,
+          contents: contents,
+          config: config
+        });
+        response.modelUsed = model;
+        success = true;
+        break;
+      } catch (error) {
+        lastError = error;
+        console.warn(`[AI Retry ${i}/${maxRetries}] Failed with model "${model}":`, error.message);
+        
+        if (error.status === 400 && !error.message.includes('API key not valid')) {
+          throw error;
+        }
+
+        const errorMsgLower = error.message ? error.message.toLowerCase() : '';
+        const isModelNotFoundError = error.status === 404 || 
+                                    errorMsgLower.includes('not found') || 
+                                    errorMsgLower.includes('not supported') ||
+                                    errorMsgLower.includes('denied access') ||
+                                    error.status === 403;
+
+        if (isModelNotFoundError) {
+          console.warn(`[AI Fallback] Model "${model}" is not available or access is denied. Switching to fallback.`);
+          break;
+        }
+
+        if (i < maxRetries) {
+          await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+        }
+      }
+    }
+
+    if (success) {
+      console.log(`[AI Success] Successfully generated content using model: ${model}`);
       return response;
-    } catch (error) {
-      lastError = error;
-      console.warn(`[AI Retry ${i}/${maxRetries}] Failed with key:`, error.message);
-      if (error.status === 400 && !error.message.includes('API key not valid')) {
-        throw error; 
-      }
-      if (i < maxRetries) {
-        await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
-      }
+    }
+  }
+
+  if (lastError && typeof lastError === 'object') {
+    try {
+      lastError.modelUsed = models[0];
+    } catch (e) {
+      // ignore
     }
   }
   throw lastError;
@@ -266,7 +303,7 @@ const analyzeInputReadiness = async (data) => {
 
   try {
     const response = await callGeminiWithRetry(
-      'gemini-3.1-flash-lite',
+      ['gemini-3.1-flash-lite', 'gemini-2.5-flash-lite'],
       prompt,
       {
         responseMimeType: 'application/json',
@@ -310,7 +347,9 @@ const analyzeInputReadiness = async (data) => {
       console.error('[AI Text Extraction Error]:', e);
     }
 
-    return parseAndRepairJson(text);
+    const parsed = parseAndRepairJson(text);
+    parsed.modelUsed = response.modelUsed;
+    return parsed;
   } catch (error) {
     console.error('[AI Pre-check Error]:', error);
     // Fallback to ready if error so the flow doesn't break completely
@@ -361,7 +400,7 @@ const generateSimulation = async (data) => {
     YÊU CẦU ĐẦU RA (JSON - BẮT BUỘC):
     - isEnterprise: false.
     - summary: Dùng giọng văn dựa trên \`mood\`. Tích hợp các con số thực tế từ bộ dữ liệu RAG vào đây để bao quát bức tranh thị trường. (~40-50 từ).
-    - scenarios: 3 kịch bản. Tích hợp dữ liệu thị trường thực tế vào 'description' và 'criticalAdvice'.
+    - scenarios: BẮT BUỘC PHẢI CÓ CHÍNH XÁC 3 KỊCH BẢN KHÁC NHAU. Không được ít hơn 3. (Gồm: 1 kịch bản Tối ưu/Positive, 1 kịch bản Cân bằng/Neutral, 1 kịch bản Rủi ro/Risk). Tích hợp dữ liệu thị trường thực tế vào 'description' và 'criticalAdvice'.
       + BẮT BUỘC: Mỗi kịch bản PHẢI phân tích độ phù hợp (\`marketFit\`) giữa thị trường (RAG) và người dùng (Học lực, Rủi ro, Tài chính, Core Values).
     - timeline: 4 mốc (start, sixMonths, oneYear, threeYears). 
         + BẮT BUỘC: Điền ĐẦY ĐỦ THÔNG TIN CHI TIẾT cho cả 4 mốc (khởi điểm, thích ứng 6 tháng, cân bằng 12 tháng, đột phá 36 tháng). TUYỆT ĐỐI KHÔNG ĐƯỢC để nội dung chung chung kiểu "Giai đoạn thích nghi" hay "Giai đoạn ổn định".
@@ -379,7 +418,7 @@ const generateSimulation = async (data) => {
 
   try {
     const response = await callGeminiWithRetry(
-      'gemini-3.1-flash-lite',
+      ['gemini-3.1-flash-lite', 'gemini-2.5-flash-lite'],
       prompt,
       {
         responseMimeType: 'application/json',
@@ -391,6 +430,7 @@ const generateSimulation = async (data) => {
             summary: { type: Type.STRING },
             scenarios: {
               type: Type.ARRAY,
+              description: "Mảng BẮT BUỘC chứa ĐÚNG 3 phần tử (Positive, Neutral, Risk). Không được thiếu.",
               items: {
                 type: Type.OBJECT,
                 properties: {
@@ -460,7 +500,8 @@ const generateSimulation = async (data) => {
                 sixMonths: { type: Type.STRING },
                 oneYear: { type: Type.STRING },
                 threeYears: { type: Type.STRING }
-              }
+              },
+              required: ['start', 'sixMonths', 'oneYear', 'threeYears']
             }
           },
           required: ['isEnterprise', 'summary', 'scenarios', 'timeline']
@@ -490,7 +531,9 @@ const generateSimulation = async (data) => {
     }
 
     const parsed = parseAndRepairJson(text);
-    return normalizeSimulationResponse(parsed);
+    const normalized = normalizeSimulationResponse(parsed);
+    normalized.modelUsed = response.modelUsed;
+    return normalized;
   } catch (error) {
     console.error('[AI Error Details - Simulation]:', error);
     throw error;
@@ -551,7 +594,7 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
 
   try {
     const response = await callGeminiWithRetry(
-      'gemini-3.5-flash',
+      ['gemini-3.5-flash', 'gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-3.1-flash-lite'],
       prompt,
       {
         responseMimeType: 'application/json',
@@ -647,7 +690,9 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
       throw new Error('AI không trả về nội dung văn bản. Vui lòng thử lại.');
     }
 
-    return parseAndRepairJson(text);
+    const parsed = parseAndRepairJson(text);
+    parsed.modelUsed = response.modelUsed;
+    return parsed;
   } catch (error) {
     console.error('[AI Error Details - Premium]:', error);
     throw error;
@@ -709,7 +754,7 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
 
   try {
     const response = await callGeminiWithRetry(
-      'gemini-2.5-flash-lite',
+      ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite'],
       prompt,
       {
         responseMimeType: 'application/json',
@@ -805,7 +850,9 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
       throw new Error('AI không trả về nội dung văn bản. Vui lòng thử lại.');
     }
 
-    return parseAndRepairJson(text);
+    const parsed = parseAndRepairJson(text);
+    parsed.modelUsed = response.modelUsed;
+    return parsed;
   } catch (error) {
     if (error.message.includes('AI trả về dữ liệu không hợp lệ')) {
       throw error;
@@ -816,8 +863,6 @@ const pivotPremiumAnalysis = async (currentReport, completedMilestones, feedback
 };
 
 const expandStepDetail = async (scenarioTitle, milestoneEvent, stepTitle, stepDescription, context) => {
-  const ai = getAI();
-
   const prompt = `
     Bạn là một chuyên gia tư vấn hướng nghiệp chuyên sâu và cố vấn học tập hàng đầu.
     Nhiệm vụ của bạn là tối ưu hóa và viết hướng dẫn cực kỳ chi tiết cho một bước cụ thể trong lộ trình phát triển.
@@ -853,10 +898,10 @@ const expandStepDetail = async (scenarioTitle, milestoneEvent, stepTitle, stepDe
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-      config: {
+    const response = await callGeminiWithRetry(
+      ['gemini-2.5-flash', 'gemini-3.1-flash-lite'],
+      prompt,
+      {
         responseMimeType: 'application/json',
         responseSchema: {
           type: Type.OBJECT,
@@ -879,17 +924,30 @@ const expandStepDetail = async (scenarioTitle, milestoneEvent, stepTitle, stepDe
           required: ['description', 'objectives', 'actions', 'tools', 'expectedResult']
         }
       }
-    });
+    );
 
-    let text = response.text.trim();
-    if (text.startsWith('```')) {
-      text = text.replace(/^```json\s*/, '').replace(/```$/, '').trim();
+    let text = "";
+    try {
+      if (typeof response.text === 'string') {
+        text = response.text.trim();
+      } else if (typeof response.text === 'function') {
+        text = response.text().trim();
+      } else if (response.response && typeof response.response.text === 'function') {
+        text = response.response.text().trim();
+      } else if (response.candidates && response.candidates[0]?.content?.parts?.[0]?.text) {
+        text = response.candidates[0].content.parts[0].text.trim();
+      }
+    } catch (e) {
+      console.error('[AI Text Extraction Error]:', e);
     }
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      text = jsonMatch[0];
+
+    if (!text) {
+      throw new Error('AI không trả về nội dung văn bản. Vui lòng thử lại.');
     }
-    return JSON.parse(text);
+
+    const parsed = parseAndRepairJson(text);
+    parsed.modelUsed = response.modelUsed;
+    return parsed;
   } catch (error) {
     console.error('[AI Expand Step Detail Error]:', error);
     throw error;
