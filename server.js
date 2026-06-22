@@ -57,6 +57,7 @@ app.use((req, res, next) => {
 /* ================= Routes ================= */
 
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes); // Also mount at /auth for Google OAuth callback compatibility
 app.use('/api/simulations', simulationRoutes);
 app.use('/api/community', communityRoutes);
 app.use('/api/premium', premiumRoutes);
