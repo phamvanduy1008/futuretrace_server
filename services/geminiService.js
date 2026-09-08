@@ -357,63 +357,88 @@ const analyzeInputReadiness = async (data) => {
   }
 };
 
-const generateSimulation = async (data) => {
+const generateSimulation = async (data, onStreamEvent) => {
   const ai = getAI();
 
-  // RAG: Detect and inject relevant field knowledge
-  const searchText = `${data.decision || ''} ${data.otherFactors || ''}`;
-  const fieldData = detectFieldFromText(searchText);
-  const ragContext = buildRAGContext(fieldData);
-  if (fieldData) {
-    console.log(`[RAG] Matched field: ${fieldData.name}`);
-  } else {
-    console.log('[RAG] No field match – using AI general knowledge (fallback)');
+  // --- BƯỚC 1: GỌI BỘ NÃO PYTHON (OLLAMA + QDRANT) ĐỂ LẤY TRI THỨC (STREAMING) ---
+  let agentAdvice = "";
+  try {
+    const query = `Người dùng cần tư vấn: ${data.decision}. \nNgữ cảnh: \n- Tài chính: ${data.personalFinance}/5 \n- Học lực: ${data.academicPerformance}/5 \n- Áp lực: ${data.stress}/5 \n- Sở thích: ${data.otherFactors || "Không có"} \nBạn hãy đưa ra kịch bản và lời khuyên chi tiết.`;
+    
+    console.log("[AGENT] Đang gửi yêu cầu sang Local Python API (Ollama) dạng Stream...");
+    const axios = require('axios');
+    const agentRes = await axios.post("http://localhost:8000/api/analyze/stream", { query }, { responseType: 'stream' });
+    
+    agentAdvice = await new Promise((resolve, reject) => {
+      let accumulatedText = "";
+      let buffer = "";
+      
+      agentRes.data.on('data', (chunk) => {
+        buffer += chunk.toString();
+        const lines = buffer.split('\n\n');
+        buffer = lines.pop(); // Keep incomplete chunk in buffer
+        
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try {
+              const dataStr = line.substring(6).trim();
+              if (!dataStr) continue;
+              const parsed = JSON.parse(dataStr);
+              
+              if (onStreamEvent) onStreamEvent(parsed);
+              
+              if (parsed.event === 'token') {
+                accumulatedText += parsed.text;
+              }
+            } catch (e) {
+              console.error("[AGENT] Lỗi parse SSE JSON:", e.message);
+            }
+          }
+        }
+      });
+      
+      agentRes.data.on('end', () => resolve(accumulatedText));
+      agentRes.data.on('error', (err) => reject(err));
+    });
+    console.log("[AGENT] Nhận hoàn tất luồng dữ liệu từ Local LLM!");
+    
+  } catch (err) {
+    console.error("[AGENT] Không thể kết nối tới Python API Stream:", err.message);
+    agentAdvice = "Lỗi kết nối Local AI. Hãy dùng kiến thức chung của bạn để phân tích.";
+    if (onStreamEvent) onStreamEvent({ event: 'status', message: 'Lỗi kết nối AI nội bộ. Đang dùng dự phòng...' });
   }
 
+  // --- BƯỚC 2: DÙNG GEMINI NHƯ MỘT FORMATTER CHUYÊN NGHIỆP ---
   const prompt = `
-    Bạn là chuyên gia phân tích tương lai của hệ thống FutureTrace.
+    Bạn là chuyên gia ĐỊNH DẠNG DỮ LIỆU (JSON Formatter) của hệ thống FutureTrace.
     
-    NHIỆM VỤ: Phân tích quyết định và giả lập các kịch bản tương lai.
+    NHIỆM VỤ: Đọc bản phân tích thô từ chuyên gia Local AI dưới đây và ép nó vào cấu trúc JSON siêu nghiêm ngặt. Tuyệt đối không được bỏ sót thông tin.
     
-    QUY TẮC PHÂN LOẠI ĐỐI TƯỢNG (BẮT BUỘC):
-    1. Đối tượng hỗ trợ: Chỉ dành cho học sinh cấp 3 (lớp 10-12) và sinh viên đại học/cao đẳng tại Việt Nam (độ tuổi từ 16 đến 22). Nội dung phải xoay quanh việc học tập, chọn ngành, chọn trường, áp lực thi cử, hoặc các vấn đề đời sống học đường.
-    2. Đối tượng doanh nghiệp/người lao động: Nếu người dùng là người đã đi làm, người lao động, hoặc nội dung câu hỏi đi sâu vào các lĩnh vực nghề nghiệp chuyên nghiệp (ví dụ: thăng tiến, quản trị doanh nghiệp, kinh doanh chuyên sâu, tìm việc làm cho người đã có kinh nghiệm):
-       - Bạn PHẢI đặt trường "isEnterprise" là true.
-       - Phần 'summary' phải ghi chính xác là: "Hệ thống nhận diện bạn đang yêu cầu phân tích chuyên sâu về lĩnh vực nghề nghiệp hoặc các vấn đề dành cho người lao động. Phiên bản này hiện chỉ tối ưu cho học sinh và sinh viên (16-22 tuổi). Vui lòng Nâng cấp lên bản dành cho doanh nghiệp để nhận được các phân tích chuyên sâu về thị trường lao động, lộ trình thăng tiến và chiến lược kinh doanh."
-       - Các trường 'scenarios' và 'timeline' để trống hoặc giá trị mặc định tối thiểu.
-
-    Dữ liệu đầu vào (BẠN PHẢI DỰA VÀO ĐÂY ĐỂ PHÂN TÍCH VÀ CÁ NHÂN HÓA):
+    [BẢN PHÂN TÍCH TỪ CHUYÊN GIA LOCAL AI]:
+    """
+    ${agentAdvice}
+    """
+    
+    Dữ liệu người dùng (dùng để cá nhân hóa thêm nếu bản phân tích bị thiếu):
     - Quyết định/Vấn đề: ${data.decision}
-    - Tâm trạng hiện tại: ${data.mood || 'Bình thường'} (YÊU CẦU: Hãy dùng giọng văn phù hợp ở phần \`summary\` và \`criticalAdvice\`. Nếu kiệt sức/lo lắng, hãy đồng cảm và đưa ra bước đi an toàn. Nếu lạc quan, hãy khích lệ chinh phục thử thách).
-    - Mức độ áp lực hiện tại: ${data.stress}/5 (Ảnh hưởng trực tiếp đến chỉ số Hạnh phúc và Năng lượng tinh thần)
-    - Tài chính cá nhân: ${data.personalFinance}/5 (Ảnh hưởng đến ROI và Nguồn lực Tài chính)
-    - Học lực/Năng lực: ${data.academicPerformance}/5 (Ảnh hưởng đến Tăng trưởng sự nghiệp và tính khả thi của lộ trình)
-    - Chỉ số rủi ro: ${data.risk}/5 (Ảnh hưởng đến mức độ nghiêm trọng của kịch bản Rủi ro và phân tích SWOT)
-    - Giai đoạn học vấn: ${data.educationLevel || 'Học sinh/Sinh viên'} (Các cột mốc Timeline PHẢI bám sát thời điểm và độ tuổi này).
-    - Vị trí địa lý dự kiến: ${data.location || 'Chưa rõ'} (Tính toán chi phí/cơ hội tại nơi này).
-    - Giá trị cốt lõi ưu tiên: ${data.coreValues || 'Cân bằng'} (Định hướng sự nghiệp).
-    - Các yếu tố khác: ${data.otherFactors || "Không có"} (PHẢI được tích hợp vào nội dung phân tích và kịch bản)
-    - Tầm nhìn dự báo (Thời gian phân tích): ${data.timeHorizon || 5} năm. Bạn phải tính toán các kịch bản tương lai và tỷ suất hoàn vốn (ROI) chính xác sau đúng ${data.timeHorizon || 5} năm.
+    - Tâm trạng hiện tại: ${data.mood || 'Bình thường'} (Ảnh hưởng tới giọng văn summary)
+    - Tầm nhìn dự báo: ${data.timeHorizon || 5} năm.
+    - Học vấn: ${data.educationLevel || 'Học sinh/Sinh viên'}
 
-    ${ragContext ? ragContext + '\n\n    HƯỚNG DẪN SỬ DỤNG DỮ LIỆU: Tất cả các con số về lương, tỉ lệ việc làm, điểm chuẩn, xu hướng trong các kịch bản PHẢI được lấy từ hoặc dựa trên bộ dữ liệu thực tế cung cấp ở trên. KHÔNG được bịa đặt các con số về thị trường lao động.' : ''}
+    QUY TẮC PHÂN LOẠI:
+    - Nếu đối tượng là người đi làm, đặt isEnterprise = true và điền summary thông báo không hỗ trợ.
 
     YÊU CẦU ĐẦU RA (JSON - BẮT BUỘC):
     - isEnterprise: false.
-    - summary: Dùng giọng văn dựa trên \`mood\`. Tích hợp các con số thực tế từ bộ dữ liệu RAG vào đây để bao quát bức tranh thị trường. (~40-50 từ).
-    - scenarios: BẮT BUỘC PHẢI CÓ CHÍNH XÁC 3 KỊCH BẢN KHÁC NHAU. Không được ít hơn 3. (Gồm: 1 kịch bản Tối ưu/Positive, 1 kịch bản Cân bằng/Neutral, 1 kịch bản Rủi ro/Risk). Tích hợp dữ liệu thị trường thực tế vào 'description' và 'criticalAdvice'.
-      + BẮT BUỘC: Mỗi kịch bản PHẢI phân tích độ phù hợp (\`marketFit\`) giữa thị trường (RAG) và người dùng (Học lực, Rủi ro, Tài chính, Core Values).
-    - timeline: 4 mốc (start, sixMonths, oneYear, threeYears). 
-        + BẮT BUỘC: Điền ĐẦY ĐỦ THÔNG TIN CHI TIẾT cho cả 4 mốc (khởi điểm, thích ứng 6 tháng, cân bằng 12 tháng, đột phá 36 tháng). TUYỆT ĐỐI KHÔNG ĐƯỢC để nội dung chung chung kiểu "Giai đoạn thích nghi" hay "Giai đoạn ổn định".
-        + CHỈ nói về lộ trình cá nhân theo \`educationLevel\` (vd: Lớp 12 thì có thi THPT, thi ĐGNL).
-        + TUYỆT ĐỐI KHÔNG đưa con số lương, tỉ lệ việc làm, điểm chuẩn vào Timeline.
-        + ĐỘ DÀI: Mỗi mốc đúng 30-40 từ, phân tích rõ ràng hành động cần làm. Đảm bảo 4 cột có độ dài text tương đồng để UI hiển thị cân đối.
+    - summary: Dùng giọng văn dựa trên \`mood\`. Tóm tắt lại bản phân tích của chuyên gia. (~40-50 từ).
+    - scenarios: BẮT BUỘC PHẢI CÓ CHÍNH XÁC 3 KỊCH BẢN KHÁC NHAU. (Gồm: 1 kịch bản Tối ưu/Positive, 1 kịch bản Cân bằng/Neutral, 1 kịch bản Rủi ro/Risk). Lấy cảm hứng từ Bản phân tích ở trên.
+    - timeline: 4 mốc (start, sixMonths, oneYear, threeYears). ĐỘ DÀI: Mỗi mốc đúng 30-40 từ, phân tích rõ ràng hành động cần làm. Đảm bảo 4 cột có độ dài text tương đồng để UI hiển thị cân đối.
     - deepAnalysis cho mỗi kịch bản (BẮT BUỘC):
-      + swot: Phải trả về MỘT MẢNG CHÍNH XÁC 4 PHẦN TỬ: 'S', 'W', 'O', 'T'. TRỌNG TÂM: Nội dung (value) phải cực kỳ CHI TIẾT, trực quan và thực tế (từ 30-45 từ cho mỗi mục), mô tả rõ ràng tác động của nó đến người dùng. Không được viết các cụm từ ngắn ngủn.
-      + sprint90 (Chiến thuật cơ bản 12 tháng): Phải đưa ra một lộ trình cơ bản nhưng rõ ràng trong vòng 12 tháng tới (Ví dụ: chia thành 3 giai đoạn: 3 tháng đầu, 3-6 tháng, 6-12 tháng). Mỗi giai đoạn phải có 'tasks' chứa 2-3 hành động thực tế để người dùng biết phải làm gì tiếp theo.
+      + swot: Mảng BẮT BUỘC 4 phần tử: 'S', 'W', 'O', 'T'. TRỌNG TÂM: Nội dung phải cực kỳ CHI TIẾT.
+      + sprint90 (Chiến thuật cơ bản 12 tháng): Lấy dữ liệu từ "Lộ Trình Hành Động 90 Ngày" của chuyên gia.
       + resources: Mảng 3 nguồn lực trọng tâm cần chuẩn bị.
 
     Lưu ý: Viết súc tích, chuyên nghiệp. Không viết lan man. Tuân thủ tuyệt đối cấu trúc JSON.
-    Ngôn ngữ: Tiếng Việt.
   `;
 
   try {

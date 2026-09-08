@@ -565,4 +565,183 @@ router.get('/google/callback', async (req, res) => {
   }
 });
 
+
+// POST /api/auth/forgot-password/send-otp
+router.post('/forgot-password/send-otp', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email || !email.trim()) {
+      return res.status(400).json({ message: 'Vui lòng nhập địa chỉ email của bạn.' });
+    }
+
+    const normalizedEmail = email.trim().toLowerCase();
+    const user = await User.findOne({ email: normalizedEmail });
+
+    if (!user) {
+      return res.status(404).json({ message: 'Địa chỉ email này chưa được đăng ký trong hệ thống.' });
+    }
+
+    if (user.status === 'banned') {
+      return res.status(403).json({ message: 'Tài khoản này đã bị khóa. Vui lòng liên hệ quản trị viên.' });
+    }
+
+    // Generate 6-digit OTP
+    const otp = String(Math.floor(100000 + Math.random() * 900000));
+    const otp_hash = await bcrypt.hash(otp, 10);
+
+    // Upsert pending OTP record for reset_password
+    await OtpVerification.findOneAndUpdate(
+      { email: normalizedEmail, type: 'reset_password' },
+      {
+        email: normalizedEmail,
+        otp_hash,
+        type: 'reset_password',
+        full_name: user.full_name || 'Người dùng',
+        attempts: 0,
+        expires_at: new Date(Date.now() + 5 * 60 * 1000) // 5 minutes
+      },
+      { upsert: true, new: true }
+    );
+
+    // Send OTP email
+    await sendOtpEmail(normalizedEmail, otp, { type: 'reset_password' });
+
+    console.log(`[Forgot Password OTP] Sent to ${normalizedEmail}`);
+    res.json({ message: 'Mã xác thực đã được gửi đến email của bạn. Vui lòng kiểm tra hộp thư.' });
+  } catch (error) {
+    console.error('Send Forgot Password OTP error:', error);
+    if (error.code === 'EAUTH' || error.responseCode === 535) {
+      return res.status(500).json({ 
+        message: 'Lỗi xác thực với máy chủ email. Vui lòng liên hệ quản trị viên.',
+        error_code: 'EAUTH'
+      });
+    }
+    res.status(500).json({ message: 'Lỗi hệ thống khi gửi mã xác thực: ' + (error.message || 'Không rõ nguyên nhân') });
+  }
+});
+
+// POST /api/auth/forgot-password/verify-otp
+router.post('/forgot-password/verify-otp', async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+      return res.status(400).json({ message: 'Email và mã OTP là bắt buộc.' });
+    }
+
+    const cleanOtp = String(otp).trim();
+    if (cleanOtp.length !== 6) {
+      return res.status(400).json({ message: 'Mã xác thực phải bao gồm đúng 6 chữ số.' });
+    }
+
+    const normalizedEmail = email.trim().toLowerCase();
+    const record = await OtpVerification.findOne({ email: normalizedEmail, type: 'reset_password' });
+
+    if (!record) {
+      return res.status(404).json({ message: 'Không tìm thấy yêu cầu đặt lại mật khẩu hoặc mã đã hết hạn. Vui lòng gửi lại mã mới.' });
+    }
+
+    if (record.expires_at < new Date()) {
+      await OtpVerification.deleteOne({ _id: record._id });
+      return res.status(410).json({ message: 'Mã xác thực đã hết hạn. Vui lòng gửi lại mã mới.' });
+    }
+
+    if (record.attempts >= 5) {
+      await OtpVerification.deleteOne({ _id: record._id });
+      return res.status(429).json({ message: 'Bạn đã nhập sai mã quá 5 lần. Vui lòng gửi lại mã mới.' });
+    }
+
+    const isMatch = await bcrypt.compare(cleanOtp, record.otp_hash);
+    if (!isMatch) {
+      record.attempts += 1;
+      await record.save();
+      const remaining = 5 - record.attempts;
+      return res.status(401).json({ message: `Mã OTP không chính xác. Bạn còn ${remaining} lần thử.` });
+    }
+
+    res.json({ message: 'Xác thực mã OTP thành công! Vui lòng tạo mật khẩu mới.' });
+  } catch (error) {
+    console.error('Verify Forgot Password OTP error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống khi xác thực mã OTP: ' + (error.message || '') });
+  }
+});
+
+// POST /api/auth/forgot-password/reset
+router.post('/forgot-password/reset', async (req, res) => {
+  try {
+    const { email, otp, newPassword, confirmPassword } = req.body;
+
+    if (!email || !otp || !newPassword) {
+      return res.status(400).json({ message: 'Email, mã OTP và mật khẩu mới là bắt buộc.' });
+    }
+
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({ message: 'Mật khẩu xác nhận không trùng khớp.' });
+    }
+
+    // Password validation: at least 8 characters, 1 uppercase, 1 special character
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+    if (!passwordRegex.test(newPassword)) {
+      return res.status(400).json({ message: 'Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ viết hoa và 1 ký tự đặc biệt.' });
+    }
+
+    const normalizedEmail = email.trim().toLowerCase();
+    const record = await OtpVerification.findOne({ email: normalizedEmail, type: 'reset_password' });
+
+    if (!record) {
+      return res.status(404).json({ message: 'Không tìm thấy yêu cầu đặt lại mật khẩu. Vui lòng gửi lại mã mới.' });
+    }
+
+    // Check expiry
+    if (record.expires_at < new Date()) {
+      await OtpVerification.deleteOne({ _id: record._id });
+      return res.status(410).json({ message: 'Mã xác thực đã hết hạn. Vui lòng yêu cầu gửi lại mã mới.' });
+    }
+
+    // Check attempts
+    if (record.attempts >= 5) {
+      await OtpVerification.deleteOne({ _id: record._id });
+      return res.status(429).json({ message: 'Bạn đã nhập sai mã quá 5 lần. Vui lòng gửi lại mã mới.' });
+    }
+
+    // Compare OTP
+    const isMatch = await bcrypt.compare(otp.trim(), record.otp_hash);
+    if (!isMatch) {
+      record.attempts += 1;
+      await record.save();
+      const remaining = 5 - record.attempts;
+      return res.status(401).json({ message: `Mã xác thực không chính xác. Còn ${remaining} lần thử.` });
+    }
+
+    // Find user and update password
+    const user = await User.findOne({ email: normalizedEmail });
+    if (!user) {
+      await OtpVerification.deleteOne({ _id: record._id });
+      return res.status(404).json({ message: 'Không tìm thấy tài khoản người dùng tương ứng.' });
+    }
+
+    const password_hash = await bcrypt.hash(newPassword, 12);
+    user.password_hash = password_hash;
+    user.has_manual_password = true;
+    user.failed_login_attempts = 0;
+    if (user.status === 'locked') {
+      user.status = 'active';
+    }
+    await user.save();
+
+    // Revoke all existing refresh tokens for security
+    await RefreshToken.deleteMany({ user_id: user._id });
+
+    // Clean up OTP
+    await OtpVerification.deleteOne({ _id: record._id });
+
+    console.log(`[Password Reset Success] Password changed for ${normalizedEmail}`);
+    res.json({ message: 'Đổi mật khẩu thành công! Bạn có thể đăng nhập bằng mật khẩu mới ngay bây giờ.' });
+  } catch (error) {
+    console.error('Reset Password error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống khi đặt lại mật khẩu: ' + (error.message || '') });
+  }
+});
+
 module.exports = router;

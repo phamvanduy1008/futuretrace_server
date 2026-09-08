@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const auth = require('../middleware/auth');
 const Simulation = require('../models/Simulation');
 const SimulationScenario = require('../models/SimulationScenario');
@@ -29,6 +30,163 @@ router.post('/pre-check', auth, async (req, res) => {
       message = 'Lượng truy cập đang tăng cao khiến hệ thống AI phản hồi chậm. Vui lòng thử lại sau vài phút.';
     }
     res.status(statusCode).json({ message: error.message || message, type });
+  }
+});
+
+// POST /api/simulations/stream - Create a new simulation with streaming SSE
+router.post('/stream', auth, async (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+  let tokensCharged = false;
+  let simulationId = null;
+  const startTime = Date.now();
+
+  try {
+    const { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, folderName, timeHorizon } = req.body;
+
+    if (!decision || !decision.trim()) {
+      res.write(`data: ${JSON.stringify({ event: 'error', message: 'Vui lòng nhập quyết định cần phân tích.' })}\n\n`);
+      return res.end();
+    }
+
+    // Check and deduct tokens
+    const chargeResult = await spendTokens(User, req.user.userId, SIMULATION_COST);
+    if (!chargeResult) {
+      res.write(`data: ${JSON.stringify({ event: 'error', message: 'Không đủ token để tạo mô phỏng.' })}\n\n`);
+      return res.end();
+    }
+    tokensCharged = true;
+
+    const inputData = { decision, stress, personalFinance, academicPerformance, risk, otherFactors, tier, timeHorizon: timeHorizon || 5 };
+
+    // Create simulation record
+    const simulation = new Simulation({
+      user_id: req.user.userId,
+      title: folderName || `Nhóm kịch bản: ${decision.slice(0, 50)}`,
+      input: inputData,
+      status: 'processing'
+    });
+    await simulation.save();
+    simulationId = simulation._id;
+
+    // Call Gemini AI with stream callback
+    const aiResult = await generateSimulation(inputData, (chunk) => {
+      res.write(`data: ${JSON.stringify(chunk)}\n\n`);
+    });
+
+    const latency = Date.now() - startTime;
+
+    // Log success
+    await new GeminiLog({
+      user_id: req.user.userId,
+      simulation_id: simulation._id,
+      prompt_version: 1,
+      model: aiResult.modelUsed || 'gemini-3.1-flash-lite',
+      status: 'success',
+      latency_ms: latency,
+      output: aiResult
+    }).save();
+
+    // Update simulation with results
+    simulation.status = 'completed';
+    simulation.completed_at = new Date();
+    simulation.summary = aiResult.summary;
+    simulation.is_enterprise = aiResult.isEnterprise || false;
+    simulation.timeline = aiResult.timeline;
+    simulation.folder_name = folderName || `Nhóm kịch bản: ${decision.slice(0, 50)}`;
+    await simulation.save();
+
+    // Save scenarios to DB
+    const savedScenarios = [];
+    if (aiResult.scenarios && aiResult.scenarios.length > 0) {
+      for (const s of aiResult.scenarios) {
+        const normalizeScenarioType = (type) => {
+          if (!type) return 'Neutral';
+          const t = type.toLowerCase();
+          if (t.includes('tích cực') || t.includes('positive')) return 'Positive';
+          if (t.includes('rủi ro') || t.includes('risk')) return 'Risk';
+          return 'Neutral';
+        };
+
+        const scenario = new SimulationScenario({
+          simulation_id: simulation._id,
+          scenario_type: normalizeScenarioType(s.type),
+          title: s.title,
+          description: s.description,
+          career_growth: s.careerGrowth,
+          happiness: s.happiness,
+          roi: s.roi,
+          deep_analysis: s.deepAnalysis
+        });
+        await scenario.save();
+        savedScenarios.push({
+          id: scenario._id.toString(),
+          title: scenario.title,
+          description: scenario.description,
+          careerGrowth: scenario.career_growth,
+          happiness: scenario.happiness,
+          roi: scenario.roi,
+          type: scenario.scenario_type,
+          deepAnalysis: scenario.deep_analysis
+        });
+      }
+    }
+
+    const dateStr = new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+    
+    // Gửi tín hiệu hoàn thành kèm theo dữ liệu JSON cuối cùng
+    res.write(`data: ${JSON.stringify({
+      event: 'result',
+      data: {
+        simulationId: simulation._id,
+        isEnterprise: aiResult.isEnterprise || false,
+        summary: aiResult.summary,
+        scenarios: savedScenarios,
+        timeline: aiResult.timeline,
+        historyItem: {
+          id: simulation._id,
+          title: simulation.folder_name,
+          category: 'MÔ PHỎNG',
+          author: 'user',
+          isAnonymous: false,
+          date: dateStr,
+          desc: `Bao gồm ${savedScenarios.length} kịch bản mô phỏng cho quyết định: ${decision}`,
+          reliability: 95,
+          isFolder: true,
+          scenarios: savedScenarios.map(s => ({
+            id: s.id,
+            title: s.title,
+            category: 'SỰ NGHIỆP',
+            date: dateStr,
+            desc: s.description,
+            reliability: 95,
+            color: s.type === 'Risk' ? 'bg-rose-500' : (s.type === 'Positive' ? 'bg-emerald-500' : 'bg-blue-500'),
+            type: s.type,
+            metrics: { career: s.careerGrowth, happiness: s.happiness, roi: s.roi },
+            deepAnalysis: s.deepAnalysis
+          })),
+          metrics: {
+            career: Math.round(savedScenarios.reduce((acc, s) => acc + s.careerGrowth, 0) / Math.max(savedScenarios.length, 1)),
+            happiness: Math.round(savedScenarios.reduce((acc, s) => acc + s.happiness, 0) / Math.max(savedScenarios.length, 1)),
+            roi: Math.round(savedScenarios.reduce((acc, s) => acc + s.roi, 0) / Math.max(savedScenarios.length, 1))
+          }
+        }
+      }
+    })}\n\n`);
+    res.end();
+
+  } catch (error) {
+    console.error('Create simulation STREAM error:', error);
+    if (tokensCharged) {
+      await User.updateOne({ _id: req.user.userId }, { $inc: { token: SIMULATION_COST } });
+    }
+    if (simulationId) {
+      await Simulation.findByIdAndUpdate(simulationId, { status: 'failed', error_message: error.message });
+    }
+    res.write(`data: ${JSON.stringify({ event: 'error', message: error.message || 'Lỗi hệ thống' })}\n\n`);
+    res.end();
   }
 });
 
@@ -371,16 +529,47 @@ router.delete('/:id/save', auth, async (req, res) => {
   }
 });
 
-// GET /api/simulations/:id - Get single simulation with scenarios
+// GET /api/simulations/:id - Get single simulation with scenarios (or by scenario id)
 router.get('/:id', auth, async (req, res) => {
   try {
-    const simulation = await Simulation.findOne({ _id: req.params.id, user_id: req.user.userId });
+    const id = req.params.id;
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: 'Định dạng mã mô phỏng không hợp lệ.' });
+    }
+
+    let simulation = await Simulation.findOne({ _id: id, user_id: req.user.userId });
+    let targetScenarioId = null;
+
+    // If not found as Simulation ID, check if it is a SimulationScenario ID
     if (!simulation) {
-      return res.status(404).json({ message: 'Không tìm thấy mô phỏng.' });
+      const scenario = await SimulationScenario.findById(id);
+      if (scenario) {
+        simulation = await Simulation.findOne({ _id: scenario.simulation_id, user_id: req.user.userId });
+        targetScenarioId = scenario._id.toString();
+      }
+    }
+
+    if (!simulation) {
+      return res.status(404).json({ message: 'Không tìm thấy mô phỏng hoặc kịch bản.' });
     }
 
     const scenarios = await SimulationScenario.find({ simulation_id: simulation._id });
     const dateStr = simulation.created_at.toLocaleDateString('vi-VN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+
+    const formattedScenarios = scenarios.map(s => ({
+      id: s._id.toString(),
+      title: s.title,
+      description: s.description,
+      careerGrowth: s.career_growth,
+      happiness: s.happiness,
+      roi: s.roi,
+      type: s.scenario_type,
+      deepAnalysis: s.deep_analysis
+    }));
+
+    const matchedScenario = targetScenarioId 
+      ? formattedScenarios.find(s => s.id === targetScenarioId) 
+      : null;
 
     res.json({
       id: simulation._id,
@@ -391,16 +580,8 @@ router.get('/:id', auth, async (req, res) => {
       is_enterprise: simulation.is_enterprise,
       timeline: simulation.timeline,
       date: dateStr,
-      scenarios: scenarios.map(s => ({
-        id: s._id.toString(),
-        title: s.title,
-        description: s.description,
-        careerGrowth: s.career_growth,
-        happiness: s.happiness,
-        roi: s.roi,
-        type: s.scenario_type,
-        deepAnalysis: s.deep_analysis
-      }))
+      scenarios: formattedScenarios,
+      matchedScenario: matchedScenario || formattedScenarios[0] || null
     });
   } catch (error) {
     console.error('Get simulation error:', error);

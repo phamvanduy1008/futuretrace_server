@@ -1,7 +1,7 @@
 const express = require('express');
 const auth = require('../middleware/auth');
 const PremiumAnalysis = require('../models/PremiumAnalysis');
-const { generatePremiumAnalysis, pivotPremiumAnalysis, expandStepDetail } = require('../services/geminiService');
+const axios = require('axios'); // Gọi sang Local Python API thay cho Gemini
 const GeminiLog = require('../models/GeminiLog');
 const User = require('../models/User');
 const { spendTokens } = require('../services/subscriptionService');
@@ -79,19 +79,27 @@ router.post('/analyze', auth, async (req, res) => {
     }
     tokensCharged = true;
 
-    // Call Gemini AI
-    const report = await generatePremiumAnalysis(
-      scenario.title,
-      scenario.description,
-      context,
-      timeframe
-    );
+    // Call Local Python AI
+    let report;
+    try {
+      const response = await axios.post('http://localhost:8000/api/premium/analyze', {
+        title: scenario.title,
+        description: scenario.description,
+        context: context || {},
+        timeframe: timeframe || 12
+      });
+      report = response.data;
+      if (report.error) throw new Error(report.error);
+    } catch (apiErr) {
+      console.error("[Local AI Analyze Error]:", apiErr.message);
+      throw new Error("Không thể kết nối với mô hình Local AI để phân tích.");
+    }
 
     // Log success
     await new GeminiLog({
       user_id: req.user.userId,
       prompt_version: 1,
-      model: report.modelUsed || 'gemini-3.5-flash',
+      model: 'local-qwen2.5-7b',
       status: 'success',
       latency_ms: Date.now() - startTime,
       output: report
@@ -253,15 +261,22 @@ router.post('/pivot', auth, async (req, res) => {
       }
     }
 
-    // Call Gemini AI
-    const newReport = await pivotPremiumAnalysis(
-      currentReport,
-      completedMilestones || [],
-      feedback,
-      context,
-      timeframe,
-      feedbackHistory
-    );
+    // Call Local Python AI
+    let newReport;
+    try {
+      const response = await axios.post('http://localhost:8000/api/premium/pivot', {
+        currentReport: currentReport,
+        completedMilestones: completedMilestones || [],
+        feedback: feedback,
+        context: context || {},
+        timeframe: timeframe || 12
+      });
+      newReport = response.data;
+      if (newReport.error) throw new Error(newReport.error);
+    } catch (apiErr) {
+      console.error("[Local AI Pivot Error]:", apiErr.message);
+      throw new Error("Không thể kết nối với mô hình Local AI để điều chỉnh.");
+    }
 
     // Log success
     await new GeminiLog({
@@ -503,14 +518,22 @@ router.patch('/expand-step', auth, async (req, res) => {
       return res.status(404).json({ message: 'Không tìm thấy nhiệm vụ chi tiết.' });
     }
 
-    // Call Gemini to generate the expanded step details
-    const expanded = await expandStepDetail(
-      item.title,
-      foundMilestone.event,
-      foundStep.title,
-      foundStep.description,
-      item.context
-    );
+    // Call Local Python AI to generate the expanded step details
+    let expanded;
+    try {
+      const response = await axios.post('http://localhost:8000/api/premium/expand-step', {
+        title: item.title,
+        event: foundMilestone.event,
+        step_title: foundStep.title,
+        step_desc: foundStep.description,
+        context: item.context || {}
+      });
+      expanded = response.data;
+      if (expanded.error) throw new Error(expanded.error);
+    } catch (apiErr) {
+      console.error("[Local AI Expand Error]:", apiErr.message);
+      throw new Error("Không thể kết nối với mô hình Local AI để mở rộng bước.");
+    }
 
     // Update the step in-place
     foundStep.description = expanded.description;
