@@ -238,17 +238,17 @@ const callGeminiWithRetry = async (modelNames, contents, config, maxRetries = 2)
       } catch (error) {
         lastError = error;
         console.warn(`[AI Retry ${i}/${maxRetries}] Failed with model "${model}":`, error.message);
-        
+
         if (error.status === 400 && !error.message.includes('API key not valid')) {
           throw error;
         }
 
         const errorMsgLower = error.message ? error.message.toLowerCase() : '';
-        const isModelNotFoundError = error.status === 404 || 
-                                    errorMsgLower.includes('not found') || 
-                                    errorMsgLower.includes('not supported') ||
-                                    errorMsgLower.includes('denied access') ||
-                                    error.status === 403;
+        const isModelNotFoundError = error.status === 404 ||
+          errorMsgLower.includes('not found') ||
+          errorMsgLower.includes('not supported') ||
+          errorMsgLower.includes('denied access') ||
+          error.status === 403;
 
         if (isModelNotFoundError) {
           console.warn(`[AI Fallback] Model "${model}" is not available or access is denied. Switching to fallback.`);
@@ -303,7 +303,7 @@ const analyzeInputReadiness = async (data) => {
 
   try {
     const response = await callGeminiWithRetry(
-      ['gemini-3.1-flash-lite', 'gemini-2.5-flash-lite'],
+      ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3.1-flash-lite', 'gemini-2.5-flash-lite'],
       prompt,
       {
         responseMimeType: 'application/json',
@@ -364,29 +364,29 @@ const generateSimulation = async (data, onStreamEvent) => {
   let agentAdvice = "";
   try {
     const query = `Người dùng cần tư vấn: ${data.decision}. \nNgữ cảnh: \n- Tài chính: ${data.personalFinance}/5 \n- Học lực: ${data.academicPerformance}/5 \n- Áp lực: ${data.stress}/5 \n- Sở thích: ${data.otherFactors || "Không có"} \nBạn hãy đưa ra kịch bản và lời khuyên chi tiết.`;
-    
+
     console.log("[AGENT] Đang gửi yêu cầu sang Local Python API (Ollama) dạng Stream...");
     const axios = require('axios');
     const agentRes = await axios.post("http://localhost:8000/api/analyze/stream", { query }, { responseType: 'stream' });
-    
+
     agentAdvice = await new Promise((resolve, reject) => {
       let accumulatedText = "";
       let buffer = "";
-      
+
       agentRes.data.on('data', (chunk) => {
         buffer += chunk.toString();
         const lines = buffer.split('\n\n');
         buffer = lines.pop(); // Keep incomplete chunk in buffer
-        
+
         for (const line of lines) {
           if (line.startsWith('data: ')) {
             try {
               const dataStr = line.substring(6).trim();
               if (!dataStr) continue;
               const parsed = JSON.parse(dataStr);
-              
+
               if (onStreamEvent) onStreamEvent(parsed);
-              
+
               if (parsed.event === 'token') {
                 accumulatedText += parsed.text;
               }
@@ -396,12 +396,12 @@ const generateSimulation = async (data, onStreamEvent) => {
           }
         }
       });
-      
+
       agentRes.data.on('end', () => resolve(accumulatedText));
       agentRes.data.on('error', (err) => reject(err));
     });
     console.log("[AGENT] Nhận hoàn tất luồng dữ liệu từ Local LLM!");
-    
+
   } catch (err) {
     console.error("[AGENT] Không thể kết nối tới Python API Stream:", err.message);
     agentAdvice = "Lỗi kết nối Local AI. Hãy dùng kiến thức chung của bạn để phân tích.";
