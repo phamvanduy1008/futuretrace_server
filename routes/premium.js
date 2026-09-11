@@ -40,21 +40,33 @@ router.post('/analyze', auth, async (req, res) => {
     });
 
     if (existing) {
-      // Return existing progress (no token deduction)
-      return res.json({
-        id: existing._id.toString(),
-        scenarioId: existing.scenario_id,
-        title: existing.title,
-        category: existing.category,
-        date: existing.created_at.toLocaleDateString('vi-VN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase(),
-        report: existing.report,
-        context: existing.context,
-        scenario: existing.scenario,
-        completedMilestones: existing.completed_milestones,
-        timeframe: existing.timeframe,
-        isExisting: true,
-        ...formatTokenResponse(await getUserToken(req.user.userId))
-      });
+      const isComplete = existing.report &&
+        existing.report.detailedNarrative &&
+        Array.isArray(existing.report.milestones) &&
+        existing.report.milestones.length > 0 &&
+        Array.isArray(existing.report.strategicPivotPoints) &&
+        existing.report.strategicPivotPoints.length > 0;
+
+      if (isComplete) {
+        // Return existing progress (no token deduction)
+        return res.json({
+          id: existing._id.toString(),
+          scenarioId: existing.scenario_id,
+          title: existing.title,
+          category: existing.category,
+          date: existing.created_at.toLocaleDateString('vi-VN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase(),
+          report: existing.report,
+          context: existing.context,
+          scenario: existing.scenario,
+          completedMilestones: existing.completed_milestones,
+          timeframe: existing.timeframe,
+          isExisting: true,
+          ...formatTokenResponse(await getUserToken(req.user.userId))
+        });
+      } else {
+        console.warn(`[Premium Analysis] Existing report for scenario ${scenario.id} is incomplete/empty. Deleting corrupt record to regenerate with Gemini...`);
+        await PremiumAnalysis.deleteOne({ _id: existing._id });
+      }
     }
 
     // Deduct tokens first

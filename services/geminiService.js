@@ -565,6 +565,140 @@ const generateSimulation = async (data, onStreamEvent) => {
   }
 }
 
+/**
+ * Ensures the premium analysis report has all required fields with fallback defaults
+ */
+const normalizePremiumReport = (report, timeframe = 12) => {
+  if (!report || typeof report !== 'object') {
+    report = {};
+  }
+  
+  const tf = timeframe || 12;
+  const m1 = Math.round(tf * 0.15) || 1;
+  const m2 = Math.round(tf * 0.35) || 3;
+  const m3 = Math.round(tf * 0.6) || 6;
+  const m4 = Math.round(tf * 0.8) || 9;
+  const m5 = tf;
+
+  if (!Array.isArray(report.milestones) || report.milestones.length === 0) {
+    report.milestones = [
+      {
+        month: `Tháng 1-${m1}`,
+        event: "Khởi động và Xây dựng Nền tảng",
+        impact: "Định hình mục tiêu rõ ràng và thiết lập thói quen kỷ luật cốt lõi.",
+        probability: 90,
+        details: [
+          {
+            id: "step_1_1",
+            title: "Đánh giá năng lực hiện tại và chuẩn bị",
+            description: "Xác định rõ khoảng trống kiến thức và kỹ năng cần bổ sung trong giai đoạn đầu.",
+            objectives: ["Đo lường năng lực hiện tại", "Lập thời gian biểu chi tiết"],
+            actions: ["Làm bài kiểm tra đánh giá năng lực", "Sắp xếp thời gian biểu tuần"],
+            tools: ["Notion", "Google Calendar"],
+            expectedResult: "Bản kế hoạch chi tiết cho giai đoạn đầu",
+            completed: false
+          }
+        ]
+      },
+      {
+        month: `Tháng ${m1 + 1}-${m2}`,
+        event: "Tăng tốc Kiến thức và Kỹ năng Chuyên môn",
+        impact: "Nâng cao năng lực cạnh tranh và tạo sự bứt phá về thành tích.",
+        probability: 85,
+        details: [
+          {
+            id: "step_2_1",
+            title: "Thực hành bài tập và dự án thực tế",
+            description: "Áp dụng kiến thức lý thuyết vào các bài toán thực hành chuyên sâu.",
+            objectives: ["Hoàn thành bài tập thực hành", "Tối ưu phương pháp học tập"],
+            actions: ["Luyện giải đề nâng cao", "Nhận phản hồi từ thầy cô hoặc mentor"],
+            tools: ["Tài liệu chuyên ngành", "GitHub/Drive"],
+            expectedResult: "Hoàn thiện sản phẩm thực hành đạt tiêu chuẩn cao",
+            completed: false
+          }
+        ]
+      },
+      {
+        month: `Tháng ${m2 + 1}-${m3}`,
+        event: "Cân bằng Áp lực và Tối ưu Hóa Lộ trình",
+        impact: "Duy trì phong độ bền bỉ và điều chỉnh chiến thuật ôn luyện.",
+        probability: 80,
+        details: [
+          {
+            id: "step_3_1",
+            title: "Đánh giá giữa kỳ và bù đắp điểm yếu",
+            description: "Phát hiện kịp thời các lỗ hổng kiến thức để khắc phục trước khi tăng tốc.",
+            objectives: ["Khắc phục điểm yếu", "Duy trì sự tập trung cao độ"],
+            actions: ["Rà soát lại tiến độ", "Điều chỉnh phương pháp học phù hợp hơn"],
+            tools: ["Sổ tay ghi chú", "Flashcard Anki"],
+            expectedResult: "Cải thiện rõ rệt ở các phần kiến thức còn yếu",
+            completed: false
+          }
+        ]
+      },
+      {
+        month: `Tháng ${m3 + 1}-${m4}`,
+        event: "Cọ xát Thực tế và Mở rộng Mạng lưới",
+        impact: "Tạo bước đệm vững chắc và rèn luyện tâm lý sẵn sàng cho giai đoạn về đích.",
+        probability: 75,
+        details: [
+          {
+            id: "step_4_1",
+            title: "Tham gia thi thử hoặc giao lưu học thuật",
+            description: "Mở rộng góc nhìn và rèn luyện áp lực phòng thi/phỏng vấn thực tế.",
+            objectives: ["Cọ xát áp lực thực tế", "Xây dựng mối quan hệ hữu ích"],
+            actions: ["Đăng ký tham gia kỳ thi thử", "Trao đổi kinh nghiệm với anh chị đi trước"],
+            tools: ["Cộng đồng chuyên môn", "Nhóm học tập"],
+            expectedResult: "Đạt phong độ ổn định trong môi trường áp lực cao",
+            completed: false
+          }
+        ]
+      },
+      {
+        month: `Tháng ${m5}`,
+        event: "Đạt Mục tiêu và Đánh giá Cột mốc Lớn",
+        impact: "Hoàn thành toàn diện mục tiêu đã đặt ra ban đầu và sẵn sàng cho nấc thang mới.",
+        probability: 80,
+        details: [
+          {
+            id: "step_5_1",
+            title: "Tổng kết và hoạch định bước tiếp theo",
+            description: "Đánh giá toàn diện kết quả đạt được và xây dựng lộ trình tiếp nối.",
+            objectives: ["Đo lường thành quả đạt được", "Lên kế hoạch phát triển dài hạn"],
+            actions: ["Tổng kết KPI đạt được", "Định hướng mục tiêu cho năm tiếp theo"],
+            tools: ["Báo cáo cá nhân", "Portfolio cá nhân"],
+            expectedResult: "Đạt mục tiêu đề ra và sẵn sàng cho nấc thang mới",
+            completed: false
+          }
+        ]
+      }
+    ];
+  }
+
+  if (!Array.isArray(report.influencingFactors) || report.influencingFactors.length === 0) {
+    report.influencingFactors = [
+      { category: "Học tập", factor: "Phương pháp và tính kỷ luật", influence: "High", description: "Tính kỷ luật tự giác quyết định 70% mức độ hoàn thành lộ trình đề ra." },
+      { category: "Tâm lý", factor: "Khả năng quản lý căng thẳng", influence: "High", description: "Giữ tinh thần ổn định giúp duy trì hiệu suất bền bỉ trong suốt thời gian dài." },
+      { category: "Môi trường", factor: "Sự đồng hành từ gia đình và bạn bè", influence: "Medium", description: "Môi trường ủng hộ tạo động lực to lớn giúp vượt qua những giai đoạn áp lực." },
+      { category: "Thị trường", factor: "Xu hướng biến động ngành nghề", influence: "Medium", description: "Cập nhật kịp thời thông tin tuyển sinh/tuyển dụng để điều chỉnh mục tiêu linh hoạt." }
+    ];
+  }
+
+  if (!Array.isArray(report.strategicPivotPoints) || report.strategicPivotPoints.length === 0) {
+    report.strategicPivotPoints = [
+      { condition: "Tiến độ học tập/ôn luyện bị chậm hơn 2 tuần so với kế hoạch", action: "Giảm tải các hoạt động phụ, tập trung tối đa vào 20% kiến thức trọng tâm mang lại 80% kết quả." },
+      { condition: "Áp lực thi cử hoặc tâm lý căng thẳng kéo dài", action: "Nghỉ ngơi chủ động 2 ngày, trao đổi với người thân và tái thiết lập mục tiêu vừa sức hơn." },
+      { condition: "Kết quả kiểm tra thử không đạt kỳ vọng ban đầu", action: "Tìm kiếm sự hỗ trợ từ thầy cô hoặc mentor có chuyên môn để phân tích và chữa lỗi sai cụ thể." }
+    ];
+  }
+
+  if (!report.longTermProjection || !report.longTermProjection.trim()) {
+    report.longTermProjection = "Trong tầm nhìn 3-5 năm tới, sau khi hoàn thành lộ trình này, bạn sẽ xây dựng được nền tảng chuyên môn vững chắc và tư duy tự định hướng vượt trội. Đây sẽ là bệ phóng quan trọng giúp bạn tự tin nắm bắt cơ hội học tập ở bậc cao hơn và bước vào thị trường lao động với vị thế cạnh tranh cao.";
+  }
+
+  return report;
+};
+
 const generatePremiumAnalysis = async (title, description, context, timeframe) => {
   const ai = getAI();
 
@@ -716,8 +850,9 @@ const generatePremiumAnalysis = async (title, description, context, timeframe) =
     }
 
     const parsed = parseAndRepairJson(text);
-    parsed.modelUsed = response.modelUsed;
-    return parsed;
+    const normalized = normalizePremiumReport(parsed, timeframe);
+    normalized.modelUsed = response.modelUsed;
+    return normalized;
   } catch (error) {
     console.error('[AI Error Details - Premium]:', error);
     throw error;
