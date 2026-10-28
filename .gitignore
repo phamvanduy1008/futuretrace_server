@@ -23,3 +23,27 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Khóa bí mật
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+
+# Dữ liệu huấn luyện lớn (lưu trên Drive)
+data/sft_v3/
+data/sft_premium/
+data/sft_pilot*/
+data/sft_t1/
+data/sft_chat/
+data/_old/
+train_data_diverse_3000*.jsonl
+
+# File trung gian của mẫu vàng
+data/gold/prompts/
+data/gold/prompts_skipped/
+data/gold/inputs_backup/
+data/gold/out_removed/
+geminiService_tool_calls.json
