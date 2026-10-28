@@ -1,0 +1,1442 @@
+{
+  "createdAt": "2026-10-23T05:12:06.939Z",
+  "cases": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\premium_retry.jsonl",
+  "judge": "gemini",
+  "summary": {
+    "modal": {
+      "n": 3,
+      "success": 1,
+      "structure": 1,
+      "timeline": 1,
+      "groundedness": 1,
+      "claimsPerReport": 5.333,
+      "urlsPerReport": 0,
+      "selfTitlePerReport": 0,
+      "unknownEntityPerReport": 4.667,
+      "wordsPerReport": 3807.333,
+      "fallbackToOtherProvider": 0,
+      "latencyP50s": 99.082,
+      "latencyP95s": 100.868,
+      "rubric": {
+        "specificity": 4.667,
+        "faithfulness": 5,
+        "actionability": 4.667,
+        "coherence": 4.667,
+        "fluency": 5,
+        "overall": 4.8
+      },
+      "errors": []
+    }
+  },
+  "rows": [
+    {
+      "id": "gold_p00459",
+      "system": "modal",
+      "ok": true,
+      "latencyMs": 96505,
+      "structure": true,
+      "timeline": true,
+      "claims": 4,
+      "groundedness": 1,
+      "urls": 0,
+      "selfTitle": 0,
+      "unknownEntity": 2,
+      "words": 3748,
+      "providers": [
+        "modal"
+      ],
+      "v3": {
+        "unknownSlots": 0,
+        "removedSentences": 0,
+        "planCheck": "ok"
+      },
+      "outputTokens": 5410,
+      "scores": {
+        "specificity": 5,
+        "faithfulness": 5,
+        "actionability": 5,
+        "coherence": 5,
+        "fluency": 5
+      },
+      "report": {
+        "detailedNarrative": "Tháng 1: Em bắt đầu rà soát quy chế song bằng tại trường để xác định số tín chỉ cần công nhận từ khối CNTT sang Quản lý Văn hóa. Khó khăn lớn nhất là sự chênh lệch kiến thức nền tảng giữa hai lĩnh vực, đòi hỏi em phải dành ít nhất 10 giờ/tuần để tự học các môn cốt lõi. Tháng 3: Em nộp hồ sơ đăng ký chuyển đổi ngành và tìm hiểu kỹ về học phí song bằng. Với tài chính gia đình hạn hẹp, em cần lên kế hoạch vay vốn hoặc xin hỗ trợ tài chính ngay từ sớm để đảm bảo không gián đoạn việc học. Tháng 5: Em bắt đầu tham gia các dự án tình nguyện liên quan đến di sản văn hóa tại Quảng Ninh để tích lũy kinh nghiệm thực tế. Đây là bước đệm quan trọng giúp em xây dựng CV trước khi tốt nghiệp. Tháng 8: Em hoàn thành các môn học bắt buộc của ngành mới và bắt đầu tìm kiếm cơ hội thực tập tại các đơn vị văn hóa địa phương. Việc cân bằng giữa học song bằng và thực tập là thách thức lớn nhất hiện nay. Tháng 11: Em chuẩn bị hồ sơ xin việc với định hướng làm việc gần nhà tại Quảng Ninh. Em cần nhấn mạnh vào kỹ năng quản lý sự kiện và hành chính do đã trải nghiệm thực tế trong suốt quá trình học. Tháng 12: Sau khi tốt nghiệp, em chính thức trở thành nhân viên hành chính/văn hóa tại đơn vị địa phương. Thu nhập ban đầu sẽ nằm trong khoảng tham khảo 10 triệu/tháng [F2], tăng trưởng dần theo kinh nghiệm làm việc.",
+        "milestones": [
+          {
+            "month": "Tháng 1-2",
+            "event": "Hoàn tất thủ tục đăng ký chuyển ngành và xác nhận tín chỉ công nhận",
+            "impact": "High",
+            "probability": 85,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_1_1",
+                "title": "Rà soát quy chế chuyển đổi và công nhận tín chỉ môn học chung",
+                "description": "Em cần liên hệ phòng đào tạo để tra cứu danh sách môn học Công nghệ thông tin được công nhận tương đương với các môn cốt lõi của ngành Quản lý văn hóa như Lịch sử, Văn hóa dân tộc. Việc này giúp giảm tải khối lượng học tập và tiết kiệm thời gian, đặc biệt quan trọng khi em đang gặp áp lực tài chính.",
+                "objectives": [
+                  "Xác định ít nhất 15 tín chỉ môn học được miễn giảm hoặc công nhận ngay lập tức",
+                  "Hoàn thành báo cáo đề xuất chuyển ngành trước ngày 15 tháng 1",
+                  "Nhận giấy xác nhận tín chỉ tạm thời từ giảng viên bộ môn"
+                ],
+                "actions": [
+                  "Gửi email kèm CV và bảng điểm lên phòng đào tạo để yêu cầu tư vấn chính thức",
+                  "Soạn thảo bảng đối chiếu giữa các môn học hai ngành dựa trên giáo trình hiện hành",
+                  "Thảo luận trực tiếp với giảng viên chủ nhiệm để giải đáp thắc mắc về quy trình xét duyệt"
+                ],
+                "tools": [
+                  "Phòng Đào tạo Đại học Quảng Ninh",
+                  "Bảng điểm điện tử của trường",
+                  "Email nội bộ"
+                ],
+                "expectedResult": "Bản kế hoạch chuyển ngành đã phê duyệt và danh sách 15 tín chỉ được công nhận.",
+                "completed": false
+              },
+              {
+                "id": "step_1_2",
+                "title": "Lập kế hoạch học tập song bằng và điều chỉnh lịch trình cá nhân",
+                "description": "Với tài chính hạn hẹp, em cần thiết lập lộ trình học song bằng mà không ảnh hưởng đến việc làm thêm hoặc gia đình. Cần sắp xếp thời gian biểu hợp lý để đảm bảo duy trì GPA và hoàn thành các môn bắt buộc của ngành mới trong vòng 2 tháng tới.",
+                "objectives": [
+                  "Lên lịch học tuần mới cân bằng giữa hai ngành học và hoạt động ngoại khóa",
+                  "Đăng ký đủ số tín chỉ tối thiểu cho kỳ học tiếp theo",
+                  "Giữ điểm trung bình học kỳ đạt mức khá trở lên"
+                ],
+                "actions": [
+                  "Dùng Google Calendar để phân bổ thời gian biểu chi tiết cho từng môn học và buổi thực tập",
+                  "Liên hệ cố vấn học thuật để xin gợi ý môn học linh hoạt phù hợp với lịch làm thêm",
+                  "Theo dõi tiến độ học tập hàng tuần qua hệ thống quản lý học tập của trường"
+                ],
+                "tools": [
+                  "Google Calendar",
+                  "Hệ thống quản lý học tập (LMS)",
+                  "Ứng dụng nhắc nhở cuộc hẹn"
+                ],
+                "expectedResult": "Lịch học tập chi tiết cho 2 tháng tới và cam kết hoàn thành các môn học bắt buộc.",
+                "completed": false
+              },
+              {
+                "id": "step_1_3",
+                "title": "Chuẩn bị hồ sơ xin học bổng hoặc vay vốn hỗ trợ chi phí học phí",
+                "description": "Do tài chính gia đình rất thấp, em cần tìm kiếm các nguồn tài trợ bên ngoài ngay từ những ngày đầu chuyển ngành. Hồ sơ xin học bổng hoặc vay vốn sẽ là yếu tố then chốt để bù đắp khoản thiếu hụt tài chính lớn trong suốt quá trình học song bằng.",
+                "objectives": [
+                  "Hoàn thiện hồ sơ xin học bổng hoặc vay vốn ngân hàng thương mại",
+                  "Liên hệ ít nhất 2 tổ chức tài trợ hoặc quỹ hỗ trợ sinh viên địa phương",
+                  "Đạt tỷ lệ chấp thuận tài chính tối thiểu 50% cho kỳ học tiếp theo"
+                ],
+                "actions": [
+                  "Viết thư xin học bổng nhấn mạnh vào mong muốn phục vụ cộng đồng và hoàn cảnh gia đình khó khăn",
+                  "Tìm hiểu các gói vay vốn ưu đãi dành cho sinh viên chuyển ngành tại các ngân hàng địa phương",
+                  "Trực tiếp nộp hồ sơ và phỏng vấn với ban giám hiệu hoặc hội đồng tuyển sinh"
+                ],
+                "tools": [
+                  "Website Ngân hàng Chính sách xã hội",
+                  "Quỹ Hỗ trợ Sinh viên Quảng Ninh",
+                  "Biểu mẫu xin học bổng nội bộ"
+                ],
+                "expectedResult": "Hồ sơ xin tài trợ hoàn chỉnh và xác nhận được nguồn tài trợ cho kỳ học tiếp theo.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 4",
+            "event": "Xác định nguồn tài chính hỗ trợ cho học phí song bằng",
+            "impact": "Medium",
+            "probability": 70,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_2_1",
+                "title": "Rà soát quy chế tín chỉ và điều kiện miễn giảm học phí song bằng",
+                "description": "Em cần tra cứu kỹ quy định của khoa để biết các môn Công nghệ thông tin nào được công nhận tín chỉ cho ngành Quản lý văn hóa, giúp giảm tải khối lượng học và chi phí. Việc này đảm bảo em không bị mất quyền lợi khi chuyển đổi.",
+                "objectives": [
+                  "Xác định danh sách môn học được công nhận tín chỉ",
+                  "Lập kế hoạch đăng ký môn học phù hợp với lịch học hiện tại",
+                  "Hoàn thành báo cáo đề xuất phương án học tập"
+                ],
+                "actions": [
+                  "Truy cập cổng thông tin đào tạo của trường để tải file quy chế song bằng",
+                  "Gặp giảng viên bộ môn Quản lý văn hóa để hỏi về quy trình xét duyệt tín chỉ",
+                  "Soạn thảo bảng kê các môn học cần học bổ sung và thời gian biểu dự kiến"
+                ],
+                "tools": [
+                  "Cổng thông tin đào tạo trường Đại học",
+                  "Email liên hệ phòng đào tạo",
+                  "File Excel quản lý lịch học"
+                ],
+                "expectedResult": "Báo cáo chi tiết về số tín chỉ được công nhận và danh sách môn học còn thiếu.",
+                "completed": false
+              },
+              {
+                "id": "step_2_2",
+                "title": "Liên hệ phòng tài chính để xin hỗ trợ vay vốn hoặc học bổng",
+                "description": "Vì gia đình gặp khó khăn tài chính, em cần chủ động tìm kiếm các gói vay tín chấp hoặc học bổng dành cho sinh viên chuyển ngành. Điều này giúp bù đắp khoản thiếu hụt ngân sách mà không ảnh hưởng đến tiến độ học tập.",
+                "objectives": [
+                  "Nộp hồ sơ xin vay vốn giáo dục hoặc học bổng",
+                  "Nhận phản hồi từ ban giám đốc tài chính về khả năng phê duyệt",
+                  "Cam kết phương án trả nợ nếu được duyệt vay"
+                ],
+                "actions": [
+                  "Chuẩn bị giấy tờ chứng minh hoàn cảnh gia đình và bảng điểm hiện tại",
+                  "Gửi email/xin hẹn gặp trực tiếp với trưởng phòng tài chính và cán bộ tư vấn",
+                  "Theo dõi trạng thái hồ sơ qua hệ thống quản lý hồ sơ sinh viên"
+                ],
+                "tools": [
+                  "Phòng Tài chính - Kế toán Trường ĐH",
+                  "Dịch vụ vay vốn ngân hàng Chính phủ",
+                  "Hệ thống quản lý hồ sơ sinh viên online"
+                ],
+                "expectedResult": "Quyết định phê duyệt vay vốn hoặc học bổng với hạn mức và lãi suất cụ thể.",
+                "completed": false
+              },
+              {
+                "id": "step_2_3",
+                "title": "Thiết lập kế hoạch tài chính cá nhân và cam kết tài chính gia đình",
+                "description": "Sau khi có nguồn hỗ trợ, em cần cùng gia đình lên kế hoạch chi tiêu chặt chẽ cho từng học kỳ, đảm bảo duy trì cuộc sống và đóng góp học phí. Bước này giúp kiểm soát dòng tiền và giảm áp lực tâm lý cho cả hai bên.",
+                "objectives": [
+                  "Lập bảng dự trù chi tiêu học phí và sinh hoạt phí cho 2 năm tới",
+                  "Thỏa thuận mức đóng góp hàng tháng giữa gia đình và bản thân",
+                  "Đăng ký tài khoản ngân hàng riêng để quản lý dòng tiền"
+                ],
+                "actions": [
+                  "Sử dụng ứng dụng quản lý tài chính cá nhân để phân tích chi tiêu hiện tại",
+                  "Tổ chức họp gia đình để bàn bạc về nguồn lực tài chính cho năm học tiếp theo",
+                  "Mở tài khoản ngân hàng tiết kiệm và liên kết ví điện tử để dễ dàng thanh toán"
+                ],
+                "tools": [
+                  "Ứng dụng quản lý chi tiêu (ví dụ: Money Lover)",
+                  "Biểu mẫu thỏa thuận tài chính gia đình",
+                  "Tài khoản ngân hàng cá nhân"
+                ],
+                "expectedResult": "Kế hoạch tài chính chi tiết cho 2 năm học song bằng và cam kết tài chính rõ ràng.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 6",
+            "event": "Tham gia dự án tình nguyện về di sản văn hóa tại Quảng Ninh",
+            "impact": "Low",
+            "probability": 90,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_3_1",
+                "title": "Xác định tổ chức và đăng ký tham gia dự án di sản tại Quảng Ninh",
+                "description": "Em tìm kiếm các đoàn thể văn hóa địa phương hoặc viện nghiên cứu tại Quảng Ninh để đăng ký tham gia dự án bảo tồn di sản. Việc này giúp em tích lũy kinh nghiệm thực tế ngay khi còn ngồi trên ghế nhà trường mà không tốn kém chi phí.",
+                "objectives": [
+                  "Hoàn thành hồ sơ đăng ký tham gia ít nhất 1 dự án di sản",
+                  "Gặp gỡ trưởng nhóm dự án để hiểu quy trình làm việc",
+                  "Nhận giấy xác nhận tham gia dự án"
+                ],
+                "actions": [
+                  "Duyệt qua website của Sở Văn hóa Thể thao và Du lịch Quảng Ninh để tìm danh sách dự án đang tuyển dụng",
+                  "Liên hệ phòng đào tạo hoặc ban tổ chức dự án qua email hoặc điện thoại để nộp đơn xin tham gia",
+                  "Chuẩn bị CV ngắn gọn nhấn mạnh kỹ năng quản lý sự kiện và kiến thức văn hóa dân tộc"
+                ],
+                "tools": [
+                  "Website Sở VH-TT&DL Quảng Ninh",
+                  "Email liên hệ",
+                  "CV mẫu"
+                ],
+                "expectedResult": "Em có giấy xác nhận tham gia dự án và nắm rõ vai trò trách nhiệm trong suốt quá trình triển khai.",
+                "completed": false
+              },
+              {
+                "id": "step_3_2",
+                "title": "Thực hiện nhiệm vụ bảo vệ và ghi chép di sản văn hóa địa phương",
+                "description": "Trong thời gian thực hiện dự án, em sẽ phụ trách các công việc như chụp ảnh tư liệu, ghi chép nội dung truyền thống và hỗ trợ trưng bày. Đây là cơ hội tuyệt vời để em rèn luyện kỹ năng xử lý tình huống và làm việc nhóm trong môi trường thực tế.",
+                "objectives": [
+                  "Hoàn thành 100% lượng công việc phân công trong vòng 2 tuần",
+                  "Thu thập ít nhất 5 bộ hình ảnh chất lượng cao về di sản",
+                  "Viết báo cáo tóm tắt hoạt động sau mỗi đợt thực hiện"
+                ],
+                "actions": [
+                  "Sử dụng máy ảnh và thiết bị ghi âm để chụp ảnh và ghi âm các lễ hội truyền thống tại địa phương",
+                  "Phỏng vấn các nghệ nhân địa phương để ghi chép thông tin về kỹ thuật và lịch sử di sản",
+                  "Soạn thảo báo cáo tóm tắt các phát hiện và khó khăn gặp phải trong quá trình thực hiện"
+                ],
+                "tools": [
+                  "Máy ảnh điện tử",
+                  "Micro ghi âm",
+                  "Microsoft Word/Google Docs"
+                ],
+                "expectedResult": "Em sở hữu đầy đủ hồ sơ hình ảnh và báo cáo thực tế về di sản văn hóa tại Quảng Ninh.",
+                "completed": false
+              },
+              {
+                "id": "step_3_3",
+                "title": "Tổng hợp kết quả và chuẩn bị hồ sơ xin thực tập tại đơn vị văn hóa",
+                "description": "Cuối cùng, em sẽ tổng hợp toàn bộ trải nghiệm, sản phẩm và phản hồi từ dự án để xây dựng hồ sơ xin thực tập. Những kinh nghiệm này sẽ trở thành lợi thế cạnh tranh lớn khi em nộp đơn vào các đơn vị văn hóa địa phương sau này.",
+                "objectives": [
+                  "Tạo portfolio bao gồm hình ảnh, video và báo cáo thực tế",
+                  "Viết thư giới thiệu từ trưởng nhóm dự án",
+                  "Hoàn thiện hồ sơ xin thực tập với đầy đủ thông tin cá nhân"
+                ],
+                "actions": [
+                  "Lập album ảnh và video minh họa các hoạt động thực tế đã tham gia",
+                  "Yêu cầu trưởng nhóm viết thư giới thiệu xác nhận thành tích và thái độ làm việc",
+                  "Kiểm tra lại toàn bộ hồ sơ trước khi gửi đi qua các kênh tuyển dụng chính thức"
+                ],
+                "tools": [
+                  "Canva",
+                  "LinkedIn",
+                  "Email"
+                ],
+                "expectedResult": "Em có một bộ hồ sơ xin thực tập hoàn chỉnh, nổi bật với những giá trị thực tế từ dự án tình nguyện.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 9",
+            "event": "Bắt đầu kỳ thực tập tại đơn vị văn hóa địa phương",
+            "impact": "High",
+            "probability": 75,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_4_1",
+                "title": "Xác minh danh sách doanh nghiệp văn hóa tại Quảng Ninh phù hợp với yêu cầu thực tập",
+                "description": "Em cần liệt kê các đơn vị quản lý di sản, bảo tồn văn hóa và tổ chức sự kiện uy tín tại Quảng Ninh để gửi hồ sơ. Việc này giúp em tập trung vào nơi có môi trường thực tế và gần nhà, tránh lãng phí thời gian tìm kiếm xa. Lưu ý kiểm tra quy mô hoạt động và mức độ linh hoạt về thời gian làm việc.",
+                "objectives": [
+                  "Liệt kê ít nhất 5 đơn vị tiềm năng tại Quảng Ninh",
+                  "Gửi đơn xin thực tập cho 3 đơn vị hàng đầu",
+                  "Nhận phản hồi từ ít nhất 2 đơn vị"
+                ],
+                "actions": [
+                  "Dùng Google Maps và trang web Sở Văn hóa Thể thao tỉnh Quảng Ninh để lọc danh sách các đơn vị liên quan",
+                  "Soạn email giới thiệu kèm CV nhấn mạnh kỹ năng quản lý sự kiện và kiến thức nền tảng CNTT",
+                  "Gọi điện thoại trực tiếp đến phòng nhân sự để hỏi về cơ hội thực tập và chế độ lương"
+                ],
+                "tools": [
+                  "Google Maps",
+                  "LinkedIn",
+                  "Email Gmail"
+                ],
+                "expectedResult": "Bộ hồ sơ xin thực tập đã gửi thành công cho 3 đơn vị tại Quảng Ninh và nhận được lời mời phỏng vấn.",
+                "completed": false
+              },
+              {
+                "id": "step_4_2",
+                "title": "Chuẩn bị kỹ năng mềm và kiến thức chuyên sâu về di sản văn hóa địa phương",
+                "description": "Trước khi bắt đầu, em cần nắm vững các khái niệm về di sản phi vật chất và vật chất đặc trưng của Quảng Ninh như lễ hội Hạ Long, nghề dệt lụa. Điều này giúp em thể hiện sự nghiêm túc và hiểu biết sâu sắc khi tham gia vào các dự án thực tế, tạo lợi thế cạnh tranh ngay từ ngày đầu.",
+                "objectives": [
+                  "Hoàn thành nghiên cứu sơ bộ về 2 lễ hội văn hóa nổi bật tại Quảng Ninh",
+                  "Viết báo cáo tóm tắt kiến thức di sản văn hóa cho từng lễ hội",
+                  "Luyện tập kỹ năng giao tiếp và thuyết trình trước nhóm nhỏ"
+                ],
+                "actions": [
+                  "Tra cứu tài liệu khoa học và báo cáo của UBND tỉnh Quảng Ninh về di sản văn hóa",
+                  "Phát triển slide PowerPoint giới thiệu về lịch sử và giá trị của lễ hội Hạ Long",
+                  "Tham gia buổi workshop online miễn phí về quản lý sự kiện văn hóa do Hội Văn hóa tỉnh tổ chức"
+                ],
+                "tools": [
+                  "Microsoft Word",
+                  "PowerPoint",
+                  "Website UBND tỉnh Quảng Ninh"
+                ],
+                "expectedResult": "Bộ tài liệu nghiên cứu và slide thuyết trình hoàn chỉnh sẵn sàng để trình bày trong quá trình thực tập.",
+                "completed": false
+              },
+              {
+                "id": "step_4_3",
+                "title": "Tham gia thực tập chính thức và tích lũy kinh nghiệm thực tế tại đơn vị",
+                "description": "Sau khi nhận được chấp thuận, em sẽ chính thức tham gia vào các nhiệm vụ cụ thể như hỗ trợ tổ chức sự kiện, biên tập nội dung truyền thông hoặc tham gia bảo quản di sản. Mục tiêu là hòa nhập nhanh chóng, đóng góp giá trị và xây dựng mối quan hệ tốt với mentor tại đơn vị, đảm bảo tiến độ tốt nghiệp sớm.",
+                "objectives": [
+                  "Hoàn thành ít nhất 2 nhiệm vụ thực tế trong tuần đầu tiên",
+                  "Gặp gỡ và chia sẻ kinh nghiệm với 1 trưởng nhóm thực tập",
+                  "Đạt đánh giá tích cực từ người hướng dẫn về thái độ và năng lực"
+                ],
+                "actions": [
+                  "Theo dõi chặt chẽ kế hoạch công việc hàng tuần và báo cáo tiến độ hàng ngày qua email",
+                  "Thực hiện các công việc hỗ trợ như sắp xếp bàn ghế, kiểm tra thiết bị âm thanh cho sự kiện",
+                  "Tự rút kinh nghiệm qua nhật ký thực tập và xin phản hồi từ người hướng dẫn sau mỗi nhiệm vụ"
+                ],
+                "tools": [
+                  "Excel",
+                  "Email",
+                  "Nhật ký cá nhân"
+                ],
+                "expectedResult": "Em bắt đầu kỳ thực tập với vai trò chính thức, hoàn thành các nhiệm vụ được phân công và nhận được đánh giá tốt từ đơn vị.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 12",
+            "event": "Nhận offer việc làm ổn định tại Quảng Ninh sau tốt nghiệp",
+            "impact": "High",
+            "probability": 60,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_5_1",
+                "title": "Hoàn thiện hồ sơ xin việc và chuẩn bị phỏng vấn chuyên sâu",
+                "description": "Em tập hợp CV nhấn mạnh kỹ năng quản lý sự kiện và hành chính từ quá trình học song bằng, đồng thời luyện tập phỏng vấn để thuyết phục nhà tuyển dụng tại Quảng Ninh về tiềm năng phát triển lâu dài.",
+                "objectives": [
+                  "Hoàn thành bộ hồ sơ xin việc chất lượng cao trong vòng 2 tuần",
+                  "Luyện tập ít nhất 5 lần phỏng vấn mô phỏng với phản hồi chi tiết",
+                  "Xây dựng mạng lưới quan hệ với ít nhất 3 chuyên gia trong lĩnh vực văn hóa địa phương"
+                ],
+                "actions": [
+                  "Viết lại CV tập trung vào các dự án tình nguyện và kinh nghiệm thực tập liên quan đến di sản văn hóa",
+                  "Gửi email xin phỏng vấn đến các phòng ban văn hóa của các sở, ban ngành tỉnh Quảng Ninh qua cổng thông tin tuyển dụng chính thức",
+                  "Tham gia các buổi chia sẻ kinh nghiệm do Hội Văn hóa Nghệ thuật tỉnh tổ chức để tìm kiếm cơ hội việc làm phù hợp"
+                ],
+                "tools": [
+                  "LinkedIn",
+                  "CV Builder",
+                  "Email Business Template"
+                ],
+                "expectedResult": "Nhận được ít nhất 3 lời mời phỏng vấn từ các đơn vị văn hóa uy tín tại Quảng Ninh.",
+                "completed": false
+              },
+              {
+                "id": "step_5_2",
+                "title": "Chuẩn bị kiến thức chuyên môn và kỹ năng mềm cho môi trường văn hóa",
+                "description": "Em củng cố kiến thức về quy chế di sản và quy trình tổ chức sự kiện văn hóa, đồng thời rèn luyện kỹ năng giao tiếp và xử lý tình huống để sẵn sàng cho vai trò nhân viên văn hóa mới.",
+                "objectives": [
+                  "Ôn tập đầy đủ các quy định pháp luật về bảo tồn di sản văn hóa tại Việt Nam",
+                  "Rèn luyện kỹ năng thuyết trình và dẫn dắt nhóm trong bối cảnh văn hóa đa dạng",
+                  "Thực hành giải quyết tình huống giả định trong môi trường làm việc thực tế"
+                ],
+                "actions": [
+                  "Đọc và tóm tắt các văn bản pháp luật liên quan đến di sản văn hóa từ thư viện trường và trang web của Bộ VHTTDL",
+                  "Tham gia khóa học online về kỹ năng giao tiếp hiệu quả dành riêng cho nhân viên văn hóa",
+                  "Thực hành diễn tập các tình huống xử lý khủng hoảng trong hoạt động lễ hội dân gian tại địa phương"
+                ],
+                "tools": [
+                  "Văn bản pháp luật Bộ VHTTDL",
+                  "Khóa học Coursera về Giao tiếp Văn hóa",
+                  "Google Meet"
+                ],
+                "expectedResult": "Có khả năng tự tin trình bày và giải quyết các tình huống thường gặp trong công việc văn hóa tại Quảng Ninh.",
+                "completed": false
+              },
+              {
+                "id": "step_5_3",
+                "title": "Đàm phán và chấp thuận Offer việc làm ổn định tại địa phương",
+                "description": "Em tiến hành đàm phán mức lương và điều kiện làm việc dựa trên giá trị thực tế của mình, đảm bảo mức thu nhập đạt yêu cầu cân bằng P50 và cam kết làm việc tại Quảng Ninh ngay sau khi tốt nghiệp.",
+                "objectives": [
+                  "Đàm phán thành công mức lương khởi điểm khoảng 11 triệu/tháng và thỏa thuận thời hạn làm việc",
+                  "Cam kết ký hợp đồng lao động với đơn vị văn hóa tại Quảng Ninh trong vòng 2 ngày làm việc",
+                  "Xác nhận chính thức việc làm với mức thu nhập ổn định và khả năng phát triển lâu dài"
+                ],
+                "actions": [
+                  "Soạn thảo bảng so sánh mức lương thị trường và đề xuất mức lương phù hợp với năng lực thực tế của em",
+                  "Liên hệ trực tiếp với HR hoặc trưởng phòng để thương lượng điều kiện làm việc và quyền lợi bổ sung",
+                  "Ký kết hợp đồng lao động và xác nhận địa điểm làm việc tại Quảng Ninh trước ngày tốt nghiệp chính thức"
+                ],
+                "tools": [
+                  "Bảng so sánh lương thị trường",
+                  "Hợp đồng lao động mẫu",
+                  "Phòng Nhân sự Công ty"
+                ],
+                "expectedResult": "Nhận được offer việc làm chính thức với mức lương 11 triệu/tháng, cam kết làm việc tại Quảng Ninh và bắt đầu công việc sau tốt nghiệp.",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "influencingFactors": [
+          {
+            "category": "Economic",
+            "factor": "Chi phí học song bằng",
+            "influence": "High",
+            "description": "Gia đình thiếu hụt 69 triệu/năm hàng năm, buộc em phải tìm giải pháp tài chính linh hoạt như vay vốn hoặc giảm tải học phần."
+          },
+          {
+            "category": "Personal",
+            "factor": "Khả năng thích nghi đa ngành",
+            "influence": "Medium",
+            "description": "Việc chuyển từ CNTT sang Quản lý Văn hóa đòi hỏi tư duy khác biệt, cần thời gian dài để thích nghi với môi trường mềm dẻo."
+          },
+          {
+            "category": "Social",
+            "factor": "Vị trí địa lý Quảng Ninh",
+            "influence": "Low",
+            "description": "Lợi thế làm việc gần nhà giúp giảm chi phí đi lại, phù hợp với tâm lý cân bằng cuộc sống của em."
+          },
+          {
+            "category": "Technical",
+            "factor": "Kỹ năng công nghệ còn tồn đọng",
+            "influence": "Medium",
+            "description": "Kỹ năng lập trình CNTT có thể tạo lợi thế cạnh tranh nhỏ trong các dự án tổ chức sự kiện số hóa tại địa phương."
+          }
+        ],
+        "strategicPivotPoints": [
+          {
+            "condition": "Nếu gia đình không đủ khả năng chi trả học phí song bằng",
+            "action": "Em sẽ tạm dừng một khóa học và chuyển sang học hệ chính quy để giảm áp lực tài chính, sau đó quay lại song bằng khi có điều kiện."
+          },
+          {
+            "condition": "Nếu tỷ lệ thất nghiệp thanh niên tăng cao",
+            "action": "Em sẽ chủ động xin thực tập không lương tại các tổ chức phi chính phủ để tích lũy kinh nghiệm và xây dựng mạng lưới quan hệ."
+          },
+          {
+            "condition": "Nếu không tìm được việc làm gần nhà",
+            "action": "Em sẽ chấp nhận di chuyển ngắn hạn đến Hà Nội để tìm cơ hội việc làm chất lượng cao, sau đó quay về Quảng Ninh làm việc lâu dài."
+          }
+        ],
+        "longTermProjection": "Trong 3-5 năm tới, em sẽ phát triển thành chuyên viên quản lý sự kiện hoặc hành chính tại các đơn vị văn hóa lớn ở Quảng Ninh. Thu nhập dự kiến sẽ đạt mức 14 triệu/tháng sau 5 năm làm việc, đảm bảo khả năng tài chính ổn định. Dù tốc độ tăng lương chậm, đây vẫn là lựa chọn an toàn và bền vững cho người trẻ muốn ổn định cuộc sống tại quê hương.",
+        "modelUsed": "modal:premium",
+        "usage": {
+          "inputTokens": 18637,
+          "outputTokens": 5410,
+          "costUsd": 0
+        },
+        "quality": {
+          "task": "premium_v3_sections",
+          "provider": "modal",
+          "providers": [
+            "modal"
+          ],
+          "latencyMs": 96479,
+          "planCheck": "ok",
+          "unknownSlots": 0,
+          "numericClaims": 4,
+          "removedSentences": 0,
+          "groundedness": 1
+        }
+      }
+    },
+    {
+      "id": "gold_p00428",
+      "system": "modal",
+      "ok": true,
+      "latencyMs": 99082,
+      "structure": true,
+      "timeline": true,
+      "claims": 7,
+      "groundedness": 1,
+      "urls": 0,
+      "selfTitle": 0,
+      "unknownEntity": 7,
+      "words": 3693,
+      "providers": [
+        "modal"
+      ],
+      "v3": {
+        "unknownSlots": 0,
+        "removedSentences": 1,
+        "planCheck": "ok"
+      },
+      "outputTokens": 5489,
+      "scores": {
+        "specificity": 5,
+        "faithfulness": 5,
+        "actionability": 5,
+        "coherence": 5,
+        "fluency": 5
+      },
+      "report": {
+        "detailedNarrative": "Tháng 1: Em bắt đầu phân tích sâu 3 tổ hợp môn phù hợp nhất với thế mạnh Toán và Tin học hiện tại, đồng thời tìm hiểu cấu trúc đề thi thử để điều chỉnh phương pháp học. Tháng 2: Em đăng ký tham gia các khóa học online miễn phí về tư duy logic và ngôn ngữ lập trình cơ bản, tận dụng thời gian rảnh giữa các buổi học chính khóa để rèn luyện. Tháng 3: Em tập trung củng cố kiến thức nền tảng Toán cao cấp và Tin học, đảm bảo học lực duy trì ở mức tối đa để sẵn sàng cho kỳ thi thử quan trọng sắp tới. Tháng 4: Em tham gia các cuộc thi khoa học kỹ thuật nhỏ tại địa phương để trải nghiệm môi trường thực tế, giúp đánh giá lại sự phù hợp với ngành Kỹ thuật phần mềm. Tháng 5: Em bắt đầu nghiên cứu sâu về các trường đại học tại Đồng Nai và TP.HCM, so sánh học phí, cơ hội thực tập và chất lượng đào tạo để đưa ra lựa chọn tối ưu nhất. Tháng 6: Em hoàn thiện kế hoạch ôn luyện cho kỳ thi THPT Quốc gia, tập trung giải đề chuyên sâu và quản lý thời gian hiệu quả để đạt điểm số mong muốn.",
+        "milestones": [
+          {
+            "month": "Tháng 1-2",
+            "event": "Hoàn thành khảo sát 3 tổ hợp môn và đăng ký khóa học lập trình cơ bản",
+            "impact": "High",
+            "probability": 95,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_1_1",
+                "title": "Phân tích đề cương 3 tổ hợp môn phù hợp với thế mạnh Toán-Tin",
+                "description": "Em rà soát cấu trúc đề thi và yêu cầu đầu vào của 3 tổ hợp (A00, D01, C00) để chọn tổ hợp tối ưu nhất cho ngành Kỹ thuật phần mềm. Việc này giúp em tránh lãng phí thời gian vào các tổ hợp không liên quan đến tư duy logic và giải thuật.",
+                "objectives": [
+                  "Xác định được 3 tổ hợp môn có tỷ lệ đỗ cao nhất cho khối A00/D01/C00",
+                  "So sánh điểm chuẩn trung bình của từng tổ hợp trong 3 năm gần nhất",
+                  "Chọn ra 1 tổ hợp duy nhất sẽ tập trung ôn luyện chuyên sâu"
+                ],
+                "actions": [
+                  "Dùng Google Sheets tải bảng điểm chuẩn và xếp hạng các trường đại học tại miền Đông Nam Bộ",
+                  "Gặp giáo viên bộ môn Toán và Tin học để hỏi về xu hướng đề thi và điểm mạnh yếu cá nhân",
+                  "Viết báo cáo ngắn gọn về lợi ích và rủi ro của từng tổ hợp dựa trên kết quả phân tích"
+                ],
+                "tools": [
+                  "Google Sheets",
+                  "Báo cáo tuyển sinh Bộ GD&ĐT",
+                  "Giáo viên chủ nhiệm lớp 11"
+                ],
+                "expectedResult": "Bản phân tích chi tiết 3 tổ hợp kèm lựa chọn tổ hợp ưu tiên cho kỳ thi sắp tới.",
+                "completed": false
+              },
+              {
+                "id": "step_1_2",
+                "title": "Đăng ký khóa học lập trình Python cơ bản miễn phí online",
+                "description": "Em tìm kiếm và đăng ký ngay một khóa học lập trình Python chất lượng cao trên nền tảng uy tín để rèn luyện tư duy giải thuật từ xa, tận dụng môi trường học tập linh hoạt mà không cần chi phí ban đầu. Đây là bước khởi đầu quan trọng để xây dựng nền tảng lập trình vững chắc.",
+                "objectives": [
+                  "Nhận được tài khoản truy cập và tài liệu học tập đầy đủ từ nhà cung cấp dịch vụ",
+                  "Khởi động học tập ít nhất 10 giờ trong tuần đầu tiên của khóa học"
+                ],
+                "actions": [
+                  "Truy cập trang web Coursera hoặc Udemy để lọc khóa học 'Python for Beginners' phù hợp với trình độ lớp 11",
+                  "Thanh toán học phí qua thẻ ngân hàng hoặc ví điện tử và kiểm tra trạng thái khóa học đã kích hoạt",
+                  "Thiết lập lịch học cố định hàng ngày trên ứng dụng quản lý thời gian để đảm bảo tiến độ"
+                ],
+                "tools": [
+                  "Coursera",
+                  "Udemy",
+                  "Notion Calendar"
+                ],
+                "expectedResult": "Học viên chính thức sở hữu tài khoản khóa học và kế hoạch học tập chi tiết cho 2 tháng đầu.",
+                "completed": false
+              },
+              {
+                "id": "step_1_3",
+                "title": "Thực hành code và nộp bài thử nghiệm trên GitHub",
+                "description": "Em bắt đầu viết code thực tế ngay sau khi đăng ký khóa học, tạo tài khoản GitHub để lưu trữ các dự án nhỏ và nộp bài thử nghiệm. Điều này giúp em đánh giá năng lực thực sự và chuẩn bị hồ sơ xét tuyển sớm nếu có cơ hội.",
+                "objectives": [
+                  "Viết thành công ít nhất 5 dòng lệnh Python cơ bản và chạy thử nghiệm thành công",
+                  "Tạo tài khoản GitHub và đẩy lên ít nhất 1 repository chứa mã nguồn đã viết",
+                  "Gửi email phản hồi từ giảng viên hoặc cộng đồng lập trình viên để xin góp ý"
+                ],
+                "actions": [
+                  "Theo dõi video hướng dẫn trên YouTube hoặc tài liệu PDF của khóa học để hiểu cú pháp cơ bản",
+                  "Viết mã nguồn giải bài toán tính diện tích hình tam giác và lưu vào file .py",
+                  "Đăng ký tài khoản GitHub, tạo repo mới và upload file mã nguồn đã viết cùng README.md mô tả tác dụng"
+                ],
+                "tools": [
+                  "GitHub",
+                  "VS Code",
+                  "YouTube Tutorial Channel"
+                ],
+                "expectedResult": "Một bộ tài liệu code cơ bản và tài khoản GitHub sẵn sàng để chia sẻ với bạn bè và giáo viên.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 3",
+            "event": "Giải quyết xong 100% bài tập nâng cao môn Toán và Tin học lớp 11",
+            "impact": "Medium",
+            "probability": 85,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_2_1",
+                "title": "Phân tích cấu trúc đề thi và hệ thống hóa kiến thức Toán nâng cao lớp 11",
+                "description": "Em cần rà soát toàn bộ chương trình Toán lớp 11, đặc biệt chú trọng các dạng toán vận dụng cao như giải tích hàm số, tổ hợp xác suất. Việc này giúp em nắm vững nền tảng lý thuyết, giảm thiểu sai sót khi gặp bài tập khó trong giai đoạn nước rút.",
+                "objectives": [
+                  "Liệt kê đầy đủ 15 chủ đề trọng tâm trong chương trình Toán 11 nâng cao",
+                  "Hoàn thành 100% bài tập mẫu liên quan đến các chuyên đề khó nhất",
+                  "Xây dựng sơ đồ tư duy tổng hợp kiến thức Toán lớp 11"
+                ],
+                "actions": [
+                  "Dùng Notion để tạo bảng Excel phân loại từng dạng bài theo chủ đề và mức độ khó",
+                  "Giải ít nhất 20 đề thi thử các trường chuyên khối A/B/C để tìm lỗ hổng kiến thức",
+                  "Ghi chép lại các công thức và mẹo giải nhanh vào sổ tay riêng cho từng chuyên đề"
+                ],
+                "tools": [
+                  "Notion",
+                  "Excel",
+                  "Vuihoc.vn"
+                ],
+                "expectedResult": "Bộ tài liệu ôn tập chi tiết với 100% bài tập nâng cao đã được giải thích rõ ràng và hệ thống hóa.",
+                "completed": false
+              },
+              {
+                "id": "step_2_2",
+                "title": "Rèn luyện kỹ năng giải quyết bài tập Tin học nâng cao qua môi trường thực tế",
+                "description": "Tiếp tục củng cố kiến thức Tin học lớp 11 thông qua các bài tập thực hành sử dụng ngôn ngữ lập trình Python hoặc Scratch. Em cần tập trung vào các bài toán logic phức tạp và xử lý dữ liệu để chuẩn bị cho kỳ thi đánh giá năng lực sắp tới.",
+                "objectives": [
+                  "Viết thành thạo 15 bài tập lập trình cơ bản và nâng cao trên nền tảng Codeforces",
+                  "Hiểu sâu quy trình debug và tối ưu hóa thuật toán cho các bài toán tin học",
+                  "Thành thạo 3 thư viện phổ biến trong phát triển web và ứng dụng di động"
+                ],
+                "actions": [
+                  "Thực hành giải các bài tập trên trang HackerRank với thời gian giới hạn nghiêm ngặt",
+                  "Viết code giải các bài toán Olympic Tin học cấp tỉnh và khu vực",
+                  "Tự thiết kế một ứng dụng đơn giản sử dụng React Native hoặc Flutter để hiểu quy trình phát triển"
+                ],
+                "tools": [
+                  "Codeforces.com",
+                  "HackerRank.com",
+                  "GitHub"
+                ],
+                "expectedResult": "Bộ code hoàn chỉnh cho 15 bài tập tin học nâng cao kèm file README mô tả logic giải quyết.",
+                "completed": false
+              },
+              {
+                "id": "step_2_3",
+                "title": "Tổng hợp và kiểm tra lại toàn bộ bài tập nâng cao trước khi nộp báo cáo",
+                "description": "Cuối cùng, em sẽ tiến hành rà soát toàn bộ bài tập đã giải, đảm bảo không còn lỗi sai nào trong quá trình làm bài. Đây là bước quan trọng để em tự tin đạt điểm cao trong các kỳ thi đánh giá năng lực và duy trì phong độ học tập ổn định.",
+                "objectives": [
+                  "Kiểm tra lại 100% đáp án và phương pháp giải cho các bài tập Toán và Tin học nâng cao",
+                  "Đạt điểm tuyệt đối trong các bài kiểm tra nội bộ do giáo viên chủ nhiệm tổ chức",
+                  "Hoàn thiện hồ sơ dự thi sớm cho các cuộc thi học sinh giỏi cấp trường và khu vực"
+                ],
+                "actions": [
+                  "So sánh đáp án của mình với đáp án chuẩn của giáo viên và các nguồn uy tín online",
+                  "Tham gia nhóm thảo luận trên Discord hoặc Facebook để trao đổi kinh nghiệm giải bài tập khó",
+                  "In và đóng gói hồ sơ bài tập đã giải để lưu trữ lâu dài cho việc ôn tập sau này"
+                ],
+                "tools": [
+                  "Discord",
+                  "Facebook Groups Tin học",
+                  "Google Drive"
+                ],
+                "expectedResult": "Hồ sơ bài tập nâng cao hoàn chỉnh, sẵn sàng nộp cho giáo viên và các cuộc thi học sinh giỏi.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 4",
+            "event": "Tham gia và hoàn thành dự án nhỏ về ứng dụng di động đơn giản",
+            "impact": "High",
+            "probability": 75,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_3_1",
+                "title": "Chọn ngôn ngữ và thiết kế giao diện ứng dụng di động đơn giản",
+                "description": "Em sẽ lựa chọn ngôn ngữ lập trình phổ biến nhất như Java/Kotlin cho Android hoặc Swift cho iOS, đồng thời thiết kế giao diện đơn giản dựa trên yêu cầu thực tế. Việc này giúp em hiểu rõ quy trình phát triển phần mềm từ đầu đến cuối mà không cần lo lắng về cấu trúc phức tạp ngay lúc đầu.",
+                "objectives": [
+                  "Xác định đúng ngôn ngữ lập trình phù hợp với nền tảng mong muốn",
+                  "Hoàn thiện mockup giao diện ứng dụng với ít nhất 3 màn hình chính",
+                  "Viết đầy đủ tài liệu mô tả chức năng từng module"
+                ],
+                "actions": [
+                  "Dùng Canva hoặc Figma để vẽ wireframe cho ứng dụng quản lý nhật ký cá nhân",
+                  "Ghi chú lại các thư viện cần thiết và phiên bản tương thích trên GitHub",
+                  "Soạn thảo đề cương chi tiết cho từng chức năng như đăng nhập, ghi chép, tìm kiếm"
+                ],
+                "tools": [
+                  "Android Studio",
+                  "Visual Studio Code",
+                  "Canva Pro"
+                ],
+                "expectedResult": "Bản thiết kế giao diện hoàn chỉnh kèm file đề cương chi tiết cho từng chức năng.",
+                "completed": false
+              },
+              {
+                "id": "step_3_2",
+                "title": "Triển khai code cơ bản và xử lý logic ứng dụng",
+                "description": "Em tiến hành chuyển đổi thiết kế sang mã nguồn thực tế, tập trung vào các chức năng cốt lõi như hiển thị dữ liệu, xử lý sự kiện click và lưu trữ tạm thời. Đây là giai đoạn quan trọng để em nắm vững cú pháp và cách giải quyết lỗi thường gặp khi làm việc với API hoặc database.",
+                "objectives": [
+                  "Viết xong 100% code cho các màn hình chính và chức năng cốt lõi",
+                  "Kiểm tra và sửa lỗi chạy thử trên máy ảo Android/iOS",
+                  "Tích hợp bộ nhớ cache hoặc file local để lưu trữ dữ liệu tạm thời"
+                ],
+                "actions": [
+                  "Cài đặt môi trường phát triển trên máy tính và tạo dự án mới trong IDE",
+                  "Viết hàm xử lý sự kiện click và logic hiển thị thông tin trên màn hình",
+                  "Kiểm tra lại dữ liệu được lưu trữ qua file hoặc SQLite và đảm bảo không bị mất"
+                ],
+                "tools": [
+                  "Git",
+                  "SQLite Browser",
+                  "Firebase Cloud Firestore (tùy chọn)"
+                ],
+                "expectedResult": "Ứng dụng di động hoạt động ổn định với đầy đủ chức năng cơ bản và giao diện đẹp mắt.",
+                "completed": false
+              },
+              {
+                "id": "step_3_3",
+                "title": "Rà soát lỗi, tối ưu hóa hiệu suất và đóng gói ứng dụng",
+                "description": "Em sẽ kiểm tra kỹ lưỡng ứng dụng trên nhiều thiết bị khác nhau để đảm bảo tính ổn định và tốc độ. Sau đó, tiến hành đóng gói ứng dụng thành dạng APK hoặc IPA để sẵn sàng nộp báo cáo hoặc chia sẻ với giảng viên. Bước này giúp em rèn luyện tư duy debug và chuẩn bị cho các dự án lớn hơn sau này.",
+                "objectives": [
+                  "Giải quyết triệt để các lỗi crash và bug hiển thị trên ít nhất 3 loại thiết bị",
+                  "Tối ưu hóa tốc độ tải dữ liệu và giảm dung lượng file APK xuống dưới 10MB",
+                  "Xuất bản bản final của ứng dụng và lưu trữ mã nguồn sạch gọn"
+                ],
+                "actions": [
+                  "Sử dụng adb logcat để đọc log lỗi và tìm nguyên nhân gốc rễ của sự cố",
+                  "Áp dụng thuật toán nén dữ liệu và rút gọn code không cần thiết để giảm kích thước",
+                  "Nhập khẩu mã nguồn đã tối ưu và xuất file APK/IPA cho hệ thống kiểm duyệt nội bộ"
+                ],
+                "tools": [
+                  "ADB (Android Debug Bridge)",
+                  "APK Analyzer",
+                  "Jenkins (hoặc GitHub Actions)"
+                ],
+                "expectedResult": "File APK/IPA hoàn chỉnh, ổn định trên đa dạng thiết bị và đáp ứng yêu cầu chất lượng dự án.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 5",
+            "event": "Xác định 3 trường đại học mục tiêu với học phí phù hợp ngân sách gia đình",
+            "impact": "Medium",
+            "probability": 90,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_4_1",
+                "title": "Phân tích học phí và chi phí sinh hoạt tại Đồng Nai và TP.HCM",
+                "description": "Em rà soát thông tin học phí chính thức của các trường đại học công lập và tư thục trong bán kính 100km quanh Đồng Nai cũng như TP.HCM để đảm bảo tổng chi phí hàng năm nằm trong khả năng chi trả của gia đình mà không gây áp lực tài chính quá lớn.",
+                "objectives": [
+                  "Liệt kê đầy đủ học phí từng năm của 3 trường mục tiêu",
+                  "Xác định tổng chi phí sinh hoạt dự kiến cho 4 năm đại học",
+                  "So sánh chênh lệch giữa chi phí thực tế và khả năng chi trả của gia đình"
+                ],
+                "actions": [
+                  "Truy cập website phòng đào tạo của các trường đại học để tải bảng học phí chính thức qua hệ thống quản lý đào tạo online",
+                  "Dùng Google Sheets để tính toán tổng chi phí dự kiến cho 4 năm dựa trên học phí và chi phí sinh hoạt trung bình vùng Đồng Nai",
+                  "Gặp gỡ cán bộ tư vấn tuyển sinh để hỏi về các gói vay tín dụng ưu đãi dành cho sinh viên có hoàn cảnh khó khăn"
+                ],
+                "tools": [
+                  "Website Phòng Đào tạo Đại học Quốc gia TP.HCM",
+                  "Google Sheets",
+                  "Báo cáo tài chính trường ĐH Khoa học Tự nhiên"
+                ],
+                "expectedResult": "Bảng so sánh chi tiết học phí và tổng chi phí 4 năm của 3 trường, kèm đánh giá khả năng chi trả của gia đình.",
+                "completed": false
+              },
+              {
+                "id": "step_4_2",
+                "title": "Chọn lọc 3 trường phù hợp nhất với điều kiện tài chính và định hướng nghề nghiệp",
+                "description": "Dựa trên phân tích chi phí, em loại bỏ các trường có học phí vượt quá mức tối đa mà gia đình chịu đựng được, đồng thời ưu tiên những trường có môi trường học tập tốt và cơ hội việc làm sau này trong lĩnh vực phần mềm.",
+                "objectives": [
+                  "Loại bỏ ít nhất 2 trường do vượt quá giới hạn ngân sách gia đình",
+                  "Chọn ra 3 trường còn lại có tỷ lệ cạnh tranh thấp và chất lượng đào tạo uy tín",
+                  "Đảm bảo 3 trường đều có chương trình liên kết với doanh nghiệp địa phương tại Đồng Nai hoặc TP.HCM"
+                ],
+                "actions": [
+                  "So sánh học phí và chi phí sinh hoạt của từng trường với 84 triệu/năm và 40 triệu/năm để loại trừ các trường không khả thi",
+                  "Kiểm tra thông tin về các chương trình thực tập và doanh nghiệp đối tác của từng trường trong khu vực Đồng Nai",
+                  "Viết nhật ký lựa chọn trường dựa trên tiêu chí học phí, chất lượng giảng dạy và cơ hội việc làm sau này"
+                ],
+                "tools": [
+                  "Bảng so sánh học phí và chi phí sinh hoạt",
+                  "Thông tin doanh nghiệp đối tác của trường ĐH Kinh tế TP.HCM",
+                  "Diễn đàn sinh viên ĐH Khoa học Tự nhiên"
+                ],
+                "expectedResult": "Danh sách 3 trường đại học mục tiêu đã được sàng lọc kỹ lưỡng, phù hợp với ngân sách và định hướng nghề nghiệp của em.",
+                "completed": false
+              },
+              {
+                "id": "step_4_3",
+                "title": "Hoàn thiện hồ sơ xét tuyển sớm và tìm hiểu chính sách hỗ trợ tài chính",
+                "description": "Em chuẩn bị sẵn sàng hồ sơ xét tuyển sớm cho 3 trường đã chọn, đồng thời nghiên cứu sâu về các học bổng giảm học phí, vay vốn sinh viên để tối ưu hóa khả năng chi trả cho gia đình trong suốt quá trình học tập.",
+                "objectives": [
+                  "Hoàn thành hồ sơ xét tuyển sớm cho 3 trường mục tiêu trước ngày quy định",
+                  "Tìm kiếm và nộp đơn xin học bổng giảm học phí hoặc vay vốn sinh viên",
+                  "Xác nhận các điều kiện đặc biệt về xét tuyển nếu có cho từng trường"
+                ],
+                "actions": [
+                  "Tổng hợp các giấy tờ cần thiết như học bạ, giấy chứng nhận hạnh kiểm và thư giới thiệu từ giáo viên chủ nhiệm",
+                  "Nộp hồ sơ xét tuyển sớm qua cổng thông tin tuyển sinh trực tuyến của từng trường đại học",
+                  "Liên hệ văn phòng tuyển sinh để hỏi về các chính sách hỗ trợ tài chính đặc thù cho thí sinh có hoàn cảnh khó khăn"
+                ],
+                "tools": [
+                  "Cổng thông tin tuyển sinh trực tuyến của trường ĐH Khoa học Tự nhiên",
+                  "Văn phòng tuyển sinh của Trường ĐH Kinh tế TP.HCM",
+                  "Hệ thống quản lý hồ sơ xét tuyển của Bộ GD&ĐT"
+                ],
+                "expectedResult": "Hồ sơ xét tuyển sớm đã được gửi thành công cho 3 trường mục tiêu, cùng với kế hoạch tài chính chi tiết cho 4 năm đại học.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 6",
+            "event": "Đạt điểm trung bình môn 8.5+ và hoàn tất hồ sơ xét tuyển sớm",
+            "impact": "High",
+            "probability": 80,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_5_1",
+                "title": "Rà soát và củng cố kiến thức nền tảng Toán-Tin lớp 11",
+                "description": "Em hệ thống hóa toàn bộ kiến thức Toán và Tin học lớp 11, đặc biệt chú trọng các chuyên đề quan trọng cho kỳ thi đánh giá năng lực. Việc này giúp em duy trì điểm số cao và sẵn sàng cho các bài kiểm tra giữa kỳ sắp tới.",
+                "objectives": [
+                  "Hoàn thành 100% bài tập nâng cao Toán lớp 11",
+                  "Giải quyết triệt để các dạng bài khó trong Tin học lớp 11",
+                  "Duy trì điểm trung bình môn đạt mức 8.5+"
+                ],
+                "actions": [
+                  "Làm đầy đủ 50 bài tập nâng cao Toán học trên nền tảng Vted hoặc Hocmai",
+                  "Thực hành giải các đề thi thử Tin học lớp 11 qua trang web VNU-HCM",
+                  "Gặp giáo viên chủ nhiệm để xin góp ý về cách cải thiện điểm số từng môn"
+                ],
+                "tools": [
+                  "Vted.vn",
+                  "Hocmai.vn",
+                  "Google Classroom"
+                ],
+                "expectedResult": "Báo cáo tiến độ học tập hoàn chỉnh với điểm trung bình môn Toán và Tin học đạt 8.5+.",
+                "completed": false
+              },
+              {
+                "id": "step_5_2",
+                "title": "Chuẩn bị hồ sơ xét tuyển sớm và tìm hiểu học phí",
+                "description": "Em rà soát kỹ thông tin học phí các trường đại học mục tiêu tại Đồng Nai và TP.HCM, đảm bảo phù hợp với khả năng tài chính gia đình. Đây là bước then chốt để tránh nguy cơ thiếu hụt kinh phí khi nhập học.",
+                "objectives": [
+                  "Liệt kê ít nhất 3 trường đại học phù hợp với học phí ngân sách",
+                  "Soạn thảo kế hoạch tài chính chi tiết cho 4 năm đại học",
+                  "Xác định các loại hình học bổng hoặc vay tín dụng cần thiết"
+                ],
+                "actions": [
+                  "Truy cập website tuyển sinh của các trường đại học khối sư phạm và kỹ thuật tại khu vực miền Đông Nam Bộ",
+                  "Tính toán tổng chi phí học phí và sinh hoạt phí cho 4 năm dựa trên 84 triệu/năm",
+                  "Liên hệ phòng đào tạo các trường để hỏi về chính sách hỗ trợ tài chính và học bổng"
+                ],
+                "tools": [
+                  "Website Tuyển sinh Đại học Quốc gia Việt Nam",
+                  "Excel",
+                  "Phòng Công tác Sinh viên"
+                ],
+                "expectedResult": "Bộ hồ sơ xét tuyển sớm hoàn chỉnh kèm bảng tính chi phí tài chính chi tiết.",
+                "completed": false
+              },
+              {
+                "id": "step_5_3",
+                "title": "Tham gia kỳ thi đánh giá năng lực và nộp hồ sơ",
+                "description": "Em tham gia kỳ thi đánh giá năng lực do các trường tổ chức để chứng minh năng lực học tập, đồng thời nộp hồ sơ xét tuyển sớm vào các trường đã chọn. Đây là lúc tận dụng lợi thế học lực 5/5 để tối đa hóa cơ hội trúng tuyển.",
+                "objectives": [
+                  "Đạt điểm số cao trong kỳ thi đánh giá năng lực của trường mục tiêu",
+                  "Nộp hồ sơ xét tuyển sớm đúng hạn trước ngày quy định",
+                  "Nhận được giấy báo trúng tuyển hoặc kết quả xét tuyển sớm"
+                ],
+                "actions": [
+                  "Tham gia kỳ thi đánh giá năng lực tại các trung tâm uy tín tại Đồng Nai hoặc TP.HCM",
+                  "Kiểm tra lại toàn bộ hồ sơ trước khi nộp lên cổng thông tin điện tử của nhà trường",
+                  "Theo dõi trạng thái hồ sơ trên hệ thống của nhà trường để đảm bảo không bỏ sót thông tin"
+                ],
+                "tools": [
+                  "Cổng thông tin tuyển sinh trực tuyến",
+                  "Email cá nhân",
+                  "Biểu mẫu xét tuyển sớm"
+                ],
+                "expectedResult": "Hồ sơ xét tuyển sớm được chấp nhận và nhận được kết quả xét tuyển sớm từ nhà trường.",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "influencingFactors": [
+          {
+            "category": "Economic",
+            "factor": "Khả năng tài chính hạn chế",
+            "influence": "Low",
+            "description": "Gia đình thiếu hụt 44 triệu/năm mỗi năm, đòi hỏi em phải cân nhắc kỹ lưỡng học phí và các khoản đóng góp ngoài."
+          },
+          {
+            "category": "Personal",
+            "factor": "Học lực xuất sắc",
+            "influence": "High",
+            "description": "Em có học lực 5/5, tạo lợi thế lớn trong việc cạnh tranh điểm số và tiếp cận các chương trình đào tạo chất lượng cao."
+          },
+          {
+            "category": "Social",
+            "factor": "Mạng lưới hỗ trợ địa phương",
+            "influence": "Medium",
+            "description": "Việc tham gia các hoạt động cộng đồng tại Đồng Nai giúp em mở rộng mối quan hệ và tìm kiếm cơ hội thực tập tiềm năng."
+          },
+          {
+            "category": "Technical",
+            "factor": "Tư duy logic và kỹ năng code",
+            "influence": "High",
+            "description": "Khả năng nắm bắt nhanh các ngôn ngữ lập trình và tư duy giải quyết vấn đề là chìa khóa thành công trong ngành IT."
+          }
+        ],
+        "strategicPivotPoints": [
+          {
+            "condition": "Nếu điểm thi thử giảm xuống dưới 20 điểm",
+            "action": "Điều chỉnh ngay phương pháp học, tăng cường thời gian ôn luyện chuyên sâu và tìm gia sư kèm cặp."
+          },
+          {
+            "condition": "Nếu phát hiện không phù hợp với lĩnh vực lập trình",
+            "action": "Chuyển sang các ngành liên quan như bảo mật mạng hoặc quản trị hệ thống thông tin để vẫn giữ vững định hướng kỹ thuật."
+          },
+          {
+            "condition": "Nếu học phí vượt quá khả năng chi trả của gia đình",
+            "action": "Tìm kiếm học bổng toàn phần hoặc bán phần, đồng thời cân nhắc chuyển sang trường công lập có học phí thấp hơn."
+          }
+        ],
+        "longTermProjection": "Trong 3-5 năm tới, em sẽ trở thành lập trình viên hoặc kỹ thuật viên CNTT tại các doanh nghiệp vừa và nhỏ tại Đồng Nai hoặc TP.HCM. Với nỗ lực học tập và kinh nghiệm tích lũy, mức lương khởi điểm dự kiến đạt 10,7 triệu/tháng, tăng trưởng lên 20,5 triệu/tháng sau 5 năm làm việc. Dù gặp nhiều thách thức về tài chính ban đầu, em vẫn đảm bảo hoàn vốn sau năm thứ 14 và đạt ROI 107% trong suốt 20 năm.",
+        "modelUsed": "modal:premium",
+        "usage": {
+          "inputTokens": 15503,
+          "outputTokens": 5489,
+          "costUsd": 0
+        },
+        "quality": {
+          "task": "premium_v3_sections",
+          "provider": "modal",
+          "providers": [
+            "modal"
+          ],
+          "latencyMs": 99037,
+          "planCheck": "ok",
+          "unknownSlots": 0,
+          "numericClaims": 8,
+          "removedSentences": 1,
+          "groundedness": 0.875
+        }
+      }
+    },
+    {
+      "id": "gold_p00449",
+      "system": "modal",
+      "ok": true,
+      "latencyMs": 100868,
+      "structure": true,
+      "timeline": true,
+      "claims": 5,
+      "groundedness": 1,
+      "urls": 0,
+      "selfTitle": 0,
+      "unknownEntity": 5,
+      "words": 3981,
+      "providers": [
+        "modal"
+      ],
+      "v3": {
+        "unknownSlots": 0,
+        "removedSentences": 0,
+        "planCheck": "ok"
+      },
+      "outputTokens": 5712,
+      "scores": {
+        "specificity": 4,
+        "faithfulness": 5,
+        "actionability": 4,
+        "coherence": 4,
+        "fluency": 5
+      },
+      "report": {
+        "detailedNarrative": "Tháng 1: Em bắt đầu rà soát lại kiến thức nền tảng Toán, Lý, Hóa để xác định tổ hợp phù hợp nhất cho ngành Điều dưỡng gây mê hồi sức. Khó khăn lớn nhất là sự phân vân giữa các khối thi khác nhau, nhưng em sẽ giải quyết bằng cách tìm hiểu kỹ về cấu trúc đề thi và yêu cầu đầu vào của các trường y tại Đà Nẵng. Tháng 2-3: Em tập trung củng cố điểm mạnh và khắc phục lỗ hổng kiến thức còn tồn đọng. Với học lực hiện tại, em cần duy trì tốc độ học tập ổn định để đảm bảo điểm số nằm trong vùng an toàn trước khi bước vào kỳ thi thử quan trọng. Tháng 4-6: Em tham gia các khóa luyện thi thử mô phỏng để làm quen áp lực thời gian và tâm lý. Đây là giai đoạn em cần rèn luyện kỷ luật nghiêm ngặt để đạt được mức điểm tối thiểu 18 điểm [F1]. Tháng 7-9: Em bắt đầu nghiên cứu sâu về môi trường làm việc thực tế của bác sĩ và điều dưỡng viên tại bệnh viện đa khoa Đà Nẵng. Việc hiểu rõ quy trình làm việc giúp em định hình lại mục tiêu nghề nghiệp và chuẩn bị tâm thế vững vàng. Tháng 10-12: Em hoàn thiện hồ sơ xét tuyển và đăng ký nguyện vọng dựa trên kết quả học tập và thông tin thị trường lao động. Em cũng chuẩn bị tinh thần cho những biến động có thể xảy ra trong quá trình xét tuyển đại học sắp tới.",
+        "milestones": [
+          {
+            "month": "Tháng 1",
+            "event": "Hoàn thành phân tích tổ hợp môn học phù hợp với ngành Y khoa",
+            "impact": "High",
+            "probability": 95,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_1_1",
+                "title": "Xác định tổ hợp môn tối ưu cho ngành Điều dưỡng gây mê hồi sức",
+                "description": "Em cần rà soát lại cấu trúc đề thi khối A00/A01/B00 của các trường y dược tại Đà Nẵng để tìm tổ hợp phù hợp nhất. Việc này giúp em tránh lãng phí thời gian học các môn không liên quan đến nội dung cốt lõi của ngành.",
+                "objectives": [
+                  "Liệt kê đầy đủ 3 tổ hợp môn phù hợp nhất với yêu cầu xét tuyển của các trường y dược tại miền Trung",
+                  "So sánh tỷ lệ chọi và điểm chuẩn dự kiến của từng tổ hợp trong 3 năm gần nhất",
+                  "Chọn ra tổ hợp duy nhất sẽ tập trung ôn luyện nghiêm túc trong 2 năm tới"
+                ],
+                "actions": [
+                  "Duyệt qua website tuyển sinh của Đại học Y Dược TP.HCM, Đại học Y Dược Đà Nẵng và các trường tư thục tương đương để tải bộ đề thi mẫu và thông báo xét tuyển",
+                  "Gặp gỡ giáo viên chủ nhiệm hoặc phụ trách chuyên môn để xin tư vấn về thế mạnh cá nhân và khả năng thích ứng với khối lượng kiến thức nặng nhọc của ngành Y",
+                  "Viết nhật ký phân tích điểm mạnh/yếu của mình trong các môn Toán, Lý, Hóa, Sinh để đưa ra lựa chọn tổ hợp tối ưu hóa cơ hội đỗ"
+                ],
+                "tools": [
+                  "Website tuyển sinh Bộ GD&ĐT",
+                  "Báo cáo điểm chuẩn các năm của các trường y dược",
+                  "Phần mềm quản lý tiến độ học tập Notion"
+                ],
+                "expectedResult": "Em có danh sách 3 tổ hợp môn học phù hợp nhất kèm bảng so sánh điểm chuẩn và kế hoạch ôn luyện cụ thể cho từng tổ hợp.",
+                "completed": false
+              },
+              {
+                "id": "step_1_2",
+                "title": "Rà soát lại học lực hiện tại và xác định điểm yếu cần khắc phục ngay",
+                "description": "Với học lực 4/5, em cần đánh giá sát sao năng lực thực tế của mình để đảm bảo đạt mức điểm an toàn cho các tổ hợp đã chọn. Việc phát hiện sớm điểm yếu giúp em điều chỉnh phương pháp học hiệu quả hơn.",
+                "objectives": [
+                  "Đánh giá chính xác điểm số trung bình các môn thuộc tổ hợp đã chọn trong học kỳ trước",
+                  "Xác định 2 môn học khó nhất và nguyên nhân gốc rễ gây mất điểm",
+                  "Lập kế hoạch cải thiện điểm số cho từng môn trong vòng 3 tháng tới"
+                ],
+                "actions": [
+                  "Lấy bảng điểm học kỳ I và II của các môn Toán, Lý, Hóa, Sinh để tính toán điểm trung bình cộng và so sánh với mức điểm an toàn 18 điểm [F1]",
+                  "Tham gia buổi tư vấn tâm lý hoặc gặp chuyên gia giáo dục để giải tỏa lo âu và tìm hiểu kỹ năng học tập hiệu quả cho sinh viên ngành Y",
+                  "Sử dụng công cụ kiểm tra kiến thức online miễn phí để tự đánh giá lại kiến thức nền tảng của mình trước khi bắt đầu ôn luyện chuyên sâu"
+                ],
+                "tools": [
+                  "Google Sheets để tính toán điểm trung bình",
+                  "Khóa học kỹ năng học tập trên Coursera hoặc edX",
+                  "Trắc nghiệm online của các trang web giáo dục uy tín"
+                ],
+                "expectedResult": "Em nắm rõ điểm mạnh/yếu hiện tại, biết chính xác những phần kiến thức còn thiếu hụt và có kế hoạch cải thiện cụ thể cho từng môn học.",
+                "completed": false
+              },
+              {
+                "id": "step_1_3",
+                "title": "Hoàn thiện hồ sơ định hướng và cam kết lộ trình học tập dài hạn",
+                "description": "Sau khi chọn tổ hợp và xác định điểm yếu, em cần chốt lại phương án học tập cho 2 năm tới. Đây là bước then chốt để biến định hướng mơ hồ thành kế hoạch hành động thực tế, giảm thiểu rủi ro thất bại trong kỳ thi sắp tới.",
+                "objectives": [
+                  "Cam kết duy trì điểm trung bình học kỳ II đạt mức khá trở lên",
+                  "Đặt mục tiêu điểm số cụ thể cho từng môn trong học kỳ tới",
+                  "Xây dựng lịch trình học tập chi tiết hàng tuần và hàng tháng"
+                ],
+                "actions": [
+                  "Viết thư cam kết với giáo viên chủ nhiệm về phương pháp học tập và mục tiêu điểm số mong muốn cho học kỳ tới",
+                  "Lên lịch biểu học tập chi tiết trên Google Calendar, phân bổ thời gian cho các môn học và ôn luyện ngoại khóa phù hợp với lịch học của trường",
+                  "Thảo luận với cha mẹ và gia sư (nếu có) để cùng giám sát tiến độ học tập và hỗ trợ tài chính nếu cần thiết"
+                ],
+                "tools": [
+                  "Google Calendar",
+                  "Ứng dụng nhắc nhở học tập Todoist",
+                  "Biểu đồ theo dõi tiến độ học tập Excel"
+                ],
+                "expectedResult": "Em có một kế hoạch học tập chi tiết, cam kết rõ ràng với gia đình và nhà trường, sẵn sàng bước vào giai đoạn ôn luyện chuyên sâu.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 3",
+            "event": "Đạt điểm trung bình học kỳ I đạt mức khá trở lên",
+            "impact": "Medium",
+            "probability": 85,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_2_1",
+                "title": "Phân tích đề cương và thiết lập kế hoạch ôn tập riêng biệt cho từng môn khối A00/A01/D01",
+                "description": "Dựa trên yêu cầu tuyển sinh ngành Điều dưỡng, em cần rà soát kỹ đề cương môn Sinh học, Hóa học và Tiếng Anh để xác định trọng tâm kiến thức thường xuyên xuất hiện. Việc này giúp tối ưu hóa thời gian học, tránh lan man sang các nội dung phụ thuộc nhiều vào tư duy logic mà không liên quan đến y khoa.",
+                "objectives": [
+                  "Hoàn thành bảng ma trận kiến thức trọng tâm cho 3 môn học trong tuần đầu tiên",
+                  "Xây dựng lịch học chi tiết hàng ngày dành cho từng môn với tỷ lệ 40% lý thuyết, 30% bài tập, 30% luyện đề",
+                  "Đảm bảo hiểu sâu 80% nội dung cơ bản trước khi chuyển sang giải đề nâng cao"
+                ],
+                "actions": [
+                  "Soạn thảo biểu đồ Gantt cá nhân trên Notion để chia nhỏ các chủ đề lớn thành các nhiệm vụ nhỏ hàng tuần",
+                  "Tải bộ đề thi minh họa từ Bộ GD&ĐT và các trang web uy tín để phân loại dạng bài tập khó khăn nhất",
+                  "Gặp giáo viên bộ môn để xin góp ý về cách tiếp cận các chương trình học chuyên sâu trong sách giáo khoa lớp 11"
+                ],
+                "tools": [
+                  "Notion",
+                  "VnExpress Education",
+                  "Bộ Giáo dục và Đào tạo"
+                ],
+                "expectedResult": "Em có sẵn kế hoạch học tập chi tiết cho học kỳ I với đầy đủ tài liệu hỗ trợ và lộ trình tiến độ rõ ràng.",
+                "completed": false
+              },
+              {
+                "id": "step_2_2",
+                "title": "Thực hành giải đề thi thử mô phỏng môi trường thi cử nghiêm ngặt",
+                "description": "Thực hiện ít nhất 2 lần thi thử với chế độ thời gian giới hạn tương đương kỳ thi thật để rèn luyện tốc độ và sự tập trung. Đây là bước then chốt để phát hiện lỗ hổng kiến thức còn tồn đọng và điều chỉnh phương pháp làm bài hiệu quả trước khi bước vào giai đoạn nước rút.",
+                "objectives": [
+                  "Giữ vững điểm số trung bình trên 7.5 trong 2 lần thi thử liên tiếp",
+                  "Rút kinh nghiệm và sửa lỗi sai trong 10 phút sau mỗi lần thi thử",
+                  "Tăng cường kỹ năng quản lý thời gian làm bài cho từng phần thi cụ thể"
+                ],
+                "actions": [
+                  "Tham gia các buổi thi thử online do các trung tâm luyện thi uy tín tổ chức tại Đà Nẵng hoặc qua Zoom",
+                  "Sử dụng ứng dụng Quizlet để ôn tập lại các công thức và thuật ngữ y khoa quan trọng sau mỗi lần thi",
+                  "Viết nhật ký phản biện về quá trình làm bài, ghi chú lại những câu hỏi khiến em mất điểm do thiếu kiến thức nền tảng"
+                ],
+                "tools": [
+                  "Quizlet",
+                  "Zoom",
+                  "Trung tâm Luyện thi Đại học Đà Nẵng"
+                ],
+                "expectedResult": "Em hoàn thành 2 kỳ thi thử với điểm số ổn định, nắm vững cấu trúc đề và kỹ năng xử lý áp lực thời gian.",
+                "completed": false
+              },
+              {
+                "id": "step_2_3",
+                "title": "Tổng hợp và khắc phục các lỗi sai phổ biến trong quá trình học tập",
+                "description": "Dựa trên kết quả thi thử, em cần hệ thống hóa lại các lỗi sai thường gặp và tìm ra nguyên nhân gốc rễ. Việc này giúp em không chỉ biết mình yếu ở đâu mà còn biết cách khắc phục lâu dài, đảm bảo điểm số duy trì ở mức khá trở lên trong suốt học kỳ I.",
+                "objectives": [
+                  "Liệt kê và phân loại 10 lỗi sai phổ biến nhất trong 2 lần thi thử",
+                  "Xây dựng quy trình tự chữa lỗi sai cá nhân cho từng môn học cụ thể",
+                  "Đạt điểm số trung bình học kỳ I đạt mức khá trở lên (từ 7.0 trở lên)"
+                ],
+                "actions": [
+                  "Lập bảng Excel hoặc Google Sheets để theo dõi tiến độ cải thiện điểm số theo từng chủ đề kiến thức",
+                  "Tìm kiếm video hướng dẫn giải chi tiết cho các dạng bài sai trên YouTube hoặc các diễn đàn học tập uy tín",
+                  "Thảo luận với bạn bè cùng lớp hoặc tham gia nhóm học tập trực tuyến để trao đổi cách giải quyết các tình huống khó khăn"
+                ],
+                "tools": [
+                  "Google Sheets",
+                  "YouTube",
+                  "Diễn đàn Học sinh Việt Nam"
+                ],
+                "expectedResult": "Em có bảng tổng hợp lỗi sai cá nhân và kế hoạch khắc phục cụ thể, đồng thời đạt điểm trung bình học kỳ I đạt mức khá trở lên.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 6",
+            "event": "Tham gia ít nhất hai kỳ thi thử với điểm số ổn định",
+            "impact": "High",
+            "probability": 80,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_3_1",
+                "title": "Chuẩn bị đề cương và tài liệu ôn luyện chuyên sâu cho tổ hợp Y-Khoa",
+                "description": "Em cần hệ thống hóa kiến thức nền tảng Toán, Lý, Hóa dựa trên cấu trúc đề thi đánh giá năng lực của các trường y dược tại Đà Nẵng. Việc này giúp em nắm vững các dạng bài thường gặp và giảm thiểu sai sót do thiếu hiểu biết ban đầu.",
+                "objectives": [
+                  "Hoàn thiện bộ đề cương ôn tập 3 môn trong vòng 2 tuần",
+                  "Xác định 5 chủ đề yếu kém cần khắc phục ngay lập tức",
+                  "Tổng hợp 20 câu hỏi khó từ các đề thi thử cũ"
+                ],
+                "actions": [
+                  "Dùng Google Sheets để lập bảng ma trận kiến thức theo từng chương trình học",
+                  "Gặp giáo viên bộ môn để xin đề thi mẫu và giải thích đáp án chi tiết",
+                  "Tự chấm điểm và ghi chú lại lỗi sai vào sổ tay riêng tư hàng ngày"
+                ],
+                "tools": [
+                  "Google Sheets",
+                  "Vted.vn",
+                  "Diễn đàn Sinh viên Y Dược"
+                ],
+                "expectedResult": "Bộ tài liệu ôn tập hoàn chỉnh với 20 câu hỏi khó và kế hoạch cải thiện điểm số cụ thể.",
+                "completed": false
+              },
+              {
+                "id": "step_3_2",
+                "title": "Thực hành giải đề thi thử mô phỏng môi trường thi cử nghiêm túc",
+                "description": "Em sẽ tham gia ít nhất hai kỳ thi thử do các trung tâm uy tín tổ chức hoặc tự thiết kế đề thi tương đương với kỳ thi thật. Mục đích là rèn luyện kỹ năng quản lý thời gian và xử lý áp lực tâm lý khi làm bài trong thời gian giới hạn.",
+                "objectives": [
+                  "Giải thành thạo 3 đề thi thử liên tục trong 2 tháng",
+                  "Đạt điểm trung bình tối thiểu 21 điểm cho mỗi lần thi thử",
+                  "Rèn luyện tốc độ làm bài đạt 1 phút/câu trắc nghiệm"
+                ],
+                "actions": [
+                  "Đăng ký tham gia 2 kỳ thi thử online do các trung tâm lớn tại Đà Nẵng tổ chức",
+                  "Sử dụng đồng hồ bấm giờ để kiểm soát thời gian làm bài chặt chẽ như thi thật",
+                  "Phân tích lỗi sai sau mỗi đề thi để rút kinh nghiệm cho lần thi tiếp theo"
+                ],
+                "tools": [
+                  "Trung tâm Anh Văn Quốc tế Đà Nẵng",
+                  "Loigiaihay.com",
+                  "Quizlet"
+                ],
+                "expectedResult": "Kết quả điểm số ổn định quanh mức 21,26 điểm [F1] và khả năng chịu áp lực thi cử tốt hơn.",
+                "completed": false
+              },
+              {
+                "id": "step_3_3",
+                "title": "Tổng kết và điều chỉnh chiến thuật học tập dựa trên kết quả thi thử",
+                "description": "Sau khi hoàn thành hai kỳ thi thử, em cần tổng hợp lại toàn bộ dữ liệu điểm số, phân tích xu hướng tiến bộ và điều chỉnh phương pháp học cho các môn còn yếu. Đây là bước then chốt để đảm bảo em sẵn sàng cho kỳ thi sắp tới với sự tự tin cao nhất.",
+                "objectives": [
+                  "Viết báo cáo phân tích điểm mạnh/yếu của mình sau mỗi kỳ thi thử",
+                  "Điều chỉnh lịch học cá nhân cho 3 môn thi chính dựa trên kết quả",
+                  "Cam kết duy trì điểm số trung bình học kỳ II đạt mức khá trở lên"
+                ],
+                "actions": [
+                  "Soạn thảo báo cáo chi tiết về điểm số và nguyên nhân thất bại trong từng phần",
+                  "Trao đổi với giáo viên chủ nhiệm để nhận phản hồi về phương pháp học hiệu quả",
+                  "Lập lịch học tập mới cho 3 tháng cuối cùng với cường độ phù hợp"
+                ],
+                "tools": [
+                  "Microsoft Word",
+                  "Canva",
+                  "Nhóm hỗ trợ học tập lớp 11"
+                ],
+                "expectedResult": "Bản kế hoạch học tập cá nhân hóa và cam kết đạt điểm số mục tiêu cho kỳ thi sắp tới.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 9",
+            "event": "Xác định được 3 trường đào tạo uy tín tại miền Trung",
+            "impact": "Medium",
+            "probability": 90,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_4_1",
+                "title": "Rà soát danh sách trường y dược tại miền Trung và Đà Nẵng",
+                "description": "Em hệ thống hóa danh sách các trường đại học và cao đẳng có đào tạo ngành Điều dưỡng gây mê hồi sức tại khu vực miền Trung, đặc biệt chú trọng các cơ sở có mạng lưới liên kết với bệnh viện lớn ở Đà Nẵng để đảm bảo cơ hội thực tập.",
+                "objectives": [
+                  "Liệt kê đầy đủ 5 trường có ngành Điều dưỡng gây mê hồi sức tại miền Trung",
+                  "Xác định 3 trường có tỷ lệ chọi thấp và điểm chuẩn gần mức 21,26 điểm [F1]",
+                  "So sánh quy mô đào tạo và chất lượng giảng dạy giữa các trường"
+                ],
+                "actions": [
+                  "Truy cập website Bộ Giáo dục và Đào tạo cũng như trang chủ các trường đại học tại Đà Nẵng để tải thông tin tuyển sinh 2026",
+                  "Gặp gỡ tư vấn viên của các trường để hỏi về xu hướng tuyển sinh và yêu cầu hồ sơ đặc thù",
+                  "Dùng Google Sheets để lọc và đánh giá các trường dựa trên tiêu chí điểm chuẩn và vị trí địa lý"
+                ],
+                "tools": [
+                  "Bộ Giáo dục và Đào tạo",
+                  "Website Trường Đại học Y Dược TP.HCM",
+                  "Google Sheets"
+                ],
+                "expectedResult": "Danh sách 5 trường tiềm năng đã được sàng lọc kỹ lưỡng, trong đó có 3 trường đáp ứng yêu cầu về chất lượng và vị trí địa lý.",
+                "completed": false
+              },
+              {
+                "id": "step_4_2",
+                "title": "Phân tích điểm chuẩn và xu hướng tuyển sinh 3 trường mục tiêu",
+                "description": "Em nghiên cứu sâu điểm chuẩn các năm trước của 3 trường đã chọn để dự đoán mức điểm cần thiết cho kỳ thi sắp tới, đồng thời tìm hiểu về tỷ lệ trúng tuyển và các yếu tố ảnh hưởng đến kết quả xét tuyển.",
+                "objectives": [
+                  "Thu thập điểm chuẩn 3 năm gần nhất của từng trường trong 3 trường mục tiêu",
+                  "Xác định mức điểm an toàn để đạt ngưỡng 21,26 điểm [F1] cho từng trường",
+                  "Hiểu rõ các điều kiện xét tuyển bổ sung nếu có"
+                ],
+                "actions": [
+                  "Tra cứu bảng điểm chuẩn trên cổng thông tin tuyển sinh của Bộ GD&ĐT và trang web riêng của từng trường",
+                  "So sánh điểm chuẩn giữa các năm để phát hiện xu hướng tăng giảm và biến động mạnh",
+                  "Kiểm tra các điều kiện ưu tiên như học bạ, chứng chỉ ngoại ngữ hoặc kinh nghiệm thực tế"
+                ],
+                "tools": [
+                  "Cổng thông tin tuyển sinh Bộ GD&ĐT",
+                  "Trang web Trường Đại học Y Dược Đà Nẵng",
+                  "Excel Chart Tools"
+                ],
+                "expectedResult": "Báo cáo phân tích điểm chuẩn chi tiết cho 3 trường, giúp em biết rõ khoảng cách điểm cần đạt để đỗ vào trường mong muốn.",
+                "completed": false
+              },
+              {
+                "id": "step_4_3",
+                "title": "Chốt danh sách 3 trường ưu tiên dựa trên lợi thế cá nhân",
+                "description": "Dựa trên kết quả phân tích, em lựa chọn 3 trường phù hợp nhất với năng lực hiện tại và định hướng tương lai, đảm bảo sự cân bằng giữa chất lượng đào tạo và khả năng tiếp cận việc làm sau này tại Đà Nẵng.",
+                "objectives": [
+                  "Chọn ra 3 trường có điểm chuẩn nằm trong khoảng 18-23,79 điểm [F1] và phù hợp với học lực hiện tại",
+                  "Đảm bảo 3 trường đều có cơ sở đào tạo tại Đà Nẵng hoặc vùng lân cận thuận tiện di chuyển",
+                  "Xác định rõ ràng nguyện vọng 1 và 2 để tối đa hóa cơ hội trúng tuyển"
+                ],
+                "actions": [
+                  "Đánh giá lại học lực và điểm số hiện tại so với mức 21,26 điểm [F1] để chọn trường phù hợp nhất",
+                  "Xếp hạng 3 trường theo thứ tự ưu tiên dựa trên điểm chuẩn và chất lượng đào tạo",
+                  "Viết lại danh sách 3 trường đã chọn vào file hồ sơ cá nhân để theo dõi tiến độ"
+                ],
+                "tools": [
+                  "File Excel quản lý hồ sơ cá nhân",
+                  "Google Docs",
+                  "Biểu đồ xếp hạng"
+                ],
+                "expectedResult": "Danh sách 3 trường đã được chốt chắc chắn, sẵn sàng đưa vào hồ sơ đăng ký xét tuyển nguyện vọng 1 trong tháng 12.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 12",
+            "event": "Hoàn tất hồ sơ đăng ký xét tuyển nguyện vọng 1",
+            "impact": "High",
+            "probability": 88,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_5_1",
+                "title": "Rà soát và chốt danh sách 3 trường đào tạo uy tín tại Đà Nẵng",
+                "description": "Dựa trên kết quả tìm kiếm và đánh giá chất lượng đào tạo, em sẽ lọc ra 3 trường có tỷ lệ đỗ cao và phù hợp với tổ hợp môn đã chọn. Việc này giúp tối ưu hóa cơ hội trúng tuyển vào ngành Điều dưỡng gây mê hồi sức mà không lãng phí thời gian.",
+                "objectives": [
+                  "Liệt kê đủ 3 trường có điểm chuẩn nằm trong khoảng 18-23,79 điểm [F1]",
+                  "Xác định tổ hợp môn phù hợp nhất với từng trường",
+                  "So sánh học phí và cơ sở vật chất giữa các trường"
+                ],
+                "actions": [
+                  "Truy cập website tuyển sinh của 3 trường y dược lớn tại miền Trung để tải thông tin tuyển sinh",
+                  "Gặp gỡ giáo viên chủ nhiệm để xin tư vấn về điểm mạnh yếu của em trong các môn liên quan",
+                  "Soạn thảo bảng so sánh chi tiết về học phí, cơ sở đào tạo và môi trường thực hành"
+                ],
+                "tools": [
+                  "Website tuyển sinh Bộ GD&ĐT",
+                  "Báo cáo tuyển sinh 2026 của các trường y dược",
+                  "Google Sheets để phân tích dữ liệu"
+                ],
+                "expectedResult": "Em có sẵn danh sách 3 trường mục tiêu cùng bảng so sánh chi tiết để đưa ra quyết định cuối cùng.",
+                "completed": false
+              },
+              {
+                "id": "step_5_2",
+                "title": "Chuẩn bị hồ sơ xét tuyển và nộp online qua cổng dịch vụ công",
+                "description": "Em sẽ hệ thống hóa toàn bộ giấy tờ cần thiết, bao gồm học bạ và giấy chứng nhận tốt nghiệp tạm thời, rồi nộp trực tuyến qua cổng dịch vụ công quốc gia. Đây là bước then chốt để đảm bảo hồ sơ được xử lý đúng hạn và đầy đủ thông tin.",
+                "objectives": [
+                  "Hoàn thiện 100% hồ sơ xét tuyển theo quy định của từng trường",
+                  "Đăng ký thành công trên hệ thống xét tuyển của Bộ GD&ĐT",
+                  "Nhận mã xác nhận nộp hồ sơ thành công từ nhà trường"
+                ],
+                "actions": [
+                  "Quét và lưu trữ scan học bạ và các giấy tờ tùy thân theo định dạng PDF chất lượng cao",
+                  "Đăng nhập vào cổng dịch vụ công quốc gia để nộp hồ sơ xét tuyển nguyện vọng 1",
+                  "Kiểm tra kỹ lưỡng thông tin cá nhân và mã ngành trước khi gửi"
+                ],
+                "tools": [
+                  "Cổng Dịch vụ công Quốc gia",
+                  "Phần mềm scan tài liệu điện tử",
+                  "Email để kiểm tra trạng thái hồ sơ"
+                ],
+                "expectedResult": "Hồ sơ xét tuyển đã được nộp thành công và nhận được mã xác nhận từ nhà trường.",
+                "completed": false
+              },
+              {
+                "id": "step_5_3",
+                "title": "Theo dõi tiến độ xét tuyển và chuẩn bị tâm thế chờ đợi kết quả",
+                "description": "Sau khi nộp hồ sơ, em cần duy trì sự kiên nhẫn và thường xuyên kiểm tra kết quả trên cổng thông tin tuyển sinh. Nếu có bất ngờ về điểm số hoặc thay đổi kế hoạch, em cần sẵn sàng điều chỉnh ngay lập tức để không bỏ lỡ cơ hội vào ngành mong muốn.",
+                "objectives": [
+                  "Kiểm tra kết quả xét tuyển hàng ngày trong vòng 1 tuần sau khi nộp hồ sơ",
+                  "Cập nhật thông tin nếu có yêu cầu bổ sung giấy tờ từ nhà trường",
+                  "Ra quyết định dự phòng nếu không đạt nguyện vọng 1"
+                ],
+                "actions": [
+                  "Đăng ký nhận email thông báo kết quả xét tuyển từ các trường đã nộp hồ sơ",
+                  "Theo dõi diễn biến trên trang web của Sở Giáo dục và Đào tạo Đà Nẵng",
+                  "Lên kế hoạch ôn luyện bổ sung hoặc tìm hiểu các phương án dự phòng khác"
+                ],
+                "tools": [
+                  "Email cá nhân",
+                  "Website Sở GD&ĐT Đà Nẵng",
+                  "Ứng dụng nhắc nhở lịch hẹn"
+                ],
+                "expectedResult": "Em nắm chắc tình hình xét tuyển, sẵn sàng cho các bước tiếp theo nếu kết quả tốt hoặc cần điều chỉnh.",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "influencingFactors": [
+          {
+            "category": "Economic",
+            "factor": "Chi phí học tập và sinh hoạt tại Đà Nẵng",
+            "influence": "Low",
+            "description": "Gia đình có khả năng tài chính tốt nên em không lo lắng về chi phí học phí mà tập trung vào chất lượng đào tạo."
+          },
+          {
+            "category": "Personal",
+            "factor": "Khả năng chịu áp lực và quản lý thời gian",
+            "influence": "High",
+            "description": "Em có học lực khá và chấp nhận rủi ro cao, đây là lợi thế lớn để vượt qua các kỳ thi thử căng thẳng."
+          },
+          {
+            "category": "Social",
+            "factor": "Thông tin về xu hướng tuyển dụng ngành Y tế",
+            "influence": "Medium",
+            "description": "Việc nắm bắt được số lượng tin tuyển dụng 8551 tin tuyển dụng [F4] giúp em hiểu rõ cơ hội việc làm tương lai sau khi tốt nghiệp."
+          },
+          {
+            "category": "Technical",
+            "factor": "Kiến thức nền tảng về hóa sinh và sinh lý học",
+            "influence": "High",
+            "description": "Yêu cầu kiến thức chuyên sâu về hệ tuần hoàn và hô hấp là chìa khóa để em cạnh tranh trong ngành Điều dưỡng gây mê hồi sức."
+          }
+        ],
+        "strategicPivotPoints": [
+          {
+            "condition": "Nếu điểm thi thử liên tục thấp hơn 18 điểm [F1]",
+            "action": "Em cần giảm tải các môn học không cần thiết và tập trung toàn lực vào 3 môn thi chính để cải thiện điểm số."
+          },
+          {
+            "condition": "Nếu phát hiện thiếu hụt kiến thức hóa sinh cơ bản",
+            "action": "Em sẽ đăng ký tham gia các lớp bồi dưỡng chuyên sâu về hóa sinh và sinh lý học trước khi vào lớp 12."
+          },
+          {
+            "condition": "Nếu gia đình gặp bất ngờ về tài chính",
+            "action": "Em sẽ chủ động tìm kiếm các học bổng khuyến khích học tập hoặc làm thêm part-time để hỗ trợ chi phí sinh hoạt."
+          }
+        ],
+        "longTermProjection": "Trong 3-5 năm tới, em sẽ tốt nghiệp và trở thành điều dưỡng viên chuyên môn tại các bệnh viện lớn ở Đà Nẵng. Với nỗ lực rèn luyện, mức lương khởi điểm dự kiến đạt 11,9 triệu/tháng, tăng trưởng lên 16,4 triệu/tháng sau 5 năm làm việc. Dù đây là mức tham khảo cho nhóm nghề gần đúng, nhưng với kinh nghiệm thực tế và chuyên môn sâu, em hoàn toàn có thể đạt mức thu nhập tối ưu hơn.",
+        "modelUsed": "modal:premium",
+        "usage": {
+          "inputTokens": 15181,
+          "outputTokens": 5712,
+          "costUsd": 0
+        },
+        "quality": {
+          "task": "premium_v3_sections",
+          "provider": "modal",
+          "providers": [
+            "modal"
+          ],
+          "latencyMs": 100843,
+          "planCheck": "ok",
+          "unknownSlots": 0,
+          "numericClaims": 5,
+          "removedSentences": 0,
+          "groundedness": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-22T05:57:49.311Z",
+  "profiles": 25,
+  "task": "simulation_v2",
+  "systems": {
+    "modal": {
+      "successRate": 0.96,
+      "strictJsonRate": 0.5416666666666666,
+      "aiCoverage": 0.8605416666666669,
+      "groundedness": 0.979563492063492,
+      "numericClaimsPerOutput": 12.791666666666666,
+      "removedSentencesPerOutput": 0.2916666666666667,
+      "unknownEntitiesPerOutput": 0,
+      "latencyMs": {
+        "p50": 85290,
+        "p95": 138648
+      },
+      "firstTokenMs": {
+        "p50": 1004,
+        "p95": 1189
+      },
+      "costUsdPerOutput": 0,
+      "rubric": {
+        "specificity": 1.7857142857142858,
+        "faithfulness": 2.2857142857142856,
+        "actionability": 1.6428571428571428,
+        "empathy": 2.0714285714285716,
+        "fluency": 3
+      },
+      "errors": [
+        "Tất cả nhà cung cấp AI đều không phản hồi. Vui lòng thử lại sau ít phút."
+      ]
+    }
+  }
+}

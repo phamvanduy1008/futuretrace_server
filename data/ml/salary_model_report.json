@@ -1,0 +1,165 @@
+{
+  "model": "FT-Salary v2 (XGBoost quantile, log-salary, monotone constraints, CQR-calibrated)",
+  "data": {
+    "raw": 606878,
+    "salary_parsed": 575318,
+    "deduplicated": 499890
+  },
+  "split": {
+    "train_years": "2022-2024 + 50% of 2025",
+    "test_year": 2026,
+    "train_rows": 401064,
+    "val_rows": 32270,
+    "calibration_rows": 32270,
+    "test_rows": 34286
+  },
+  "trees": {
+    "p25": 999,
+    "p50": 1000,
+    "p75": 999
+  },
+  "calibration": {
+    "method": "Year-ahead Conformalized Quantile Regression (Romano et al. 2019): offset đo bằng model thăm dò huấn luyện trên các năm trước, chấm trên năm hiệu chỉnh",
+    "calibration_year": 2025,
+    "calibration_rows": 32270,
+    "target_coverage_percent": 50.0,
+    "interval_offset_log": 0.00781,
+    "in_period_offset_log": 0.00031,
+    "test_coverage_before_percent": 41.99,
+    "test_coverage_after_percent": 43.76
+  },
+  "test_all": {
+    "ft_salary_p50": {
+      "n": 34286,
+      "mae_million": 4.47,
+      "median_ae_million": 2.464,
+      "mape_percent": 27.02,
+      "within_20pct_percent": 48.8,
+      "p25_p75_coverage_percent": 43.76,
+      "mean_interval_width_million": 4.829
+    },
+    "baseline_current_system_industry_median": {
+      "n": 34286,
+      "mae_million": 5.527,
+      "median_ae_million": 3.5,
+      "mape_percent": 38.83,
+      "within_20pct_percent": 42.69
+    },
+    "baseline_train_median_by_raw_industry": {
+      "n": 34286,
+      "mae_million": 5.364,
+      "median_ae_million": 3.25,
+      "mape_percent": 38.66,
+      "within_20pct_percent": 42.1
+    },
+    "baseline_global_median": {
+      "n": 34286,
+      "mae_million": 5.494,
+      "median_ae_million": 3.5,
+      "mape_percent": 37.44,
+      "within_20pct_percent": 43.5
+    }
+  },
+  "test_fresher_graduates": {
+    "ft_salary_p50": {
+      "n": 6799,
+      "mae_million": 4.068,
+      "median_ae_million": 2.319,
+      "mape_percent": 30.55,
+      "within_20pct_percent": 48.32,
+      "p25_p75_coverage_percent": 44.96,
+      "mean_interval_width_million": 4.578
+    },
+    "baseline_current_system_industry_median": {
+      "n": 6799,
+      "mae_million": 4.855,
+      "median_ae_million": 3.0,
+      "mape_percent": 47.23,
+      "within_20pct_percent": 43.98
+    }
+  },
+  "mae_reduction_vs_current_percent": 19.1,
+  "top_features_by_gain": [
+    {
+      "feature": "exp_years",
+      "gain_share_percent": 18.8
+    },
+    {
+      "feature": "t:tro thanh",
+      "gain_share_percent": 8.3
+    },
+    {
+      "feature": "pos_level",
+      "gain_share_percent": 4.21
+    },
+    {
+      "feature": "year",
+      "gain_share_percent": 3.64
+    },
+    {
+      "feature": "t:kinh doanh",
+      "gain_share_percent": 2.62
+    },
+    {
+      "feature": "t:dia ban",
+      "gain_share_percent": 2.42
+    },
+    {
+      "feature": "ind:luat phap ly tuan thu",
+      "gain_share_percent": 2.03
+    },
+    {
+      "feature": "t:tai",
+      "gain_share_percent": 1.98
+    },
+    {
+      "feature": "edu_level",
+      "gain_share_percent": 1.83
+    },
+    {
+      "feature": "t:trieu",
+      "gain_share_percent": 1.72
+    },
+    {
+      "feature": "t:doanh",
+      "gain_share_percent": 1.69
+    },
+    {
+      "feature": "t:ke toan",
+      "gain_share_percent": 1.41
+    },
+    {
+      "feature": "t:nhan vien",
+      "gain_share_percent": 1.33
+    },
+    {
+      "feature": "t:kho",
+      "gain_share_percent": 1.21
+    },
+    {
+      "feature": "ind:tai chinh dau tu chung khoan",
+      "gain_share_percent": 1.19
+    },
+    {
+      "feature": "jt_fulltime",
+      "gain_share_percent": 1.19
+    },
+    {
+      "feature": "ind:nghe nghiep khac",
+      "gain_share_percent": 1.06
+    },
+    {
+      "feature": "t:nhan",
+      "gain_share_percent": 1.05
+    },
+    {
+      "feature": "t:truong",
+      "gain_share_percent": 0.95
+    },
+    {
+      "feature": "t:tu",
+      "gain_share_percent": 0.93
+    }
+  ],
+  "market_trends_file": "market_trends.json"
+}

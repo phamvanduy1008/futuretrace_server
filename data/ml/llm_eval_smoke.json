@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-10-22T04:43:09.701Z",
+  "profiles": 1,
+  "task": "simulation_v2",
+  "systems": {
+    "modal": {
+      "successRate": 1,
+      "strictJsonRate": 1,
+      "aiCoverage": 0.957,
+      "groundedness": 1,
+      "numericClaimsPerOutput": 23,
+      "removedSentencesPerOutput": 0,
+      "unknownEntitiesPerOutput": 0,
+      "latencyMs": {
+        "p50": 81261,
+        "p95": 81261
+      },
+      "firstTokenMs": {
+        "p50": 838,
+        "p95": 838
+      },
+      "costUsdPerOutput": 0,
+      "rubric": null,
+      "errors": []
+    }
+  }
+}
