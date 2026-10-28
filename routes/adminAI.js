@@ -4,6 +4,10 @@ const GeminiLog = require('../models/GeminiLog');
 const Simulation = require('../models/Simulation');
 const adminAuth = require('../middleware/adminAuth');
 const requireRoles = require('../middleware/requireRoles');
+const { checkOllamaHealth } = require('../services/ollamaService');
+const { getAiProvider, setAiProvider } = require('../services/aiProviderConfig');
+const { createAuditLog } = require('../services/auditService');
+
 const { formatCost, formatDateTime, formatLatency } = (() => {
   const formatLatency = (value) => {
     if (!value && value !== 0) return '--';
@@ -17,7 +21,83 @@ const { formatCost, formatDateTime, formatLatency } = (() => {
 
 const router = express.Router();
 
-router.get('/', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operator'), async (req, res) => {
+/**
+ * GET /api/admin/ai/status
+ * Kiểm tra tình trạng máy chủ Local LLM (Ollama) và Cloud Gemini
+ */
+router.get('/status', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operator'), async (req, res) => {
+  try {
+    const startTime = Date.now();
+    const ollamaHealth = await checkOllamaHealth();
+    const latencyMs = Date.now() - startTime;
+
+    const activeProvider = getAiProvider();
+    const geminiKeys = (process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || '').split(',').filter(Boolean);
+
+    res.json({
+      activeProvider,
+      ollama: {
+        online: ollamaHealth.online,
+        hasModel: ollamaHealth.hasModel,
+        modelName: process.env.OLLAMA_MODEL || 'futuretrace-ai',
+        baseUrl: process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434',
+        availableModels: ollamaHealth.availableModels || [],
+        latencyMs: ollamaHealth.online ? latencyMs : null,
+        error: ollamaHealth.error || null,
+      },
+      gemini: {
+        configured: geminiKeys.length > 0,
+        keysCount: geminiKeys.length,
+        primaryModel: 'gemini-2.5-flash',
+        fallbackModels: ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite']
+      }
+    });
+  } catch (error) {
+    console.error('Admin AI status check error:', error);
+    res.status(500).json({ message: 'Lỗi kiểm tra trạng thái AI: ' + error.message });
+  }
+});
+
+/**
+ * POST /api/admin/ai/provider
+ * Cập nhật loại AI hoạt động (ollama | gemini | hybrid)
+ */
+router.post('/provider', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operator'), async (req, res) => {
+  try {
+    const { provider, reason } = req.body;
+    const previous = getAiProvider();
+    const updated = setAiProvider(provider);
+
+    await createAuditLog({
+      actor: req.admin,
+      action: 'switch_ai_provider',
+      resourceType: 'system_setting',
+      resourceId: 'ai_provider',
+      resourceName: `AI Provider: ${updated.toUpperCase()}`,
+      summary: `Admin chuyển đổi AI Engine từ ${previous.toUpperCase()} sang ${updated.toUpperCase()}`,
+      severity: 'warning',
+      reason: reason || 'Chuyển đổi loại mô hình từ Admin UI',
+      before: { provider: previous },
+      after: { provider: updated },
+      req,
+    });
+
+    res.json({
+      success: true,
+      activeProvider: updated,
+      message: `Đã chuyển đổi thành công sang chế độ AI: ${updated.toUpperCase()}`
+    });
+  } catch (error) {
+    console.error('Admin switch AI provider error:', error);
+    res.status(400).json({ message: error.message });
+  }
+});
+
+/**
+ * GET /api/admin/ai hoặc /api/admin/ai/logs
+ * Danh sách nhật ký gọi AI
+ */
+const handleGetLogs = async (req, res) => {
   try {
     const { page = 1, limit = 20, status = 'all', model = 'all', q = '' } = req.query;
     const skip = (parseInt(page, 10) - 1) * parseInt(limit, 10);
@@ -86,6 +166,9 @@ router.get('/', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operat
     console.error('Admin AI logs error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống khi lấy AI logs.' });
   }
-});
+};
+
+router.get('/', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operator'), handleGetLogs);
+router.get('/logs', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operator'), handleGetLogs);
 
 module.exports = router;

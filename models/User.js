@@ -24,7 +24,15 @@ const userSchema = new mongoose.Schema({
   bio: { type: String, default: '' },
   processed_orders: [{ type: String }],
   has_claimed_free_pack: { type: Boolean, default: false },
-  has_manual_password: { type: Boolean, default: true }
+  has_manual_password: { type: Boolean, default: true },
+  // Đồng ý xử lý dữ liệu cá nhân (Luật BVDLCN 2025): phiên bản chính sách, thời điểm, năm sinh,
+  // xác nhận của cha mẹ/người giám hộ khi người dùng dưới 16 tuổi
+  consent: {
+    version: { type: String },
+    accepted_at: { type: Date },
+    birth_year: { type: Number },
+    guardian_confirmed: { type: Boolean, default: false }
+  }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
   collection: 'users'

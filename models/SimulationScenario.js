@@ -16,6 +16,8 @@ const simulationScenarioSchema = new mongoose.Schema({
     year_10: { min: Number, avg: Number, max: Number }
   },
   risks: [String],
+  // Bằng chứng định lượng từ FT-Salary + Career ROI Engine (giả định, phân vị lương, ROI)
+  quant: { type: mongoose.Schema.Types.Mixed },
   deep_analysis: {
     swot: [{
       label: String,

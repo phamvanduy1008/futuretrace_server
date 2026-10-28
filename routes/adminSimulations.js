@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 const Simulation = require('../models/Simulation');
 const SimulationScenario = require('../models/SimulationScenario');
@@ -87,7 +88,19 @@ router.get('/', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operat
 
 router.get('/:id', adminAuth, requireRoles('super_admin', 'ops_support', 'ai_operator'), async (req, res) => {
   try {
-    const simulation = await Simulation.findById(req.params.id);
+    let simulation = null;
+    if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+      simulation = await Simulation.findById(req.params.id);
+
+      // Nếu không tìm thấy bằng Simulation._id, kiểm tra xem params.id có phải là của SimulationScenario không
+      if (!simulation) {
+        const scenario = await SimulationScenario.findById(req.params.id);
+        if (scenario && scenario.simulation_id) {
+          simulation = await Simulation.findById(scenario.simulation_id);
+        }
+      }
+    }
+
     if (!simulation) {
       return res.status(404).json({ message: 'Không tìm thấy simulation.' });
     }

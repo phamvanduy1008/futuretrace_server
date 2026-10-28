@@ -10,6 +10,8 @@ const adminAIRoutes = require('./adminAI');
 const adminPromptRoutes = require('./adminPrompts');
 const adminSettingsRoutes = require('./adminSettings');
 const adminPaymentsRoutes = require('./adminPayments');
+const adminRAGRoutes = require('./adminRAG');
+const adminMetricsRoutes = require('./adminMetrics');
 
 const router = express.Router();
 
@@ -19,9 +21,12 @@ router.use('/users', adminUsersRoutes);
 router.use('/simulations', adminSimulationsRoutes);
 router.use('/premium-analyses', adminPremiumRoutes);
 router.use('/community', adminCommunityRoutes);
+router.use('/ai', adminAIRoutes);
 router.use('/ai/logs', adminAIRoutes);
+router.use('/rag', adminRAGRoutes);
 router.use('/prompts', adminPromptRoutes);
 router.use('/settings', adminSettingsRoutes);
 router.use('/payments', adminPaymentsRoutes);
+router.use('/metrics', adminMetricsRoutes);
 
 module.exports = router;

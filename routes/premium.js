@@ -1,7 +1,11 @@
 const express = require('express');
 const auth = require('../middleware/auth');
+const requireConsent = require('../middleware/requireConsent');
 const PremiumAnalysis = require('../models/PremiumAnalysis');
-const { generatePremiumAnalysis, pivotPremiumAnalysis, expandStepDetail } = require('../services/geminiService');
+const { generatePremiumAnalysis } = require('../services/geminiService');
+// Pivot + mở rộng bước: giữ nguyên mốc đã hoàn thành, số liệu qua slot, gọi Gemini qua llmGateway (bỏ đường Ollama cũ)
+const premiumEngine = require('../services/premiumEngine');
+const premiumTimeline = require('../services/premiumTimeline');
 const GeminiLog = require('../models/GeminiLog');
 const User = require('../models/User');
 const { spendTokens } = require('../services/subscriptionService');
@@ -20,10 +24,46 @@ const formatTokenResponse = (token) => ({
   remainingToken: token
 });
 
+/**
+ * Tạo lộ trình premium.
+ * PREMIUM_ENGINE=v3: viết theo phần + slot (khung + 5 mốc) bằng model riêng (adapter "premium" trên Modal),
+ *   thứ tự provider theo PREMIUM_ORDER (mặc định modal,gemini); lỗi thì quay về bản Gemini cũ.
+ * Mặc định (legacy): generatePremiumAnalysis (Gemini một lần gọi).
+ */
+const generatePremiumReport = async (scenario, context, timeframe) => {
+  if ((process.env.PREMIUM_ENGINE || 'legacy').toLowerCase() === 'v3') {
+    const order = (process.env.PREMIUM_ORDER || 'modal,gemini').split(',').map(s => s.trim()).filter(Boolean);
+    // Giao diện cắt request sau 150 s: engine v3 (L4 khoảng 90 s) có ngân sách riêng, quá hạn thì hủy và dùng bản cũ (~11 s)
+    const budgetMs = Number(process.env.PREMIUM_V3_BUDGET_MS || 110000);
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(new Error(`quá ${budgetMs} ms`)), budgetMs);
+    try {
+      return await premiumEngine.generatePremium({
+        title: scenario.title, description: scenario.description, context: context || {},
+        timeframe: Number(timeframe) || 12, order, modalModel: process.env.PREMIUM_MODAL_MODEL || 'premium',
+        signal: controller.signal
+      });
+    } catch (err) {
+      console.warn(`[Premium Analysis] engine v3 lỗi, dùng bản cũ: ${err.message}`);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+  // Bản cũ cũng phải phủ đủ khung thời gian: mốc = 5 giai đoạn liền nhau, tường thuật mỗi giai đoạn 1 đoạn
+  const legacy = await generatePremiumAnalysis(scenario.title, scenario.description, context, timeframe);
+  return premiumTimeline.applyTimeline(legacy, Number(timeframe) || 12);
+};
+
+// Map to hold active promises and prevent race conditions / duplicate charges
+const inFlightPremiumRequests = new Map();
+
 // POST /api/premium/analyze - Generate premium analysis via Gemini
-router.post('/analyze', auth, async (req, res) => {
+router.post('/analyze', auth, requireConsent, async (req, res) => {
   let tokensCharged = false;
   let premiumAnalysisId = null;
+  let inFlightKey = null;
+  let resolveInFlight = null;
+  let rejectInFlight = null;
   const startTime = Date.now();
 
   try {
@@ -57,6 +97,14 @@ router.post('/analyze', auth, async (req, res) => {
       });
     }
 
+    // Check if a generation is currently running for this user & scenario
+    inFlightKey = `${req.user.userId}_${scenario.id}`;
+    if (inFlightPremiumRequests.has(inFlightKey)) {
+      console.log(`[Premium Analysis] Request already running for ${inFlightKey}. Awaiting existing generation...`);
+      const sharedResult = await inFlightPremiumRequests.get(inFlightKey);
+      return res.json(sharedResult);
+    }
+
     // Deduct tokens first
     const currentToken = await getUserToken(req.user.userId);
     if (currentToken < PREMIUM_ANALYSIS_COST) {
@@ -79,21 +127,25 @@ router.post('/analyze', auth, async (req, res) => {
     }
     tokensCharged = true;
 
-    // Call Gemini AI
-    const report = await generatePremiumAnalysis(
-      scenario.title,
-      scenario.description,
-      context,
-      timeframe
-    );
+    // Register in-flight promise to handle concurrent requests
+    const inFlightPromise = new Promise((resolve, reject) => {
+      resolveInFlight = resolve;
+      rejectInFlight = reject;
+    });
+    // Nếu không có request trùng nào chờ, reject sẽ không có ai bắt -> Node 22 tắt tiến trình
+    inFlightPromise.catch(() => {});
+    inFlightPremiumRequests.set(inFlightKey, inFlightPromise);
+
+    const report = await generatePremiumReport(scenario, context, timeframe);
 
     // Log success
     await new GeminiLog({
       user_id: req.user.userId,
       prompt_version: 1,
-      model: report.modelUsed || 'gemini-3.5-flash',
+      model: report.modelUsed || 'unknown',
       status: 'success',
       latency_ms: Date.now() - startTime,
+      ...GeminiLog.usageFields(report.usage),
       output: report
     }).save();
 
@@ -126,7 +178,7 @@ router.post('/analyze', auth, async (req, res) => {
           user_id: req.user.userId,
           scenario_id: scenario.id
         });
-        return res.json({
+        const raceResponse = {
           id: existingAgain._id.toString(),
           scenarioId: existingAgain.scenario_id,
           title: existingAgain.title,
@@ -139,12 +191,15 @@ router.post('/analyze', auth, async (req, res) => {
           timeframe: existingAgain.timeframe,
           isExisting: true,
           ...formatTokenResponse(await getUserToken(req.user.userId))
-        });
+        };
+        if (resolveInFlight) resolveInFlight(raceResponse);
+        if (inFlightKey) inFlightPremiumRequests.delete(inFlightKey);
+        return res.json(raceResponse);
       }
       throw saveError;
     }
 
-    res.status(201).json({
+    const finalResponse = {
       id: premiumAnalysis._id.toString(),
       scenarioId: premiumAnalysis.scenario_id,
       title: premiumAnalysis.title,
@@ -157,8 +212,15 @@ router.post('/analyze', auth, async (req, res) => {
       timeframe: premiumAnalysis.timeframe,
       tokenSpent: PREMIUM_ANALYSIS_COST,
       ...formatTokenResponse(chargeResult.token)
-    });
+    };
+
+    if (resolveInFlight) resolveInFlight(finalResponse);
+    if (inFlightKey) inFlightPremiumRequests.delete(inFlightKey);
+
+    res.status(201).json(finalResponse);
   } catch (error) {
+    if (rejectInFlight) rejectInFlight(error);
+    if (inFlightKey) inFlightPremiumRequests.delete(inFlightKey);
     console.error('Premium analyze error:', error);
 
     // Refund tokens on error
@@ -213,12 +275,23 @@ router.post('/analyze', auth, async (req, res) => {
 });
 
 // POST /api/premium/pivot - Re-plan with feedback via Gemini
-router.post('/pivot', auth, async (req, res) => {
+router.post('/pivot', auth, requireConsent, async (req, res) => {
   let tokensCharged = false;
   const startTime = Date.now();
-  const { progressId, currentReport, completedMilestones, feedback, context, timeframe } = req.body;
+  const { progressId, feedback, context, timeframe } = req.body;
 
   try {
+    // Chỉ cho phép pivot trên lộ trình của chính người dùng; ưu tiên dữ liệu trong DB thay vì dữ liệu client gửi
+    let existingProgress = null;
+    if (progressId) {
+      existingProgress = await PremiumAnalysis.findOne({ _id: progressId, user_id: req.user.userId });
+      if (!existingProgress) {
+        return res.status(404).json({ message: 'Không tìm thấy tiến trình.' });
+      }
+    }
+    const currentReport = existingProgress ? existingProgress.report : req.body.currentReport;
+    const completedMilestones = existingProgress ? existingProgress.completed_milestones : req.body.completedMilestones;
+
     if (!currentReport || !feedback) {
       return res.status(400).json({ message: 'Báo cáo hiện tại và feedback là bắt buộc.' });
     }
@@ -244,41 +317,36 @@ router.post('/pivot', auth, async (req, res) => {
     }
     tokensCharged = true;
 
-    // Retrieve past feedback history if this progress exists
-    let feedbackHistory = [];
-    if (progressId) {
-      const existingProgress = await PremiumAnalysis.findById(progressId);
-      if (existingProgress && existingProgress.feedback_history) {
-        feedbackHistory = existingProgress.feedback_history;
-      }
-    }
+    const feedbackHistory = existingProgress?.feedback_history || [];
 
     // Call Gemini AI
-    const newReport = await pivotPremiumAnalysis(
+    const newReport = await premiumEngine.pivot({
       currentReport,
-      completedMilestones || [],
+      completedMilestones: completedMilestones || [],
       feedback,
-      context,
-      timeframe,
-      feedbackHistory
-    );
+      context: context || existingProgress?.context || {},
+      timeframe: timeframe || existingProgress?.timeframe || 12,
+      feedbackHistory,
+      scenario: { title: existingProgress?.title || existingProgress?.scenario?.title, description: existingProgress?.scenario?.description }
+    });
 
     // Log success
     await new GeminiLog({
       user_id: req.user.userId,
       prompt_version: 1,
-      model: newReport.modelUsed || 'gemini-2.5-flash-lite',
+      model: newReport.modelUsed || 'unknown',
       status: 'success',
       latency_ms: Date.now() - startTime,
+      ...GeminiLog.usageFields(newReport.usage),
       output: newReport
     }).save();
 
     // Update the progress in DB if progressId provided
-    if (progressId) {
-      await PremiumAnalysis.findByIdAndUpdate(progressId, {
-        report: newReport,
-        $push: { feedback_history: feedback }
-      });
+    if (existingProgress) {
+      await PremiumAnalysis.updateOne(
+        { _id: existingProgress._id, user_id: req.user.userId },
+        { report: newReport, $push: { feedback_history: feedback } }
+      );
     }
 
     res.json({
@@ -504,20 +572,19 @@ router.patch('/expand-step', auth, async (req, res) => {
     }
 
     // Call Gemini to generate the expanded step details
-    const expanded = await expandStepDetail(
-      item.title,
-      foundMilestone.event,
-      foundStep.title,
-      foundStep.description,
-      item.context
-    );
+    const expanded = await premiumEngine.expandStep({
+      scenarioTitle: item.title,
+      milestoneEvent: foundMilestone.event,
+      stepTitle: foundStep.title,
+      stepDescription: foundStep.description,
+      context: item.context || {}
+    });
 
-    // Update the step in-place
-    foundStep.description = expanded.description;
-    foundStep.objectives = expanded.objectives;
-    foundStep.actions = expanded.actions;
-    foundStep.tools = expanded.tools;
-    foundStep.expectedResult = expanded.expectedResult;
+    // Cập nhật tại chỗ; trường AI trả thiếu (hoặc bị gỡ hết do số liệu/đường link không hợp lệ) thì giữ nội dung cũ
+    const nonEmpty = (v) => (Array.isArray(v) ? v.length > 0 : typeof v === 'string' && v.trim().length > 0);
+    for (const key of ['description', 'objectives', 'actions', 'tools', 'expectedResult']) {
+      if (nonEmpty(expanded[key])) foundStep[key] = expanded[key];
+    }
 
     // Save back to MongoDB
     item.markModified('report.milestones');
@@ -534,4 +601,5 @@ router.patch('/expand-step', auth, async (req, res) => {
   }
 });
 
+router.generatePremiumReport = generatePremiumReport; // để test
 module.exports = router;

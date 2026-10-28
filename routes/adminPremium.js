@@ -1,6 +1,7 @@
 const express = require('express');
 
 const PremiumAnalysis = require('../models/PremiumAnalysis');
+const SimulationScenario = require('../models/SimulationScenario');
 const User = require('../models/User');
 const adminAuth = require('../middleware/adminAuth');
 const requireRoles = require('../middleware/requireRoles');
@@ -16,27 +17,36 @@ const deriveStatus = (analysis) => {
 };
 
 const serializeAnalysis = async (analysis) => {
-  const user = await User.findById(analysis.user_id).select('full_name');
+  const [user, scenarioDoc] = await Promise.all([
+    User.findById(analysis.user_id).select('full_name email'),
+    SimulationScenario.findById(analysis.scenario_id).select('simulation_id title'),
+  ]);
+
   const totalMilestones = analysis.report?.milestones?.length || 0;
   const completed = analysis.completed_milestones?.length || 0;
-  const nextMilestone = analysis.report?.milestones?.[completed]?.event || 'Da hoan tat';
+  const nextMilestone = analysis.report?.milestones?.[completed]?.event || (totalMilestones > 0 ? 'Đã hoàn tất' : '--');
+  const simulationId = scenarioDoc?.simulation_id?.toString() || null;
 
   return {
     id: analysis._id.toString(),
     scenarioId: analysis.scenario_id,
-    userId: analysis.user_id.toString(),
-    userName: user?.full_name || 'Unknown',
-    title: analysis.title,
+    simulationId,
+    userId: analysis.user_id?.toString() || '',
+    userName: user?.full_name || 'Người dùng ẩn danh',
+    userEmail: user?.email || '',
+    title: analysis.title || analysis.scenario?.title || 'Phân tích chiến lược chuyên sâu',
+    category: analysis.category || 'career',
     status: deriveStatus(analysis),
-    timeframeMonths: analysis.timeframe,
-    pivotCount: 0,
+    timeframeMonths: analysis.timeframe || 12,
+    pivotCount: analysis.report?.strategicPivotPoints?.length || 0,
     completionRate: totalMilestones > 0 ? Math.round((completed / totalMilestones) * 100) : 0,
+    createdAt: formatDateTime(analysis.created_at),
     updatedAt: formatDateTime(analysis.updated_at || analysis.created_at),
     nextMilestone,
-    feedbackHistory: [],
-    report: analysis.report,
-    context: analysis.context,
-    scenario: analysis.scenario,
+    feedbackHistory: analysis.feedback_history || [],
+    report: analysis.report || {},
+    context: analysis.context || {},
+    scenario: analysis.scenario || {},
     completedMilestones: analysis.completed_milestones || [],
   };
 };

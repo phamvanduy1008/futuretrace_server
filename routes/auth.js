@@ -18,7 +18,7 @@ const generateTokens = (user) => {
   const accessToken = jwt.sign(
     { userId: user._id, email: user.email },
     process.env.JWT_SECRET,
-    { expiresIn: '7d' }
+    { expiresIn: process.env.ACCESS_TOKEN_TTL || '30m' } // ngắn hạn; frontend tự làm mới bằng refresh token
   );
   const refreshToken = crypto.randomBytes(40).toString('hex');
   return { accessToken, refreshToken };
@@ -38,7 +38,8 @@ const formatUser = (user) => {
     has_claimed_free_pack: !!user.has_claimed_free_pack,
     is_google_user: !!user.googleId,
     has_manual_password: !!user.has_manual_password,
-    created_at: user.created_at
+    created_at: user.created_at,
+    consent: user.consent?.accepted_at ? { version: user.consent.version, acceptedAt: user.consent.accepted_at } : null
   };
 };
 
@@ -328,6 +329,64 @@ router.post('/refresh', async (req, res) => {
   } catch (error) {
     console.error('Refresh error:', error);
     res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
+const CONSENT_VERSION = '2026-10';
+
+// POST /api/auth/consent - Ghi nhận đồng ý xử lý dữ liệu (bắt buộc trước khi dùng tính năng AI)
+router.post('/consent', auth, async (req, res) => {
+  try {
+    const { accepted, birthYear, guardianConfirmed } = req.body;
+    const year = Number(birthYear);
+    const nowYear = new Date().getFullYear();
+    if (accepted !== true || !Number.isInteger(year) || year < nowYear - 100 || year > nowYear - 10) {
+      return res.status(400).json({ message: 'Vui lòng đồng ý chính sách và nhập năm sinh hợp lệ.' });
+    }
+    // Dưới 16 tuổi: cần cha mẹ / người giám hộ xác nhận (Luật BVDLCN 2025, dữ liệu trẻ em)
+    if (nowYear - year < 16 && guardianConfirmed !== true) {
+      return res.status(400).json({ message: 'Người dùng dưới 16 tuổi cần cha mẹ hoặc người giám hộ xác nhận đồng ý.', code: 'GUARDIAN_REQUIRED' });
+    }
+    const user = await User.findByIdAndUpdate(req.user.userId, {
+      consent: { version: CONSENT_VERSION, accepted_at: new Date(), birth_year: year, guardian_confirmed: guardianConfirmed === true }
+    }, { new: true });
+    res.json({ ok: true, user: formatUser(user) });
+  } catch (error) {
+    console.error('Consent error:', error);
+    res.status(500).json({ message: 'Lỗi hệ thống.' });
+  }
+});
+
+// DELETE /api/auth/account - Xóa tài khoản và toàn bộ dữ liệu cá nhân (quyền xóa dữ liệu của chủ thể)
+// Giao dịch thanh toán được giữ lại (ẩn danh hóa không áp dụng do ràng buộc chứng từ kế toán).
+router.delete('/account', auth, async (req, res) => {
+  try {
+    if (req.body?.confirm !== 'XOA TAI KHOAN') {
+      return res.status(400).json({ message: 'Vui lòng gõ chính xác "XOA TAI KHOAN" để xác nhận.' });
+    }
+    const userId = req.user.userId;
+    const Simulation = require('../models/Simulation');
+    const SimulationScenario = require('../models/SimulationScenario');
+    const simIds = (await Simulation.find({ user_id: userId }).select('_id').lean()).map(s => s._id);
+    const byUser = { user_id: userId };
+    await Promise.all([
+      SimulationScenario.deleteMany({ simulation_id: { $in: simIds } }),
+      Simulation.deleteMany(byUser),
+      require('../models/PremiumAnalysis').deleteMany(byUser),
+      require('../models/Feedback').deleteMany(byUser),
+      require('../models/GeminiLog').deleteMany(byUser),
+      require('../models/UserEvaluationResult').deleteMany(byUser),
+      require('../models/CommunityPost').deleteMany(byUser),
+      require('../models/CommunityComment').deleteMany(byUser),
+      require('../models/CommunityLike').deleteMany(byUser),
+      require('../models/CommunityCommentLike').deleteMany(byUser),
+      RefreshToken.deleteMany(byUser)
+    ]);
+    await User.deleteOne({ _id: userId });
+    res.json({ ok: true, message: 'Tài khoản và dữ liệu cá nhân đã được xóa.' });
+  } catch (error) {
+    console.error('Delete account error:', error);
+    res.status(500).json({ message: 'Không xóa được tài khoản. Vui lòng thử lại.' });
   }
 });
 

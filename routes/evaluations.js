@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
+const adminAuth = require('../middleware/adminAuth');
 const EvaluationQuestion = require('../models/EvaluationQuestion');
 const UserEvaluationResult = require('../models/UserEvaluationResult');
 
@@ -15,8 +16,8 @@ router.get('/questions', auth, async (req, res) => {
   }
 });
 
-// Seed API (chỉ dùng một lần hoặc cho admin, ở đây để đơn giản ta tạo endpoint)
-router.post('/seed', async (req, res) => {
+// Seed API - chỉ admin (trước đây không có xác thực: bất kỳ ai cũng xóa được ngân hàng câu hỏi)
+router.post('/seed', adminAuth, async (req, res) => {
   try {
     const { questions } = req.body;
     if (!questions || !Array.isArray(questions)) {

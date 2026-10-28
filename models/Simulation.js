@@ -10,8 +10,17 @@ const simulationSchema = new mongoose.Schema({
     academicPerformance: { type: Number },
     risk: { type: Number },
     otherFactors: { type: String },
-    tier: { type: String }
+    tier: { type: String },
+    // Đầu vào có cấu trúc (form autocomplete): chính xác hơn suy luận từ câu tự do
+    location: { type: String },
+    programId: { type: String },
+    expectedScore: { type: Number },
+    budgetPerYearMillion: { type: Number },
+    timeHorizon: { type: Number }
   },
+  // Fact Sheet có nguồn dùng cho lượt mô phỏng (Knowledge Layer v2), để UI hiển thị trích dẫn
+  facts: { type: mongoose.Schema.Types.Mixed },
+  program: { type: mongoose.Schema.Types.Mixed },
   status: { type: String, enum: ['queued', 'processing', 'completed', 'failed'], default: 'queued' },
   selected_scenario_id: { type: mongoose.Schema.Types.ObjectId, ref: 'SimulationScenario' },
   completed_at: { type: Date },
