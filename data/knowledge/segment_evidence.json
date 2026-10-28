@@ -1,0 +1,283 @@
+{
+ "source_postings": 606878,
+ "note": "Một tin có thể thuộc nhiều nhóm ngành; tỷ lệ = % tin của nhóm có chức danh chứa cụm từ.",
+ "segments": {
+  "y te cham soc suc khoe": {
+   "postings": 16014,
+   "title_share_percent": {
+    "trình dược viên": 20.5,
+    "điều dưỡng": 10.9,
+    "bác sĩ": 3.4,
+    "nha khoa": 3.9,
+    "xét nghiệm": 0.7,
+    "dược sĩ": 3.5
+   }
+  },
+  "duoc pham": {
+   "postings": 15283,
+   "title_share_percent": {
+    "trình dược viên": 21.1,
+    "OTC": 11.0,
+    "dược sĩ": 3.5,
+    "nhà thuốc": 2.6
+   }
+  },
+  "giao duc dao tao": {
+   "postings": 35613,
+   "title_share_percent": {
+    "giáo viên": 14.0,
+    "giảng viên": 1.0,
+    "tư vấn tuyển sinh": 7.0,
+    "mầm non": 2.8,
+    "trợ giảng": 1.8
+   }
+  },
+  "tai chinh dau tu chung khoan": {
+   "postings": 21535,
+   "title_share_percent": {
+    "kế toán": 31.2,
+    "tín dụng": 7.8,
+    "đầu tư": 1.1,
+    "chứng khoán": 1.0,
+    "phân tích": 0.6
+   }
+  },
+  "ngan hang": {
+   "postings": 10668,
+   "title_share_percent": {
+    "thanh toán": 22.9,
+    "tín dụng": 11.8,
+    "giao dịch viên": 2.3,
+    "tài chính": 7.8
+   }
+  },
+  "luat phap ly tuan thu": {
+   "postings": 5508,
+   "title_share_percent": {
+    "pháp chế": 12.2,
+    "pháp lý": 15.8,
+    "luật sư": 2.7,
+    "tuân thủ": 1.3
+   }
+  },
+  "kien truc thiet ke noi ngoai that": {
+   "postings": 6289,
+   "title_share_percent": {
+    "kiến trúc sư": 22.3,
+    "nội thất": 35.6,
+    "thiết kế": 42.7
+   }
+  },
+  "xay dung": {
+   "postings": 31146,
+   "title_share_percent": {
+    "kỹ sư xây dựng": 11.1,
+    "giám sát": 12.6,
+    "dự toán": 3.7,
+    "an toàn": 1.8
+   }
+  },
+  "dien dien tu dien lanh": {
+   "postings": 16301,
+   "title_share_percent": {
+    "kỹ sư điện": 7.5,
+    "điện tử": 4.5,
+    "điện lạnh": 5.5,
+    "bảo trì": 12.0,
+    "viễn thông": 2.9
+   }
+  },
+  "co khi o to tu dong hoa": {
+   "postings": 25741,
+   "title_share_percent": {
+    "cơ khí": 16.7,
+    "ô tô": 5.2,
+    "tự động hóa": 3.2,
+    "PLC": 0.2,
+    "cơ điện tử": 0.4,
+    "chế tạo": 1.0
+   }
+  },
+  "khach san nha hang du lich": {
+   "postings": 24894,
+   "title_share_percent": {
+    "bếp": 6.9,
+    "phục vụ": 6.2,
+    "lễ tân": 3.9,
+    "du lịch": 1.9,
+    "điều hành tour": 0.8,
+    "hướng dẫn viên": 0.2
+   }
+  },
+  "bien phien dich": {
+   "postings": 18956,
+   "title_share_percent": {
+    "phiên dịch": 11.2,
+    "tiếng Trung": 19.5,
+    "tiếng Anh": 7.7,
+    "tiếng Nhật": 3.8,
+    "tiếng Hàn": 3.9
+   }
+  },
+  "khoa hoc ky thuat": {
+   "postings": 24863,
+   "title_share_percent": {
+    "kỹ sư": 20.9,
+    "kỹ thuật viên": 3.9,
+    "nghiên cứu": 0.3,
+    "phòng thí nghiệm": 0.3,
+    "môi trường": 1.6,
+    "sinh học": 0.1
+   }
+  },
+  "quan ly tieu chuan va chat luong": {
+   "postings": 4524,
+   "title_share_percent": {
+    "QC": 24.3,
+    "QA": 15.2,
+    "chất lượng": 22.0,
+    "môi trường": 0.2,
+    "an toàn": 1.0
+   }
+  },
+  "cong nghe thuc pham dinh duong": {
+   "postings": 11551,
+   "title_share_percent": {
+    "thực phẩm": 6.5,
+    "dinh dưỡng": 0.6,
+    "QA": 3.1,
+    "R&D": 2.6
+   }
+  },
+  "it phan mem": {
+   "postings": 7742,
+   "title_share_percent": {
+    "lập trình": 14.0,
+    "developer": 16.2,
+    "tester": 2.3,
+    "dữ liệu": 4.2,
+    "AI": 3.4
+   }
+  },
+  "marketing": {
+   "postings": 18430,
+   "title_share_percent": {
+    "marketing": 53.3,
+    "content": 13.9,
+    "SEO": 5.3,
+    "truyền thông": 2.1,
+    "PR": 0.6
+   }
+  },
+  "nhan su": {
+   "postings": 14504,
+   "title_share_percent": {
+    "nhân sự": 46.9,
+    "tuyển dụng": 19.5,
+    "hành chính": 34.3
+   }
+  },
+  "ke toan": {
+   "postings": 52919,
+   "title_share_percent": {
+    "kế toán": 85.6,
+    "tổng hợp": 24.1,
+    "nội bộ": 12.2,
+    "thuế": 5.8
+   }
+  },
+  "kiem toan": {
+   "postings": 52008,
+   "title_share_percent": {
+    "kế toán": 85.9,
+    "kiểm toán": 1.2
+   }
+  },
+  "ban hang kinh doanh": {
+   "postings": 64127,
+   "title_share_percent": {
+    "kinh doanh": 51.2,
+    "bán hàng": 12.0,
+    "tư vấn": 8.3,
+    "thị trường": 6.6
+   }
+  },
+  "thu mua kho van chuoi cung ung": {
+   "postings": 16452,
+   "title_share_percent": {
+    "xuất nhập khẩu": 16.2,
+    "kho": 23.7,
+    "thu mua": 7.6,
+    "logistics": 6.1
+   }
+  },
+  "xuat nhap khau": {
+   "postings": 9129,
+   "title_share_percent": {
+    "xuất nhập khẩu": 31.5,
+    "chứng từ": 12.7,
+    "mua hàng": 6.2
+   }
+  },
+  "van tai lai xe giao nhan": {
+   "postings": 9720,
+   "title_share_percent": {
+    "lái xe": 25.3,
+    "tài xế": 22.5,
+    "giao hàng": 15.9
+   }
+  },
+  "bat dong san": {
+   "postings": 11782,
+   "title_share_percent": {
+    "kinh doanh": 55.1,
+    "bất động sản": 19.3,
+    "tư vấn": 9.7
+   }
+  },
+  "thiet ke sang tao nghe thuat": {
+   "postings": 4186,
+   "title_share_percent": {
+    "thiết kế": 60.1,
+    "đồ họa": 17.3,
+    "graphic": 9.4,
+    "video": 5.9
+   }
+  },
+  "hanh chinh thu ky": {
+   "postings": 23359,
+   "title_share_percent": {
+    "hành chính": 30.8,
+    "nhân sự": 31.4,
+    "lễ tân": 4.7,
+    "trợ lý": 7.5
+   }
+  },
+  "san xuat lap rap che bien": {
+   "postings": 25983,
+   "title_share_percent": {
+    "kỹ thuật": 22.9,
+    "cơ khí": 16.2,
+    "vận hành": 9.1,
+    "bảo trì": 7.8
+   }
+  },
+  "det may da giay thoi trang": {
+   "postings": 6382,
+   "title_share_percent": {
+    "thời trang": 9.5,
+    "bán hàng": 10.0,
+    "thiết kế": 8.1,
+    "đơn hàng": 6.6
+   }
+  },
+  "quan ly du an": {
+   "postings": 3868,
+   "title_share_percent": {
+    "dự án": 13.5,
+    "giám sát": 7.3,
+    "giám đốc": 12.0
+   }
+  }
+ }
+}

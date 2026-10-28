@@ -1,0 +1,88 @@
+{
+ "_doc": "Số liệu chính thức (tier A) nhập tay, mỗi mục có văn bản/nguồn và năm. Nhóm cần kiểm lại 100% trước khi đổi verified=true. Mục chưa xác minh được thì KHÔNG đưa vào đây (vd mức vay tín dụng sinh viên: nguồn mâu thuẫn, đang có dự thảo sửa đổi 2026).",
+ "facts": {
+  "min_wage_month": {
+   "label": "Lương tối thiểu tháng theo vùng từ 01/01/2026 (giá trị là vùng I cao nhất; khoảng là từ vùng IV đến vùng I)",
+   "value": 5.31,
+   "range": [
+    3.7,
+    5.31
+   ],
+   "unit": "triệu/tháng",
+   "year": 2026,
+   "source": {
+    "publisher": "Nghị định 293/2025/NĐ-CP (Chính phủ)",
+    "url": "https://hatinh.gov.vn/vi/bai-viet/tang-luong-toi-thieu-vung-tu-112026",
+    "tier": "A",
+    "verified": false,
+    "retrievedAt": "2026-10-22"
+   }
+  },
+  "min_wage_hour": {
+   "label": "Lương tối thiểu theo giờ từ 01/01/2026, áp dụng cho việc làm thêm theo giờ (giá trị là vùng I; khoảng là từ vùng IV đến vùng I)",
+   "value": 25.5,
+   "range": [
+    17.8,
+    25.5
+   ],
+   "unit": "nghìn đồng/giờ",
+   "year": 2026,
+   "source": {
+    "publisher": "Nghị định 293/2025/NĐ-CP (Chính phủ)",
+    "url": "https://hatinh.gov.vn/vi/bai-viet/tang-luong-toi-thieu-vung-tu-112026",
+    "tier": "A",
+    "verified": false,
+    "retrievedAt": "2026-10-22"
+   }
+  },
+  "avg_income_2025": {
+   "label": "Thu nhập bình quân tháng của lao động cả nước năm 2025 (khoảng là từ nông thôn đến thành thị)",
+   "value": 8.4,
+   "range": [
+    7.3,
+    10.1
+   ],
+   "unit": "triệu/tháng",
+   "year": 2025,
+   "source": {
+    "publisher": "Cục Thống kê - Thông cáo báo chí lao động việc làm quý IV và năm 2025",
+    "url": "https://nso.gov.vn/tin-tuc-thong-ke/2026/01/thong-cao-bao-chi-ve-tinh-hinh-dan-so-lao-dong-viec-lam-quy-iv-va-nam-2025",
+    "tier": "A",
+    "verified": false,
+    "retrievedAt": "2026-10-22"
+   }
+  },
+  "youth_unemployment_2025": {
+   "label": "Tỷ lệ thất nghiệp thanh niên 15-24 tuổi năm 2025, cả nước",
+   "value": 8.64,
+   "unit": "%",
+   "year": 2025,
+   "source": {
+    "publisher": "Cục Thống kê - Thông cáo báo chí lao động việc làm quý IV và năm 2025",
+    "url": "https://nso.gov.vn/tin-tuc-thong-ke/2026/01/thong-cao-bao-chi-ve-tinh-hinh-dan-so-lao-dong-viec-lam-quy-iv-va-nam-2025",
+    "tier": "A",
+    "verified": false,
+    "retrievedAt": "2026-10-22"
+   }
+  },
+  "trained_share_2025": {
+   "label": "Tỷ lệ lao động đã qua đào tạo có bằng, chứng chỉ năm 2025",
+   "value": 29.2,
+   "unit": "%",
+   "year": 2025,
+   "source": {
+    "publisher": "Cục Thống kê - Thông cáo báo chí lao động việc làm quý IV và năm 2025",
+    "url": "https://nso.gov.vn/tin-tuc-thong-ke/2026/01/thong-cao-bao-chi-ve-tinh-hinh-dan-so-lao-dong-viec-lam-quy-iv-va-nam-2025",
+    "tier": "A",
+    "verified": false,
+    "retrievedAt": "2026-10-22"
+   }
+  }
+ },
+ "todo_for_team": [
+  "Thu nhập và thất nghiệp theo trình độ chuyên môn (đại học, cao đẳng): bảng xlsx đính kèm thông cáo quý IV/2025 của Cục Thống kê",
+  "Mức vay và lãi suất tín dụng học sinh sinh viên hiện hành (Ngân hàng Chính sách Xã hội)",
+  "Trần học phí theo Nghị định 81/2021 và 97/2023 cho năm học 2025-2026",
+  "Phổ điểm thi tốt nghiệp THPT 2025 theo tổ hợp (Bộ GD&ĐT)"
+ ]
+}

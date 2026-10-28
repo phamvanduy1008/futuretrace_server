@@ -1,0 +1,2191 @@
+{
+ "src_cutoff_2025_scrape": {
+  "title": "Điểm chuẩn đại học 2025 (phương thức điểm thi THPT), bảng tổng hợp đã thu thập",
+  "publisher": "Tổng hợp từ trang tra cứu điểm chuẩn (nghi là diemthi.vnexpress.net theo crawl_data.py)",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc",
+  "tier": "B",
+  "retrieved_at": "2026-07-14",
+  "year_note": "Năm 2025 được suy ra từ tổ hợp X01-X98 (Bộ GD&ĐT áp dụng từ 2025); file gốc không có cột năm",
+  "extraction": "scraper",
+  "verified": false
+ },
+ "src_numbeo_2026": {
+  "title": "Numbeo Cost of Living (Hà Nội, TP.HCM, Đà Nẵng)",
+  "publisher": "Numbeo",
+  "url": "https://www.numbeo.com/cost-of-living/",
+  "tier": "B",
+  "retrieved_at": "2026-07",
+  "extraction": "scraper",
+  "verified": false,
+  "caveat": "Phản ánh mức chi của người đi làm/người nước ngoài; ngân sách sinh viên là ước tính suy ra"
+ },
+ "src_crosswalk_draft": {
+  "title": "Bảng nối ngành đào tạo - nhóm nghề tuyển dụng (FutureTrace)",
+  "publisher": "FutureTrace",
+  "url": null,
+  "tier": "curated",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": true
+ },
+ "src_936b527131": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/cao-dang-cong-nghe-va-kinh-te-bao-loc-11",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_ed7f2e4ba3": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-an-giang-dai-hoc-quoc-gia-tp-hcm-450",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f431b13765": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-an-ninh-nhan-dan-251",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_34f871ebaa": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-bac-lieu-449",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_636d6a6666": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-bach-khoa-dai-hoc-da-nang-308",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_77aa088df9": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-bach-khoa-dai-hoc-quoc-gia-tp-hcm-283",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7f3f943dff": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-bach-khoa-ha-noi-349",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2e2d38a8ca": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-binh-duong-443",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_fc699fd582": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-can-tho-234",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b5e596c72b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-canh-sat-nhan-dan-253",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d7a6dca1fb": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-doan-397",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_38653fbd05": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi-415",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_09dbb090bf": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-dong-nai-438",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_550a5ec477": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-giao-thong-van-tai-380",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2a5ecd8d67": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-mien-dong-478",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_646b139a07": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-thong-tin-dai-hoc-quoc-gia-tp-hcm-284",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_baaf49b55a": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-thong-tin-va-truyen-thong-dai-hoc-thai-nguyen-221",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8d139aa2c5": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-thong-tin-va-truyen-thong-viet-han-500",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3c75499b19": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-tp-hcm-256",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7ac4b1031e": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghe-va-quan-ly-huu-nghi-357",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_0427e2b662": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghiep-det-may-ha-noi-352",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_bb334670cc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghiep-ha-noi-356",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9f1af5e2f7": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghiep-thuc-pham-tp-hcm-255",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b78ee66af4": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghiep-tp-hcm-271",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_eae71797f8": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghiep-viet-hung-427",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_5239aca119": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghiep-viet-tri-437",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_936ed7f8aa": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cong-nghiep-vinh-243",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_bc967f1a19": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-cuu-long-342",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_5833826bf9": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-da-lat-207",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_e8a1ad3fc6": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dai-nam-359",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9621015058": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dan-lap-duy-tan-311",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3fcb478120": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dan-lap-hai-phong-318",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_647f9d0e62": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dan-lap-phu-xuan-216",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_4504569c26": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dan-lap-phuong-dong-369",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8426512f58": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dau-khi-viet-nam-412",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8f45d66125": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dien-luc-358",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_fa5541f937": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dieu-duong-nam-dinh-324",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9ac982c63d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dong-a-306",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_695a4430a5": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dong-do-360",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9669fdcfdc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dong-nai-440",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_ea73966747": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-dong-thap-248",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_179dee9d71": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-duoc-ha-noi-361",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_5a3bd5b891": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-gia-dinh-254",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7f3777468e": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-giao-duc-dai-hoc-quoc-gia-ha-noi-418",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b5e7d09eb7": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-giao-thong-van-tai-co-so-phia-bac-378",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2d1ea655ff": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-giao-thong-van-tai-co-so-phia-nam-266",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_e1bd422554": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ha-long-484",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_1fbc19fa57": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ha-noi-404",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8a8ba7bdfd": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ha-tinh-240",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_766da61456": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hai-duong-334",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_535def278c": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hang-hai-viet-nam-319",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_ed3cf3e288": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hoa-binh-375",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_db4c7eaa00": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hoa-lu-241",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_0806e896b0": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hoa-sen-261",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f3d4e63d39": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hong-duc-341",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f71ab19495": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hung-vuong-436",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_30b9b2a445": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-hung-vuong-tp-hcm-477",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8cba77b943": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khanh-hoa-497",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_127b4253d7": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khoa-hoc-dai-hoc-hue-214",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9f0464dabe": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khoa-hoc-dai-hoc-thai-nguyen-229",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_0601bb42dc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-ha-noi-419",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_5147fb0e8c": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-tp-hcm-287",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_76abf1395b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khoa-hoc-va-cong-nghe-ha-noi-391",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6c01388334": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khoa-hoc-xa-hoi-va-nhan-van-dai-hoc-quoc-gia-ha-noi-420",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_470c6bd783": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-khoa-hoc-xa-hoi-va-nhan-van-dai-hoc-quoc-gia-tp-hcm-288",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_733741d724": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kiem-sat-ha-noi-363",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_ddff6d34a8": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kien-giang-496",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_ee34739a40": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kien-truc-da-nang-313",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_c331436752": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kien-truc-ha-noi-395",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_151a68f04c": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kien-truc-tp-hcm-273",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6de5b69e6b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-doanh-va-cong-nghe-ha-noi-371",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3ec4258bc2": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-cong-nghiep-long-an-451",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b3646d9136": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-dai-hoc-da-nang-309",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_c208ef9e48": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-dai-hoc-hue-210",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9d04d7f157": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-dai-hoc-quoc-gia-ha-noi-413",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_a06f991dcc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-ky-thuat-binh-duong-444",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_c1da508e93": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-ky-thuat-cong-nghiep-362",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_1d63cd2403": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-luat-dai-hoc-quoc-gia-tp-hcm-285",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_0e0216a49a": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-nghe-an-242",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_a174206927": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-quoc-dan-392",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_084c258bdb": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-tai-chinh-tp-hcm-294",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f7c7b343ed": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-kinh-te-tp-hcm-272",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2a2acbe979": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ky-thuat-cong-nghe-can-tho-233",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_a7f64f597d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ky-thuat-cong-nghiep-dai-hoc-thai-nguyen-224",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_a32e47da8a": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ky-thuat-hau-can-cong-an-nhan-dan-phia-bac-456",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_64493a71ee": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ky-thuat-hau-can-cong-an-nhan-dan-phia-nam-457",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2f2c735448": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ky-thuat-y-duoc-da-nang-315",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_25ed7b04dd": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ky-thuat-y-te-hai-duong-335",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3abf547f0c": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-lac-hong-439",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b92fb417e3": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-lam-nghiep-co-so-1-398",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_68ea348311": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-lam-nghiep-co-so-2-442",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_af32fb6149": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-lao-dong-xa-hoi-co-so-ha-noi-365",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b8677e5ada": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-lao-dong-xa-hoi-co-so-phia-nam-257",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_a7bfc3aa99": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-luat-dai-hoc-hue-208",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6ff19a061d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-luat-ha-noi-399",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_e49d3029ee": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-luat-tp-hcm-274",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_51df74d0cb": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-luong-the-vinh-322",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_48438890a9": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-mo-dia-chat-400",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_eaa00096af": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-mo-ha-noi-401",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f93c462500": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-mo-tp-hcm-275",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_93b3484f2b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-my-thuat-cong-nghiep-402",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_c9bff6415d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nam-can-tho-231",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_ccac0d1f9f": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ngan-hang-tp-hcm-277",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6aa0a6af53": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nghe-thuat-dai-hoc-hue-218",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8169faa129": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ngoai-ngu-dai-hoc-da-nang-307",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_072783fe9e": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ngoai-ngu-dai-hoc-hue-217",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_5a8117e4ee": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ngoai-ngu-dai-hoc-quoc-gia-ha-noi-414",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_fcbba0e490": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ngoai-ngu-tin-hoc-tp-hcm-259",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7829755492": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ngoai-thuong-co-so-phia-bac-338",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2db82b9fc4": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ngoai-thuong-phia-nam-279",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d8e13d124f": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nguyen-tat-thanh-280",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_e786251973": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nguyen-trai-406",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_4e9717206b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nha-trang-330",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b3747f251d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-noi-vu-ha-noi-368",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8adfa21e1d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nong-lam-bac-giang-316",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_4b79bd2048": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nong-lam-dai-hoc-hue-211",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d8e20efada": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nong-lam-dai-hoc-thai-nguyen-225",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_960e45fdaa": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-nong-lam-tp-hcm-278",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f7de0b4d11": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-pham-van-dong-346",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_09bba8228f": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-phan-chau-trinh-236",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_ef0bba78d2": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-phan-thiet-249",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8dc09d95a0": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-phenikaa-372",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_280be42b8a": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-phong-chay-chua-chay-phia-bac-409",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2effc7dd57": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-phong-chay-chua-chay-phia-nam-281",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_295204c5ad": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-phu-yen-199",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_900a588c72": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quang-binh-339",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_02a9944221": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quang-nam-237",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3f5e329e88": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quang-trung-466",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_df4a64a70a": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quoc-te-dai-hoc-quoc-gia-tp-hcm-286",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_cd802e6a47": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quoc-te-hong-bang-270",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_c52cef18aa": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quoc-te-mien-dong-445",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7e734aca9b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quoc-te-sai-gon-293",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_05bf469154": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-quy-nhon-465",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8602893351": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-sai-gon-289",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_29b6cdf466": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-sao-do-336",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_81e00594a5": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-dai-hoc-da-nang-310",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b1ccea3d6c": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-dai-hoc-hue-213",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2e7062be84": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-ha-noi-2-462",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9cea0a2151": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-ha-noi-423",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7eba2125b4": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-ky-thuat-dai-hoc-da-nang-479",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_dbd792c5dc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-ky-thuat-hung-yen-205",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_994d7a42ba": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-ky-thuat-tp-hcm-290",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9b8e2e2eb0": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-ky-thuat-vinh-long-344",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_46eaf18ca1": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-nghe-thuat-trung-uong-379",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6325c76c39": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-the-duc-the-thao-ha-noi-434",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_62294ad9a1": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-su-pham-the-duc-the-thao-tp-hcm-304",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_07251f05fc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-tai-nguyen-va-moi-truong-ha-noi-366",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_1ac404852f": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-tan-trao-464",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2af3b47acf": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-tay-bac-250",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_41773296cb": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-tay-do-232",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_04d896fc89": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-tay-nguyen-453",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f6259c23f2": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thai-binh-238",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_454266b448": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thai-binh-duong-328",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f6d90af207": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thang-long-373",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_e3fd25b624": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thanh-do-424",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_c44dcfd6f1": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-the-duc-the-thao-bac-ninh-460",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f59081e444": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thu-dau-mot-447",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_4f6615f104": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thu-do-ha-noi-385",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6598132620": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thuong-mai-426",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_994c349302": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-thuy-loi-co-so-1-425",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_18b57a032c": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-tien-giang-347",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_1cee14aa63": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-ton-duc-thang-263",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d6a33084d9": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-tra-vinh-317",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f344b894e0": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-trung-vuong-461",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f2effa2f3d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-van-hien-264",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_a7c5a9f254": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-van-hoa-ha-noi-428",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f5c25c0445": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-van-hoa-the-thao-va-du-lich-thanh-hoa-340",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_af1b987cd0": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-van-hoa-tp-hcm-296",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d912f391da": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-van-lang-265",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8125bf33e8": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-viet-duc-295",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_5dda39c49b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-viet-nhat-dai-hoc-quoc-gia-ha-noi-498",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_86f8fd8d89": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-vinh-246",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_11cf34dc15": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-vo-truong-toan-202",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_cb22ecc5e1": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-xay-dung-ha-noi-429",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_5ffb147810": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-xay-dung-mien-tay-343",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8cbc7fd128": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-xay-dung-mien-trung-201",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_edf99517fc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-duoc-can-tho-235",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_12c71de487": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-duoc-dai-hoc-hue-215",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_08a3649d05": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-duoc-dai-hoc-quoc-gia-ha-noi-421",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_15647ea555": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-duoc-dai-hoc-thai-nguyen-228",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f46ee2b9e1": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-duoc-hai-phong-321",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_939bb78c62": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-duoc-thai-binh-239",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_93bc56ff36": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-duoc-tp-hcm-298",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_172c8a516d": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-ha-noi-432",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_12a05e3f23": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-khoa-pham-ngoc-thach-301",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_15870f51c6": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-khoa-vinh-247",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_73f31dff61": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-y-te-cong-cong-431",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f12a3c6899": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dai-hoc-yersin-da-lat-206",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d983b4a890": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/dh-tan-tao-452",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_39bec0b3af": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-an-ninh-nhan-dan-348",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3e6f265d4f": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-bao-chi-va-tuyen-truyen-381",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_1dd27a33e7": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-bien-phong-350",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6c4b8df176": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-can-bo-tp-hcm-487",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7009b68b83": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-canh-sat-nhan-dan-353",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_07962eadb5": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-chinh-sach-va-phat-trien-383",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_86633e3bc2": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-chinh-tri-cong-an-nhan-dan-481",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_e360c0b217": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-cong-nghe-buu-chinh-vien-thong-phia-bac-351",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_cd5c666cb9": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-cong-nghe-buu-chinh-vien-thong-phia-nam-252",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8bb06f845a": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-hai-quan-325",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_55d69f95ba": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-hang-khong-viet-nam-269",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_cdc91fff47": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-hau-can-he-dan-su-483",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_dead843477": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-hau-can-he-quan-su-482",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_dd78f1847f": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-khoa-hoc-quan-su-he-quan-su-495",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_71f0fb3be5": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-ki-thuat-quan-su-he-quan-su-394",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7bb4820f55": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-ky-thuat-mat-ma-393",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_93fe967e06": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-ngan-hang-405",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_7e6e58a033": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-ngoai-giao-386",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_48b8614967": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-nong-nghiep-viet-nam-488",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_454271d823": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-phong-khong-khong-quan-411",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_c0868a2937": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-phu-nu-viet-nam-485",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3a2dbaf02c": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-quan-ly-giao-duc-389",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_df4d28c70b": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-quan-y-he-quan-su-430",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_4a02a74c17": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-tai-chinh-387",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_4a913398f2": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-thanh-thieu-nien-viet-nam-388",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_604797bb42": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-toa-an-486",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_1cb455d219": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/hoc-vien-y-duoc-hoc-co-truyen-viet-nam-390",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_e2a8878457": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-du-lich-dai-hoc-hue-209",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2cd9ed5f6e": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-giao-duc-the-chat-dai-hoc-hue-220",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_07c53f7622": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-ky-thuat-va-cong-nghe-dh-hue-501",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_db1b4e6792": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-luat-dai-hoc-quoc-gia-ha-noi-416",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_3bc68088c8": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-ngoai-ngu-dai-hoc-thai-nguyen-223",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_73291ac6ee": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-quan-tri-va-kinh-doanh-dh-quoc-gia-ha-noi-499",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d6a1e55332": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-quoc-te-dai-hoc-quoc-gia-ha-noi-417",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_2dabca6cdb": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-quoc-te-dai-hoc-thai-nguyen-226",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_d1a72fee70": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-quoc-te-dh-hue-502",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_9a9c689878": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-y-dai-hoc-quoc-gia-tp-hcm-300",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_f878420636": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/khoa-y-duoc-dai-hoc-da-nang-312",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_dd557a0743": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/phan-hieu-dai-hoc-da-nang-tai-kon-tum-454",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_0a6072e6f5": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/phan-hieu-dai-hoc-hue-tai-quang-tri-212",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_b90104ffec": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-chinh-tri-dai-hoc-chinh-tri-458",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_65a8da2ddc": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-cong-binh-he-quan-su-dai-hoc-ngo-quyen-446",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_17ad843628": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-dac-cong-355",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_37e3f556b0": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-khong-quan-he-dai-hoc-327",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_04070bdec2": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-ki-thuat-quan-su-he-quan-su-dai-hoc-tran-dai-nghia-297",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_303c18d9bd": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-luc-quan-1-dai-hoc-tran-quoc-tuan-396",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_637f3a85e7": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-luc-quan-2-dai-hoc-nguyen-hue-441",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_46ffe1cba3": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-phao-binh-408",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_6863765c66": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-phong-hoa-384",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_74a8668d4a": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/truong-si-quan-thong-tin-he-quan-su-dai-hoc-thong-tin-lien-lac-331",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ },
+ "src_8d44b95e50": {
+  "title": "Điểm chuẩn (file vnexpress_2025_2026.csv)",
+  "publisher": "VnExpress - Tra cứu điểm chuẩn",
+  "url": "https://diemthi.vnexpress.net/tra-cuu-dai-hoc/vien-nghien-cuu-va-dao-tao-viet-anh-dai-hoc-da-nang-476",
+  "tier": "B",
+  "retrieved_at": "2026-10-22",
+  "extraction": "manual",
+  "verified": false
+ }
+}

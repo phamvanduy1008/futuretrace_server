@@ -1,0 +1,873 @@
+{
+ "source": {
+  "title": "Tin tuyển dụng tổng hợp (data.parquet)",
+  "tier": "C",
+  "years": [
+   2024,
+   2026
+  ],
+  "postings_used": 301223,
+  "caveat": "Lương rao trong tin tuyển dụng (điểm giữa khoảng lương), không phải lương thực nhận; nguồn trộn nhiều trang tuyển dụng"
+ },
+ "industries": {
+  "it phan mem": {
+   "postings": 3060,
+   "salary_million_all": {
+    "p25": 11.5,
+    "p50": 16.0,
+    "p75": 25.0,
+    "n": 3060
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 13.5,
+    "p75": 23.2,
+    "n": 408
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 32.5,
+    "chung_chi": 3.1,
+    "dai_hoc": 56.6,
+    "thpt": 0.8,
+    "trung_cap": 7.0
+   },
+   "no_requirement_share_percent": 53.1
+  },
+  "cham soc khach hang": {
+   "postings": 41004,
+   "salary_million_all": {
+    "p25": 10.0,
+    "p50": 12.0,
+    "p75": 16.0,
+    "n": 41004
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.5,
+    "p50": 12.5,
+    "p75": 15.0,
+    "n": 2451
+   },
+   "education_requirement_share_among_stated": {
+    "thpt": 29.0,
+    "dai_hoc": 11.9,
+    "chung_chi": 0.6,
+    "cao_dang": 34.8,
+    "trung_cap": 23.7,
+    "khac": 0.0
+   },
+   "no_requirement_share_percent": 44.6
+  },
+  "ngan hang": {
+   "postings": 5784,
+   "salary_million_all": {
+    "p25": 11.5,
+    "p50": 19.0,
+    "p75": 22.5,
+    "n": 5784
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.0,
+    "p50": 12.5,
+    "p75": 18.9,
+    "n": 190
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 15.4,
+    "cao_dang": 13.8,
+    "trung_cap": 7.6,
+    "thpt": 63.2,
+    "chung_chi": 0.0
+   },
+   "no_requirement_share_percent": 23.6
+  },
+  "dien dien tu dien lanh": {
+   "postings": 12372,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 12372
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 10.5,
+    "p50": 12.5,
+    "p75": 15.0,
+    "n": 660
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 22.5,
+    "cao_dang": 33.5,
+    "thpt": 4.9,
+    "trung_cap": 37.7,
+    "chung_chi": 1.4
+   },
+   "no_requirement_share_percent": 37.9
+  },
+  "xay dung": {
+   "postings": 16022,
+   "salary_million_all": {
+    "p25": 12.5,
+    "p50": 15.0,
+    "p75": 17.5,
+    "n": 16022
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 11.5,
+    "p50": 13.5,
+    "p75": 16.8,
+    "n": 1003
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 43.5,
+    "thpt": 0.9,
+    "cao_dang": 42.4,
+    "khac": 0.0,
+    "chung_chi": 0.9,
+    "trung_cap": 12.3
+   },
+   "no_requirement_share_percent": 39.2
+  },
+  "nhan su": {
+   "postings": 7049,
+   "salary_million_all": {
+    "p25": 9.0,
+    "p50": 11.0,
+    "p75": 13.5,
+    "n": 7049
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 6.5,
+    "p50": 9.0,
+    "p75": 12.0,
+    "n": 477
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 34.6,
+    "chung_chi": 0.3,
+    "khac": 0.2,
+    "cao_dang": 49.3,
+    "thpt": 2.5,
+    "trung_cap": 13.2
+   },
+   "no_requirement_share_percent": 45.6
+  },
+  "giao duc dao tao": {
+   "postings": 19941,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 19941
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.0,
+    "p50": 12.5,
+    "p75": 14.0,
+    "n": 1722
+   },
+   "education_requirement_share_among_stated": {
+    "chung_chi": 2.3,
+    "dai_hoc": 31.3,
+    "cao_dang": 50.5,
+    "thpt": 3.4,
+    "trung_cap": 12.5,
+    "khac": 0.0
+   },
+   "no_requirement_share_percent": 45.1
+  },
+  "xuat nhap khau": {
+   "postings": 4534,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 4534
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.0,
+    "p50": 12.0,
+    "p75": 14.0,
+    "n": 369
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 33.1,
+    "cao_dang": 54.1,
+    "trung_cap": 11.1,
+    "thpt": 1.3,
+    "chung_chi": 0.4
+   },
+   "no_requirement_share_percent": 40.2
+  },
+  "lao dong pho thong": {
+   "postings": 23270,
+   "salary_million_all": {
+    "p25": 7.5,
+    "p50": 9.5,
+    "p75": 11.5,
+    "n": 23270
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 2.8,
+    "p50": 4.0,
+    "p75": 7.8,
+    "n": 777
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 5.6,
+    "thpt": 60.7,
+    "khac": 0.0,
+    "cao_dang": 9.7,
+    "trung_cap": 16.1,
+    "chung_chi": 7.8
+   },
+   "no_requirement_share_percent": 68.0
+  },
+  "bat dong san": {
+   "postings": 4703,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 14.0,
+    "p75": 22.5,
+    "n": 4703
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 11.5,
+    "p75": 15.0,
+    "n": 223
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 36.8,
+    "dai_hoc": 29.4,
+    "trung_cap": 21.1,
+    "thpt": 11.9,
+    "chung_chi": 0.8
+   },
+   "no_requirement_share_percent": 62.0
+  },
+  "thuc pham do uong": {
+   "postings": 8719,
+   "salary_million_all": {
+    "p25": 9.0,
+    "p50": 11.5,
+    "p75": 15.0,
+    "n": 8719
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 10.0,
+    "p75": 12.0,
+    "n": 214
+   },
+   "education_requirement_share_among_stated": {
+    "thpt": 15.8,
+    "trung_cap": 26.4,
+    "dai_hoc": 17.4,
+    "chung_chi": 3.1,
+    "cao_dang": 37.3
+   },
+   "no_requirement_share_percent": 51.7
+  },
+  "ke toan": {
+   "postings": 28046,
+   "salary_million_all": {
+    "p25": 9.0,
+    "p50": 11.0,
+    "p75": 13.5,
+    "n": 28046
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 9.5,
+    "p75": 11.5,
+    "n": 1495
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 49.8,
+    "dai_hoc": 30.3,
+    "trung_cap": 18.2,
+    "thpt": 1.3,
+    "chung_chi": 0.2,
+    "khac": 0.0
+   },
+   "no_requirement_share_percent": 36.8
+  },
+  "marketing": {
+   "postings": 6558,
+   "salary_million_all": {
+    "p25": 9.5,
+    "p50": 12.0,
+    "p75": 15.0,
+    "n": 6558
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 11.0,
+    "p75": 12.5,
+    "n": 683
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 48.1,
+    "dai_hoc": 38.6,
+    "trung_cap": 10.0,
+    "thpt": 2.8,
+    "chung_chi": 0.5
+   },
+   "no_requirement_share_percent": 54.5
+  },
+  "ban hang kinh doanh": {
+   "postings": 27210,
+   "salary_million_all": {
+    "p25": 10.0,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 27210
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.5,
+    "p50": 12.0,
+    "p75": 15.0,
+    "n": 1730
+   },
+   "education_requirement_share_among_stated": {
+    "chung_chi": 0.4,
+    "dai_hoc": 16.1,
+    "trung_cap": 27.1,
+    "cao_dang": 37.3,
+    "thpt": 19.1
+   },
+   "no_requirement_share_percent": 51.1
+  },
+  "nghe nghiep khac": {
+   "postings": 8144,
+   "salary_million_all": {
+    "p25": 9.0,
+    "p50": 12.0,
+    "p75": 17.5,
+    "n": 8144
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 10.0,
+    "p75": 12.5,
+    "n": 293
+   },
+   "education_requirement_share_among_stated": {
+    "trung_cap": 19.8,
+    "chung_chi": 3.7,
+    "dai_hoc": 16.2,
+    "cao_dang": 23.4,
+    "thpt": 36.9
+   },
+   "no_requirement_share_percent": 54.7
+  },
+  "van tai lai xe giao nhan": {
+   "postings": 4458,
+   "salary_million_all": {
+    "p25": 9.5,
+    "p50": 11.5,
+    "p75": 14.0,
+    "n": 4458
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.0,
+    "p50": 10.5,
+    "p75": 12.5,
+    "n": 115
+   },
+   "education_requirement_share_among_stated": {
+    "thpt": 18.6,
+    "cao_dang": 32.2,
+    "trung_cap": 20.4,
+    "dai_hoc": 11.9,
+    "chung_chi": 16.8
+   },
+   "no_requirement_share_percent": 59.0
+  },
+  "y te cham soc suc khoe": {
+   "postings": 8551,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 13.5,
+    "p75": 17.5,
+    "n": 8551
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.0,
+    "p50": 12.0,
+    "p75": 16.0,
+    "n": 342
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 29.8,
+    "dai_hoc": 17.1,
+    "trung_cap": 45.0,
+    "thpt": 6.5,
+    "chung_chi": 1.6
+   },
+   "no_requirement_share_percent": 40.8
+  },
+  "ban si ban le quan ly cua hang": {
+   "postings": 4173,
+   "salary_million_all": {
+    "p25": 8.5,
+    "p50": 11.0,
+    "p75": 13.5,
+    "n": 4173
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.5,
+    "p50": 11.5,
+    "p75": 15.0,
+    "n": 409
+   },
+   "education_requirement_share_among_stated": {
+    "thpt": 30.4,
+    "dai_hoc": 9.2,
+    "cao_dang": 31.0,
+    "trung_cap": 28.0,
+    "chung_chi": 1.4
+   },
+   "no_requirement_share_percent": 56.7
+  },
+  "kiem toan": {
+   "postings": 27043,
+   "salary_million_all": {
+    "p25": 9.0,
+    "p50": 11.0,
+    "p75": 13.5,
+    "n": 27043
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.0,
+    "p50": 9.5,
+    "p75": 11.0,
+    "n": 1244
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 50.0,
+    "dai_hoc": 30.5,
+    "trung_cap": 18.3,
+    "thpt": 0.9,
+    "chung_chi": 0.3,
+    "khac": 0.0
+   },
+   "no_requirement_share_percent": 37.2
+  },
+  "kien truc thiet ke noi ngoai that": {
+   "postings": 2522,
+   "salary_million_all": {
+    "p25": 12.0,
+    "p50": 14.0,
+    "p75": 17.5,
+    "n": 2522
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 11.0,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 274
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 45.0,
+    "thpt": 0.7,
+    "cao_dang": 40.6,
+    "chung_chi": 2.1,
+    "trung_cap": 11.5
+   },
+   "no_requirement_share_percent": 46.2
+  },
+  "hanh chinh thu ky": {
+   "postings": 9667,
+   "salary_million_all": {
+    "p25": 9.0,
+    "p50": 11.0,
+    "p75": 13.5,
+    "n": 9667
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 10.0,
+    "p75": 12.4,
+    "n": 778
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 48.3,
+    "dai_hoc": 31.1,
+    "trung_cap": 15.4,
+    "chung_chi": 0.3,
+    "thpt": 4.8
+   },
+   "no_requirement_share_percent": 46.4
+  },
+  "khach san nha hang du lich": {
+   "postings": 5626,
+   "salary_million_all": {
+    "p25": 7.5,
+    "p50": 9.0,
+    "p75": 12.0,
+    "n": 5626
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 10.0,
+    "p75": 12.5,
+    "n": 220
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 33.2,
+    "trung_cap": 28.3,
+    "thpt": 17.6,
+    "dai_hoc": 14.8,
+    "chung_chi": 6.1
+   },
+   "no_requirement_share_percent": 67.5
+  },
+  "khoa hoc ky thuat": {
+   "postings": 7321,
+   "salary_million_all": {
+    "p25": 11.0,
+    "p50": 13.5,
+    "p75": 17.5,
+    "n": 7321
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 10.0,
+    "p50": 12.5,
+    "p75": 15.0,
+    "n": 723
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 33.3,
+    "cao_dang": 39.2,
+    "trung_cap": 24.2,
+    "chung_chi": 1.3,
+    "thpt": 2.0,
+    "khac": 0.0
+   },
+   "no_requirement_share_percent": 32.7
+  },
+  "tai chinh dau tu chung khoan": {
+   "postings": 9037,
+   "salary_million_all": {
+    "p25": 11.5,
+    "p50": 15.0,
+    "p75": 20.0,
+    "n": 9037
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 11.5,
+    "p75": 14.8,
+    "n": 467
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 21.3,
+    "dai_hoc": 18.0,
+    "trung_cap": 10.5,
+    "thpt": 50.1,
+    "chung_chi": 0.1
+   },
+   "no_requirement_share_percent": 28.1
+  },
+  "san xuat lap rap che bien": {
+   "postings": 17637,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 17637
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 10.0,
+    "p50": 12.0,
+    "p75": 14.0,
+    "n": 865
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 36.0,
+    "trung_cap": 37.7,
+    "dai_hoc": 20.4,
+    "chung_chi": 2.5,
+    "thpt": 3.4
+   },
+   "no_requirement_share_percent": 40.3
+  },
+  "co khi o to tu dong hoa": {
+   "postings": 17685,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 17685
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 10.0,
+    "p50": 12.4,
+    "p75": 15.0,
+    "n": 938
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 35.9,
+    "dai_hoc": 20.4,
+    "chung_chi": 2.4,
+    "trung_cap": 38.2,
+    "thpt": 3.0
+   },
+   "no_requirement_share_percent": 40.1
+  },
+  "van hanh bao tri bao duong": {
+   "postings": 19284,
+   "salary_million_all": {
+    "p25": 10.0,
+    "p50": 12.5,
+    "p75": 15.0,
+    "n": 19284
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.5,
+    "p50": 11.5,
+    "p75": 14.0,
+    "n": 869
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 33.7,
+    "trung_cap": 36.3,
+    "chung_chi": 1.7,
+    "dai_hoc": 23.7,
+    "thpt": 4.6
+   },
+   "no_requirement_share_percent": 39.1
+  },
+  "thu mua kho van chuoi cung ung": {
+   "postings": 7644,
+   "salary_million_all": {
+    "p25": 9.5,
+    "p50": 11.5,
+    "p75": 15.0,
+    "n": 7644
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.0,
+    "p50": 11.0,
+    "p75": 13.5,
+    "n": 433
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 26.3,
+    "chung_chi": 0.8,
+    "trung_cap": 18.2,
+    "cao_dang": 48.3,
+    "thpt": 6.4
+   },
+   "no_requirement_share_percent": 46.1
+  },
+  "thiet ke sang tao nghe thuat": {
+   "postings": 1150,
+   "salary_million_all": {
+    "p25": 10.0,
+    "p50": 12.5,
+    "p75": 15.0,
+    "n": 1150
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 10.5,
+    "p50": 12.5,
+    "p75": 13.7,
+    "n": 154
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 31.6,
+    "trung_cap": 16.7,
+    "cao_dang": 46.3,
+    "thpt": 2.3,
+    "chung_chi": 3.1
+   },
+   "no_requirement_share_percent": 51.6
+  },
+  "luat phap ly tuan thu": {
+   "postings": 3249,
+   "salary_million_all": {
+    "p25": 11.5,
+    "p50": 16.0,
+    "p75": 22.5,
+    "n": 3249
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.0,
+    "p50": 11.0,
+    "p75": 13.5,
+    "n": 156
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 15.4,
+    "dai_hoc": 35.6,
+    "thpt": 43.4,
+    "trung_cap": 5.5,
+    "chung_chi": 0.1
+   },
+   "no_requirement_share_percent": 26.9
+  },
+  "quan ly tieu chuan va chat luong": {
+   "postings": 2026,
+   "salary_million_all": {
+    "p25": 10.0,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 2026
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 10.0,
+    "p50": 12.5,
+    "p75": 15.5,
+    "n": 135
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 44.5,
+    "dai_hoc": 25.6,
+    "trung_cap": 23.9,
+    "chung_chi": 0.5,
+    "thpt": 5.5
+   },
+   "no_requirement_share_percent": 42.5
+  },
+  "quan ly du an": {
+   "postings": 1706,
+   "salary_million_all": {
+    "p25": 12.0,
+    "p50": 16.0,
+    "p75": 22.0,
+    "n": 1706
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 13.5,
+    "p50": 15.5,
+    "p75": 19.0,
+    "n": 97
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 40.7,
+    "cao_dang": 38.4,
+    "trung_cap": 16.9,
+    "thpt": 3.2,
+    "chung_chi": 0.8
+   },
+   "no_requirement_share_percent": 37.7
+  },
+  "bien phien dich": {
+   "postings": 11627,
+   "salary_million_all": {
+    "p25": 11.0,
+    "p50": 13.0,
+    "p75": 16.5,
+    "n": 11627
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.5,
+    "p50": 11.5,
+    "p75": 14.0,
+    "n": 701
+   },
+   "education_requirement_share_among_stated": {
+    "dai_hoc": 30.8,
+    "cao_dang": 48.4,
+    "trung_cap": 13.6,
+    "thpt": 4.6,
+    "chung_chi": 2.5
+   },
+   "no_requirement_share_percent": 47.4
+  },
+  "cong nghe thuc pham dinh duong": {
+   "postings": 8456,
+   "salary_million_all": {
+    "p25": 9.0,
+    "p50": 11.5,
+    "p75": 15.0,
+    "n": 8456
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 8.5,
+    "p50": 10.0,
+    "p75": 11.5,
+    "n": 205
+   },
+   "education_requirement_share_among_stated": {
+    "thpt": 15.6,
+    "dai_hoc": 17.6,
+    "cao_dang": 37.4,
+    "trung_cap": 26.4,
+    "chung_chi": 3.0
+   },
+   "no_requirement_share_percent": 51.1
+  },
+  "duoc pham": {
+   "postings": 8292,
+   "salary_million_all": {
+    "p25": 10.5,
+    "p50": 13.5,
+    "p75": 17.5,
+    "n": 8292
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.5,
+    "p50": 12.5,
+    "p75": 16.0,
+    "n": 267
+   },
+   "education_requirement_share_among_stated": {
+    "trung_cap": 45.9,
+    "cao_dang": 29.6,
+    "dai_hoc": 17.1,
+    "thpt": 5.8,
+    "chung_chi": 1.6
+   },
+   "no_requirement_share_percent": 41.5
+  },
+  "det may da giay thoi trang": {
+   "postings": 4842,
+   "salary_million_all": {
+    "p25": 10.0,
+    "p50": 12.5,
+    "p75": 15.0,
+    "n": 4842
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 9.5,
+    "p50": 11.5,
+    "p75": 13.5,
+    "n": 179
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 42.2,
+    "trung_cap": 27.5,
+    "dai_hoc": 16.3,
+    "thpt": 12.9,
+    "chung_chi": 1.1
+   },
+   "no_requirement_share_percent": 53.0
+  },
+  "thuc tap sinh": {
+   "postings": 3985,
+   "salary_million_all": {
+    "p25": 3.0,
+    "p50": 5.0,
+    "p75": 8.8,
+    "n": 3985
+   },
+   "salary_million_fresher_graduate": {
+    "p25": 2.5,
+    "p50": 4.0,
+    "p75": 6.0,
+    "n": 730
+   },
+   "education_requirement_share_among_stated": {
+    "cao_dang": 36.6,
+    "thpt": 11.1,
+    "trung_cap": 25.7,
+    "dai_hoc": 25.5,
+    "chung_chi": 1.2
+   },
+   "no_requirement_share_percent": 63.0
+  }
+ }
+}
