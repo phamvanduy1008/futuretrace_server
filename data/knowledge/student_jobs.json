@@ -1,0 +1,89 @@
+{
+ "source": {
+  "publisher": "Tin tuyển dụng tổng hợp",
+  "tier": "C",
+  "years": [
+   2024,
+   2026
+  ],
+  "note": "Lương rao tuyển theo tháng của tin gắn loại hình thực tập/bán thời gian/thời vụ; không phải thu nhập thực nhận"
+ },
+ "categories": {
+  "intern": {
+   "label": "Thực tập",
+   "all": {
+    "p25": 3.5,
+    "p50": 6.0,
+    "p75": 8.5,
+    "n": 7707
+   },
+   "hanoi": {
+    "p25": 3.5,
+    "p50": 5.5,
+    "p75": 8.5,
+    "n": 1755
+   },
+   "hcm": {
+    "p25": 3.0,
+    "p50": 5.5,
+    "p75": 8.5,
+    "n": 4065
+   },
+   "danang": {
+    "p25": 4.0,
+    "p50": 6.5,
+    "p75": 9.0,
+    "n": 130
+   }
+  },
+  "part_time": {
+   "label": "Bán thời gian / theo ca",
+   "all": {
+    "p25": 7.0,
+    "p50": 9.0,
+    "p75": 12.0,
+    "n": 3973
+   },
+   "hanoi": {
+    "p25": 6.5,
+    "p50": 9.0,
+    "p75": 12.5,
+    "n": 799
+   },
+   "hcm": {
+    "p25": 7.0,
+    "p50": 9.0,
+    "p75": 11.5,
+    "n": 2463
+   },
+   "danang": {
+    "p25": 7.0,
+    "p50": 8.5,
+    "p75": 10.2,
+    "n": 87
+   }
+  },
+  "seasonal": {
+   "label": "Thời vụ",
+   "all": {
+    "p25": 4.0,
+    "p50": 6.1,
+    "p75": 8.6,
+    "n": 1559
+   },
+   "hanoi": {
+    "p25": 4.0,
+    "p50": 6.0,
+    "p75": 13.0,
+    "n": 361
+   },
+   "hcm": {
+    "p25": 4.0,
+    "p50": 6.0,
+    "p75": 8.0,
+    "n": 750
+   },
+   "danang": null
+  }
+ }
+}

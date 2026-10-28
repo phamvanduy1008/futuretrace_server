@@ -1,0 +1,1193 @@
+{
+ "period": [
+  2022,
+  2025
+ ],
+ "industries": {
+  "cham soc khach hang": {
+   "years": {
+    "2022": {
+     "postings": 3896,
+     "share_percent": 3.903,
+     "median_salary_million": 11.18
+    },
+    "2023": {
+     "postings": 16275,
+     "share_percent": 15.086,
+     "median_salary_million": 13.16
+    },
+    "2024": {
+     "postings": 17298,
+     "share_percent": 13.429,
+     "median_salary_million": 13.62
+    },
+    "2025": {
+     "postings": 18576,
+     "share_percent": 14.391,
+     "median_salary_million": 14.16
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0819,
+   "total_postings": 59682
+  },
+  "ban hang kinh doanh": {
+   "years": {
+    "2022": {
+     "postings": 14208,
+     "share_percent": 14.233,
+     "median_salary_million": 14.47
+    },
+    "2023": {
+     "postings": 12264,
+     "share_percent": 11.368,
+     "median_salary_million": 14.12
+    },
+    "2024": {
+     "postings": 12037,
+     "share_percent": 9.344,
+     "median_salary_million": 13.67
+    },
+    "2025": {
+     "postings": 10402,
+     "share_percent": 8.059,
+     "median_salary_million": 13.77
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.1727,
+   "salary_cagr": -0.0164,
+   "total_postings": 53046
+  },
+  "ke toan": {
+   "years": {
+    "2022": {
+     "postings": 6412,
+     "share_percent": 6.423,
+     "median_salary_million": 10.96
+    },
+    "2023": {
+     "postings": 11491,
+     "share_percent": 10.651,
+     "median_salary_million": 11.5
+    },
+    "2024": {
+     "postings": 12713,
+     "share_percent": 9.869,
+     "median_salary_million": 11.79
+    },
+    "2025": {
+     "postings": 11684,
+     "share_percent": 9.052,
+     "median_salary_million": 12.42
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.1212,
+   "salary_cagr": 0.0426,
+   "total_postings": 45286
+  },
+  "kiem toan": {
+   "years": {
+    "2022": {
+     "postings": 6409,
+     "share_percent": 6.42,
+     "median_salary_million": 10.96
+    },
+    "2023": {
+     "postings": 11486,
+     "share_percent": 10.647,
+     "median_salary_million": 11.5
+    },
+    "2024": {
+     "postings": 12708,
+     "share_percent": 9.865,
+     "median_salary_million": 11.79
+    },
+    "2025": {
+     "postings": 11682,
+     "share_percent": 9.05,
+     "median_salary_million": 12.42
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.1213,
+   "salary_cagr": 0.0426,
+   "total_postings": 44275
+  },
+  "giao duc dao tao": {
+   "years": {
+    "2022": {
+     "postings": 2831,
+     "share_percent": 2.836,
+     "median_salary_million": 11.38
+    },
+    "2023": {
+     "postings": 7139,
+     "share_percent": 6.617,
+     "median_salary_million": 13.05
+    },
+    "2024": {
+     "postings": 9094,
+     "share_percent": 7.06,
+     "median_salary_million": 13.74
+    },
+    "2025": {
+     "postings": 9361,
+     "share_percent": 7.252,
+     "median_salary_million": 14.31
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0794,
+   "total_postings": 29321
+  },
+  "van hanh bao tri bao duong": {
+   "years": {
+    "2022": {
+     "postings": 8,
+     "share_percent": 0.008,
+     "median_salary_million": 13.06
+    },
+    "2023": {
+     "postings": 6406,
+     "share_percent": 5.938,
+     "median_salary_million": 12.63
+    },
+    "2024": {
+     "postings": 8707,
+     "share_percent": 6.759,
+     "median_salary_million": 13.27
+    },
+    "2025": {
+     "postings": 8704,
+     "share_percent": 6.743,
+     "median_salary_million": 13.56
+    }
+   },
+   "trend_window": [
+    2023,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.0656,
+   "salary_cagr": 0.0362,
+   "total_postings": 25004
+  },
+  "xay dung": {
+   "years": {
+    "2022": {
+     "postings": 4986,
+     "share_percent": 4.995,
+     "median_salary_million": 14.51
+    },
+    "2023": {
+     "postings": 5256,
+     "share_percent": 4.872,
+     "median_salary_million": 15.12
+    },
+    "2024": {
+     "postings": 6826,
+     "share_percent": 5.299,
+     "median_salary_million": 15.27
+    },
+    "2025": {
+     "postings": 6540,
+     "share_percent": 5.067,
+     "median_salary_million": 15.84
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.0048,
+   "salary_cagr": 0.0297,
+   "total_postings": 25802
+  },
+  "lao dong pho thong": {
+   "years": {
+    "2022": {
+     "postings": 2,
+     "share_percent": 0.002,
+     "median_salary_million": 12.4
+    },
+    "2023": {
+     "postings": 1528,
+     "share_percent": 1.416,
+     "median_salary_million": 8.86
+    },
+    "2024": {
+     "postings": 8710,
+     "share_percent": 6.762,
+     "median_salary_million": 9.27
+    },
+    "2025": {
+     "postings": 12158,
+     "share_percent": 9.419,
+     "median_salary_million": 9.68
+    }
+   },
+   "trend_window": [
+    2023,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0453,
+   "total_postings": 24023
+  },
+  "khach san nha hang du lich": {
+   "years": {
+    "2022": {
+     "postings": 12313,
+     "share_percent": 12.335,
+     "median_salary_million": 10.67
+    },
+    "2023": {
+     "postings": 4430,
+     "share_percent": 4.106,
+     "median_salary_million": 10.39
+    },
+    "2024": {
+     "postings": 2269,
+     "share_percent": 1.761,
+     "median_salary_million": 10.59
+    },
+    "2025": {
+     "postings": 2364,
+     "share_percent": 1.831,
+     "median_salary_million": 10.39
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.25,
+   "salary_cagr": -0.0088,
+   "total_postings": 22288
+  },
+  "san xuat lap rap che bien": {
+   "years": {
+    "2022": {
+     "postings": 1618,
+     "share_percent": 1.621,
+     "median_salary_million": 13.24
+    },
+    "2023": {
+     "postings": 2256,
+     "share_percent": 2.091,
+     "median_salary_million": 13.65
+    },
+    "2024": {
+     "postings": 8010,
+     "share_percent": 6.218,
+     "median_salary_million": 13.99
+    },
+    "2025": {
+     "postings": 7880,
+     "share_percent": 6.105,
+     "median_salary_million": 14.09
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.021,
+   "total_postings": 20910
+  },
+  "khoa hoc ky thuat": {
+   "years": {
+    "2022": {
+     "postings": 8303,
+     "share_percent": 8.318,
+     "median_salary_million": 12.04
+    },
+    "2023": {
+     "postings": 5782,
+     "share_percent": 5.359,
+     "median_salary_million": 13.71
+    },
+    "2024": {
+     "postings": 2804,
+     "share_percent": 2.177,
+     "median_salary_million": 14.6
+    },
+    "2025": {
+     "postings": 2746,
+     "share_percent": 2.127,
+     "median_salary_million": 15.16
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.25,
+   "salary_cagr": 0.0798,
+   "total_postings": 21091
+  },
+  "co khi o to tu dong hoa": {
+   "years": {
+    "2022": {
+     "postings": 1347,
+     "share_percent": 1.349,
+     "median_salary_million": 13.34
+    },
+    "2023": {
+     "postings": 2245,
+     "share_percent": 2.081,
+     "median_salary_million": 13.66
+    },
+    "2024": {
+     "postings": 8014,
+     "share_percent": 6.221,
+     "median_salary_million": 13.99
+    },
+    "2025": {
+     "postings": 7877,
+     "share_percent": 6.102,
+     "median_salary_million": 14.1
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0186,
+   "total_postings": 20678
+  },
+  "nghe nghiep khac": {
+   "years": {
+    "2022": {
+     "postings": 5304,
+     "share_percent": 5.313,
+     "median_salary_million": 9.78
+    },
+    "2023": {
+     "postings": 6831,
+     "share_percent": 6.332,
+     "median_salary_million": 11.53
+    },
+    "2024": {
+     "postings": 3556,
+     "share_percent": 2.761,
+     "median_salary_million": 13.96
+    },
+    "2025": {
+     "postings": 3596,
+     "share_percent": 2.786,
+     "median_salary_million": 13.96
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.1936,
+   "salary_cagr": 0.1259,
+   "total_postings": 19937
+  },
+  "hanh chinh thu ky": {
+   "years": {
+    "2022": {
+     "postings": 6785,
+     "share_percent": 6.797,
+     "median_salary_million": 10.91
+    },
+    "2023": {
+     "postings": 4282,
+     "share_percent": 3.969,
+     "median_salary_million": 11.5
+    },
+    "2024": {
+     "postings": 4002,
+     "share_percent": 3.107,
+     "median_salary_million": 11.54
+    },
+    "2025": {
+     "postings": 3785,
+     "share_percent": 2.932,
+     "median_salary_million": 11.9
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.2444,
+   "salary_cagr": 0.0294,
+   "total_postings": 20572
+  },
+  "tai chinh dau tu chung khoan": {
+   "years": {
+    "2022": {
+     "postings": 5737,
+     "share_percent": 5.747,
+     "median_salary_million": 12.3
+    },
+    "2023": {
+     "postings": 3654,
+     "share_percent": 3.387,
+     "median_salary_million": 14.4
+    },
+    "2024": {
+     "postings": 4075,
+     "share_percent": 3.163,
+     "median_salary_million": 16.73
+    },
+    "2025": {
+     "postings": 3251,
+     "share_percent": 2.519,
+     "median_salary_million": 16.35
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.2404,
+   "salary_cagr": 0.0995,
+   "total_postings": 17969
+  },
+  "bien phien dich": {
+   "years": {
+    "2022": {
+     "postings": 977,
+     "share_percent": 0.979,
+     "median_salary_million": 12.27
+    },
+    "2023": {
+     "postings": 3532,
+     "share_percent": 3.274,
+     "median_salary_million": 13.47
+    },
+    "2024": {
+     "postings": 5580,
+     "share_percent": 4.332,
+     "median_salary_million": 14.03
+    },
+    "2025": {
+     "postings": 5317,
+     "share_percent": 4.119,
+     "median_salary_million": 14.63
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0604,
+   "total_postings": 15798
+  },
+  "ban si ban le quan ly cua hang": {
+   "years": {
+    "2022": {
+     "postings": 10002,
+     "share_percent": 10.02,
+     "median_salary_million": 10.94
+    },
+    "2023": {
+     "postings": 2687,
+     "share_percent": 2.491,
+     "median_salary_million": 10.29
+    },
+    "2024": {
+     "postings": 889,
+     "share_percent": 0.69,
+     "median_salary_million": 10.59
+    },
+    "2025": {
+     "postings": 822,
+     "share_percent": 0.637,
+     "median_salary_million": 10.5
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.25,
+   "salary_cagr": -0.0136,
+   "total_postings": 16753
+  },
+  "marketing": {
+   "years": {
+    "2022": {
+     "postings": 5212,
+     "share_percent": 5.221,
+     "median_salary_million": 12.81
+    },
+    "2023": {
+     "postings": 3701,
+     "share_percent": 3.431,
+     "median_salary_million": 12.78
+    },
+    "2024": {
+     "postings": 2890,
+     "share_percent": 2.244,
+     "median_salary_million": 12.43
+    },
+    "2025": {
+     "postings": 2428,
+     "share_percent": 1.881,
+     "median_salary_million": 12.89
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.25,
+   "salary_cagr": 0.0021,
+   "total_postings": 15401
+  },
+  "thu mua kho van chuoi cung ung": {
+   "years": {
+    "2022": {
+     "postings": 3188,
+     "share_percent": 3.194,
+     "median_salary_million": 11.12
+    },
+    "2023": {
+     "postings": 3429,
+     "share_percent": 3.178,
+     "median_salary_million": 12.85
+    },
+    "2024": {
+     "postings": 3407,
+     "share_percent": 2.645,
+     "median_salary_million": 12.95
+    },
+    "2025": {
+     "postings": 3105,
+     "share_percent": 2.405,
+     "median_salary_million": 13.33
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.0902,
+   "salary_cagr": 0.0623,
+   "total_postings": 14085
+  },
+  "y te cham soc suc khoe": {
+   "years": {
+    "2022": {
+     "postings": 2086,
+     "share_percent": 2.09,
+     "median_salary_million": 12.58
+    },
+    "2023": {
+     "postings": 2969,
+     "share_percent": 2.752,
+     "median_salary_million": 14.61
+    },
+    "2024": {
+     "postings": 4000,
+     "share_percent": 3.105,
+     "median_salary_million": 15.09
+    },
+    "2025": {
+     "postings": 3719,
+     "share_percent": 2.881,
+     "median_salary_million": 15.38
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.1129,
+   "salary_cagr": 0.0693,
+   "total_postings": 13323
+  },
+  "duoc pham": {
+   "years": {
+    "2022": {
+     "postings": 1693,
+     "share_percent": 1.696,
+     "median_salary_million": 12.47
+    },
+    "2023": {
+     "postings": 2960,
+     "share_percent": 2.744,
+     "median_salary_million": 14.61
+    },
+    "2024": {
+     "postings": 3999,
+     "share_percent": 3.104,
+     "median_salary_million": 15.09
+    },
+    "2025": {
+     "postings": 3719,
+     "share_percent": 2.881,
+     "median_salary_million": 15.38
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.1932,
+   "salary_cagr": 0.0724,
+   "total_postings": 12663
+  },
+  "dien dien tu dien lanh": {
+   "years": {
+    "2022": {
+     "postings": 1,
+     "share_percent": 0.001,
+     "median_salary_million": 15.0
+    },
+    "2023": {
+     "postings": 1062,
+     "share_percent": 0.984,
+     "median_salary_million": 13.6
+    },
+    "2024": {
+     "postings": 5296,
+     "share_percent": 4.111,
+     "median_salary_million": 13.44
+    },
+    "2025": {
+     "postings": 5463,
+     "share_percent": 4.232,
+     "median_salary_million": 13.85
+    }
+   },
+   "trend_window": [
+    2023,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0091,
+   "total_postings": 13028
+  },
+  "nhan su": {
+   "years": {
+    "2022": {
+     "postings": 2387,
+     "share_percent": 2.391,
+     "median_salary_million": 11.92
+    },
+    "2023": {
+     "postings": 2933,
+     "share_percent": 2.719,
+     "median_salary_million": 11.7
+    },
+    "2024": {
+     "postings": 2941,
+     "share_percent": 2.283,
+     "median_salary_million": 11.68
+    },
+    "2025": {
+     "postings": 2992,
+     "share_percent": 2.318,
+     "median_salary_million": 12.14
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.0103,
+   "salary_cagr": 0.0061,
+   "total_postings": 12243
+  },
+  "thuc pham do uong": {
+   "years": {
+    "2022": {
+     "postings": 1,
+     "share_percent": 0.001,
+     "median_salary_million": 8.0
+    },
+    "2023": {
+     "postings": 870,
+     "share_percent": 0.806,
+     "median_salary_million": 12.7
+    },
+    "2024": {
+     "postings": 3739,
+     "share_percent": 2.903,
+     "median_salary_million": 12.65
+    },
+    "2025": {
+     "postings": 4235,
+     "share_percent": 3.281,
+     "median_salary_million": 12.75
+    }
+   },
+   "trend_window": [
+    2023,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.002,
+   "total_postings": 9364
+  },
+  "cong nghe thuc pham dinh duong": {
+   "years": {
+    "2022": {
+     "postings": 0,
+     "share_percent": 0.0,
+     "median_salary_million": null
+    },
+    "2023": {
+     "postings": 870,
+     "share_percent": 0.806,
+     "median_salary_million": 12.7
+    },
+    "2024": {
+     "postings": 3736,
+     "share_percent": 2.9,
+     "median_salary_million": 12.65
+    },
+    "2025": {
+     "postings": 4237,
+     "share_percent": 3.282,
+     "median_salary_million": 12.75
+    }
+   },
+   "trend_window": [
+    2023,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.002,
+   "total_postings": 9100
+  },
+  "ngan hang": {
+   "years": {
+    "2022": {
+     "postings": 1128,
+     "share_percent": 1.13,
+     "median_salary_million": 14.63
+    },
+    "2023": {
+     "postings": 1803,
+     "share_percent": 1.671,
+     "median_salary_million": 14.91
+    },
+    "2024": {
+     "postings": 2725,
+     "share_percent": 2.115,
+     "median_salary_million": 17.81
+    },
+    "2025": {
+     "postings": 2116,
+     "share_percent": 1.639,
+     "median_salary_million": 17.17
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.132,
+   "salary_cagr": 0.0548,
+   "total_postings": 8386
+  },
+  "bat dong san": {
+   "years": {
+    "2022": {
+     "postings": 1938,
+     "share_percent": 1.941,
+     "median_salary_million": 15.1
+    },
+    "2023": {
+     "postings": 1699,
+     "share_percent": 1.575,
+     "median_salary_million": 18.34
+    },
+    "2024": {
+     "postings": 2004,
+     "share_percent": 1.556,
+     "median_salary_million": 19.27
+    },
+    "2025": {
+     "postings": 2062,
+     "share_percent": 1.597,
+     "median_salary_million": 21.15
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.063,
+   "salary_cagr": 0.1189,
+   "total_postings": 8272
+  },
+  "van tai lai xe giao nhan": {
+   "years": {
+    "2022": {
+     "postings": 2015,
+     "share_percent": 2.019,
+     "median_salary_million": 10.74
+    },
+    "2023": {
+     "postings": 1836,
+     "share_percent": 1.702,
+     "median_salary_million": 11.45
+    },
+    "2024": {
+     "postings": 1903,
+     "share_percent": 1.477,
+     "median_salary_million": 12.49
+    },
+    "2025": {
+     "postings": 1847,
+     "share_percent": 1.431,
+     "median_salary_million": 12.56
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.1084,
+   "salary_cagr": 0.0536,
+   "total_postings": 8207
+  },
+  "xuat nhap khau": {
+   "years": {
+    "2022": {
+     "postings": 1250,
+     "share_percent": 1.252,
+     "median_salary_million": 12.49
+    },
+    "2023": {
+     "postings": 2005,
+     "share_percent": 1.858,
+     "median_salary_million": 14.13
+    },
+    "2024": {
+     "postings": 2174,
+     "share_percent": 1.688,
+     "median_salary_million": 13.82
+    },
+    "2025": {
+     "postings": 1750,
+     "share_percent": 1.356,
+     "median_salary_million": 14.37
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.027,
+   "salary_cagr": 0.0478,
+   "total_postings": 7674
+  },
+  "det may da giay thoi trang": {
+   "years": {
+    "2022": {
+     "postings": 0,
+     "share_percent": 0.0,
+     "median_salary_million": null
+    },
+    "2023": {
+     "postings": 505,
+     "share_percent": 0.468,
+     "median_salary_million": 13.02
+    },
+    "2024": {
+     "postings": 2416,
+     "share_percent": 1.876,
+     "median_salary_million": 13.64
+    },
+    "2025": {
+     "postings": 2006,
+     "share_percent": 1.554,
+     "median_salary_million": 13.21
+    }
+   },
+   "trend_window": [
+    2023,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0073,
+   "total_postings": 5207
+  },
+  "kien truc thiet ke noi ngoai that": {
+   "years": {
+    "2022": {
+     "postings": 2197,
+     "share_percent": 2.201,
+     "median_salary_million": 14.15
+    },
+    "2023": {
+     "postings": 902,
+     "share_percent": 0.836,
+     "median_salary_million": 13.64
+    },
+    "2024": {
+     "postings": 914,
+     "share_percent": 0.71,
+     "median_salary_million": 13.94
+    },
+    "2025": {
+     "postings": 766,
+     "share_percent": 0.593,
+     "median_salary_million": 14.55
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.25,
+   "salary_cagr": 0.0093,
+   "total_postings": 5559
+  },
+  "it phan mem": {
+   "years": {
+    "2022": {
+     "postings": 1687,
+     "share_percent": 1.69,
+     "median_salary_million": 14.93
+    },
+    "2023": {
+     "postings": 1058,
+     "share_percent": 0.981,
+     "median_salary_million": 16.32
+    },
+    "2024": {
+     "postings": 954,
+     "share_percent": 0.741,
+     "median_salary_million": 16.86
+    },
+    "2025": {
+     "postings": 865,
+     "share_percent": 0.67,
+     "median_salary_million": 17.62
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.25,
+   "salary_cagr": 0.0568,
+   "total_postings": 5770
+  },
+  "luat phap ly tuan thu": {
+   "years": {
+    "2022": {
+     "postings": 505,
+     "share_percent": 0.506,
+     "median_salary_million": 12.68
+    },
+    "2023": {
+     "postings": 976,
+     "share_percent": 0.905,
+     "median_salary_million": 14.73
+    },
+    "2024": {
+     "postings": 1411,
+     "share_percent": 1.095,
+     "median_salary_million": 16.24
+    },
+    "2025": {
+     "postings": 1317,
+     "share_percent": 1.02,
+     "median_salary_million": 16.69
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": 0.25,
+   "salary_cagr": 0.0959,
+   "total_postings": 4481
+  },
+  "thuc tap sinh": {
+   "years": {
+    "2022": {
+     "postings": 0,
+     "share_percent": 0.0,
+     "median_salary_million": null
+    },
+    "2023": {
+     "postings": 342,
+     "share_percent": 0.317,
+     "median_salary_million": 5.72
+    },
+    "2024": {
+     "postings": 1693,
+     "share_percent": 1.314,
+     "median_salary_million": 6.75
+    },
+    "2025": {
+     "postings": 1961,
+     "share_percent": 1.519,
+     "median_salary_million": 6.94
+    }
+   },
+   "trend_window": [
+    2024,
+    2025
+   ],
+   "reliable": false,
+   "demand_momentum_cagr": 0.0,
+   "salary_cagr": 0.0,
+   "total_postings": 4240
+  },
+  "quan ly tieu chuan va chat luong": {
+   "years": {
+    "2022": {
+     "postings": 442,
+     "share_percent": 0.443,
+     "median_salary_million": 12.23
+    },
+    "2023": {
+     "postings": 1335,
+     "share_percent": 1.237,
+     "median_salary_million": 13.41
+    },
+    "2024": {
+     "postings": 915,
+     "share_percent": 0.71,
+     "median_salary_million": 13.61
+    },
+    "2025": {
+     "postings": 703,
+     "share_percent": 0.545,
+     "median_salary_million": 13.8
+    }
+   },
+   "trend_window": [
+    2023,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.25,
+   "salary_cagr": 0.0144,
+   "total_postings": 3741
+  },
+  "thiet ke sang tao nghe thuat": {
+   "years": {
+    "2022": {
+     "postings": 2094,
+     "share_percent": 2.098,
+     "median_salary_million": 12.36
+    },
+    "2023": {
+     "postings": 620,
+     "share_percent": 0.575,
+     "median_salary_million": 12.18
+    },
+    "2024": {
+     "postings": 361,
+     "share_percent": 0.28,
+     "median_salary_million": 12.16
+    },
+    "2025": {
+     "postings": 298,
+     "share_percent": 0.231,
+     "median_salary_million": 12.37
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": false,
+   "demand_momentum_cagr": 0.0,
+   "salary_cagr": 0.0,
+   "total_postings": 3851
+  },
+  "quan ly du an": {
+   "years": {
+    "2022": {
+     "postings": 547,
+     "share_percent": 0.548,
+     "median_salary_million": 19.57
+    },
+    "2023": {
+     "postings": 953,
+     "share_percent": 0.883,
+     "median_salary_million": 18.85
+    },
+    "2024": {
+     "postings": 671,
+     "share_percent": 0.521,
+     "median_salary_million": 18.03
+    },
+    "2025": {
+     "postings": 576,
+     "share_percent": 0.446,
+     "median_salary_million": 17.32
+    }
+   },
+   "trend_window": [
+    2022,
+    2025
+   ],
+   "reliable": true,
+   "demand_momentum_cagr": -0.0663,
+   "salary_cagr": -0.0399,
+   "total_postings": 3161
+  }
+ },
+ "method": "CAGR giữa năm đầu có >= 500 tin và 2025; cần >= 2 năm; giới hạn ±25%/năm. salary = trung bình điểm giữa khoảng lương."
+}

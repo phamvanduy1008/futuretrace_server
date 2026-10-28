@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-22T14:24:20.752Z",
+  "profiles": 25,
+  "task": "simulation_v2",
+  "systems": {
+    "modal": {
+      "successRate": 1,
+      "strictJsonRate": 1,
+      "aiCoverage": 1,
+      "groundedness": 1,
+      "numericClaimsPerOutput": 28.28,
+      "removedSentencesPerOutput": 0,
+      "unknownEntitiesPerOutput": 0,
+      "unknownSlotsPerOutput": 0,
+      "mode": "sections",
+      "latencyMs": {
+        "p50": 26436,
+        "p95": 28404
+      },
+      "firstTokenMs": {
+        "p50": 1172,
+        "p95": 2077
+      },
+      "costUsdPerOutput": 0,
+      "rubric": {
+        "specificity": 3.9565217391304346,
+        "faithfulness": 4.826086956521739,
+        "actionability": 3.9130434782608696,
+        "empathy": 4,
+        "fluency": 5
+      },
+      "errors": []
+    }
+  }
+}

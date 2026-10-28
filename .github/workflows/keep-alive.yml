@@ -1,0 +1,21 @@
+# Giữ backend trên Render free không "ngủ" sau 15 phút (cold start 30-60s làm hỏng trải nghiệm).
+# Render free cho 750 giờ/tháng: đủ chạy 1 service liên tục. Đặt secret HEALTHCHECK_URL
+# (vd. https://futuretrace-server.onrender.com/api/health) trong Settings > Secrets của repo.
+name: keep-alive
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping health endpoint
+        env:
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
+        run: |
+          if [ -z "$HEALTHCHECK_URL" ]; then echo "HEALTHCHECK_URL secret chưa được đặt"; exit 0; fi
+          curl -fsS --max-time 90 --retry 2 "$HEALTHCHECK_URL" || echo "Health check thất bại"

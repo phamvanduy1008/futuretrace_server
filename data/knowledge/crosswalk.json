@@ -1,0 +1,1787 @@
+{
+ "review_status": "reviewed_20261021_HoangLe_NguyenLe",
+ "rules": {
+  "714": {
+   "industry": "Giáo dục - Đào tạo",
+   "role": "Giáo viên",
+   "riasec": "SA",
+   "fit": "approx",
+   "domain": "su_pham_giao_duc"
+  },
+  "721": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế",
+   "riasec": "AE",
+   "fit": "weak",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210102": {
+   "industry": null,
+   "role": "Nghệ sĩ / chuyên viên nghệ thuật",
+   "riasec": "AE",
+   "fit": "none",
+   "domain": null
+  },
+  "7210103": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế",
+   "riasec": "AE",
+   "fit": "weak",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210104": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế",
+   "riasec": "AE",
+   "fit": "weak",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210201": {
+   "industry": null,
+   "role": "Nghệ sĩ / chuyên viên nghệ thuật",
+   "riasec": "AE",
+   "fit": "none",
+   "domain": null
+  },
+  "7210205": {
+   "industry": null,
+   "role": "Nghệ sĩ / chuyên viên nghệ thuật",
+   "riasec": "AE",
+   "fit": "none",
+   "domain": null
+  },
+  "7210208": {
+   "industry": null,
+   "role": "Nghệ sĩ / chuyên viên nghệ thuật",
+   "riasec": "AE",
+   "fit": "none",
+   "domain": null
+  },
+  "7210210": {
+   "industry": null,
+   "role": "Nghệ sĩ / chuyên viên nghệ thuật",
+   "riasec": "AE",
+   "fit": "none",
+   "domain": null
+  },
+  "7210234": {
+   "industry": null,
+   "role": "Nghệ sĩ / chuyên viên nghệ thuật",
+   "riasec": "AE",
+   "fit": "none",
+   "domain": null
+  },
+  "7210213": {
+   "industry": null,
+   "role": "Nghệ sĩ / chuyên viên nghệ thuật",
+   "riasec": "AE",
+   "fit": "none",
+   "domain": null
+  },
+  "7210302": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên dựng phim",
+   "riasec": "AE",
+   "fit": "approx",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210402": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế",
+   "riasec": "AE",
+   "fit": "strong",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210403": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế đồ họa",
+   "riasec": "AE",
+   "fit": "strong",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210404": {
+   "industry": "Dệt may - Da giày - Thời trang / Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế thời trang",
+   "riasec": "AE",
+   "fit": "approx",
+   "domain": null
+  },
+  "7210405": {
+   "industry": "Kiến trúc - Thiết kế nội ngoại thất",
+   "role": "Nhân viên thiết kế nội thất",
+   "riasec": "AR",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7210407": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế đồ họa",
+   "riasec": "AE",
+   "fit": "approx",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210408": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế đồ họa",
+   "riasec": "AE",
+   "fit": "strong",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "7210110": {
+   "industry": "Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Nhân viên thiết kế",
+   "riasec": "AE",
+   "fit": "weak",
+   "domain": "thiet_ke_sang_tao"
+  },
+  "722": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220201": {
+   "industry": "Biên phiên dịch / Giáo dục - Đào tạo",
+   "role": "Nhân viên biên phiên dịch tiếng Anh",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220202": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220203": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220204": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch tiếng Trung",
+   "riasec": "AS",
+   "fit": "strong",
+   "domain": null
+  },
+  "7220205": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220206": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220208": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220209": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch tiếng Nhật",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220210": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch tiếng Hàn",
+   "riasec": "AS",
+   "fit": "strong",
+   "domain": null
+  },
+  "7220214": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220220": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch tiếng Hàn",
+   "riasec": "AS",
+   "fit": "strong",
+   "domain": null
+  },
+  "7220101": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7220104": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7220106": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7220110": {
+   "industry": "Marketing",
+   "role": "Nhân viên content",
+   "riasec": "AE",
+   "fit": "weak",
+   "domain": "marketing_truyen_thong"
+  },
+  "7220112": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7220301": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7229": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7229020": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7229030": {
+   "industry": "Marketing",
+   "role": "Nhân viên content",
+   "riasec": "AE",
+   "fit": "weak",
+   "domain": "marketing_truyen_thong"
+  },
+  "7229040": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7229042": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7229047": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "731": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7310101": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán / Bán hàng - Kinh doanh",
+   "role": "Chuyên viên phân tích kinh tế",
+   "riasec": "IC",
+   "fit": "weak",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7310102": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên tài chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7310104": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên đầu tư",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7310105": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên tài chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7310109": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán / IT Phần mềm",
+   "role": "Chuyên viên phân tích dữ liệu",
+   "riasec": "IC",
+   "fit": "weak",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7310110": {
+   "industry": "Bán hàng - Kinh doanh / Hành chính - Thư ký",
+   "role": "Chuyên viên kinh tế",
+   "riasec": "EC",
+   "fit": "weak",
+   "domain": null
+  },
+  "7310106": {
+   "industry": "Xuất nhập khẩu / Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Nhân viên xuất nhập khẩu",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": "logistics_xnk"
+  },
+  "7310107": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên phân tích số liệu",
+   "riasec": "IC",
+   "fit": "weak",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7310120": {
+   "industry": "Xuất nhập khẩu / Thu mua - Kho Vận - Chuỗi cung ứng",
+   "role": "Nhân viên xuất nhập khẩu",
+   "riasec": "EC",
+   "fit": "strong",
+   "domain": "logistics_xnk"
+  },
+  "7310201": {
+   "industry": null,
+   "role": "Cán bộ",
+   "riasec": "RE",
+   "fit": "none",
+   "domain": null
+  },
+  "7310202": {
+   "industry": null,
+   "role": "Cán bộ",
+   "riasec": "RE",
+   "fit": "none",
+   "domain": null
+  },
+  "7310205": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Chuyên viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7310206": {
+   "industry": "Biên phiên dịch / Xuất nhập khẩu",
+   "role": "Chuyên viên đối ngoại",
+   "riasec": "EA",
+   "fit": "weak",
+   "domain": null
+  },
+  "7310601": {
+   "industry": "Biên phiên dịch / Xuất nhập khẩu",
+   "role": "Chuyên viên đối ngoại",
+   "riasec": "EA",
+   "fit": "weak",
+   "domain": null
+  },
+  "7310608": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7310612": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7310613": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7310614": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7310640": {
+   "industry": "Biên phiên dịch",
+   "role": "Nhân viên biên phiên dịch",
+   "riasec": "AS",
+   "fit": "approx",
+   "domain": null
+  },
+  "7310630": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên du lịch",
+   "riasec": "ES",
+   "fit": "approx",
+   "domain": "du_lich_khach_san"
+  },
+  "7310401": {
+   "industry": "Nhân sự / Nghề nghiệp khác",
+   "role": "Chuyên viên tư vấn tâm lý",
+   "riasec": "SI",
+   "fit": "approx",
+   "domain": "khoa_hoc_xa_hoi"
+  },
+  "7310403": {
+   "industry": "Giáo dục - Đào tạo",
+   "role": "Chuyên viên tâm lý học đường",
+   "riasec": "SI",
+   "fit": "weak",
+   "domain": "khoa_hoc_xa_hoi"
+  },
+  "732": {
+   "industry": "Marketing",
+   "role": "Nhân viên content marketing",
+   "riasec": "AE",
+   "fit": "approx",
+   "domain": "marketing_truyen_thong"
+  },
+  "7320104": {
+   "industry": "Marketing",
+   "role": "Nhân viên truyền thông",
+   "riasec": "AE",
+   "fit": "approx",
+   "domain": "marketing_truyen_thong"
+  },
+  "7320108": {
+   "industry": "Marketing",
+   "role": "Nhân viên quan hệ công chúng",
+   "riasec": "ES",
+   "fit": "strong",
+   "domain": "marketing_truyen_thong"
+  },
+  "7320201": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7320205": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7320303": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7320305": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7320402": {
+   "industry": "Marketing",
+   "role": "Nhân viên biên tập",
+   "riasec": "AE",
+   "fit": "weak",
+   "domain": "marketing_truyen_thong"
+  },
+  "7329001": {
+   "industry": "IT Phần mềm / Thiết kế - Sáng tạo nghệ thuật",
+   "role": "Lập trình viên game",
+   "riasec": "AI",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "734": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7340101": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh",
+   "riasec": "EC",
+   "fit": "strong",
+   "domain": null
+  },
+  "7340102": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh",
+   "riasec": "EC",
+   "fit": "weak",
+   "domain": null
+  },
+  "7340114": {
+   "industry": "Marketing",
+   "role": "Nhân viên marketing số",
+   "riasec": "EA",
+   "fit": "strong",
+   "domain": "marketing_truyen_thong"
+  },
+  "7340115": {
+   "industry": "Marketing",
+   "role": "Nhân viên marketing",
+   "riasec": "EA",
+   "fit": "strong",
+   "domain": "marketing_truyen_thong"
+  },
+  "7340116": {
+   "industry": "Bất động sản",
+   "role": "Nhân viên kinh doanh bất động sản",
+   "riasec": "EC",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7340120": {
+   "industry": "Xuất nhập khẩu / Thu mua - Kho Vận - Chuỗi cung ứng",
+   "role": "Nhân viên xuất nhập khẩu",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": "logistics_xnk"
+  },
+  "7340121": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh",
+   "riasec": "EC",
+   "fit": "strong",
+   "domain": null
+  },
+  "7340122": {
+   "industry": "Marketing / Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh online",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": "marketing_truyen_thong"
+  },
+  "7340123": {
+   "industry": "Dệt may - Da giày - Thời trang / Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh thời trang",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7340129": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7340201": {
+   "industry": "Ngân hàng / Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên tài chính",
+   "riasec": "CE",
+   "fit": "approx",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7340202": {
+   "industry": "Kế toán / Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Nhân viên kế toán",
+   "riasec": "CI",
+   "fit": "approx",
+   "domain": "ke_toan_kiem_toan"
+  },
+  "7340204": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán / Bán hàng - Kinh doanh",
+   "role": "Chuyên viên bảo hiểm",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7340205": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán / IT Phần mềm",
+   "role": "Chuyên viên công nghệ tài chính",
+   "riasec": "IC",
+   "fit": "approx",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7340206": {
+   "industry": "Ngân hàng / Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên tài chính",
+   "riasec": "CE",
+   "fit": "approx",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7340207": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán / Bán hàng - Kinh doanh",
+   "role": "Chuyên viên bảo hiểm",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7340301": {
+   "industry": "Kế toán / Kiểm toán",
+   "role": "Nhân viên kế toán",
+   "riasec": "CI",
+   "fit": "strong",
+   "domain": "ke_toan_kiem_toan"
+  },
+  "7340302": {
+   "industry": "Kiểm toán / Kế toán",
+   "role": "Nhân viên kiểm toán",
+   "riasec": "CI",
+   "fit": "approx",
+   "domain": "ke_toan_kiem_toan"
+  },
+  "7340401": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7340403": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7340404": {
+   "industry": "Nhân sự / Hành chính - Thư ký",
+   "role": "Nhân viên nhân sự",
+   "riasec": "SE",
+   "fit": "strong",
+   "domain": null
+  },
+  "7340405": {
+   "industry": "IT Phần mềm",
+   "role": "Chuyên viên hệ thống thông tin",
+   "riasec": "IC",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7340406": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "strong",
+   "domain": null
+  },
+  "7340409": {
+   "industry": "Quản lý dự án",
+   "role": "Nhân viên quản lý dự án",
+   "riasec": "EC",
+   "fit": "strong",
+   "domain": null
+  },
+  "7340412": {
+   "industry": "Marketing",
+   "role": "Nhân viên tổ chức sự kiện",
+   "riasec": "EA",
+   "fit": "approx",
+   "domain": "marketing_truyen_thong"
+  },
+  "7349001": {
+   "industry": "Ngân hàng / Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên tài chính",
+   "riasec": "CE",
+   "fit": "strong",
+   "domain": "kinh_te_tai_chinh"
+  },
+  "7349002": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh",
+   "riasec": "EC",
+   "fit": "strong",
+   "domain": null
+  },
+  "738": {
+   "industry": "Luật - Pháp lý - Tuân thủ",
+   "role": "Chuyên viên pháp chế",
+   "riasec": "EI",
+   "fit": "approx",
+   "domain": "luat_phap_ly"
+  },
+  "7380107": {
+   "industry": "Luật - Pháp lý - Tuân thủ",
+   "role": "Chuyên viên pháp chế doanh nghiệp",
+   "riasec": "EI",
+   "fit": "approx",
+   "domain": "luat_phap_ly"
+  },
+  "7380108": {
+   "industry": "Luật - Pháp lý - Tuân thủ",
+   "role": "Chuyên viên pháp chế",
+   "riasec": "EI",
+   "fit": "approx",
+   "domain": "luat_phap_ly"
+  },
+  "7380109": {
+   "industry": "Luật - Pháp lý - Tuân thủ",
+   "role": "Chuyên viên pháp chế",
+   "riasec": "EI",
+   "fit": "approx",
+   "domain": "luat_phap_ly"
+  },
+  "742": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Kỹ thuật viên phòng thí nghiệm",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7420204": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Kỹ thuật viên phòng thí nghiệm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "y_duoc"
+  },
+  "7420207": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Kỹ thuật viên thẩm mỹ",
+   "riasec": "ES",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "744": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7440102": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện tử",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7440112": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến / Khoa học - Kỹ thuật",
+   "role": "Kỹ thuật viên hóa",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": null
+  },
+  "7440122": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến / Khoa học - Kỹ thuật",
+   "role": "Kỹ sư vật liệu",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": null
+  },
+  "7440229": {
+   "industry": "IT Phần mềm",
+   "role": "Chuyên viên phân tích dữ liệu",
+   "riasec": "IC",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7440301": {
+   "industry": "Quản lý tiêu chuẩn và chất lượng / Khoa học - Kỹ thuật",
+   "role": "Chuyên viên môi trường",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7440298": {
+   "industry": "Quản lý tiêu chuẩn và chất lượng / Khoa học - Kỹ thuật",
+   "role": "Chuyên viên môi trường",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "746": {
+   "industry": "IT Phần mềm / Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên phân tích dữ liệu",
+   "riasec": "IC",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7460108": {
+   "industry": "IT Phần mềm",
+   "role": "Chuyên viên khoa học dữ liệu",
+   "riasec": "IC",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "748": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư phần mềm",
+   "riasec": "IR",
+   "fit": "strong",
+   "domain": "cntt"
+  },
+  "7480106": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư phần mềm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480108": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư phần mềm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480118": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư phần mềm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480206": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư phần mềm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480102": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư phần mềm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7489001": {
+   "industry": "IT Phần mềm",
+   "role": "Chuyên viên khoa học dữ liệu",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480203": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư dữ liệu",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480107": {
+   "industry": "IT Phần mềm",
+   "role": "Kỹ sư trí tuệ nhân tạo",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480202": {
+   "industry": "IT Phần mềm",
+   "role": "Chuyên viên an toàn thông tin",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7480104": {
+   "industry": "IT Phần mềm",
+   "role": "Chuyên viên hệ thống thông tin",
+   "riasec": "IC",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "751": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510101": {
+   "industry": "Kiến trúc - Thiết kế nội ngoại thất / Xây dựng",
+   "role": "Kiến trúc sư",
+   "riasec": "AR",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7510102": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư xây dựng",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7510103": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư xây dựng",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7510104": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư xây dựng",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7510105": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư xây dựng",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7510106": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư xây dựng",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7510201": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư cơ khí",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510202": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư cơ khí",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510203": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư cơ điện tử",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510205": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư ô tô",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510206": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư nhiệt lạnh",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510208": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510403": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510602": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510209": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510210": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư xây dựng",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7510301": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510302": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện tử viễn thông",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510303": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư tự động hóa",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7510401": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến",
+   "role": "Kỹ sư sản xuất",
+   "riasec": "RC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7510402": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến",
+   "role": "Kỹ sư sản xuất",
+   "riasec": "RC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7510801": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến",
+   "role": "Kỹ sư sản xuất",
+   "riasec": "RC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7510406": {
+   "industry": "Quản lý tiêu chuẩn và chất lượng / Khoa học - Kỹ thuật",
+   "role": "Chuyên viên môi trường",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7510407": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7510601": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến / Quản lý dự án",
+   "role": "Kỹ sư quản lý sản xuất",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7510605": {
+   "industry": "Thu mua - Kho Vận - Chuỗi cung ứng / Xuất nhập khẩu",
+   "role": "Nhân viên logistics",
+   "riasec": "CE",
+   "fit": "strong",
+   "domain": "logistics_xnk"
+  },
+  "7510701": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "752": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520103": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư cơ khí",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520107": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520114": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư cơ điện tử",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520116": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư cơ khí",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520117": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520118": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520120": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520121": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520122": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư kỹ thuật",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520130": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư ô tô",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520141": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư ô tô",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520115": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư nhiệt lạnh",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520201": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520207": {
+   "industry": "Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư điện tử viễn thông",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520208": {
+   "industry": "IT Phần mềm / Điện - Điện tử - Điện lạnh",
+   "role": "Kỹ sư IoT",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": "cntt"
+  },
+  "7520212": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Kỹ sư thiết bị y tế",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7520216": {
+   "industry": "Cơ khí - Ô tô - Tự động hóa",
+   "role": "Kỹ sư tự động hóa",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "ky_thuat_co_dien"
+  },
+  "7520301": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến",
+   "role": "Kỹ sư sản xuất",
+   "riasec": "RC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7520309": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến",
+   "role": "Kỹ sư sản xuất",
+   "riasec": "RC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7520320": {
+   "industry": "Quản lý tiêu chuẩn và chất lượng / Khoa học - Kỹ thuật",
+   "role": "Chuyên viên môi trường",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7520503": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư trắc địa",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7520206": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520401": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520402": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520501": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520502": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520505": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520601": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520604": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520605": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520606": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "7520607": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "754": {
+   "industry": "Sản xuất - Lắp ráp - Chế biến",
+   "role": "Kỹ sư sản xuất",
+   "riasec": "RC",
+   "fit": "approx",
+   "domain": null
+  },
+  "7540101": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Thực phẩm - Đồ uống",
+   "role": "Kỹ sư công nghệ thực phẩm",
+   "riasec": "IR",
+   "fit": "strong",
+   "domain": null
+  },
+  "7540102": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Thực phẩm - Đồ uống",
+   "role": "Kỹ sư công nghệ thực phẩm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": null
+  },
+  "7540103": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Thực phẩm - Đồ uống",
+   "role": "Kỹ sư công nghệ thực phẩm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": null
+  },
+  "7540104": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Thực phẩm - Đồ uống",
+   "role": "Kỹ sư công nghệ thực phẩm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": null
+  },
+  "7540105": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Thực phẩm - Đồ uống",
+   "role": "Kỹ sư công nghệ thực phẩm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": null
+  },
+  "7540106": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Thực phẩm - Đồ uống",
+   "role": "Kỹ sư công nghệ thực phẩm",
+   "riasec": "IR",
+   "fit": "approx",
+   "domain": null
+  },
+  "7540202": {
+   "industry": "Dệt may - Da giày - Thời trang",
+   "role": "Kỹ sư dệt may",
+   "riasec": "RC",
+   "fit": "strong",
+   "domain": null
+  },
+  "7540203": {
+   "industry": "Dệt may - Da giày - Thời trang",
+   "role": "Kỹ sư dệt may",
+   "riasec": "RC",
+   "fit": "strong",
+   "domain": null
+  },
+  "7540204": {
+   "industry": "Dệt may - Da giày - Thời trang",
+   "role": "Kỹ sư dệt may",
+   "riasec": "RC",
+   "fit": "strong",
+   "domain": null
+  },
+  "7540209": {
+   "industry": "Dệt may - Da giày - Thời trang",
+   "role": "Kỹ sư dệt may",
+   "riasec": "RC",
+   "fit": "strong",
+   "domain": null
+  },
+  "7549002": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": null
+  },
+  "758": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư xây dựng",
+   "riasec": "RI",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580101": {
+   "industry": "Kiến trúc - Thiết kế nội ngoại thất",
+   "role": "Kiến trúc sư",
+   "riasec": "AR",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580102": {
+   "industry": "Kiến trúc - Thiết kế nội ngoại thất / Xây dựng",
+   "role": "Kiến trúc sư cảnh quan",
+   "riasec": "AR",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580110": {
+   "industry": "Kiến trúc - Thiết kế nội ngoại thất / Xây dựng",
+   "role": "Kiến trúc sư cảnh quan",
+   "riasec": "AR",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580103": {
+   "industry": "Kiến trúc - Thiết kế nội ngoại thất",
+   "role": "Nhân viên thiết kế nội thất",
+   "riasec": "AR",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580108": {
+   "industry": "Kiến trúc - Thiết kế nội ngoại thất",
+   "role": "Nhân viên thiết kế nội thất",
+   "riasec": "AR",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580105": {
+   "industry": "Xây dựng / Bất động sản",
+   "role": "Kỹ sư quy hoạch",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580106": {
+   "industry": "Xây dựng / Bất động sản",
+   "role": "Cán bộ quản lý đô thị",
+   "riasec": "CE",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580109": {
+   "industry": "Bất động sản / Xây dựng",
+   "role": "Chuyên viên bất động sản",
+   "riasec": "EC",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580112": {
+   "industry": "Xây dựng / Bất động sản",
+   "role": "Chuyên viên đô thị",
+   "riasec": "IC",
+   "fit": "weak",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580301": {
+   "industry": "Xây dựng",
+   "role": "Kỹ sư dự toán",
+   "riasec": "RI",
+   "fit": "approx",
+   "domain": "xay_dung_kien_truc"
+  },
+  "7580302": {
+   "industry": "Xây dựng / Quản lý dự án",
+   "role": "Kỹ sư quản lý xây dựng",
+   "riasec": "RC",
+   "fit": "strong",
+   "domain": "xay_dung_kien_truc"
+  },
+  "762": {
+   "industry": "Khoa học - Kỹ thuật",
+   "role": "Kỹ sư nông nghiệp",
+   "riasec": "RI",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7620115": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh nông sản",
+   "riasec": "EC",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7620119": {
+   "industry": "Bán hàng - Kinh doanh",
+   "role": "Nhân viên kinh doanh nông sản",
+   "riasec": "EC",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "764": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Bác sĩ thú y",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "772": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Nhân viên y tế",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7720101": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Bác sĩ",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7720201": {
+   "industry": "Dược phẩm / Y tế - Chăm sóc sức khỏe",
+   "role": "Dược sĩ",
+   "riasec": "IC",
+   "fit": "approx",
+   "domain": "y_duoc"
+  },
+  "7720203": {
+   "industry": "Dược phẩm",
+   "role": "Nhân viên hóa dược",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7720301": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Điều dưỡng",
+   "riasec": "SI",
+   "fit": "approx",
+   "domain": "y_duoc"
+  },
+  "7720501": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Bác sĩ răng hàm mặt",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7720601": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Kỹ thuật viên xét nghiệm",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7720401": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Y tế - Chăm sóc sức khỏe",
+   "role": "Chuyên viên dinh dưỡng",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7720497": {
+   "industry": "Công nghệ thực phẩm - Dinh dưỡng / Y tế - Chăm sóc sức khỏe",
+   "role": "Chuyên viên dinh dưỡng",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7720701": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Nhân viên y tế",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7720802": {
+   "industry": "Y tế - Chăm sóc sức khỏe / Hành chính - Thư ký",
+   "role": "Cán bộ quản lý bệnh viện",
+   "riasec": "EC",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "7729001": {
+   "industry": "Y tế - Chăm sóc sức khỏe",
+   "role": "Nhân viên y tế",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": "y_duoc"
+  },
+  "776": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Nhân viên công tác xã hội",
+   "riasec": "SE",
+   "fit": "weak",
+   "domain": "khoa_hoc_xa_hoi"
+  },
+  "781": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên dịch vụ khách hàng",
+   "riasec": "ES",
+   "fit": "weak",
+   "domain": "du_lich_khach_san"
+  },
+  "7810101": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên du lịch",
+   "riasec": "ES",
+   "fit": "weak",
+   "domain": "du_lich_khach_san"
+  },
+  "7810103": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên điều hành tour",
+   "riasec": "ES",
+   "fit": "weak",
+   "domain": "du_lich_khach_san"
+  },
+  "7810201": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên lễ tân khách sạn",
+   "riasec": "ES",
+   "fit": "approx",
+   "domain": "du_lich_khach_san"
+  },
+  "7810202": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Quản lý nhà hàng",
+   "riasec": "ES",
+   "fit": "approx",
+   "domain": "du_lich_khach_san"
+  },
+  "7810301": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên dịch vụ",
+   "riasec": "ES",
+   "fit": "weak",
+   "domain": "du_lich_khach_san"
+  },
+  "7810302": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên dịch vụ",
+   "riasec": "ES",
+   "fit": "weak",
+   "domain": "du_lich_khach_san"
+  },
+  "7810501": {
+   "industry": "Nghề nghiệp khác",
+   "role": "Chuyên viên nghiên cứu",
+   "riasec": "IS",
+   "fit": "weak",
+   "domain": null
+  },
+  "7819009": {
+   "industry": "Thực phẩm - Đồ uống / Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên bếp",
+   "riasec": "RE",
+   "fit": "approx",
+   "domain": null
+  },
+  "7819010": {
+   "industry": "Thực phẩm - Đồ uống / Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên bếp",
+   "riasec": "RE",
+   "fit": "approx",
+   "domain": null
+  },
+  "784": {
+   "industry": "Vận Tải - Lái xe - Giao nhận / Thu mua - Kho Vận - Chuỗi cung ứng",
+   "role": "Nhân viên điều phối vận tải",
+   "riasec": "CE",
+   "fit": "approx",
+   "domain": "logistics_xnk"
+  },
+  "7840101": {
+   "industry": "Vận Tải - Lái xe - Giao nhận / Thu mua - Kho Vận - Chuỗi cung ứng",
+   "role": "Nhân viên điều phối vận tải",
+   "riasec": "CE",
+   "fit": "strong",
+   "domain": "logistics_xnk"
+  },
+  "7840104": {
+   "industry": "Vận Tải - Lái xe - Giao nhận / Thu mua - Kho Vận - Chuỗi cung ứng",
+   "role": "Nhân viên điều phối vận tải",
+   "riasec": "CE",
+   "fit": "strong",
+   "domain": "logistics_xnk"
+  },
+  "785": {
+   "industry": "Quản lý tiêu chuẩn và chất lượng / Khoa học - Kỹ thuật",
+   "role": "Chuyên viên môi trường",
+   "riasec": "IR",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7850103": {
+   "industry": "Bất động sản / Khoa học - Kỹ thuật",
+   "role": "Cán bộ địa chính",
+   "riasec": "CI",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7850104": {
+   "industry": "Khách sạn - Nhà hàng - Du lịch",
+   "role": "Nhân viên du lịch sinh thái",
+   "riasec": "ES",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7850105": {
+   "industry": "Quản lý tiêu chuẩn và chất lượng",
+   "role": "Chuyên viên an toàn môi trường",
+   "riasec": "CI",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "7850202": {
+   "industry": "Quản lý tiêu chuẩn và chất lượng",
+   "role": "Chuyên viên an toàn lao động",
+   "riasec": "CI",
+   "fit": "weak",
+   "domain": "nong_lam_ngu"
+  },
+  "786": {
+   "industry": null,
+   "role": "Cán bộ",
+   "riasec": "RE",
+   "fit": "none",
+   "domain": null
+  },
+  "7900204": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7900205": {
+   "industry": "Hành chính - Thư ký",
+   "role": "Nhân viên hành chính",
+   "riasec": "CE",
+   "fit": "weak",
+   "domain": null
+  },
+  "7903124": {
+   "industry": "Tài chính - Đầu tư - Chứng Khoán",
+   "role": "Chuyên viên tài chính",
+   "riasec": "CE",
+   "fit": "approx",
+   "domain": "kinh_te_tai_chinh"
+  }
+ },
+ "code_fixes": {
+  "7334030": "7340301"
+ },
+ "source_id": "src_crosswalk_draft"
+}

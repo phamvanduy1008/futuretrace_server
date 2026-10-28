@@ -1,8 +1,22 @@
+const dns = require('dns');
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch (e) {
+  // ignore if not supported
+}
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
+const compression = require('compression');
 const User = require('./models/User');
+const { authLimiter, otpLimiter, aiLimiter } = require('./middleware/rateLimits');
+
+// Không để một promise bị reject mà không ai bắt làm sập tiến trình (Node 22 mặc định tắt process)
+process.on('unhandledRejection', (reason) => {
+  console.error('[Process] Unhandled promise rejection:', reason);
+});
 
 
 const authRoutes = require('./routes/auth');
@@ -15,6 +29,12 @@ const dashboardRoutes = require('./routes/dashboard');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Render/Netlify đứng sau reverse proxy: cần để rate limit nhận đúng IP người dùng
+app.set('trust proxy', 1);
+app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+// Nén JSON phản hồi (báo cáo premium ~30KB). SSE tự gọi res.flush() để không bị đệm.
+app.use(compression());
 
 /* ================= CORS ================= */
 
@@ -54,6 +74,17 @@ app.use((req, res, next) => {
   next();
 });
 
+/* ================= Rate limits ================= */
+
+app.use(['/api/auth/login', '/auth/login', '/api/auth/register', '/api/auth/refresh'], authLimiter);
+app.use(['/api/auth/register/send-otp', '/api/auth/register/verify-otp'], otpLimiter);
+app.use([
+  '/api/simulations',
+  '/api/premium/analyze',
+  '/api/premium/pivot',
+  '/api/premium/expand-step'
+], (req, res, next) => (req.method === 'GET' || req.path === '/warmup' ? next() : aiLimiter(req, res, next)));
+
 /* ================= Routes ================= */
 
 app.use('/api/auth', authRoutes);
@@ -64,6 +95,7 @@ app.use('/api/premium', premiumRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/evaluations', require('./routes/evaluations'));
+app.use('/api/knowledge', require('./routes/knowledge'));
 
 const auth = require('./middleware/auth');
 const PremiumAnalysis = require('./models/PremiumAnalysis');
@@ -123,27 +155,35 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Internal server error' });
 });
 
-/* ================= MongoDB ================= */
+const connectDB = async () => {
+  const primaryUri = process.env.MONGODB_URI;
+  const localUri = 'mongodb://127.0.0.1:27017/futuretrace';
 
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
+  try {
+    console.log('🔄 Đang kết nối tới MongoDB...');
+    await mongoose.connect(primaryUri, { serverSelectionTimeoutMS: 5000 });
+    console.log('✅ MongoDB connected successfully (Cloud Atlas)');
+  } catch (err) {
+    console.warn(`⚠️ Cloud MongoDB connection failed (${err.message}). Trying Local MongoDB...`);
+    try {
+      await mongoose.connect(localUri);
+      console.log('✅ MongoDB connected successfully (Local MongoDB 127.0.0.1:27017)');
+    } catch (localErr) {
+      console.error('❌ Cả Cloud và Local MongoDB đều không kết nối được:', localErr.message);
+      process.exit(1);
+    }
+  }
 
-    console.log('✅ MongoDB connected');
-
-
-    app.listen(PORT, () => {
-
-      console.log(`🚀 FutureTrace server running on port ${PORT}`);
-      console.log(`📡 API base: /api`);
-
-    });
-
-  })
-  .catch((err) => {
-
-    console.error('❌ MongoDB connection error:', err.message);
-    process.exit(1);
-
+  app.listen(PORT, () => {
+    console.log(`🚀 FutureTrace server running on port ${PORT}`);
+    console.log(`📡 API base: /api`);
   });
+};
+
+// Chỉ tự kết nối DB + lắng nghe cổng khi chạy trực tiếp (`node server.js`);
+// test tích hợp import `app` và tự quản lý kết nối (MongoDB trong bộ nhớ).
+if (require.main === module) {
+  connectDB();
+}
 
 module.exports = app;

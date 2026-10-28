@@ -1,0 +1,1735 @@
+{
+  "createdAt": "2026-10-23T03:08:16.089Z",
+  "cases": "D:\\fpt\\futuretrace_server\\data\\sft_premium\\test_cases.jsonl",
+  "judge": "gemini",
+  "summary": {
+    "gemini": {
+      "n": 2,
+      "success": 1,
+      "structure": 1,
+      "timeline": 1,
+      "groundedness": 1,
+      "claimsPerReport": 10,
+      "urlsPerReport": 0,
+      "selfTitlePerReport": 0,
+      "unknownEntityPerReport": 0,
+      "wordsPerReport": 3391,
+      "fallbackToOtherProvider": null,
+      "latencyP50s": 11.837,
+      "latencyP95s": 11.837,
+      "rubric": {
+        "specificity": 4.5,
+        "faithfulness": 5,
+        "actionability": 4.5,
+        "coherence": 4.5,
+        "fluency": 5,
+        "overall": 4.7
+      },
+      "errors": []
+    },
+    "legacy": {
+      "n": 2,
+      "success": 1,
+      "structure": 1,
+      "timeline": 1,
+      "groundedness": 1,
+      "claimsPerReport": 3.5,
+      "urlsPerReport": 0,
+      "selfTitlePerReport": 0,
+      "unknownEntityPerReport": 0.5,
+      "wordsPerReport": 1468,
+      "fallbackToOtherProvider": null,
+      "latencyP50s": 12.492,
+      "latencyP95s": 12.492,
+      "rubric": {
+        "specificity": 3,
+        "faithfulness": 4,
+        "actionability": 3,
+        "coherence": 3,
+        "fluency": 4,
+        "overall": 3.4
+      },
+      "errors": []
+    }
+  },
+  "rows": [
+    {
+      "id": "gold_p00167",
+      "system": "gemini",
+      "ok": true,
+      "latencyMs": 11333,
+      "structure": true,
+      "timeline": true,
+      "claims": 15,
+      "groundedness": 1,
+      "urls": 0,
+      "selfTitle": 0,
+      "unknownEntity": 0,
+      "words": 3342,
+      "providers": [
+        "gemini"
+      ],
+      "v3": {
+        "unknownSlots": 0,
+        "removedSentences": 0,
+        "planCheck": "ok"
+      },
+      "outputTokens": 5528,
+      "scores": {
+        "specificity": 4,
+        "faithfulness": 5,
+        "actionability": 4,
+        "coherence": 4,
+        "fluency": 5
+      },
+      "report": {
+        "detailedNarrative": "Tháng 1-3: Tập trung hoàn tất thủ tục chuyển ngành và rà soát các tín chỉ tương đương từ ngành Quản trị - Luật sang Quản trị văn phòng để tối ưu thời gian học. Khó khăn lớn nhất là áp lực tài chính khi gia đình thiếu 62 triệu/năm mỗi năm, vì vậy em cần tìm việc làm thêm bán thời gian với mức lương 7-11,5 triệu/tháng [F6] để tự trang trải sinh hoạt phí 6 triệu/tháng [F5]. Tháng 4-6: Bắt đầu học các môn chuyên ngành cốt lõi. Em cần duy trì học lực 4/5 để giữ cơ hội nhận học bổng hoặc hỗ trợ học phí, đồng thời rèn luyện kỹ năng tin học văn phòng và ngoại ngữ để tạo lợi thế cạnh tranh so với mặt bằng chung 9-13,5 triệu/tháng [F3]. Tháng 7-9: Tìm kiếm các vị trí thực tập hành chính với mức lương 3-8,5 triệu/tháng [F7] để tích lũy kinh nghiệm thực tế. Việc này giúp em làm quen với môi trường công sở, hiểu rõ quy trình vận hành và xây dựng mạng lưới quan hệ cần thiết cho công việc chính thức sau này. Tháng 10-12: Hoàn thiện hồ sơ năng lực và chuẩn bị kỹ năng phỏng vấn. Dù thị trường có 9667 tin tuyển dụng [F4], em cần chủ động chọn lọc các công ty vừa tại TP.HCM để đạt mức lương mục tiêu 11,7 triệu/tháng. Nếu áp lực tài chính quá lớn, em cần ưu tiên các công việc hành chính có lộ trình thăng tiến rõ ràng thay vì chỉ làm công việc sự vụ.",
+        "milestones": [
+          {
+            "month": "Tháng 2",
+            "event": "Hoàn tất thủ tục chuyển ngành và xác định số tín chỉ được công nhận",
+            "impact": "High",
+            "probability": 85,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_1_1",
+                "title": "Rà soát chương trình đào tạo và đối chiếu học phần tương đương",
+                "description": "Em cần so sánh kỹ lưỡng khung chương trình của ngành Quản trị - Luật và Quản trị văn phòng để xác định các học phần đại cương đã hoàn thành. Việc này giúp tối ưu hóa số tín chỉ được công nhận, giảm bớt áp lực học tập và chi phí học phí cho các kỳ tiếp theo.",
+                "objectives": [
+                  "Xác định danh sách các học phần được miễn giảm tín chỉ",
+                  "Lập bảng so sánh chi tiết các môn học giữa hai ngành"
+                ],
+                "actions": [
+                  "Truy cập cổng thông tin sinh viên để tải bảng điểm cá nhân và khung chương trình đào tạo của ngành mới",
+                  "Sử dụng phần mềm bảng tính để đối chiếu mã học phần, số tín chỉ và nội dung giảng dạy giữa hai ngành"
+                ],
+                "tools": [
+                  "Cổng thông tin sinh viên của trường",
+                  "Microsoft Excel hoặc Google Sheets"
+                ],
+                "expectedResult": "Bảng danh sách các học phần được công nhận và số tín chỉ còn thiếu để hoàn thành chương trình Quản trị văn phòng.",
+                "completed": false
+              },
+              {
+                "id": "step_1_2",
+                "title": "Hoàn thiện hồ sơ chuyển ngành và gửi đơn xin xét duyệt",
+                "description": "Sau khi đã xác định được các tín chỉ có thể chuyển đổi, em cần chuẩn bị hồ sơ theo quy định của nhà trường. Việc nộp đơn sớm giúp em chủ động sắp xếp thời khóa biểu cho học kỳ mới, tránh việc bỏ lỡ các lớp học phần bắt buộc.",
+                "objectives": [
+                  "Hoàn tất đơn xin chuyển ngành theo mẫu của phòng đào tạo",
+                  "Nhận được xác nhận tiếp nhận hồ sơ từ bộ phận quản lý đào tạo"
+                ],
+                "actions": [
+                  "Điền thông tin vào đơn xin chuyển ngành, đính kèm bảng điểm hiện tại và các minh chứng liên quan",
+                  "Liên hệ trực tiếp với phòng đào tạo để nộp hồ sơ và hỏi rõ quy trình xét duyệt cũng như thời gian trả kết quả"
+                ],
+                "tools": [
+                  "Mẫu đơn chuyển ngành của trường",
+                  "Phòng đào tạo hoặc bộ phận một cửa của trường"
+                ],
+                "expectedResult": "Hồ sơ chuyển ngành đã được nộp thành công và có biên nhận xác nhận từ phía nhà trường.",
+                "completed": false
+              },
+              {
+                "id": "step_1_3",
+                "title": "Lập kế hoạch học tập mới và cân đối thời gian biểu",
+                "description": "Dựa trên số tín chỉ còn lại, em cần xây dựng kế hoạch học tập chi tiết cho các học kỳ tiếp theo. Điều này giúp em đảm bảo tiến độ ra trường đúng hạn và có thời gian trống để tìm kiếm việc làm thêm, hỗ trợ tài chính cho gia đình.",
+                "objectives": [
+                  "Xây dựng kế hoạch học tập chi tiết cho từng học kỳ còn lại",
+                  "Xác định các khung giờ trống trong tuần để làm thêm"
+                ],
+                "actions": [
+                  "Sắp xếp các học phần bắt buộc vào lịch trình hàng tuần dựa trên thời khóa biểu dự kiến của trường",
+                  "Xác định các khoảng thời gian cố định trong tuần không có lịch học để chuẩn bị cho việc tìm kiếm việc làm thêm"
+                ],
+                "tools": [
+                  "Google Calendar",
+                  "Sổ tay lập kế hoạch học tập"
+                ],
+                "expectedResult": "Thời khóa biểu cá nhân được tối ưu hóa, đảm bảo cân bằng giữa việc học tập chuyên ngành mới và thời gian làm thêm.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 4",
+            "event": "Tìm được việc làm thêm bán thời gian ổn định để bù đắp chi phí sinh hoạt",
+            "impact": "Medium",
+            "probability": 75,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_2_1",
+                "title": "Xây dựng hồ sơ năng lực và định vị thị trường việc làm bán thời gian",
+                "description": "Để bù đắp phần thiếu hụt 62 triệu/năm mỗi năm, em cần tìm công việc bán thời gian phù hợp. Việc này không chỉ giải quyết áp lực tài chính mà còn giúp em rèn luyện kỹ năng giao tiếp và quản lý thời gian trước khi thực tập chính thức.",
+                "objectives": [
+                  "Xác định danh mục công việc phù hợp với lịch học và mức lương mục tiêu 7-11,5 triệu/tháng [F6]",
+                  "Hoàn thiện hồ sơ cá nhân thể hiện thái độ làm việc chuyên nghiệp và trách nhiệm"
+                ],
+                "actions": [
+                  "Liệt kê các kỹ năng từ ngành Quản trị - Luật có thể áp dụng vào công việc văn phòng bán thời gian",
+                  "Soạn thảo hồ sơ cá nhân tập trung vào sự linh hoạt và khả năng học hỏi nhanh chóng"
+                ],
+                "tools": [
+                  "Canva",
+                  "LinkedIn"
+                ],
+                "expectedResult": "Sở hữu bản hồ sơ cá nhân chuyên nghiệp, sẵn sàng ứng tuyển vào các vị trí hỗ trợ văn phòng hoặc dịch vụ khách hàng.",
+                "completed": false
+              },
+              {
+                "id": "step_2_2",
+                "title": "Kết nối và ứng tuyển vào các vị trí bán thời gian tại TP.HCM",
+                "description": "Tận dụng các nền tảng tuyển dụng uy tín để tìm kiếm cơ hội việc làm bán thời gian. Ưu tiên các công việc có tính chất hành chính hoặc hỗ trợ để làm quen với môi trường văn phòng, đảm bảo thu nhập ổn định theo mức 9 triệu/tháng [F6].",
+                "objectives": [
+                  "Gửi hồ sơ ứng tuyển đến ít nhất 10 vị trí phù hợp mỗi tuần",
+                  "Đạt được ít nhất 2 buổi phỏng vấn trực tiếp trong tháng"
+                ],
+                "actions": [
+                  "Sử dụng các bộ lọc tìm kiếm trên nền tảng tuyển dụng để chọn công việc bán thời gian gần khu vực học tập",
+                  "Chủ động liên hệ trực tiếp với các đơn vị tuyển dụng để thể hiện sự nghiêm túc và mong muốn gắn bó"
+                ],
+                "tools": [
+                  "VietnamWorks",
+                  "TopCV"
+                ],
+                "expectedResult": "Nhận được lời mời làm việc bán thời gian với mức thu nhập ổn định, giúp giảm bớt áp lực tài chính cá nhân.",
+                "completed": false
+              },
+              {
+                "id": "step_2_3",
+                "title": "Quản lý tài chính và cân bằng thời gian học tập - làm việc",
+                "description": "Sau khi có việc làm, em cần thiết lập hệ thống quản lý thu chi để đảm bảo việc làm thêm không ảnh hưởng đến kết quả học tập. Đây là bước đệm quan trọng để duy trì phong độ cho kỳ thực tập tại .",
+                "objectives": [
+                  "Duy trì thu nhập hàng tháng đạt mục tiêu 7 triệu/tháng [F6] trở lên để bù đắp chi phí sinh hoạt",
+                  "Đảm bảo kết quả học tập không bị sụt giảm trong quá trình làm thêm"
+                ],
+                "actions": [
+                  "Sử dụng bảng theo dõi thu chi hàng tháng để kiểm soát dòng tiền và các khoản chi tiêu thiết yếu",
+                  "Lập kế hoạch thời gian biểu chi tiết hàng tuần để cân đối giữa việc học, làm thêm và nghỉ ngơi"
+                ],
+                "tools": [
+                  "Google Sheets",
+                  "Google Calendar"
+                ],
+                "expectedResult": "Thiết lập được thói quen quản lý tài chính cá nhân hiệu quả và duy trì sự cân bằng ổn định giữa công việc và học tập.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 7",
+            "event": "Đạt chứng chỉ tin học văn phòng nâng cao để tăng năng suất làm việc",
+            "impact": "Medium",
+            "probability": 80,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_3_1",
+                "title": "Xây dựng nền tảng kỹ năng tin học văn phòng chuyên sâu",
+                "description": "Tập trung rèn luyện các hàm tính toán phức tạp và kỹ năng trình bày văn bản chuẩn doanh nghiệp. Việc này giúp em tối ưu hóa thời gian xử lý dữ liệu hành chính, tạo lợi thế cạnh tranh khi tìm kiếm vị trí thực tập, đồng thời giảm bớt áp lực tài chính thông qua việc nâng cao hiệu suất làm việc.",
+                "objectives": [
+                  "Thành thạo các hàm Excel nâng cao như VLOOKUP, INDEX, MATCH và Pivot Table",
+                  "Đạt tốc độ soạn thảo văn bản hành chính chuyên nghiệp trên 60 từ mỗi phút"
+                ],
+                "actions": [
+                  "Đăng ký khóa học trực tuyến về tin học văn phòng ứng dụng để hệ thống hóa kiến thức",
+                  "Thực hành tạo lập các mẫu báo cáo, hợp đồng và quản lý dữ liệu trên phần mềm văn phòng"
+                ],
+                "tools": [
+                  "Microsoft Excel",
+                  "Coursera",
+                  "LinkedIn Learning"
+                ],
+                "expectedResult": "Nắm vững kỹ thuật xử lý dữ liệu và trình bày văn bản, sẵn sàng cho việc thi lấy chứng chỉ tin học quốc tế.",
+                "completed": false
+              },
+              {
+                "id": "step_3_2",
+                "title": "Ôn luyện và thi lấy chứng chỉ tin học văn phòng quốc tế",
+                "description": "Tham gia kỳ thi lấy chứng chỉ uy tín để minh chứng năng lực với nhà tuyển dụng. Chứng chỉ này là bằng chứng khách quan cho kỹ năng của em, giúp hồ sơ thực tập trở nên nổi bật hơn trong mắt các công ty vừa tại TP.HCM.",
+                "objectives": [
+                  "Đạt chứng chỉ MOS (Microsoft Office Specialist) với số điểm tối thiểu 800 trên 1000",
+                  "Hoàn thành bài thi thử trong thời gian quy định để làm quen với áp lực phòng thi"
+                ],
+                "actions": [
+                  "Luyện đề thi thử trên các nền tảng mô phỏng để kiểm tra trình độ và tốc độ hoàn thành",
+                  "Đăng ký lịch thi tại các trung tâm khảo thí ủy quyền uy tín để nhận chứng chỉ chính thức"
+                ],
+                "tools": [
+                  "GMetrix",
+                  "Certiport",
+                  "Trung tâm khảo thí MOS"
+                ],
+                "expectedResult": "Sở hữu chứng chỉ tin học văn phòng có giá trị quốc tế, củng cố hồ sơ năng lực để ứng tuyển thực tập.",
+                "completed": false
+              },
+              {
+                "id": "step_3_3",
+                "title": "Tối ưu hóa quy trình làm việc hành chính bằng công cụ số",
+                "description": "Áp dụng các kỹ năng đã học vào thực tế công việc bán thời gian hoặc các bài tập chuyên ngành để tăng năng suất. Việc này giúp em làm quen với môi trường văn phòng thực tế, chuẩn bị tâm thế cho kỳ thực tập chính thức vào Tháng 9.",
+                "objectives": [
+                  "Tự động hóa các báo cáo hành chính định kỳ giúp tiết kiệm 30% thời gian thực hiện",
+                  "Xây dựng hệ thống quản lý tệp tin khoa học trên nền tảng đám mây cho công việc"
+                ],
+                "actions": [
+                  "Thiết lập các bảng tính tự động hóa để theo dõi chi phí và lịch trình công việc cá nhân",
+                  "Sử dụng công cụ lưu trữ đám mây để quản lý tài liệu, đảm bảo tính bảo mật và truy xuất nhanh"
+                ],
+                "tools": [
+                  "Google Workspace",
+                  "Notion",
+                  "Microsoft OneDrive"
+                ],
+                "expectedResult": "Khả năng vận dụng công cụ số thành thạo giúp tăng năng suất làm việc, sẵn sàng cho vị trí thực tập hành chính.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 9",
+            "event": "Bắt đầu kỳ thực tập hành chính tại công ty quy mô vừa tại TP.HCM",
+            "impact": "High",
+            "probability": 70,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_4_1",
+                "title": "Xây dựng hồ sơ năng lực và tìm kiếm vị trí thực tập hành chính",
+                "description": "Để bắt đầu thực tập tại các công ty vừa tại TP.HCM, em cần chuẩn bị hồ sơ chuyên nghiệp làm nổi bật kỹ năng văn phòng và sự chủ động. Việc này giúp em tiếp cận các cơ hội thực tập có lương 3-8,5 triệu/tháng [F7] để hỗ trợ chi phí cá nhân trong thời gian học tập.",
+                "objectives": [
+                  "Hoàn thiện CV chuyên nghiệp tập trung vào các kỹ năng hành chính và phần mềm văn phòng",
+                  "Gửi hồ sơ ứng tuyển đến ít nhất 10 công ty vừa tại TP.HCM trong tháng 9"
+                ],
+                "actions": [
+                  "Thiết kế CV trên Canva tập trung vào các dự án học tập và kỹ năng tin học đã đạt được",
+                  "Sử dụng các nền tảng tuyển dụng uy tín để lọc các vị trí thực tập hành chính phù hợp với lịch học"
+                ],
+                "tools": [
+                  "Canva",
+                  "VietnamWorks",
+                  "LinkedIn"
+                ],
+                "expectedResult": "Nhận được ít nhất 3 lời mời phỏng vấn thực tập và hiểu rõ yêu cầu thực tế của nhà tuyển dụng.",
+                "completed": false
+              },
+              {
+                "id": "step_4_2",
+                "title": "Chuẩn bị kỹ năng mềm và quy trình làm việc tại doanh nghiệp",
+                "description": "Sau khi có vị trí thực tập, em cần nhanh chóng thích nghi với môi trường làm việc thực tế. Việc nắm vững quy trình hành chính và kỹ năng giao tiếp sẽ giúp em đạt hiệu quả công việc cao, tạo tiền đề cho mức lương 11,7 triệu/tháng sau khi tốt nghiệp.",
+                "objectives": [
+                  "Nắm vững quy trình xử lý văn bản và quản lý hồ sơ tại đơn vị thực tập",
+                  "Đạt đánh giá tốt từ người hướng dẫn thực tập sau 2 tháng làm việc"
+                ],
+                "actions": [
+                  "Chủ động quan sát và ghi chép quy trình vận hành văn phòng để áp dụng vào công việc hàng ngày",
+                  "Rèn luyện kỹ năng giao tiếp qua email và điện thoại với đối tác theo tiêu chuẩn chuyên nghiệp"
+                ],
+                "tools": [
+                  "Google Workspace",
+                  "Microsoft Outlook",
+                  "Trello"
+                ],
+                "expectedResult": "Thực hiện thành thạo các tác vụ hành chính cơ bản và được giao những nhiệm vụ quan trọng hơn trong kỳ thực tập.",
+                "completed": false
+              },
+              {
+                "id": "step_4_3",
+                "title": "Tối ưu hóa hiệu suất và đánh giá kết quả thực tập",
+                "description": "Giai đoạn cuối của lộ trình tập trung vào việc tổng kết kinh nghiệm và tối ưu hóa năng suất cá nhân. Em cần kết hợp kiến thức từ trường học và thực tế để đạt kết quả học tập tốt, đảm bảo lộ trình đạt 15 triệu/tháng sau 5 năm.",
+                "objectives": [
+                  "Hoàn thành báo cáo thực tập với kết quả đạt yêu cầu từ phía trường và doanh nghiệp",
+                  "Xây dựng mạng lưới quan hệ với đồng nghiệp để mở rộng cơ hội việc làm chính thức"
+                ],
+                "actions": [
+                  "Tổng hợp các kỹ năng đã học để hoàn thiện báo cáo thực tập một cách logic và chuyên nghiệp",
+                  "Xin phản hồi từ quản lý trực tiếp về những điểm cần cải thiện để nâng cao năng lực chuyên môn"
+                ],
+                "tools": [
+                  "Microsoft Word",
+                  "Notion",
+                  "Zalo"
+                ],
+                "expectedResult": "Hoàn thành kỳ thực tập với đánh giá xuất sắc và có định hướng rõ ràng cho công việc hành chính chính thức.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 12",
+            "event": "Hoàn thành lộ trình học tập năm đầu chuyển ngành với kết quả học lực đạt yêu cầu",
+            "impact": "High",
+            "probability": 75,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_5_1",
+                "title": "Tổng kết kết quả học tập và rà soát tín chỉ tích lũy",
+                "description": "Thực hiện kiểm kê toàn bộ số tín chỉ đã hoàn thành sau một năm chuyển ngành để đảm bảo tiến độ tốt nghiệp không bị chậm trễ. Việc này giúp em đánh giá chính xác khối lượng công việc còn lại và điều chỉnh kế hoạch học tập cho các năm tiếp theo, tránh tình trạng quá tải tín chỉ.",
+                "objectives": [
+                  "Đạt điểm trung bình tích lũy học kỳ mới từ 3.0 trở lên trên thang điểm 4",
+                  "Hoàn thành ít nhất 30 tín chỉ chuyên ngành Quản trị văn phòng trong năm đầu chuyển đổi"
+                ],
+                "actions": [
+                  "Truy cập hệ thống quản lý đào tạo của trường để đối chiếu bảng điểm cá nhân với khung chương trình đào tạo mới",
+                  "Lập bảng tính theo dõi các môn học đã đạt và danh sách các môn bắt buộc cần đăng ký trong học kỳ kế tiếp"
+                ],
+                "tools": [
+                  "Cổng thông tin sinh viên của trường",
+                  "Microsoft Excel hoặc Google Sheets"
+                ],
+                "expectedResult": "Bảng tổng hợp kết quả học tập năm đầu và danh sách các học phần còn thiếu để lên kế hoạch đăng ký môn học chính xác.",
+                "completed": false
+              },
+              {
+                "id": "step_5_2",
+                "title": "Đánh giá năng lực thực tế và hiệu quả công việc hành chính",
+                "description": "Đối chiếu kỹ năng đạt được từ kỳ thực tập với yêu cầu thực tế của vị trí nhân viên hành chính văn phòng. Em cần nhìn nhận khách quan về khả năng thích nghi và hiệu suất làm việc để chuẩn bị tâm thế cho các cơ hội việc làm chính thức sau khi tốt nghiệp.",
+                "objectives": [
+                  "Đạt đánh giá hoàn thành tốt công việc từ đơn vị thực tập",
+                  "Xây dựng được danh mục các kỹ năng hành chính thực tế đã áp dụng thành thạo trong công việc"
+                ],
+                "actions": [
+                  "Viết báo cáo tổng kết thực tập nêu rõ các nhiệm vụ đã thực hiện và những kỹ năng chuyên môn đã cải thiện",
+                  "Xin nhận xét từ người hướng dẫn trực tiếp tại công ty để hiểu rõ điểm mạnh và những hạn chế cần khắc phục"
+                ],
+                "tools": [
+                  "Mẫu báo cáo thực tập của trường",
+                  "Sổ tay ghi chép công việc hàng ngày"
+                ],
+                "expectedResult": "Bản đánh giá năng lực cá nhân và xác nhận thực tập từ doanh nghiệp, làm cơ sở để làm đẹp hồ sơ xin việc.",
+                "completed": false
+              },
+              {
+                "id": "step_5_3",
+                "title": "Tối ưu hóa hồ sơ năng lực và định hướng lộ trình năm tiếp theo",
+                "description": "Cập nhật hồ sơ năng lực dựa trên kinh nghiệm thực tập và kết quả học tập năm qua để chuẩn bị cho giai đoạn tìm việc chính thức. Việc này giúp em định hình rõ hơn về mức thu nhập kỳ vọng như 11,7 triệu/tháng và chuẩn bị tâm lý cho áp lực tài chính trong tương lai.",
+                "objectives": [
+                  "Hoàn thiện hồ sơ năng lực chuyên nghiệp với đầy đủ thông tin về kỹ năng và kinh nghiệm thực tế",
+                  "Xác định rõ mục tiêu thu nhập và lộ trình thăng tiến trong 2 năm tiếp theo sau khi tốt nghiệp"
+                ],
+                "actions": [
+                  "Cập nhật thông tin học vấn và kinh nghiệm thực tập vào hồ sơ cá nhân trên các nền tảng tuyển dụng uy tín",
+                  "Lập kế hoạch tài chính cá nhân để cân đối giữa chi phí sinh hoạt và mục tiêu tích lũy cho giai đoạn ra trường"
+                ],
+                "tools": [
+                  "Canva hoặc các nền tảng tạo CV chuyên nghiệp",
+                  "LinkedIn hoặc các trang tuyển dụng trực tuyến"
+                ],
+                "expectedResult": "Hồ sơ năng lực hoàn chỉnh và lộ trình phát triển nghề nghiệp rõ ràng cho giai đoạn chuẩn bị tốt nghiệp.",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "influencingFactors": [
+          {
+            "category": "Economic",
+            "factor": "Thâm hụt tài chính",
+            "influence": "High",
+            "description": "Gia đình thiếu 62 triệu/năm mỗi năm, buộc em phải làm thêm để duy trì việc học và giảm áp lực tài chính cá nhân."
+          },
+          {
+            "category": "Personal",
+            "factor": "Áp lực học tập",
+            "influence": "High",
+            "description": "Với mức áp lực 5/5, em cần quản lý thời gian cực kỳ nghiêm ngặt giữa việc học chuyên ngành mới và làm thêm để không bị đuối sức."
+          },
+          {
+            "category": "Social",
+            "factor": "Cạnh tranh việc làm",
+            "influence": "Medium",
+            "description": "Thị trường có 9667 tin tuyển dụng [F4] nhưng tỷ lệ thất nghiệp thanh niên 8,64% [F9] đòi hỏi em phải có kỹ năng mềm vượt trội để được nhận vào làm."
+          },
+          {
+            "category": "Technical",
+            "factor": "Kỹ năng chuyên môn",
+            "influence": "Medium",
+            "description": "Việc chuyển từ ngành Luật sang Quản trị văn phòng yêu cầu em phải nhanh chóng nắm bắt các công cụ quản trị hiện đại để đạt mức lương 11,7 triệu/tháng."
+          }
+        ],
+        "strategicPivotPoints": [
+          {
+            "condition": "Nếu thu nhập từ việc làm thêm không đủ bù đắp sinh hoạt phí",
+            "action": "Tìm kiếm các học bổng khuyến khích học tập hoặc xin hỗ trợ từ nhà trường để giảm bớt gánh nặng học phí thay vì làm thêm quá nhiều ảnh hưởng đến kết quả học."
+          },
+          {
+            "condition": "Nếu kết quả học tập giảm sút dưới mức 3.5/5",
+            "action": "Tạm dừng các công việc làm thêm không thiết yếu để tập trung tối đa cho việc ôn tập, đảm bảo hoàn thành chương trình đúng hạn và duy trì cơ hội việc làm tốt."
+          },
+          {
+            "condition": "Nếu không tìm được vị trí thực tập đúng chuyên ngành",
+            "action": "Chủ động tham gia các dự án tình nguyện hoặc hỗ trợ hành chính tại các tổ chức phi lợi nhuận để tích lũy kinh nghiệm thực tế và làm đẹp hồ sơ năng lực."
+          }
+        ],
+        "longTermProjection": "Trong 3-5 năm tới, sau khi tốt nghiệp, em sẽ ổn định vị trí nhân viên hành chính với mức thu nhập khoảng 15 triệu/tháng. Để vượt qua mức lương trung bình này, em cần học thêm các chứng chỉ quản trị chuyên sâu hoặc ngoại ngữ thứ hai. Với sự kiên trì, em sẽ đạt điểm hoàn vốn vào năm thứ 10 và xây dựng được nền tảng tài chính vững chắc hơn cho sự nghiệp dài hạn.",
+        "modelUsed": "gemini-3.1-flash-lite",
+        "usage": {
+          "inputTokens": 18943,
+          "outputTokens": 5528,
+          "costUsd": 0.01302775
+        },
+        "quality": {
+          "task": "premium_v3_sections",
+          "provider": "gemini",
+          "providers": [
+            "gemini"
+          ],
+          "latencyMs": 11311,
+          "planCheck": "ok",
+          "unknownSlots": 0,
+          "numericClaims": 15,
+          "removedSentences": 0,
+          "groundedness": 1
+        }
+      }
+    },
+    {
+      "id": "gold_p00159",
+      "system": "gemini",
+      "ok": true,
+      "latencyMs": 11837,
+      "structure": true,
+      "timeline": true,
+      "claims": 5,
+      "groundedness": 1,
+      "urls": 0,
+      "selfTitle": 0,
+      "unknownEntity": 0,
+      "words": 3440,
+      "providers": [
+        "gemini"
+      ],
+      "v3": {
+        "unknownSlots": 0,
+        "removedSentences": 0,
+        "planCheck": "ok"
+      },
+      "outputTokens": 5515,
+      "scores": {
+        "specificity": 5,
+        "faithfulness": 5,
+        "actionability": 5,
+        "coherence": 5,
+        "fluency": 5
+      },
+      "report": {
+        "detailedNarrative": "Tháng 1-3: Tập trung ổn định việc học đại cương, xây dựng thói quen tự học ngoại ngữ chuyên ngành. Khó khăn ban đầu là khối lượng kiến thức xã hội rộng, cách khắc phục là lập sơ đồ tư duy cho từng môn học để nắm vững cốt lõi. Tháng 4-6: Tìm kiếm các câu lạc bộ học thuật liên quan đến ngôn ngữ hoặc văn hóa để mở rộng mạng lưới quan hệ. Đừng quá áp lực về thành tích, hãy ưu tiên việc rèn luyện kỹ năng giao tiếp và làm việc nhóm. Tháng 7-9: Bắt đầu tìm kiếm công việc bán thời gian phù hợp với lịch học, ưu tiên các công việc sử dụng ngoại ngữ để tích lũy kinh nghiệm thực tế. Mức thu nhập từ các công việc này thường nằm trong khoảng 7-11,5 triệu/tháng [F6], đây là mốc tham khảo cho sinh viên. Tháng 10-12: Đánh giá lại năng lực ngoại ngữ so với chuẩn đầu ra của trường. Nếu thấy hổng kiến thức, hãy chủ động đăng ký các khóa học bổ trợ hoặc tìm người hướng dẫn. Giai đoạn này cần duy trì GPA cao để làm nền tảng cho việc thực tập sau này. Nhóm ngành biên phiên dịch hiện có 11627 tin tuyển dụng [F4] là mốc tham khảo cho thị trường, em cần chuẩn bị tâm thế cạnh tranh ngay từ năm nhất.",
+        "milestones": [
+          {
+            "month": "Tháng 2",
+            "event": "Hoàn thành kế hoạch học tập cá nhân và đạt mức điểm mục tiêu các môn đại cương",
+            "impact": "Medium",
+            "probability": 90,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_1_1",
+                "title": "Xây dựng khung kế hoạch học tập cá nhân toàn diện",
+                "description": "Thiết lập lộ trình học tập chi tiết cho từng học kỳ để tối ưu hóa GPA, đảm bảo cân bằng giữa kiến thức đại cương và ngoại ngữ chuyên ngành. Việc này giúp em định hình rõ khối lượng công việc cần hoàn thành, tránh bị động trước các kỳ thi và áp lực điểm số trong giai đoạn đầu đại học.",
+                "objectives": [
+                  "Xác định mục tiêu GPA tối thiểu 3.6/4.0 cho năm học thứ nhất",
+                  "Lập kế hoạch phân bổ thời gian tự học 15 giờ mỗi tuần cho các môn đại cương"
+                ],
+                "actions": [
+                  "Phân tích đề cương chi tiết từng môn học để xác định trọng số điểm số và các cột mốc kiểm tra quan trọng",
+                  "Sử dụng bảng theo dõi tiến độ để ghi chép lịch trình học tập và các đầu việc cần hoàn thành hàng tuần"
+                ],
+                "tools": [
+                  "Notion",
+                  "Google Calendar"
+                ],
+                "expectedResult": "Bản kế hoạch học tập chi tiết cho cả năm học với các cột mốc thời gian cụ thể cho từng môn đại cương.",
+                "completed": false
+              },
+              {
+                "id": "step_1_2",
+                "title": "Tối ưu hóa phương pháp học tập và rèn luyện tư duy",
+                "description": "Áp dụng các kỹ thuật học tập chủ động để nắm vững kiến thức nền tảng, tạo tiền đề cho các môn chuyên ngành Đông phương học sau này. Việc rèn luyện tư duy phản biện và ghi chú khoa học sẽ giúp em tiết kiệm thời gian ôn tập và đạt hiệu quả cao trong các kỳ thi.",
+                "objectives": [
+                  "Áp dụng thành thạo phương pháp ghi chú Cornell trong tất cả các buổi học trên lớp",
+                  "Hoàn thành các bài tập bổ trợ để đạt điểm số tối đa cho các cột mốc đánh giá giữa kỳ"
+                ],
+                "actions": [
+                  "Thực hiện ghi chú bài giảng theo phương pháp Cornell để hệ thống hóa kiến thức ngay sau mỗi buổi học",
+                  "Tổ chức nhóm học tập cùng bạn bè để trao đổi và giải quyết các vấn đề khó trong bài tập đại cương"
+                ],
+                "tools": [
+                  "Quizlet",
+                  "Obsidian"
+                ],
+                "expectedResult": "Hệ thống ghi chú bài giảng đầy đủ và bộ tài liệu ôn tập cá nhân giúp đạt kết quả cao trong các kỳ thi.",
+                "completed": false
+              },
+              {
+                "id": "step_1_3",
+                "title": "Đánh giá năng lực và điều chỉnh lộ trình học tập",
+                "description": "Thực hiện rà soát kết quả học tập sau giai đoạn đầu để nhận diện những điểm yếu cần cải thiện. Bước này đảm bảo em luôn đi đúng hướng, kịp thời điều chỉnh phương pháp học tập để duy trì phong độ và chuẩn bị sẵn sàng cho các hoạt động ngoại khóa ở mốc tiếp theo.",
+                "objectives": [
+                  "Đạt mức điểm mục tiêu cho các bài kiểm tra thường xuyên trong tháng",
+                  "Xác định được ít nhất hai kỹ năng mềm cần cải thiện để hỗ trợ cho việc học ngoại ngữ"
+                ],
+                "actions": [
+                  "Tổng hợp điểm số các bài kiểm tra để đánh giá mức độ hiểu bài và điều chỉnh cường độ học tập phù hợp",
+                  "Viết báo cáo tự đánh giá ngắn gọn về hiệu quả của kế hoạch học tập đã áp dụng trong tháng đầu tiên"
+                ],
+                "tools": [
+                  "Microsoft Excel",
+                  "Google Docs"
+                ],
+                "expectedResult": "Báo cáo đánh giá năng lực cá nhân và danh sách các điều chỉnh cần thiết để tối ưu hóa lộ trình học tập.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 5",
+            "event": "Tham gia chính thức vào một câu lạc bộ chuyên môn hoặc dự án tình nguyện về ngôn ngữ",
+            "impact": "Medium",
+            "probability": 80,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_2_1",
+                "title": "Xác định mục tiêu và tìm kiếm câu lạc bộ phù hợp",
+                "description": "Tìm kiếm các câu lạc bộ hoặc dự án tình nguyện tập trung vào ngôn ngữ và văn hóa Đông phương tại trường để mở rộng mạng lưới quan hệ và thực hành kỹ năng giao tiếp thực tế. Việc tham gia sớm giúp em xây dựng hồ sơ hoạt động ngoại khóa ấn tượng ngay từ năm nhất.",
+                "objectives": [
+                  "Tìm kiếm ít nhất 3 câu lạc bộ hoặc dự án có hoạt động liên quan đến ngoại ngữ",
+                  "Đánh giá mức độ phù hợp của từng tổ chức với định hướng nghề nghiệp cá nhân"
+                ],
+                "actions": [
+                  "Tra cứu danh sách các câu lạc bộ chính thức trên trang thông tin sinh viên của trường",
+                  "Liên hệ với các anh chị khóa trên để tìm hiểu về văn hóa hoạt động và yêu cầu đầu vào"
+                ],
+                "tools": [
+                  "Website chính thức của trường",
+                  "Fanpage các câu lạc bộ sinh viên"
+                ],
+                "expectedResult": "Danh sách 3 câu lạc bộ tiềm năng kèm theo bảng so sánh ưu nhược điểm và tiêu chí tuyển chọn cụ thể.",
+                "completed": false
+              },
+              {
+                "id": "step_2_2",
+                "title": "Chuẩn bị hồ sơ và tham gia quy trình tuyển chọn",
+                "description": "Soạn thảo hồ sơ cá nhân nêu bật sự nhiệt huyết và kỹ năng ngôn ngữ cơ bản để ứng tuyển vào các vị trí thành viên. Em cần thể hiện thái độ học hỏi nghiêm túc và khả năng đóng góp cho các sự kiện của tổ chức.",
+                "objectives": [
+                  "Hoàn thiện hồ sơ cá nhân và đơn ứng tuyển đạt yêu cầu của tổ chức",
+                  "Vượt qua vòng phỏng vấn hoặc thử thách đầu vào của câu lạc bộ đã chọn"
+                ],
+                "actions": [
+                  "Viết đơn ứng tuyển tập trung vào mục tiêu học tập và kỹ năng ngôn ngữ đang theo đuổi",
+                  "Luyện tập trả lời phỏng vấn các câu hỏi về định hướng cá nhân và khả năng làm việc nhóm"
+                ],
+                "tools": [
+                  "Google Docs để soạn thảo hồ sơ",
+                  "Canva để thiết kế CV đơn giản"
+                ],
+                "expectedResult": "Trở thành thành viên chính thức của một câu lạc bộ chuyên môn hoặc dự án tình nguyện về ngôn ngữ.",
+                "completed": false
+              },
+              {
+                "id": "step_2_3",
+                "title": "Hội nhập và đóng góp tích cực vào các hoạt động",
+                "description": "Tích cực tham gia các buổi sinh hoạt và hỗ trợ tổ chức sự kiện để rèn luyện kỹ năng mềm, khả năng làm việc nhóm và sử dụng ngoại ngữ trong môi trường thực tế. Đây là bước đệm để em xây dựng uy tín cá nhân.",
+                "objectives": [
+                  "Tham gia đầy đủ các buổi sinh hoạt định kỳ và sự kiện của câu lạc bộ",
+                  "Đảm nhận ít nhất một nhiệm vụ cụ thể trong các dự án của tổ chức"
+                ],
+                "actions": [
+                  "Chủ động đăng ký hỗ trợ các công việc hậu cần hoặc biên dịch tài liệu cho sự kiện",
+                  "Kết nối với các thành viên khác để học hỏi kinh nghiệm và mở rộng mối quan hệ chuyên môn"
+                ],
+                "tools": [
+                  "Zalo hoặc Messenger để trao đổi công việc",
+                  "Google Drive để quản lý tài liệu dự án"
+                ],
+                "expectedResult": "Hoàn thành ít nhất một dự án nhỏ trong câu lạc bộ và nhận được phản hồi tích cực từ ban điều hành.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 8",
+            "event": "Tìm được công việc làm thêm bán thời gian có sử dụng ngoại ngữ với thu nhập ổn định",
+            "impact": "High",
+            "probability": 70,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_3_1",
+                "title": "Xây dựng hồ sơ năng lực và định vị thị trường việc làm bán thời gian",
+                "description": "Để tìm việc làm thêm có sử dụng ngoại ngữ, cần chuẩn bị hồ sơ chuyên nghiệp làm nổi bật khả năng ngôn ngữ và sự chủ động. Việc này giúp em làm quen với môi trường chuyên nghiệp, tạo tiền đề cho các công việc thực tập sau này với mức thu nhập tham khảo 7-11,5 triệu/tháng [F6].",
+                "objectives": [
+                  "Hoàn thiện CV cá nhân làm nổi bật khả năng ngoại ngữ và các kỹ năng mềm đã tích lũy",
+                  "Xác định ít nhất 5 vị trí công việc bán thời gian phù hợp với chuyên ngành Đông phương học"
+                ],
+                "actions": [
+                  "Thiết kế CV bằng tiếng Việt và ngôn ngữ chuyên ngành, tập trung vào các dự án học tập và hoạt động ngoại khóa",
+                  "Sử dụng các trang web tuyển dụng uy tín để lọc các công việc trợ giảng, biên dịch tài liệu hoặc hướng dẫn viên"
+                ],
+                "tools": [
+                  "Canva",
+                  "LinkedIn",
+                  "VietnamWorks"
+                ],
+                "expectedResult": "Có bộ CV hoàn chỉnh và danh sách các vị trí việc làm tiềm năng phù hợp với năng lực ngoại ngữ hiện tại.",
+                "completed": false
+              },
+              {
+                "id": "step_3_2",
+                "title": "Chủ động kết nối và ứng tuyển vào các vị trí công việc thực tế",
+                "description": "Giai đoạn này tập trung vào việc gửi hồ sơ và tham gia phỏng vấn. Cần tận dụng các mối quan hệ từ câu lạc bộ hoặc giảng viên để tìm kiếm cơ hội việc làm bán thời gian có sử dụng ngoại ngữ, đảm bảo thu nhập ổn định và tích lũy kinh nghiệm thực tế.",
+                "objectives": [
+                  "Gửi hồ sơ ứng tuyển đến ít nhất 10 đơn vị tuyển dụng tiềm năng trong khu vực TP.HCM",
+                  "Tham gia ít nhất 3 buổi phỏng vấn để rèn luyện kỹ năng giao tiếp và xử lý tình huống"
+                ],
+                "actions": [
+                  "Gửi email ứng tuyển cá nhân hóa cho từng nhà tuyển dụng, thể hiện rõ mong muốn học hỏi và đóng góp",
+                  "Luyện tập trả lời phỏng vấn bằng ngoại ngữ chuyên ngành để tạo ấn tượng tốt với nhà tuyển dụng"
+                ],
+                "tools": [
+                  "Gmail",
+                  "Google Calendar",
+                  "Zoom"
+                ],
+                "expectedResult": "Nhận được phản hồi từ nhà tuyển dụng và có cơ hội trải nghiệm quy trình phỏng vấn chuyên nghiệp.",
+                "completed": false
+              },
+              {
+                "id": "step_3_3",
+                "title": "Đánh giá hiệu quả công việc và tối ưu hóa lộ trình phát triển kỹ năng",
+                "description": "Sau khi bắt đầu công việc, cần theo dõi mức thu nhập và hiệu quả học tập để đảm bảo sự cân bằng. Việc này giúp em đánh giá liệu công việc có hỗ trợ tốt cho mục tiêu nghề nghiệp dài hạn hay không, với mức lương tham khảo 7-11,5 triệu/tháng [F6].",
+                "objectives": [
+                  "Duy trì thu nhập ổn định từ công việc làm thêm trong ít nhất 3 tháng liên tục",
+                  "Đảm bảo công việc không ảnh hưởng đến kết quả học tập với GPA đạt mục tiêu đề ra"
+                ],
+                "actions": [
+                  "Ghi chép thu nhập và chi phí hàng tháng để quản lý tài chính cá nhân hiệu quả",
+                  "Thực hiện đánh giá định kỳ về kỹ năng học được từ công việc để điều chỉnh kế hoạch học tập"
+                ],
+                "tools": [
+                  "Google Sheets",
+                  "Notion",
+                  "Sổ tay quản lý tài chính"
+                ],
+                "expectedResult": "Có nguồn thu nhập ổn định và tích lũy được kinh nghiệm làm việc thực tế mà không ảnh hưởng đến kết quả học tập.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 10",
+            "event": "Đạt chứng chỉ ngoại ngữ quốc tế theo lộ trình đã đề ra để chuẩn bị cho thực tập",
+            "impact": "High",
+            "probability": 65,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_4_1",
+                "title": "Xác định mục tiêu chứng chỉ và đánh giá năng lực ngoại ngữ hiện tại",
+                "description": "Thực hiện bài thi thử để xác định trình độ thực tế so với yêu cầu của các doanh nghiệp biên phiên dịch. Việc này giúp em chọn đúng cấp độ chứng chỉ cần thi, tránh lãng phí thời gian và chi phí ôn luyện không cần thiết, đảm bảo lộ trình đạt chuẩn đầu ra.",
+                "objectives": [
+                  "Hoàn thành bài thi thử full-test ngoại ngữ trong thời gian quy định",
+                  "Xác định chính xác khoảng cách giữa trình độ hiện tại và mục tiêu chứng chỉ"
+                ],
+                "actions": [
+                  "Tìm kiếm và làm bài thi thử trên các trang web uy tín để đánh giá kỹ năng nghe, đọc, viết",
+                  "Ghi chép lại các lỗi sai thường gặp trong bài thi thử để xây dựng kế hoạch ôn tập tập trung"
+                ],
+                "tools": [
+                  "Trang web luyện thi ngoại ngữ chuyên ngành",
+                  "Tài liệu đề thi thử các năm trước"
+                ],
+                "expectedResult": "Bảng đánh giá năng lực cá nhân chi tiết và danh sách các kỹ năng cần cải thiện trước khi thi thật.",
+                "completed": false
+              },
+              {
+                "id": "step_4_2",
+                "title": "Xây dựng kế hoạch ôn luyện chuyên sâu và đăng ký lịch thi chính thức",
+                "description": "Lên lịch trình học tập cụ thể hàng ngày để củng cố kiến thức, đặc biệt là từ vựng chuyên ngành Đông phương học. Đăng ký lịch thi sớm để tạo áp lực tích cực, giúp em duy trì kỷ luật và hoàn thành mục tiêu đúng thời hạn.",
+                "objectives": [
+                  "Dành ít nhất 15 giờ mỗi tuần cho việc ôn luyện chứng chỉ ngoại ngữ",
+                  "Hoàn tất thủ tục đăng ký thi tại các đơn vị tổ chức được công nhận"
+                ],
+                "actions": [
+                  "Sử dụng ứng dụng quản lý thời gian để phân bổ các ca học tập xen kẽ với lịch học trên trường",
+                  "Đăng ký kỳ thi tại các trung tâm khảo thí chính thức để đảm bảo chứng chỉ có giá trị cao nhất"
+                ],
+                "tools": [
+                  "Ứng dụng quản lý thời gian Notion",
+                  "Cổng thông tin đăng ký thi của các đơn vị khảo thí quốc tế"
+                ],
+                "expectedResult": "Lịch trình ôn tập chi tiết được thực thi nghiêm túc và xác nhận đăng ký thi thành công.",
+                "completed": false
+              },
+              {
+                "id": "step_4_3",
+                "title": "Tổng hợp kiến thức và hoàn thành kỳ thi đạt mục tiêu đề ra",
+                "description": "Tập trung cao độ vào giai đoạn nước rút, giải đề và rèn luyện tâm lý phòng thi. Việc đạt được chứng chỉ này là bước đệm quan trọng để em tự tin ứng tuyển vào các vị trí thực tập tiềm năng trong tương lai.",
+                "objectives": [
+                  "Đạt điểm số mục tiêu trong kỳ thi ngoại ngữ quốc tế đã đăng ký",
+                  "Sử dụng kết quả chứng chỉ để làm đẹp hồ sơ năng lực cá nhân"
+                ],
+                "actions": [
+                  "Giải các bộ đề thi sát với cấu trúc thực tế để làm quen với áp lực thời gian và dạng câu hỏi",
+                  "Tham gia các nhóm học tập để trao đổi kinh nghiệm thi cử và giải đáp các thắc mắc khó"
+                ],
+                "tools": [
+                  "Bộ đề thi luyện tập chuyên sâu",
+                  "Cộng đồng học tập ngoại ngữ trực tuyến"
+                ],
+                "expectedResult": "Sở hữu chứng chỉ ngoại ngữ quốc tế với điểm số đạt yêu cầu, sẵn sàng cho các cơ hội thực tập.",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 12",
+            "event": "Tổng kết năm học với GPA đạt mục tiêu và hoàn thành báo cáo đánh giá kỹ năng cá nhân",
+            "impact": "High",
+            "probability": 85,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_5_1",
+                "title": "Tổng kết học thuật và đánh giá năng lực học tập năm nhất",
+                "description": "Thực hiện rà soát toàn bộ kết quả học tập trong năm học để xác định các môn đạt kết quả tốt và những môn cần cải thiện. Việc này giúp em có cái nhìn thực tế về khả năng duy trì GPA cao, tạo nền tảng vững chắc cho các học kỳ chuyên sâu tiếp theo và đảm bảo lộ trình tốt nghiệp đúng hạn.",
+                "objectives": [
+                  "Đạt mức GPA mục tiêu từ 3.2 trở lên cho cả năm học",
+                  "Hoàn thành 100% các tín chỉ đại cương theo đúng khung chương trình"
+                ],
+                "actions": [
+                  "Truy cập cổng thông tin sinh viên để xuất bảng điểm chi tiết và đối chiếu với các mục tiêu học tập đã đề ra từ đầu năm",
+                  "Viết báo cáo tự đánh giá về phương pháp học tập, liệt kê các môn học cần cải thiện kỹ năng tư duy phản biện và ghi chú lại các chủ đề chuyên môn cần đào sâu"
+                ],
+                "tools": [
+                  "Cổng thông tin sinh viên Đại học Quốc gia TP.HCM",
+                  "Bảng theo dõi tiến độ học tập trên Notion"
+                ],
+                "expectedResult": "Bảng tổng kết GPA năm nhất hoàn thiện cùng bản báo cáo phân tích điểm mạnh, điểm yếu trong phương pháp học tập cá nhân.",
+                "completed": false
+              },
+              {
+                "id": "step_5_2",
+                "title": "Đánh giá kỹ năng mềm và kinh nghiệm thực tế đã tích lũy",
+                "description": "Rà soát lại quá trình tham gia câu lạc bộ và công việc làm thêm để đo lường sự phát triển của các kỹ năng mềm như giao tiếp, quản lý thời gian và giải quyết vấn đề. Đây là bước quan trọng để chuẩn bị hồ sơ năng lực cho các đợt thực tập chuyên môn trong tương lai.",
+                "objectives": [
+                  "Liệt kê ít nhất 3 kỹ năng mềm đã được cải thiện rõ rệt qua thực tế",
+                  "Đánh giá mức độ ứng dụng ngoại ngữ vào công việc làm thêm hiện tại"
+                ],
+                "actions": [
+                  "Ghi lại các tình huống thực tế tại nơi làm việc hoặc câu lạc bộ nơi em đã áp dụng ngoại ngữ để giải quyết vấn đề",
+                  "Thực hiện phỏng vấn ngắn với quản lý hoặc trưởng nhóm để nhận phản hồi về thái độ và hiệu suất công việc của bản thân"
+                ],
+                "tools": [
+                  "Sổ tay ghi chép kinh nghiệm (Logbook)",
+                  "Biểu mẫu đánh giá kỹ năng cá nhân (Self-assessment form)"
+                ],
+                "expectedResult": "Danh mục các kỹ năng mềm đã đạt được cùng những phản hồi thực tế từ môi trường làm việc làm cơ sở cho việc phát triển bản thân.",
+                "completed": false
+              },
+              {
+                "id": "step_5_3",
+                "title": "Xây dựng kế hoạch phát triển cho năm học tiếp theo",
+                "description": "Dựa trên kết quả học tập và đánh giá kỹ năng, em cần thiết lập lộ trình cho năm thứ hai. Tập trung vào việc nâng cao trình độ ngoại ngữ chuyên ngành và tìm kiếm cơ hội thực tập sớm để tối ưu hóa lộ trình sự nghiệp theo kịch bản 11,1 triệu/tháng.",
+                "objectives": [
+                  "Xác định lộ trình học ngoại ngữ chuyên ngành cho năm thứ hai",
+                  "Đặt mục tiêu tham gia ít nhất một dự án hoặc sự kiện chuyên môn lớn hơn"
+                ],
+                "actions": [
+                  "Lập kế hoạch chi tiết cho các chứng chỉ ngoại ngữ cần đạt trong năm tới dựa trên yêu cầu tuyển dụng ngành biên phiên dịch",
+                  "Tìm kiếm và liệt kê danh sách các đơn vị thực tập tiềm năng phù hợp với định hướng làm trợ lý song ngữ hoặc biên dịch"
+                ],
+                "tools": [
+                  "Khung tham chiếu trình độ ngoại ngữ quốc tế",
+                  "Danh sách các doanh nghiệp đối tác của khoa Đông phương học"
+                ],
+                "expectedResult": "Bản kế hoạch hành động chi tiết cho năm thứ hai, bao gồm mục tiêu học thuật, chứng chỉ ngoại ngữ và định hướng thực tập cụ thể.",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "influencingFactors": [
+          {
+            "category": "Economic",
+            "factor": "Biến động thị trường lao động",
+            "influence": "Medium",
+            "description": "Số lượng 11627 tin tuyển dụng [F4] là mốc tham khảo cho thấy nhu cầu tuyển dụng ngành biên phiên dịch, đòi hỏi em phải có năng lực ngoại ngữ vượt trội để cạnh tranh."
+          },
+          {
+            "category": "Personal",
+            "factor": "Khả năng tự học và kỷ luật",
+            "influence": "High",
+            "description": "Với học lực 5/5, em cần duy trì sự tập trung cao độ vào ngoại ngữ chuyên ngành để đảm bảo mức lương khởi điểm 11,1 triệu/tháng sau khi tốt nghiệp."
+          },
+          {
+            "category": "Social",
+            "factor": "Mạng lưới quan hệ xã hội",
+            "influence": "Medium",
+            "description": "Việc tham gia các hoạt động ngoại khóa giúp em kết nối với những người đi trước, từ đó tìm kiếm cơ hội thực tập và làm việc tốt hơn."
+          },
+          {
+            "category": "Technical",
+            "factor": "Công nghệ hỗ trợ dịch thuật",
+            "influence": "Low",
+            "description": "Sự phát triển của AI đòi hỏi em phải học cách sử dụng các công cụ hỗ trợ dịch thuật để tăng năng suất làm việc thay vì chỉ dựa vào kỹ năng thủ công."
+          }
+        ],
+        "strategicPivotPoints": [
+          {
+            "condition": "Nếu GPA không đạt mục tiêu trong kỳ đầu",
+            "action": "Dành thời gian rà soát lại phương pháp học tập, giảm bớt các hoạt động ngoại khóa không cần thiết để tập trung vào các môn chuyên ngành cốt lõi."
+          },
+          {
+            "condition": "Nếu không tìm được việc làm thêm liên quan đến ngoại ngữ",
+            "action": "Chuyển hướng sang các công việc bán thời gian khác để rèn luyện kỹ năng mềm, đồng thời tự học thêm ngoại ngữ qua các nền tảng trực tuyến."
+          },
+          {
+            "condition": "Nếu nhận thấy ngành biên phiên dịch quá bão hòa",
+            "action": "Kết hợp kiến thức Đông phương học với một kỹ năng bổ trợ như Marketing hoặc Quản trị văn phòng để tăng lợi thế cạnh tranh khi ứng tuyển."
+          }
+        ],
+        "longTermProjection": "Trong 3-5 năm tới, em cần hoàn thiện kỹ năng ngoại ngữ chuyên sâu và tích lũy kinh nghiệm thực tế qua các kỳ thực tập. Mục tiêu là đạt mức thu nhập 16 triệu/tháng sau 5 năm làm việc. Sự ổn định của ngành Đông phương học đòi hỏi em không ngừng cập nhật kiến thức văn hóa và kinh tế khu vực. Nếu giữ vững lộ trình phát triển kỹ năng, em sẽ đạt được sự cân bằng tài chính và hoàn vốn vào năm thứ 11.",
+        "modelUsed": "gemini-3.1-flash-lite",
+        "usage": {
+          "inputTokens": 18200,
+          "outputTokens": 5515,
+          "costUsd": 0.0128225
+        },
+        "quality": {
+          "task": "premium_v3_sections",
+          "provider": "gemini",
+          "providers": [
+            "gemini"
+          ],
+          "latencyMs": 11778,
+          "planCheck": "ok",
+          "unknownSlots": 0,
+          "numericClaims": 5,
+          "removedSentences": 0,
+          "groundedness": 1
+        }
+      }
+    },
+    {
+      "id": "gold_p00159",
+      "system": "legacy",
+      "ok": true,
+      "latencyMs": 12492,
+      "structure": true,
+      "timeline": true,
+      "claims": 4,
+      "groundedness": 1,
+      "urls": 0,
+      "selfTitle": 0,
+      "unknownEntity": 1,
+      "words": 1363,
+      "providers": [
+        "gemini-3.1-flash-lite"
+      ],
+      "v3": null,
+      "outputTokens": 3292,
+      "scores": null,
+      "report": {
+        "detailedNarrative": "Tháng 1-3: Tập trung tối ưu hóa kết quả học tập tại trường ĐH KHXH&NV với mục tiêu duy trì điểm số cao, đồng thời tìm hiểu sâu về kỹ năng biên phiên dịch căn bản phù hợp với ngành Đông phương học. Tháng 4-6: Bắt đầu tìm kiếm cơ hội thực tập hoặc làm trợ lý part-time tại các công ty dịch vụ nhân sự hoặc trung tâm ngoại ngữ để làm quen với môi trường công sở. Tháng 7-9: Xây dựng hồ sơ năng lực cá nhân, củng cố vốn ngoại ngữ chuyên ngành và chuẩn bị các chứng chỉ tin học văn phòng cần thiết để tăng sức cạnh tranh. Tháng 10-12: Tham gia các hội thảo chuyên ngành, xây dựng mạng lưới quan hệ với các anh chị khóa trên đang làm việc tại các công ty dịch vụ để tìm hiểu về nhu cầu thực tế của thị trường biên phiên dịch, chuẩn bị cho lộ trình phát triển sự nghiệp dài hạn với mức lương khởi điểm mục tiêu 11,1 triệu VNĐ/tháng.",
+        "milestones": [
+          {
+            "month": "Tháng 3",
+            "event": "Tối ưu hóa thành tích học tập năm nhất",
+            "impact": "High",
+            "probability": 0.95,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_1_1",
+                "title": "Củng cố kiến thức chuyên ngành",
+                "description": "Nắm vững ngữ pháp và từ vựng cơ bản của ngôn ngữ mục tiêu trong ngành Đông phương học.",
+                "objectives": [
+                  "Đạt điểm A môn cơ sở ngành",
+                  "Hoàn thành bài tập nhóm"
+                ],
+                "actions": [
+                  "Lên thư viện nghiên cứu",
+                  "Tham gia nhóm học tập"
+                ],
+                "tools": [
+                  "Giáo trình chuyên ngành",
+                  "Từ điển chuyên dụng",
+                  "Thư viện trường"
+                ],
+                "expectedResult": "GPA đạt mức xuất sắc",
+                "completed": false
+              },
+              {
+                "id": "step_1_2",
+                "title": "Rèn luyện ngoại ngữ",
+                "description": "Nâng cao kỹ năng đọc hiểu và dịch thuật cơ bản các đoạn văn bản ngắn.",
+                "objectives": [
+                  "Tăng vốn từ vựng chuyên ngành",
+                  "Cải thiện kỹ năng viết"
+                ],
+                "actions": [
+                  "Đọc báo chí nước ngoài",
+                  "Viết tóm tắt bằng ngôn ngữ đích"
+                ],
+                "tools": [
+                  "Google Translate",
+                  "Grammarly",
+                  "Báo chí quốc tế"
+                ],
+                "expectedResult": "Đạt chứng chỉ ngoại ngữ mức độ tương đương B2",
+                "completed": false
+              },
+              {
+                "id": "step_1_3",
+                "title": "Quản lý chi phí cá nhân",
+                "description": "Duy trì mức chi tiêu trong ngưỡng 6 triệu VNĐ/tháng.",
+                "objectives": [
+                  "Tiết kiệm chi phí sinh hoạt",
+                  "Lập kế hoạch tài chính"
+                ],
+                "actions": [
+                  "Ghi chép chi tiêu hàng ngày",
+                  "Tối ưu hóa ăn uống tại căn tin"
+                ],
+                "tools": [
+                  "Sổ tay quản lý tài chính",
+                  "Ứng dụng chi tiêu",
+                  "Excel"
+                ],
+                "expectedResult": "Dòng tiền cá nhân dương",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 6",
+            "event": "Tiếp cận cơ hội thực tập",
+            "impact": "High",
+            "probability": 0.75,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_2_1",
+                "title": "Tìm kiếm vị trí thực tập sinh",
+                "description": "Tìm kiếm các vị trí thực tập biên phiên dịch tại các công ty nhân sự.",
+                "objectives": [
+                  "Tìm 3 công ty tiềm năng",
+                  "Gửi hồ sơ ứng tuyển"
+                ],
+                "actions": [
+                  "Cập nhật CV",
+                  "Liên hệ các công ty môi giới"
+                ],
+                "tools": [
+                  "VietnamWorks",
+                  "LinkedIn",
+                  "Email"
+                ],
+                "expectedResult": "Có lịch phỏng vấn",
+                "completed": false
+              },
+              {
+                "id": "step_2_2",
+                "title": "Phát triển kỹ năng mềm",
+                "description": "Học cách giao tiếp công sở và xử lý tình huống văn phòng.",
+                "objectives": [
+                  "Rèn luyện kỹ năng nghe nói",
+                  "Kỹ năng thuyết trình"
+                ],
+                "actions": [
+                  "Tham gia CLB ngoại ngữ",
+                  "Tự học qua video"
+                ],
+                "tools": [
+                  "Youtube",
+                  "Zoom",
+                  "Slide trình bày"
+                ],
+                "expectedResult": "Khả năng giao tiếp tự tin",
+                "completed": false
+              },
+              {
+                "id": "step_2_3",
+                "title": "Hoàn thiện hồ sơ năng lực",
+                "description": "Tổng hợp các dự án học tập thành Portfolio.",
+                "objectives": [
+                  "Thể hiện năng lực biên dịch",
+                  "Định dạng hồ sơ chuyên nghiệp"
+                ],
+                "actions": [
+                  "Lưu trữ các bài dịch mẫu",
+                  "Thiết kế CV"
+                ],
+                "tools": [
+                  "Canva",
+                  "Word",
+                  "PDF"
+                ],
+                "expectedResult": "Hồ sơ ứng tuyển hoàn chỉnh",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 9",
+            "event": "Nâng cấp kỹ năng tin học và văn phòng",
+            "impact": "High",
+            "probability": 0.85,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_3_1",
+                "title": "Chứng chỉ tin học văn phòng",
+                "description": "Đạt trình độ sử dụng Word, Excel, PowerPoint chuyên nghiệp.",
+                "objectives": [
+                  "Đạt chứng chỉ MOS",
+                  "Sử dụng thành thạo hàm Excel"
+                ],
+                "actions": [
+                  "Đăng ký khóa học",
+                  "Luyện đề thi"
+                ],
+                "tools": [
+                  "Bộ Microsoft Office",
+                  "Trung tâm đào tạo"
+                ],
+                "expectedResult": "Chứng chỉ MOS quốc tế",
+                "completed": false
+              },
+              {
+                "id": "step_3_2",
+                "title": "Ứng dụng AI vào dịch thuật",
+                "description": "Sử dụng các công cụ hỗ trợ dịch thuật để tối ưu công việc.",
+                "objectives": [
+                  "Sử dụng phần mềm dịch thuật (CAT)",
+                  "Cải thiện tốc độ dịch"
+                ],
+                "actions": [
+                  "Học phần mềm Trados",
+                  "Thực hành dịch tài liệu"
+                ],
+                "tools": [
+                  "Trados",
+                  "DeepL",
+                  "ChatGPT"
+                ],
+                "expectedResult": "Tăng 50% hiệu suất dịch",
+                "completed": false
+              },
+              {
+                "id": "step_3_3",
+                "title": "Mở rộng quan hệ ngành nghề",
+                "description": "Kết nối với những người đi trước trong ngành.",
+                "objectives": [
+                  "Tìm kiếm người hướng dẫn (Mentor)",
+                  "Mở rộng mạng lưới"
+                ],
+                "actions": [
+                  "Tham gia sự kiện ngành",
+                  "Kết nối qua mạng xã hội"
+                ],
+                "tools": [
+                  "LinkedIn",
+                  "Zalo",
+                  "Facebook"
+                ],
+                "expectedResult": "Xây dựng được 5 mối quan hệ chất lượng",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 11",
+            "event": "Đánh giá và định hướng lại lộ trình nghề nghiệp",
+            "impact": "High",
+            "probability": 0.8,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_4_1",
+                "title": "Phân tích mức thu nhập mục tiêu",
+                "description": "Đối chiếu năng lực thực tế với thị trường.",
+                "objectives": [
+                  "Xác định khoảng lương khả thi",
+                  "Lên kế hoạch dự phòng"
+                ],
+                "actions": [
+                  "Khảo sát lương thị trường",
+                  "Phân tích ROI"
+                ],
+                "tools": [
+                  "Excel",
+                  "VietnamWorks Survey"
+                ],
+                "expectedResult": "Bản kế hoạch tài chính 5 năm",
+                "completed": false
+              },
+              {
+                "id": "step_4_2",
+                "title": "Đánh giá kỹ năng chuyên môn",
+                "description": "Kiểm tra sự thành thạo của ngôn ngữ thứ hai.",
+                "objectives": [
+                  "Đạt trình độ ngôn ngữ trung cao cấp",
+                  "Tự đánh giá năng lực"
+                ],
+                "actions": [
+                  "Thi thử năng lực",
+                  "Phản hồi từ Mentor"
+                ],
+                "tools": [
+                  "Đề thi mô phỏng",
+                  "Bảng đánh giá năng lực"
+                ],
+                "expectedResult": "Bảng điểm năng lực cá nhân",
+                "completed": false
+              },
+              {
+                "id": "step_4_3",
+                "title": "Tối ưu hóa CV lần cuối",
+                "description": "Chỉnh sửa CV phù hợp với vị trí trợ lý song ngữ.",
+                "objectives": [
+                  "Nổi bật hóa kinh nghiệm",
+                  "Thu hút nhà tuyển dụng"
+                ],
+                "actions": [
+                  "Điều chỉnh từ khóa trong CV",
+                  "Viết thư ngỏ"
+                ],
+                "tools": [
+                  "Resume Builder",
+                  "Word"
+                ],
+                "expectedResult": "CV phiên bản tối ưu",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 12",
+            "event": "Sẵn sàng gia nhập thị trường lao động",
+            "impact": "High",
+            "probability": 0.9,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_5_1",
+                "title": "Tham gia phỏng vấn thử",
+                "description": "Luyện tập kỹ năng phỏng vấn với nhà tuyển dụng giả định.",
+                "objectives": [
+                  "Giảm áp lực phỏng vấn",
+                  "Hoàn thiện cách trả lời"
+                ],
+                "actions": [
+                  "Phỏng vấn giả định",
+                  "Ghi âm/ghi hình"
+                ],
+                "tools": [
+                  "Danh sách câu hỏi phỏng vấn",
+                  "Camera"
+                ],
+                "expectedResult": "Khả năng ứng biến tốt khi phỏng vấn",
+                "completed": false
+              },
+              {
+                "id": "step_5_2",
+                "title": "Tổng kết năm học tập và định hướng",
+                "description": "Tổng kết các thành tựu nổi bật đã cống hiến, tự tin trao đổi về lộ trình phát triển sự nghiệp và mức đãi ngộ xứng đáng. Ứng dụng thực hành trên bộ công cụ tiêu chuẩn ngành (Phần mềm hỗ trợ dịch thuật chuyên nghiệp CAT Tools (SDL Trados, memoQ), Bộ từ điển thuật ngữ chuyên ngành đa ngữ & Cơ sở dữ liệu dịch tễ).",
+                "objectives": [
+                  "Đánh giá quá trình 12 tháng",
+                  "Thiết lập KPI năm tới"
+                ],
+                "actions": [
+                  "Viết báo cáo cá nhân",
+                  "Lập kế hoạch năm tới"
+                ],
+                "tools": [
+                  "Sổ tay",
+                  "Notion"
+                ],
+                "expectedResult": "Bản tổng kết thành tích năm",
+                "completed": false
+              },
+              {
+                "id": "step_5_3",
+                "title": "Ứng tuyển vị trí chính thức",
+                "description": "Bắt đầu gửi hồ sơ tới các tập đoàn mục tiêu.",
+                "objectives": [
+                  "Gửi 10 hồ sơ",
+                  "Phản hồi yêu cầu"
+                ],
+                "actions": [
+                  "Theo dõi trạng thái ứng tuyển",
+                  "Chỉnh sửa hồ sơ"
+                ],
+                "tools": [
+                  "Trang tuyển dụng công ty",
+                  "Email"
+                ],
+                "expectedResult": "Nhận được phản hồi hoặc thư mời phỏng vấn",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "influencingFactors": [
+          {
+            "category": "Kinh tế",
+            "factor": "Biến động nhu cầu thị trường biên phiên dịch",
+            "influence": "High",
+            "description": "Nhu cầu của các công ty FDI đối với nhân sự song ngữ luôn cao nhưng yêu cầu khắt khe về kỹ năng thực tế."
+          },
+          {
+            "category": "Cá nhân",
+            "factor": "Kỹ năng ngoại ngữ thứ hai",
+            "influence": "High",
+            "description": "Khả năng thành thạo ngôn ngữ là chìa khóa quyết định mức lương khởi điểm và khả năng tăng lương."
+          },
+          {
+            "category": "Xã hội",
+            "factor": "Xu hướng chuyển đổi số trong biên dịch",
+            "influence": "Medium",
+            "description": "Việc ứng dụng AI và các phần mềm hỗ trợ dịch thuật giúp tăng năng suất nhưng đòi hỏi phải liên tục học hỏi công nghệ mới."
+          },
+          {
+            "category": "Kỹ thuật",
+            "factor": "Sự cạnh tranh từ các nền tảng tự động hóa",
+            "influence": "Medium",
+            "description": "Các công cụ AI dịch thuật miễn phí làm giảm nhu cầu đối với các công việc dịch thuật văn bản thuần túy, buộc nhân sự phải nâng cao kỹ năng diễn giải và chỉnh sửa."
+          }
+        ],
+        "strategicPivotPoints": [
+          {
+            "condition": "Nếu không đạt được mục tiêu học tập (GPA thấp hơn 3.2/4.0) sau 6 tháng.",
+            "action": "Tập trung tối đa vào các chứng chỉ nghề nghiệp ngắn hạn thay vì cải thiện điểm số để rút ngắn lộ trình gia nhập thị trường."
+          },
+          {
+            "condition": "Nếu thị trường yêu cầu kỹ năng kỹ thuật vượt quá khả năng hiện tại.",
+            "action": "Chuyển hướng sang làm biên dịch tại các công ty chuyên về văn hóa hoặc marketing thay vì các tập đoàn công nghiệp kỹ thuật."
+          },
+          {
+            "condition": "Nếu mức lương khởi điểm không đạt 11,1 triệu/tháng sau khi tốt nghiệp.",
+            "action": "Chấp nhận công việc có mức lương thấp hơn trong 6 tháng đầu để tích lũy kinh nghiệm, sau đó đàm phán lại hoặc chuyển công ty."
+          }
+        ],
+        "longTermProjection": "Trong 3-5 năm tới, với lộ trình làm việc ổn định, thu nhập dự kiến sẽ tiệm cận mức 16 triệu/tháng. Tuy nhiên, để vượt mặt bằng chung, cần phát triển thêm kỹ năng chuyên môn sâu về một lĩnh vực như dịch thuật kỹ thuật hoặc quản lý dự án, giúp tạo bước đột phá trong sự nghiệp và tối ưu hóa ROI lên trên mức 200%.",
+        "modelUsed": "gemini-3.1-flash-lite",
+        "usage": {
+          "inputTokens": 1909,
+          "outputTokens": 3292,
+          "costUsd": 0.00541525
+        }
+      }
+    },
+    {
+      "id": "gold_p00167",
+      "system": "legacy",
+      "ok": true,
+      "latencyMs": 11431,
+      "structure": true,
+      "timeline": true,
+      "claims": 3,
+      "groundedness": 1,
+      "urls": 0,
+      "selfTitle": 0,
+      "unknownEntity": 0,
+      "words": 1573,
+      "providers": [
+        "gemini-3.1-flash-lite"
+      ],
+      "v3": null,
+      "outputTokens": 3157,
+      "scores": {
+        "specificity": 3,
+        "faithfulness": 4,
+        "actionability": 3,
+        "coherence": 3,
+        "fluency": 4
+      },
+      "report": {
+        "detailedNarrative": "Giai đoạn từ tháng 1-3: Bạn tập trung củng cố kiến thức nền tảng tại ngành Quản trị - Luật, đồng thời bắt đầu nghiên cứu chuyên sâu về các kỹ năng quản trị văn phòng thực tế. Bạn sẽ đăng ký các khóa học ngắn hạn về kỹ năng hành chính nhân sự để chuẩn bị cho việc làm thêm. Giai đoạn từ tháng 4-6: Bạn đẩy mạnh việc thực hành kỹ năng tiếng Anh chuyên ngành và bắt đầu tìm kiếm cơ hội thực tập hoặc làm việc bán thời gian tại các doanh nghiệp vừa ở TP.HCM để làm quen với môi trường công sở. Giai đoạn từ tháng 7-9: Đây là thời điểm đánh giá lại hiệu quả học tập và kinh nghiệm làm việc, tập trung vào việc cân bằng giữa áp lực học tập và yêu cầu công việc. Giai đoạn từ tháng 10-12: Bạn hoàn thiện kỹ năng mềm, nâng cao khả năng soạn thảo hợp đồng và pháp lý cơ bản, hướng tới vị trí hành chính chuyên nghiệp với mức lương khởi điểm dự kiến 11,7 triệu/tháng sau khi tốt nghiệp, dựa trên phân vị lương trung bình thị trường.",
+        "milestones": [
+          {
+            "month": "Tháng 3",
+            "event": "Hoàn thành chứng chỉ nghiệp vụ hành chính",
+            "impact": "High",
+            "probability": 85,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_1_1",
+                "title": "Nghiên cứu thị trường lao động",
+                "description": "Phân tích yêu cầu từ 10 tin tuyển dụng hành chính nhân sự tại TP.HCM.",
+                "objectives": [
+                  "Nắm bắt yêu cầu bằng cấp",
+                  "Hiểu kỳ vọng lương"
+                ],
+                "actions": [
+                  "Lọc tin trên VietnamWorks",
+                  "Tổng hợp bảng kỹ năng yêu cầu"
+                ],
+                "tools": [
+                  "Excel",
+                  "VietnamWorks",
+                  "LinkedIn"
+                ],
+                "expectedResult": "Danh sách các kỹ năng cần bổ sung ngay",
+                "completed": false
+              },
+              {
+                "id": "step_1_2",
+                "title": "Đăng ký khóa học nghiệp vụ",
+                "description": "Tham gia khóa học đào tạo hành chính văn phòng chuyên nghiệp.",
+                "objectives": [
+                  "Tiếp cận quy trình văn phòng",
+                  "Nắm vững văn thư lưu trữ"
+                ],
+                "actions": [
+                  "Tìm kiếm trung tâm uy tín",
+                  "Đăng ký học ngoài giờ"
+                ],
+                "tools": [
+                  "Internet",
+                  "Tài liệu chuyên ngành"
+                ],
+                "expectedResult": "Chứng chỉ hoàn thành khóa học",
+                "completed": false
+              },
+              {
+                "id": "step_1_3",
+                "title": "Xây dựng CV thực tế",
+                "description": "Thiết kế CV tập trung vào kỹ năng hành chính.",
+                "objectives": [
+                  "Tối ưu hóa profile",
+                  "Làm nổi bật kỹ năng"
+                ],
+                "actions": [
+                  "Viết CV",
+                  "Tạo profile trên nền tảng tuyển dụng"
+                ],
+                "tools": [
+                  "Canva",
+                  "Word"
+                ],
+                "expectedResult": "CV chuyên nghiệp sẵn sàng ứng tuyển",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 6",
+            "event": "Bắt đầu làm việc part-time/thực tập",
+            "impact": "High",
+            "probability": 70,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_2_1",
+                "title": "Ứng tuyển thực tập hành chính",
+                "description": "Nộp hồ sơ vào các công ty vừa tại TP.HCM.",
+                "objectives": [
+                  "Tìm nơi thực tập tốt",
+                  "Tích lũy kinh nghiệm"
+                ],
+                "actions": [
+                  "Gửi email ứng tuyển",
+                  "Phỏng vấn sơ bộ"
+                ],
+                "tools": [
+                  "Email",
+                  "Google Drive"
+                ],
+                "expectedResult": "Nhận được lời mời thực tập",
+                "completed": false
+              },
+              {
+                "id": "step_2_2",
+                "title": "Quản lý thời gian",
+                "description": "Áp dụng các kiến thức đã học để hoàn thiện tính năng, tối ưu hóa hiệu năng và tuân thủ các chuẩn mực thiết kế/kỹ thuật. Ứng dụng thực hành trên bộ công cụ tiêu chuẩn ngành (Cơ sở dữ liệu Văn bản QPPL (Thư Viện Pháp Luật / LuatVietnam), Hệ thống tra cứu Án lệ Tòa án Nhân dân Tối cao).",
+                "objectives": [
+                  "Duy trì kết quả học tập",
+                  "Hoàn thành task tại nơi làm"
+                ],
+                "actions": [
+                  "Lập kế hoạch tuần",
+                  "Dùng phương pháp Pomodoro"
+                ],
+                "tools": [
+                  "Notion",
+                  "Google Calendar"
+                ],
+                "expectedResult": "Không bị quá tải công việc",
+                "completed": false
+              },
+              {
+                "id": "step_2_3",
+                "title": "Thực thi nghiệp vụ văn phòng",
+                "description": "Xử lý các đầu việc như soạn thảo, lưu trữ.",
+                "objectives": [
+                  "Làm quen quy trình",
+                  "Tạo lập văn phong"
+                ],
+                "actions": [
+                  "Ghi chú quy trình công ty",
+                  "Thực hiện đúng yêu cầu"
+                ],
+                "tools": [
+                  "Microsoft Office",
+                  "Máy in/Scan"
+                ],
+                "expectedResult": "Hiểu sâu quy trình doanh nghiệp",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 8",
+            "event": "Đạt trình độ tiếng Anh pháp lý cơ bản",
+            "impact": "High",
+            "probability": 60,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_3_1",
+                "title": "Học tiếng Anh chuyên ngành",
+                "description": "Tập trung vào thuật ngữ hành chính và hợp đồng.",
+                "objectives": [
+                  "Cải thiện đọc hiểu văn bản",
+                  "Giao tiếp văn phòng"
+                ],
+                "actions": [
+                  "Học từ vựng hàng ngày",
+                  "Đọc các mẫu hợp đồng tiếng Anh"
+                ],
+                "tools": [
+                  "Từ điển pháp lý",
+                  "Apps ngoại ngữ"
+                ],
+                "expectedResult": "Đọc hiểu được văn bản hợp đồng đơn giản",
+                "completed": false
+              },
+              {
+                "id": "step_3_2",
+                "title": "Luyện kỹ năng soạn thảo",
+                "description": "Thực hành soạn thảo hợp đồng bằng tiếng Anh.",
+                "objectives": [
+                  "Viết đúng mẫu",
+                  "Chính xác về ngữ pháp"
+                ],
+                "actions": [
+                  "Soạn hợp đồng mẫu",
+                  "Kiểm tra lỗi"
+                ],
+                "tools": [
+                  "Grammarly",
+                  "Mẫu hợp đồng uy tín"
+                ],
+                "expectedResult": "Bộ sưu tập mẫu văn bản tự soạn",
+                "completed": false
+              },
+              {
+                "id": "step_3_3",
+                "title": "Rèn luyện kỹ năng đàm phán",
+                "description": "Thực hành trả lời các câu hỏi tình huống chuyên sâu, rèn luyện ngôn ngữ cơ thể và kỹ năng đàm phán quyền lợi. Giữ gìn sức bền tinh thần, chủ động phòng ngừa hội chứng kiệt sức (burnout) và kiểm toán tiến độ cùng Cố vấn chuyên môn.",
+                "objectives": [
+                  "Giải quyết xung đột",
+                  "Đàm phán cơ bản"
+                ],
+                "actions": [
+                  "Đóng vai thực tế",
+                  "Ghi âm và sửa đổi"
+                ],
+                "tools": [
+                  "Ghi âm",
+                  "Tài liệu đàm phán"
+                ],
+                "expectedResult": "Tự tin trong giao tiếp văn phòng",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 10",
+            "event": "Đạt ngưỡng cân bằng chi phí/thu nhập",
+            "impact": "High",
+            "probability": 65,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_4_1",
+                "title": "Kiểm soát tài chính cá nhân",
+                "description": "Lập ngân sách chi tiết dựa trên thu nhập mới.",
+                "objectives": [
+                  "Giảm nợ (nếu có)",
+                  "Tiết kiệm"
+                ],
+                "actions": [
+                  "Ghi chép chi tiêu",
+                  "Thiết lập mục tiêu tiết kiệm"
+                ],
+                "tools": [
+                  "Money Lover",
+                  "Excel"
+                ],
+                "expectedResult": "Số dư tài khoản dương",
+                "completed": false
+              },
+              {
+                "id": "step_4_2",
+                "title": "Đánh giá hiệu suất làm việc",
+                "description": "Nắm vững nội quy, công cụ phối hợp nhóm và chủ động nhận các đầu việc phù hợp để chứng minh giá trị đóng góp. Ứng dụng thực hành trên bộ công cụ tiêu chuẩn ngành (Cơ sở dữ liệu Văn bản QPPL (Thư Viện Pháp Luật / LuatVietnam), Hệ thống tra cứu Án lệ Tòa án Nhân dân Tối cao).",
+                "objectives": [
+                  "Hiểu điểm yếu",
+                  "Tối ưu hóa năng suất"
+                ],
+                "actions": [
+                  "Họp đánh giá",
+                  "Lắng nghe góp ý"
+                ],
+                "tools": [
+                  "Sổ tay",
+                  "Bảng KPI"
+                ],
+                "expectedResult": "Được công nhận năng lực",
+                "completed": false
+              },
+              {
+                "id": "step_4_3",
+                "title": "Tăng cường kết nối chuyên môn",
+                "description": "Mở rộng network với đồng nghiệp chuyên nghiệp.",
+                "objectives": [
+                  "Tìm kiếm mentor",
+                  "Học hỏi kinh nghiệm"
+                ],
+                "actions": [
+                  "Giao lưu văn phòng",
+                  "Tham gia các buổi hội thảo"
+                ],
+                "tools": [
+                  "Mạng xã hội",
+                  "Card visit"
+                ],
+                "expectedResult": "Mạng lưới hỗ trợ nghề nghiệp",
+                "completed": false
+              }
+            ]
+          },
+          {
+            "month": "Tháng 12",
+            "event": "Tổng kết lộ trình và lên kế hoạch dài hạn",
+            "impact": "High",
+            "probability": 80,
+            "completed": false,
+            "details": [
+              {
+                "id": "step_5_1",
+                "title": "Hoàn thành báo cáo tổng kết thực tập / Khóa luận tốt nghiệp với điểm số cao",
+                "description": "Tổng hợp các bài học kinh nghiệm, phân tích số liệu đóng góp thực tế và trình bày báo cáo chỉn chu trước hội đồng/công ty. Lời khuyên cố vấn: Khẳng định vị thế cá nhân, tự tin đảm nhận các bài toán độc lập và mở rộng tầm nhìn sự nghiệp 3-5 năm tới.. Mục tiêu định lượng: Nhận đánh giá xuất sắc từ người hướng dẫn / lời mời làm việc chính thức; sẵn sàng cho chặng đường thăng tiến..",
+                "objectives": [
+                  "Đánh giá tiến độ",
+                  "Điều chỉnh lộ trình 5 năm"
+                ],
+                "actions": [
+                  "Viết báo cáo cá nhân",
+                  "Tự đánh giá"
+                ],
+                "tools": [
+                  "Sơ đồ tư duy",
+                  "Word"
+                ],
+                "expectedResult": "Báo cáo lộ trình phát triển cá nhân",
+                "completed": false
+              },
+              {
+                "id": "step_5_2",
+                "title": "Định hướng mục tiêu 5 năm",
+                "description": "Tổng kết các thành tựu nổi bật đã cống hiến, tự tin trao đổi về lộ trình phát triển sự nghiệp và mức đãi ngộ xứng đáng. Ứng dụng thực hành trên bộ công cụ tiêu chuẩn ngành (Cơ sở dữ liệu Văn bản QPPL (Thư Viện Pháp Luật / LuatVietnam), Hệ thống tra cứu Án lệ Tòa án Nhân dân Tối cao).",
+                "objectives": [
+                  "Nâng cao năng lực",
+                  "Tăng vị thế chuyên môn"
+                ],
+                "actions": [
+                  "Xác định kỹ năng mới",
+                  "Tìm chứng chỉ cao cấp"
+                ],
+                "tools": [
+                  "Kế hoạch hành động",
+                  "Lịch"
+                ],
+                "expectedResult": "Bản kế hoạch sự nghiệp rõ ràng",
+                "completed": false
+              },
+              {
+                "id": "step_5_3",
+                "title": "Chuẩn bị tâm thế mới",
+                "description": "Nhìn lại hành trình nỗ lực bền bỉ, thưởng cho bản thân thời gian nghỉ ngơi xứng đáng và phác thảo các mục tiêu lớn tiếp theo. Giữ gìn sức bền tinh thần, chủ động phòng ngừa hội chứng kiệt sức (burnout) và kiểm toán tiến độ cùng Cố vấn chuyên môn.",
+                "objectives": [
+                  "Rèn luyện sự bền bỉ",
+                  "Tư duy tích cực"
+                ],
+                "actions": [
+                  "Tham gia khóa phát triển bản thân",
+                  "Duy trì thói quen"
+                ],
+                "tools": [
+                  "Sách kỹ năng",
+                  "Apps thiền"
+                ],
+                "expectedResult": "Tâm thế tự tin sẵn sàng bứt phá",
+                "completed": false
+              }
+            ]
+          }
+        ],
+        "influencingFactors": [
+          {
+            "category": "Kinh tế",
+            "factor": "Biến động thị trường lao động tại TP.HCM",
+            "influence": "High",
+            "description": "Nhu cầu tuyển dụng hành chính tại các công ty vừa vẫn cao nhưng sự cạnh tranh về mức lương đang tăng lên."
+          },
+          {
+            "category": "Cá nhân",
+            "factor": "Áp lực học tập tại trường Luật",
+            "influence": "High",
+            "description": "Việc học song song ngành Quản trị - Luật tạo áp lực cực lớn lên thời gian và năng lượng của người học."
+          },
+          {
+            "category": "Xã hội",
+            "factor": "Yêu cầu bằng cấp và chứng chỉ",
+            "influence": "Medium",
+            "description": "Thị trường đòi hỏi cao về ngoại ngữ và kỹ năng tin học văn phòng hơn là chỉ bằng cấp đơn thuần."
+          },
+          {
+            "category": "Kỹ thuật",
+            "factor": "Sự phổ biến của AI trong hành chính",
+            "influence": "Medium",
+            "description": "Việc sử dụng các công cụ tự động hóa sẽ thay thế công việc lặp lại, đòi hỏi nhân viên phải có tư duy quản lý cao hơn."
+          }
+        ],
+        "strategicPivotPoints": [
+          {
+            "condition": "Nếu không tìm được công việc đúng kỳ vọng lương sau 6 tháng",
+            "action": "Chuyển hướng tập trung vào các chứng chỉ chuyên biệt về Luật doanh nghiệp để ứng tuyển vị trí Trợ lý pháp chế với thu nhập cao hơn."
+          },
+          {
+            "condition": "Nếu cảm thấy kiệt sức với áp lực học tập và làm việc",
+            "action": "Ưu tiên việc học để lấy bằng Đại học trước, đồng thời cắt giảm khối lượng làm việc xuống mức part-time linh hoạt."
+          },
+          {
+            "condition": "Nếu phát hiện năng khiếu trong quản lý dự án",
+            "action": "Chuyển dịch dần từ nhân viên hành chính văn phòng sang nhân viên điều phối dự án để đạt mức thu nhập trung bình cao của chuyên gia."
+          }
+        ],
+        "longTermProjection": "Trong 3-5 năm tới, bạn sẽ chuyển dịch từ nhân viên hành chính cơ bản sang các vị trí chuyên viên hành chính nhân sự hoặc trợ lý cấp cao nhờ tận dụng kiến thức Luật đã học. Với sự kết hợp giữa kỹ năng văn phòng và tư duy pháp lý, bạn có triển vọng đạt mức lương 15 triệu/tháng và tiến xa hơn tới ngưỡng chuyên gia với mức trung bình 38,9 triệu/tháng nếu sở hữu chứng chỉ hành nghề hoặc kỹ năng ngoại ngữ chuyên sâu.",
+        "modelUsed": "gemini-3.1-flash-lite",
+        "usage": {
+          "inputTokens": 2231,
+          "outputTokens": 3157,
+          "costUsd": 0.00529325
+        }
+      }
+    }
+  ]
+}

@@ -12,11 +12,22 @@ const geminiLogSchema = new mongoose.Schema({
   status: { type: String, enum: ['success', 'error'], required: true },
   error_message: { type: String },
   output: { type: mongoose.Schema.Types.Mixed },
-  cost_estimate: { type: Number }
+  cost_estimate: { type: Number },
+  // LLM Gateway: tác vụ, nhà cung cấp (modal/gemini/ollama) và số đo chất lượng (groundedness, aiCoverage, latency)
+  task: { type: String },
+  provider: { type: String },
+  quality: { type: mongoose.Schema.Types.Mixed }
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: false },
   collection: 'gemini_logs'
 });
+
+// Chuyển `usage` (từ callGeminiWithRetry / llmGateway) thành các trường log token & chi phí
+geminiLogSchema.statics.usageFields = (usage) => (usage ? {
+  input_tokens: usage.inputTokens,
+  output_tokens: usage.outputTokens,
+  cost_estimate: usage.costUsd
+} : {});
 
 geminiLogSchema.index({ created_at: -1 });
 geminiLogSchema.index({ simulation_id: 1 });

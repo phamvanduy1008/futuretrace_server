@@ -1,0 +1,20 @@
+[
+ {
+  "city": "Hanoi",
+  "student_budget_million_per_month": 5.9,
+  "method": "thuê 1PN ngoài trung tâm / 3 + 60 bữa x 60% giá bữa bình dân + điện nước, internet / 3 + 0,8tr đi lại",
+  "source_id": "src_numbeo_2026"
+ },
+ {
+  "city": "HCMC",
+  "student_budget_million_per_month": 6.0,
+  "method": "thuê 1PN ngoài trung tâm / 3 + 60 bữa x 60% giá bữa bình dân + điện nước, internet / 3 + 0,8tr đi lại",
+  "source_id": "src_numbeo_2026"
+ },
+ {
+  "city": "Danang",
+  "student_budget_million_per_month": 6.7,
+  "method": "thuê 1PN ngoài trung tâm / 3 + 60 bữa x 60% giá bữa bình dân + điện nước, internet / 3 + 0,8tr đi lại",
+  "source_id": "src_numbeo_2026"
+ }
+]

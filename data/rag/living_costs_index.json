@@ -1,0 +1,86 @@
+{
+  "Hanoi": {
+    "city": "Hanoi",
+    "city_norm": "hanoi",
+    "living_cost_level": "High",
+    "estimated_monthly_student_vnd": 5940753,
+    "estimated_monthly_student_million": 5.9,
+    "sample_costs": {
+      "inexpensive_meal_vnd": 52500.0,
+      "rent_outside_centre_vnd": 7515384.62,
+      "coffee_vnd": 48294.45
+    }
+  },
+  "Ha Noi": {
+    "city": "Hanoi",
+    "city_norm": "hanoi",
+    "living_cost_level": "High",
+    "estimated_monthly_student_vnd": 5940753,
+    "estimated_monthly_student_million": 5.9,
+    "sample_costs": {
+      "inexpensive_meal_vnd": 52500.0,
+      "rent_outside_centre_vnd": 7515384.62,
+      "coffee_vnd": 48294.45
+    }
+  },
+  "HCMC": {
+    "city": "HCMC",
+    "city_norm": "hcmc",
+    "living_cost_level": "High",
+    "estimated_monthly_student_vnd": 5963632,
+    "estimated_monthly_student_million": 6.0,
+    "sample_costs": {
+      "inexpensive_meal_vnd": 52266.67,
+      "rent_outside_centre_vnd": 6991956.68,
+      "coffee_vnd": 46904.76
+    }
+  },
+  "Ho Chi Minh": {
+    "city": "HCMC",
+    "city_norm": "hcmc",
+    "living_cost_level": "High",
+    "estimated_monthly_student_vnd": 5963632,
+    "estimated_monthly_student_million": 6.0,
+    "sample_costs": {
+      "inexpensive_meal_vnd": 52266.67,
+      "rent_outside_centre_vnd": 6991956.68,
+      "coffee_vnd": 46904.76
+    }
+  },
+  "TPHCM": {
+    "city": "HCMC",
+    "city_norm": "hcmc",
+    "living_cost_level": "High",
+    "estimated_monthly_student_vnd": 5963632,
+    "estimated_monthly_student_million": 6.0,
+    "sample_costs": {
+      "inexpensive_meal_vnd": 52266.67,
+      "rent_outside_centre_vnd": 6991956.68,
+      "coffee_vnd": 46904.76
+    }
+  },
+  "Danang": {
+    "city": "Danang",
+    "city_norm": "danang",
+    "living_cost_level": "Medium",
+    "estimated_monthly_student_vnd": 6686155,
+    "estimated_monthly_student_million": 6.7,
+    "sample_costs": {
+      "inexpensive_meal_vnd": 60000.0,
+      "rent_outside_centre_vnd": 8677599.17,
+      "coffee_vnd": 43529.41
+    }
+  },
+  "Da Nang": {
+    "city": "Danang",
+    "city_norm": "danang",
+    "living_cost_level": "Medium",
+    "estimated_monthly_student_vnd": 6686155,
+    "estimated_monthly_student_million": 6.7,
+    "sample_costs": {
+      "inexpensive_meal_vnd": 60000.0,
+      "rent_outside_centre_vnd": 8677599.17,
+      "coffee_vnd": 43529.41
+    }
+  }
+}

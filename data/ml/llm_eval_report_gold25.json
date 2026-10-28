@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-10-22T04:44:42.638Z",
+  "profiles": 25,
+  "task": "simulation_v2",
+  "systems": {
+    "modal": {
+      "successRate": 1,
+      "strictJsonRate": 0.36,
+      "aiCoverage": 0.8191200000000002,
+      "groundedness": 0.9874866310160428,
+      "numericClaimsPerOutput": 13.4,
+      "removedSentencesPerOutput": 0.24,
+      "unknownEntitiesPerOutput": 0,
+      "latencyMs": {
+        "p50": 122008,
+        "p95": 135051
+      },
+      "firstTokenMs": {
+        "p50": 530,
+        "p95": 684
+      },
+      "costUsdPerOutput": 0,
+      "rubric": {
+        "specificity": 2.75,
+        "faithfulness": 3.4583333333333335,
+        "actionability": 2.6666666666666665,
+        "empathy": 3.5833333333333335,
+        "fluency": 4.708333333333333
+      },
+      "errors": []
+    },
+    "gemini": {
+      "successRate": 1,
+      "strictJsonRate": 1,
+      "aiCoverage": 1,
+      "groundedness": 0.9975,
+      "numericClaimsPerOutput": 16.56,
+      "removedSentencesPerOutput": 0.04,
+      "unknownEntitiesPerOutput": 0,
+      "latencyMs": {
+        "p50": 12865,
+        "p95": 20092
+      },
+      "firstTokenMs": {
+        "p50": 4849,
+        "p95": 7516
+      },
+      "costUsdPerOutput": 0.003984498,
+      "rubric": {
+        "specificity": 4.8,
+        "faithfulness": 5,
+        "actionability": 4.4,
+        "empathy": 4.52,
+        "fluency": 5
+      },
+      "errors": []
+    }
+  }
+}

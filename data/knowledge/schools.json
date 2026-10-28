@@ -1,0 +1,2644 @@
+[
+ {
+  "id": "dai-hoc-bac-lieu",
+  "name": "Đại học Bạc Liêu",
+  "province": "Bạc Liêu",
+  "aliases": [
+   "dai hoc bac lieu",
+   "Đại học Bạc Liêu",
+   "đại học bạc liêu"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-bach-khoa-dai-hoc-da-nang",
+  "name": "Đại học Bách Khoa - Đại học Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc bach khoa - dai hoc da nang",
+   "Đại học Bách Khoa - Đại học Đà Nẵng",
+   "đại học bách khoa - đại học đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-binh-duong",
+  "name": "Đại học Bình Dương",
+  "province": "Bình Dương",
+  "aliases": [
+   "dai hoc binh duong",
+   "Đại học Bình Dương",
+   "đại học bình dương"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-tp-hcm",
+  "name": "Đại học Công nghiệp TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc cong nghiep tp hcm",
+   "Đại học Công nghiệp TP HCM",
+   "đại học công nghiệp tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-mien-dong",
+  "name": "Đại học Công nghệ Miền Đông",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc cong nghe mien dong",
+   "Đại học Công nghệ Miền Đông",
+   "đại học công nghệ miền đông"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-thong-tin-va-truyen-thong-viet-han",
+  "name": "Đại học Công nghệ Thông tin và Truyền thông Việt - Hàn",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc cong nghe thong tin va truyen thong viet - han",
+   "Đại học Công nghệ Thông tin và Truyền thông Việt - Hàn",
+   "đại học công nghệ thông tin và truyền thông việt - hàn"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-viet-hung",
+  "name": "Đại Học Công Nghiệp Việt Hung",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc cong nghiep viet hung",
+   "Đại Học Công Nghiệp Việt Hung",
+   "đại học công nghiệp việt hung"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-det-may-ha-noi",
+  "name": "Đại học Công Nghiệp Dệt May Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc cong nghiep det may ha noi",
+   "Đại học Công Nghiệp Dệt May Hà Nội",
+   "đại học công nghiệp dệt may hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-va-quan-ly-huu-nghi",
+  "name": "Đại học Công Nghệ và Quản Lý Hữu Nghị",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc cong nghe va quan ly huu nghi",
+   "Đại học Công Nghệ và Quản Lý Hữu Nghị",
+   "đại học công nghệ và quản lý hữu nghị"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-tp-hcm",
+  "name": "Đại học Công nghệ TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc cong nghe tp hcm",
+   "Đại học Công nghệ TP HCM",
+   "đại học công nghệ tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-viet-tri",
+  "name": "Đại Học Công Nghiệp Việt Trì",
+  "province": "Phú Thọ",
+  "aliases": [
+   "dai hoc cong nghiep viet tri",
+   "Đại Học Công Nghiệp Việt Trì",
+   "đại học công nghiệp việt trì"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-giao-thong-van-tai",
+  "name": "Đại học Công nghệ Giao thông vận tải",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc cong nghe giao thong van tai",
+   "Đại học Công nghệ Giao thông vận tải",
+   "đại học công nghệ giao thông vận tải"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-dong-nai",
+  "name": "Đại học Công nghệ Đồng Nai",
+  "province": "Đồng Nai",
+  "aliases": [
+   "dai hoc cong nghe dong nai",
+   "Đại học Công nghệ Đồng Nai",
+   "đại học công nghệ đồng nai"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-thuc-pham-tp-hcm",
+  "name": "Đại học Công nghiệp Thực phẩm TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc cong nghiep thuc pham tp hcm",
+   "Đại học Công nghiệp Thực phẩm TP HCM",
+   "đại học công nghiệp thực phẩm tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-vinh",
+  "name": "Đại học Công nghiệp Vinh",
+  "province": "Nghệ An",
+  "aliases": [
+   "dai hoc cong nghiep vinh",
+   "Đại học Công nghiệp Vinh",
+   "đại học công nghiệp vinh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-cuu-long",
+  "name": "Đại học Cửu Long",
+  "province": "Vĩnh Long",
+  "aliases": [
+   "dai hoc cuu long",
+   "Đại học Cửu Long",
+   "đại học cửu long"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-da-lat",
+  "name": "Đại học Đà Lạt",
+  "province": "Lâm Đồng",
+  "aliases": [
+   "dai hoc da lat",
+   "Đại học Đà Lạt",
+   "đại học đà lạt"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dai-nam",
+  "name": "Đại học Đại Nam",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc dai nam",
+   "Đại học Đại Nam",
+   "đại học đại nam"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dan-lap-phu-xuan",
+  "name": "Đại học Dân Lập Phú Xuân",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc dan lap phu xuan",
+   "Đại học Dân Lập Phú Xuân",
+   "đại học dân lập phú xuân"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dan-lap-duy-tan",
+  "name": "Đại học Dân Lập Duy Tân",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc dan lap duy tan",
+   "Đại học Dân Lập Duy Tân",
+   "đại học dân lập duy tân"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dau-khi-viet-nam",
+  "name": "Đại học Dầu khí Việt Nam",
+  "province": "Bà Rịa- Vũng Tàu",
+  "aliases": [
+   "dai hoc dau khi viet nam",
+   "Đại học Dầu khí Việt Nam",
+   "đại học dầu khí việt nam"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dien-luc",
+  "name": "Đại học Điện lực",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc dien luc",
+   "Đại học Điện lực",
+   "đại học điện lực"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dieu-duong-nam-dinh",
+  "name": "Đại học Điều Dưỡng Nam Định",
+  "province": "Nam Định",
+  "aliases": [
+   "dai hoc dieu duong nam dinh",
+   "Đại học Điều Dưỡng Nam Định",
+   "đại học điều dưỡng nam định"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dong-do",
+  "name": "Đại Học Đông Đô",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc dong do",
+   "Đại Học Đông Đô",
+   "đại học đông đô"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dong-nai",
+  "name": "Đại học Đồng Nai",
+  "province": "Đồng Nai",
+  "aliases": [
+   "dai hoc dong nai",
+   "Đại học Đồng Nai",
+   "đại học đồng nai"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dong-a",
+  "name": "Đại Học Đông Á",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc dong a",
+   "Đại Học Đông Á",
+   "đại học đông á"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-dong-thap",
+  "name": "Đại học Đồng Tháp",
+  "province": "Đồng Tháp",
+  "aliases": [
+   "dai hoc dong thap",
+   "Đại học Đồng Tháp",
+   "đại học đồng tháp"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-duoc-ha-noi",
+  "name": "Đại học Dược Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc duoc ha noi",
+   "Đại học Dược Hà Nội",
+   "đại học dược hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-gia-dinh",
+  "name": "Đại học Gia Định",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc gia dinh",
+   "Đại học Gia Định",
+   "đại học gia định"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-giao-thong-van-tai-co-so-phia-nam",
+  "name": "Đại học Giao thông Vận tải ( Cơ sở Phía Nam)",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc giao thong van tai ( co so phia nam)",
+   "Đại học Giao thông Vận tải ( Cơ sở Phía Nam)",
+   "đại học giao thông vận tải ( cơ sở phía nam)"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ha-tinh",
+  "name": "Đại học Hà Tĩnh",
+  "province": "Hà Tĩnh",
+  "aliases": [
+   "dai hoc ha tinh",
+   "Đại học Hà Tĩnh",
+   "đại học hà tĩnh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ha-long",
+  "name": "Đại học Hạ Long",
+  "province": "Quảng Ninh",
+  "aliases": [
+   "dai hoc ha long",
+   "Đại học Hạ Long",
+   "đại học hạ long"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-hai-duong",
+  "name": "Đại Học Hải Dương",
+  "province": "Hải Dương",
+  "aliases": [
+   "dai hoc hai duong",
+   "Đại Học Hải Dương",
+   "đại học hải dương"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-hang-hai-viet-nam",
+  "name": "Đại học Hàng hải Việt Nam",
+  "province": "Hải Phòng",
+  "aliases": [
+   "dai hoc hang hai viet nam",
+   "Đại học Hàng hải Việt Nam",
+   "đại học hàng hải việt nam"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-hoa-lu",
+  "name": "Đại học Hoa Lư",
+  "province": "Ninh Bình",
+  "aliases": [
+   "dai hoc hoa lu",
+   "Đại học Hoa Lư",
+   "đại học hoa lư"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-hoa-binh",
+  "name": "Đại học Hòa Bình",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc hoa binh",
+   "Đại học Hòa Bình",
+   "đại học hòa bình"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-hong-duc",
+  "name": "Đại học Hồng Đức",
+  "province": "Thanh Hóa",
+  "aliases": [
+   "dai hoc hong duc",
+   "Đại học Hồng Đức",
+   "đại học hồng đức"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-hung-vuong-tp-hcm",
+  "name": "Đại học Hùng Vương TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc hung vuong tp hcm",
+   "Đại học Hùng Vương TP HCM",
+   "đại học hùng vương tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-hung-vuong",
+  "name": "Đại học Hùng Vương",
+  "province": "Phú Thọ",
+  "aliases": [
+   "dai hoc hung vuong",
+   "Đại học Hùng Vương",
+   "đại học hùng vương"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-khanh-hoa",
+  "name": "Đại học Khánh Hòa",
+  "province": "Khánh Hòa",
+  "aliases": [
+   "dai hoc khanh hoa",
+   "Đại học Khánh Hòa",
+   "đại học khánh hòa"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-khoa-hoc-va-cong-nghe-ha-noi",
+  "name": "Đại học Khoa Học Và Công Nghệ Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc khoa hoc va cong nghe ha noi",
+   "Đại học Khoa Học Và Công Nghệ Hà Nội",
+   "đại học khoa học và công nghệ hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-khoa-hoc-xa-hoi-va-nhan-van-dai-hoc-quoc-gia-tp-hcm",
+  "name": "Đại học Khoa học xã hội và Nhân văn - Đại học Quốc gia TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc khoa hoc xa hoi va nhan van - dai hoc quoc gia tp hcm",
+   "Đại học Khoa học xã hội và Nhân văn - Đại học Quốc gia TP HCM",
+   "đại học khoa học xã hội và nhân văn - đại học quốc gia tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-khoa-hoc-dai-hoc-hue",
+  "name": "Đại học Khoa Học - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc khoa hoc - dai hoc hue",
+   "Đại học Khoa Học - Đại học Huế",
+   "đại học khoa học - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-khoa-hoc-dai-hoc-thai-nguyen",
+  "name": "Đại học Khoa Học - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "dai hoc khoa hoc - dai hoc thai nguyen",
+   "Đại học Khoa Học - Đại học Thái Nguyên",
+   "đại học khoa học - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kiem-sat-ha-noi",
+  "name": "Đại học Kiểm sát Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc kiem sat ha noi",
+   "Đại học Kiểm sát Hà Nội",
+   "đại học kiểm sát hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kien-truc-tai-trung-tam-dao-tao-co-so-da-lat",
+  "name": "Đại học Kiến trúc tại Trung tâm đào tạo cơ sở Đà Lạt",
+  "province": "Lâm Đồng",
+  "aliases": [
+   "dai hoc kien truc tai trung tam dao tao co so da lat",
+   "Đại học Kiến trúc tại Trung tâm đào tạo cơ sở Đà Lạt",
+   "đại học kiến trúc tại trung tâm đào tạo cơ sở đà lạt"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kien-truc-tai-trung-tam-dao-tao-co-so-can-tho",
+  "name": "Đại học Kiến trúc tại Trung tâm đào tạo cơ sở Cần Thơ",
+  "province": "Cần Thơ",
+  "aliases": [
+   "dai hoc kien truc tai trung tam dao tao co so can tho",
+   "Đại học Kiến trúc tại Trung tâm đào tạo cơ sở Cần Thơ",
+   "đại học kiến trúc tại trung tâm đào tạo cơ sở cần thơ"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kien-giang",
+  "name": "Đại học Kiên Giang",
+  "province": "Kiên Giang",
+  "aliases": [
+   "dai hoc kien giang",
+   "Đại học Kiên Giang",
+   "đại học kiên giang"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kien-truc-ha-noi",
+  "name": "Đại học Kiến trúc Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc kien truc ha noi",
+   "Đại học Kiến trúc Hà Nội",
+   "đại học kiến trúc hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kien-truc-tp-hcm",
+  "name": "Đại học Kiến trúc TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc kien truc tp hcm",
+   "Đại học Kiến trúc TP HCM",
+   "đại học kiến trúc tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kien-truc-da-nang",
+  "name": "Đại học Kiến trúc Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc kien truc da nang",
+   "Đại học Kiến trúc Đà Nẵng",
+   "đại học kiến trúc đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-tai-chinh-tp-hcm",
+  "name": "Đại học Kinh tế - Tài chính TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc kinh te - tai chinh tp hcm",
+   "Đại học Kinh tế - Tài chính TP HCM",
+   "đại học kinh tế - tài chính tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-doanh-va-cong-nghe-ha-noi",
+  "name": "Đại học Kinh doanh và Công nghệ Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc kinh doanh va cong nghe ha noi",
+   "Đại học Kinh doanh và Công nghệ Hà Nội",
+   "đại học kinh doanh và công nghệ hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-cong-nghiep-long-an",
+  "name": "Đại học Kinh tế Công nghiệp Long An",
+  "province": "Long An",
+  "aliases": [
+   "dai hoc kinh te cong nghiep long an",
+   "Đại học Kinh tế Công nghiệp Long An",
+   "đại học kinh tế công nghiệp long an"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-ky-thuat-binh-duong",
+  "name": "Đại học Kinh tế Kỹ thuật Bình Dương",
+  "province": "Bình Dương",
+  "aliases": [
+   "dai hoc kinh te ky thuat binh duong",
+   "Đại học Kinh tế Kỹ thuật Bình Dương",
+   "đại học kinh tế kỹ thuật bình dương"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-nghe-an",
+  "name": "Đại học Kinh Tế Nghệ An",
+  "province": "Nghệ An",
+  "aliases": [
+   "dai hoc kinh te nghe an",
+   "Đại học Kinh Tế Nghệ An",
+   "đại học kinh tế nghệ an"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-dai-hoc-da-nang",
+  "name": "Đại học Kinh Tế - Đại học Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc kinh te - dai hoc da nang",
+   "Đại học Kinh Tế - Đại học Đà Nẵng",
+   "đại học kinh tế - đại học đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-quan-tri-kinh-doanh-dai-hoc-thai-nguyen",
+  "name": "Đại học Kinh Tế & Quản Trị Kinh Doanh - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "dai hoc kinh te & quan tri kinh doanh - dai hoc thai nguyen",
+   "Đại học Kinh Tế & Quản Trị Kinh Doanh - Đại học Thái Nguyên",
+   "đại học kinh tế & quản trị kinh doanh - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-dai-hoc-hue",
+  "name": "Đại học Kinh Tế - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc kinh te - dai hoc hue",
+   "Đại học Kinh Tế - Đại học Huế",
+   "đại học kinh tế - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-ky-thuat-cong-nghiep-ha-noi",
+  "name": "Đại học Kinh tế Kỹ thuật Công nghiệp Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc kinh te ky thuat cong nghiep ha noi",
+   "Đại học Kinh tế Kỹ thuật Công nghiệp Hà Nội",
+   "đại học kinh tế kỹ thuật công nghiệp hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-kinh-te-ky-thuat-cong-nghiep-nam-dinh",
+  "name": "Đại học Kinh tế Kỹ thuật công nghiệp Nam Định",
+  "province": "Nam Định",
+  "aliases": [
+   "dai hoc kinh te ky thuat cong nghiep nam dinh",
+   "Đại học Kinh tế Kỹ thuật công nghiệp Nam Định",
+   "đại học kinh tế kỹ thuật công nghiệp nam định"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ky-thuat-y-duoc-da-nang",
+  "name": "Đại học Kỹ thuật Y Dược Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc ky thuat y duoc da nang",
+   "Đại học Kỹ thuật Y Dược Đà Nẵng",
+   "đại học kỹ thuật y dược đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ky-thuat-cong-nghe-can-tho",
+  "name": "Đại học Kỹ thuật Công nghệ Cần Thơ",
+  "province": "Cần Thơ",
+  "aliases": [
+   "dai hoc ky thuat cong nghe can tho",
+   "Đại học Kỹ thuật Công nghệ Cần Thơ",
+   "đại học kỹ thuật công nghệ cần thơ"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ky-thuat-cong-nghiep-dai-hoc-thai-nguyen",
+  "name": "Đại học Kỹ Thuật Công Nghiệp - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "dai hoc ky thuat cong nghiep - dai hoc thai nguyen",
+   "Đại học Kỹ Thuật Công Nghiệp - Đại học Thái Nguyên",
+   "đại học kỹ thuật công nghiệp - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-lac-hong",
+  "name": "Đại học Lạc Hồng",
+  "province": "Đồng Nai",
+  "aliases": [
+   "dai hoc lac hong",
+   "Đại học Lạc Hồng",
+   "đại học lạc hồng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-lam-nghiep-co-so-2",
+  "name": "Đại học Lâm nghiệp (Cơ sở 2)",
+  "province": "Đồng Nai",
+  "aliases": [
+   "dai hoc lam nghiep (co so 2)",
+   "Đại học Lâm nghiệp (Cơ sở 2)",
+   "đại học lâm nghiệp (cơ sở 2)"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-lam-nghiep-co-so-1",
+  "name": "Đại học Lâm nghiệp (Cơ sở 1)",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc lam nghiep (co so 1)",
+   "Đại học Lâm nghiệp (Cơ sở 1)",
+   "đại học lâm nghiệp (cơ sở 1)"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-lao-dong-xa-hoi-co-so-phia-nam",
+  "name": "Đại học Lao động - Xã hội (Cơ sở phía Nam)",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc lao dong - xa hoi (co so phia nam)",
+   "Đại học Lao động - Xã hội (Cơ sở phía Nam)",
+   "đại học lao động - xã hội (cơ sở phía nam)"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-lao-dong-xa-hoi-co-so-ha-noi",
+  "name": "Đại học Lao động - Xã hội (Cơ sở Hà Nội)",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc lao dong - xa hoi (co so ha noi)",
+   "Đại học Lao động - Xã hội (Cơ sở Hà Nội)",
+   "đại học lao động - xã hội (cơ sở hà nội)"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-luat-tp-hcm",
+  "name": "Đại học Luật TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc luat tp hcm",
+   "Đại học Luật TP HCM",
+   "đại học luật tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-luong-the-vinh",
+  "name": "Đại Học Lương Thế Vinh",
+  "province": "Nam Định",
+  "aliases": [
+   "dai hoc luong the vinh",
+   "Đại Học Lương Thế Vinh",
+   "đại học lương thế vinh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-mo-dia-chat",
+  "name": "Đại học Mỏ - Địa chất",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc mo - dia chat",
+   "Đại học Mỏ - Địa chất",
+   "đại học mỏ - địa chất"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-my-thuat-cong-nghiep",
+  "name": "Đại học Mỹ thuật Công nghiệp",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc my thuat cong nghiep",
+   "Đại học Mỹ thuật Công nghiệp",
+   "đại học mỹ thuật công nghiệp"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-nghe-thuat-dai-hoc-hue",
+  "name": "Đại học Nghệ Thuật - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc nghe thuat - dai hoc hue",
+   "Đại học Nghệ Thuật - Đại học Huế",
+   "đại học nghệ thuật - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ngoai-ngu-dai-hoc-da-nang",
+  "name": "Đại học Ngoại Ngữ - Đại học Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc ngoai ngu - dai hoc da nang",
+   "Đại học Ngoại Ngữ - Đại học Đà Nẵng",
+   "đại học ngoại ngữ - đại học đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ngoai-ngu-tin-hoc-tp-hcm",
+  "name": "Đại học Ngoại ngữ - Tin học TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc ngoai ngu - tin hoc tp hcm",
+   "Đại học Ngoại ngữ - Tin học TP HCM",
+   "đại học ngoại ngữ - tin học tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ngoai-thuong-phia-nam",
+  "name": "Đại học Ngoại thương (phía Nam)",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc ngoai thuong (phia nam)",
+   "Đại học Ngoại thương (phía Nam)",
+   "đại học ngoại thương (phía nam)"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-ngoai-ngu-dai-hoc-hue",
+  "name": "Đại học Ngoại Ngữ - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc ngoai ngu - dai hoc hue",
+   "Đại học Ngoại Ngữ - Đại học Huế",
+   "đại học ngoại ngữ - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-nguyen-trai",
+  "name": "Đại học Nguyễn Trãi",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc nguyen trai",
+   "Đại học Nguyễn Trãi",
+   "đại học nguyễn trãi"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-nha-trang",
+  "name": "Đại học Nha Trang",
+  "province": "Khánh Hòa",
+  "aliases": [
+   "dai hoc nha trang",
+   "Đại học Nha Trang",
+   "đại học nha trang"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-nong-lam-dai-hoc-thai-nguyen",
+  "name": "Đại học Nông Lâm - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "dai hoc nong lam - dai hoc thai nguyen",
+   "Đại học Nông Lâm - Đại học Thái Nguyên",
+   "đại học nông lâm - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-nong-lam-dai-hoc-hue",
+  "name": "Đại học Nông Lâm - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc nong lam - dai hoc hue",
+   "Đại học Nông Lâm - Đại học Huế",
+   "đại học nông lâm - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-nong-lam-bac-giang",
+  "name": "Đại học Nông Lâm Bắc Giang",
+  "province": "Bắc Giang",
+  "aliases": [
+   "dai hoc nong lam bac giang",
+   "Đại học Nông Lâm Bắc Giang",
+   "đại học nông lâm bắc giang"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-pham-van-dong",
+  "name": "Đại học Phạm Văn Đồng",
+  "province": "Quảng Ngãi",
+  "aliases": [
+   "dai hoc pham van dong",
+   "Đại học Phạm Văn Đồng",
+   "đại học phạm văn đồng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-dai-hoc-thai-nguyen",
+  "name": "Đại Học Sư Phạm - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "dai hoc su pham - dai hoc thai nguyen",
+   "Đại Học Sư Phạm - Đại học Thái Nguyên",
+   "đại học sư phạm - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-phan-thiet",
+  "name": "Đại học Phan Thiết",
+  "province": "Bình Thuận",
+  "aliases": [
+   "dai hoc phan thiet",
+   "Đại học Phan Thiết",
+   "đại học phan thiết"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-phan-chau-trinh",
+  "name": "Đại học Phan Châu Trinh",
+  "province": "Quảng Nam",
+  "aliases": [
+   "dai hoc phan chau trinh",
+   "Đại học Phan Châu Trinh",
+   "đại học phan châu trinh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-phenikaa",
+  "name": "Đại học Phenikaa",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc phenikaa",
+   "Đại học Phenikaa",
+   "đại học phenikaa"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-phu-yen",
+  "name": "Đại học Phú Yên",
+  "province": "Phú Yên",
+  "aliases": [
+   "dai hoc phu yen",
+   "Đại học Phú Yên",
+   "đại học phú yên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-phuong-dong",
+  "name": "Đại học Phương Đông",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc phuong dong",
+   "Đại học Phương Đông",
+   "đại học phương đông"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-quang-binh",
+  "name": "Đại Học Quảng Bình",
+  "province": "Quảng Bình",
+  "aliases": [
+   "dai hoc quang binh",
+   "Đại Học Quảng Bình",
+   "đại học quảng bình"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-quang-trung",
+  "name": "Đại học Quang Trung",
+  "province": "Bình Định",
+  "aliases": [
+   "dai hoc quang trung",
+   "Đại học Quang Trung",
+   "đại học quang trung"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-quang-nam",
+  "name": "Đại học Quảng Nam",
+  "province": "Quảng Nam",
+  "aliases": [
+   "dai hoc quang nam",
+   "Đại học Quảng Nam",
+   "đại học quảng nam"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-quoc-te-hong-bang",
+  "name": "Đại học Quốc tế Hồng Bàng",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc quoc te hong bang",
+   "Đại học Quốc tế Hồng Bàng",
+   "đại học quốc tế hồng bàng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-quoc-te-sai-gon",
+  "name": "Đại học Quốc tế Sài Gòn",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc quoc te sai gon",
+   "Đại học Quốc tế Sài Gòn",
+   "đại học quốc tế sài gòn"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-quoc-te-mien-dong",
+  "name": "Đại học Quốc tế Miền Đông",
+  "province": "Bình Dương",
+  "aliases": [
+   "dai hoc quoc te mien dong",
+   "Đại học Quốc tế Miền Đông",
+   "đại học quốc tế miền đông"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-quy-nhon",
+  "name": "Đại học Quy Nhơn",
+  "province": "Bình Định",
+  "aliases": [
+   "dai hoc quy nhon",
+   "Đại học Quy Nhơn",
+   "đại học quy nhơn"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-sao-do",
+  "name": "Đại học Sao Đỏ",
+  "province": "Hải Dương",
+  "aliases": [
+   "dai hoc sao do",
+   "Đại học Sao Đỏ",
+   "đại học sao đỏ"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-dai-hoc-da-nang",
+  "name": "Đại học Sư Phạm - Đại học Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc su pham - dai hoc da nang",
+   "Đại học Sư Phạm - Đại học Đà Nẵng",
+   "đại học sư phạm - đại học đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-ky-thuat-tp-hcm",
+  "name": "Đại học Sư phạm Kỹ thuật TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc su pham ky thuat tp hcm",
+   "Đại học Sư phạm Kỹ thuật TP HCM",
+   "đại học sư phạm kỹ thuật tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-dai-hoc-hue",
+  "name": "Đại học Sư Phạm - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc su pham - dai hoc hue",
+   "Đại học Sư Phạm - Đại học Huế",
+   "đại học sư phạm - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-nghe-thuat-trung-uong",
+  "name": "Đại Học Sư Phạm Nghệ Thuật Trung Ương",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc su pham nghe thuat trung uong",
+   "Đại Học Sư Phạm Nghệ Thuật Trung Ương",
+   "đại học sư phạm nghệ thuật trung ương"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-ky-thuat-dai-hoc-da-nang",
+  "name": "Đại học Sư phạm Kỹ thuật - Đại học Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "dai hoc su pham ky thuat - dai hoc da nang",
+   "Đại học Sư phạm Kỹ thuật - Đại học Đà Nẵng",
+   "đại học sư phạm kỹ thuật - đại học đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-the-duc-the-thao-tp-hcm",
+  "name": "Đại học Sư phạm Thể dục thể thao TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc su pham the duc the thao tp hcm",
+   "Đại học Sư phạm Thể dục thể thao TP HCM",
+   "đại học sư phạm thể dục thể thao tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-ha-noi-2",
+  "name": "Đại học Sư phạm Hà Nội 2",
+  "province": "Vĩnh Phúc",
+  "aliases": [
+   "dai hoc su pham ha noi 2",
+   "Đại học Sư phạm Hà Nội 2",
+   "đại học sư phạm hà nội 2"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-ky-thuat-vinh-long",
+  "name": "Đại học Sư phạm Kỹ thuật Vĩnh Long",
+  "province": "Vĩnh Long",
+  "aliases": [
+   "dai hoc su pham ky thuat vinh long",
+   "Đại học Sư phạm Kỹ thuật Vĩnh Long",
+   "đại học sư phạm kỹ thuật vĩnh long"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-su-pham-ky-thuat-hung-yen",
+  "name": "Đại học Sư phạm Kỹ thuật Hưng Yên",
+  "province": "Hưng Yên",
+  "aliases": [
+   "dai hoc su pham ky thuat hung yen",
+   "Đại học Sư phạm Kỹ thuật Hưng Yên",
+   "đại học sư phạm kỹ thuật hưng yên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tai-nguyen-va-moi-truong-ha-noi",
+  "name": "Đại học Tài nguyên và Môi trường Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc tai nguyen va moi truong ha noi",
+   "Đại học Tài nguyên và Môi trường Hà Nội",
+   "đại học tài nguyên và môi trường hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tan-trao",
+  "name": "Đại học Tân Trào",
+  "province": "Tuyên Quang",
+  "aliases": [
+   "dai hoc tan trao",
+   "Đại học Tân Trào",
+   "đại học tân trào"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tan-tao",
+  "name": "Đại học Tân Tạo",
+  "province": "Long An",
+  "aliases": [
+   "dai hoc tan tao",
+   "Đại học Tân Tạo",
+   "đại học tân tạo"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tay-nguyen",
+  "name": "Đại học Tây Nguyên",
+  "province": "Đắk Lắk",
+  "aliases": [
+   "dai hoc tay nguyen",
+   "Đại học Tây Nguyên",
+   "đại học tây nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tay-do",
+  "name": "Đại học Tây Đô",
+  "province": "Cần Thơ",
+  "aliases": [
+   "dai hoc tay do",
+   "Đại học Tây Đô",
+   "đại học tây đô"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tay-bac",
+  "name": "Đại học Tây Bắc",
+  "province": "Sơn La",
+  "aliases": [
+   "dai hoc tay bac",
+   "Đại học Tây Bắc",
+   "đại học tây bắc"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-thai-binh",
+  "name": "Đại học Thái Bình",
+  "province": "Thái Bình",
+  "aliases": [
+   "dai hoc thai binh",
+   "Đại học Thái Bình",
+   "đại học thái bình"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-thai-binh-duong",
+  "name": "Đại học Thái Bình Dương",
+  "province": "Khánh Hòa",
+  "aliases": [
+   "dai hoc thai binh duong",
+   "Đại học Thái Bình Dương",
+   "đại học thái bình dương"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-thanh-do",
+  "name": "Đại học Thành Đô",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc thanh do",
+   "Đại học Thành Đô",
+   "đại học thành đô"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-the-duc-the-thao-bac-ninh",
+  "name": "Đại Học Thể Dục Thể Thao Bắc Ninh",
+  "province": "Bắc Ninh",
+  "aliases": [
+   "dai hoc the duc the thao bac ninh",
+   "Đại Học Thể Dục Thể Thao Bắc Ninh",
+   "đại học thể dục thể thao bắc ninh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-thu-dau-mot",
+  "name": "Đại học Thủ Dầu Một",
+  "province": "Bình Dương",
+  "aliases": [
+   "dai hoc thu dau mot",
+   "Đại học Thủ Dầu Một",
+   "đại học thủ dầu một"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-thu-do-ha-noi",
+  "name": "Đại học Thủ Đô Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc thu do ha noi",
+   "Đại học Thủ Đô Hà Nội",
+   "đại học thủ đô hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-thuy-loi-co-so-1",
+  "name": "Đại học Thủy Lợi ( Cơ sở 1 )",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc thuy loi ( co so 1 )",
+   "Đại học Thủy Lợi ( Cơ sở 1 )",
+   "đại học thủy lợi ( cơ sở 1 )"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tien-giang",
+  "name": "Đại học Tiền Giang",
+  "province": "Tiền Giang",
+  "aliases": [
+   "dai hoc tien giang",
+   "Đại học Tiền Giang",
+   "đại học tiền giang"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-tra-vinh",
+  "name": "Đại học Trà Vinh",
+  "province": "Trà Vinh",
+  "aliases": [
+   "dai hoc tra vinh",
+   "Đại học Trà Vinh",
+   "đại học trà vinh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-trung-vuong",
+  "name": "Đại học Trưng Vương",
+  "province": "Vĩnh Phúc",
+  "aliases": [
+   "dai hoc trung vuong",
+   "Đại học Trưng Vương",
+   "đại học trưng vương"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-van-hoa-ha-noi",
+  "name": "Đại học Văn hóa Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc van hoa ha noi",
+   "Đại học Văn hóa Hà Nội",
+   "đại học văn hóa hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-van-hoa-the-thao-va-du-lich-thanh-hoa",
+  "name": "Đại học Văn Hóa, Thể Thao Và Du Lịch Thanh Hóa",
+  "province": "Thanh Hóa",
+  "aliases": [
+   "dai hoc van hoa, the thao va du lich thanh hoa",
+   "Đại học Văn Hóa, Thể Thao Và Du Lịch Thanh Hóa",
+   "đại học văn hóa, thể thao và du lịch thanh hóa"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-van-hoa-tp-hcm",
+  "name": "Đại học Văn hoá TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dai hoc van hoa tp hcm",
+   "Đại học Văn hoá TP HCM",
+   "đại học văn hoá tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-viet-duc",
+  "name": "Đại học Việt Đức",
+  "province": "Bình Dương",
+  "aliases": [
+   "dai hoc viet duc",
+   "Đại học Việt Đức",
+   "đại học việt đức"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-vinh",
+  "name": "Đại học Vinh",
+  "province": "Nghệ An",
+  "aliases": [
+   "dai hoc vinh",
+   "Đại học Vinh",
+   "đại học vinh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-vo-truong-toan",
+  "name": "Đại học Võ Trường Toản",
+  "province": "Hậu Giang",
+  "aliases": [
+   "dai hoc vo truong toan",
+   "Đại học Võ Trường Toản",
+   "đại học võ trường toản"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-xay-dung-mien-trung",
+  "name": "Đại học Xây dựng Miền Trung",
+  "province": "Phú Yên",
+  "aliases": [
+   "dai hoc xay dung mien trung",
+   "Đại học Xây dựng Miền Trung",
+   "đại học xây dựng miền trung"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-xay-dung-mien-tay",
+  "name": "Đại học Xây dựng Miền Tây",
+  "province": "Vĩnh Long",
+  "aliases": [
+   "dai hoc xay dung mien tay",
+   "Đại học Xây dựng Miền Tây",
+   "đại học xây dựng miền tây"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-xay-dung-ha-noi",
+  "name": "Đại học Xây dựng Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc xay dung ha noi",
+   "Đại học Xây dựng Hà Nội",
+   "đại học xây dựng hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-y-khoa-vinh",
+  "name": "Đại học Y Khoa Vinh",
+  "province": "Nghệ An",
+  "aliases": [
+   "dai hoc y khoa vinh",
+   "Đại học Y Khoa Vinh",
+   "đại học y khoa vinh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-y-duoc-can-tho",
+  "name": "Đại học Y Dược Cần Thơ",
+  "province": "Cần Thơ",
+  "aliases": [
+   "dai hoc y duoc can tho",
+   "Đại học Y Dược Cần Thơ",
+   "đại học y dược cần thơ"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-y-duoc-dai-hoc-thai-nguyen",
+  "name": "Đại học Y Dược - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "dai hoc y duoc - dai hoc thai nguyen",
+   "Đại học Y Dược - Đại học Thái Nguyên",
+   "đại học y dược - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-y-te-cong-cong",
+  "name": "Đại học Y tế Công cộng",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc y te cong cong",
+   "Đại học Y tế Công cộng",
+   "đại học y tế công cộng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-y-duoc-dai-hoc-hue",
+  "name": "Đại học Y Dược - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "dai hoc y duoc - dai hoc hue",
+   "Đại học Y Dược - Đại học Huế",
+   "đại học y dược - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "dai-hoc-yersin-da-lat",
+  "name": "Đại học Yersin Đà Lạt",
+  "province": "Lâm Đồng",
+  "aliases": [
+   "dai hoc yersin da lat",
+   "Đại học Yersin Đà Lạt",
+   "đại học yersin đà lạt"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-bien-phong",
+  "name": "Học viện Biên Phòng",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Biên Phòng",
+   "hoc vien bien phong",
+   "học viện biên phòng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-can-bo-tp-hcm",
+  "name": "Học viện Cán bộ TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Học viện Cán bộ TP HCM",
+   "hoc vien can bo tp hcm",
+   "học viện cán bộ tp hcm"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-chinh-sach-va-phat-trien",
+  "name": "Học viện Chính sách và Phát triển",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Chính sách và Phát triển",
+   "hoc vien chinh sach va phat trien",
+   "học viện chính sách và phát triển"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-cong-nghe-buu-chinh-vien-thong-phia-nam",
+  "name": "Học viện Công nghệ Bưu chính Viễn thông (phía Nam)",
+  "province": "TP HCM",
+  "aliases": [
+   "Học viện Công nghệ Bưu chính Viễn thông (phía Nam)",
+   "buu chinh vien thong",
+   "bưu chính viễn thông",
+   "hoc vien cong nghe buu chinh vien thong (phia nam)",
+   "học viện bưu chính",
+   "học viện công nghệ bưu chính viễn thông (phía nam)",
+   "ptit"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-cong-nghe-buu-chinh-vien-thong-phia-bac",
+  "name": "Học viện Công nghệ Bưu chính Viễn thông (phía Bắc)",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Công nghệ Bưu chính Viễn thông (phía Bắc)",
+   "buu chinh vien thong",
+   "bưu chính viễn thông",
+   "hoc vien cong nghe buu chinh vien thong (phia bac)",
+   "học viện bưu chính",
+   "học viện công nghệ bưu chính viễn thông (phía bắc)",
+   "ptit"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-hai-quan",
+  "name": "Học viện Hải Quân",
+  "province": "Khánh Hòa",
+  "aliases": [
+   "Học viện Hải Quân",
+   "hoc vien hai quan",
+   "học viện hải quân"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-hau-can-he-quan-su",
+  "name": "Học viện Hậu Cần - Hệ Quân sự",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Hậu Cần - Hệ Quân sự",
+   "hoc vien hau can - he quan su",
+   "học viện hậu cần - hệ quân sự"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-khoa-hoc-quan-su-he-quan-su",
+  "name": "Học viện Khoa Học Quân Sự - Hệ Quân sự",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Khoa Học Quân Sự - Hệ Quân sự",
+   "hoc vien khoa hoc quan su - he quan su",
+   "học viện khoa học quân sự - hệ quân sự"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-ki-thuat-quan-su-he-quan-su",
+  "name": "Học viện Kĩ Thuật Quân Sự - Hệ Quân sự",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Kĩ Thuật Quân Sự - Hệ Quân sự",
+   "hoc vien ki thuat quan su - he quan su",
+   "học viện kĩ thuật quân sự - hệ quân sự"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-ky-thuat-mat-ma",
+  "name": "Học viện Kỹ thuật mật mã",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Kỹ thuật mật mã",
+   "hoc vien ky thuat mat ma",
+   "học viện kỹ thuật mật mã"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-phong-khong-khong-quan",
+  "name": "Học viện Phòng Không - Không Quân",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Phòng Không - Không Quân",
+   "hoc vien phong khong - khong quan",
+   "học viện phòng không - không quân"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-phu-nu-viet-nam",
+  "name": "Học viện Phụ nữ Việt Nam",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Phụ nữ Việt Nam",
+   "hoc vien phu nu viet nam",
+   "học viện phụ nữ việt nam"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-quan-ly-giao-duc",
+  "name": "Học viện Quản Lý Giáo Dục",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Quản Lý Giáo Dục",
+   "hoc vien quan ly giao duc",
+   "học viện quản lý giáo dục"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-thanh-thieu-nien-viet-nam",
+  "name": "Học viện Thanh Thiếu Niên Việt Nam",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Thanh Thiếu Niên Việt Nam",
+   "hoc vien thanh thieu nien viet nam",
+   "học viện thanh thiếu niên việt nam"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-toa-an",
+  "name": "Học viện Tòa án",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Tòa án",
+   "hoc vien toa an",
+   "học viện tòa án"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "hoc-vien-y-duoc-hoc-co-truyen-viet-nam",
+  "name": "Học viện Y Dược học cổ truyền Việt Nam",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Y Dược học cổ truyền Việt Nam",
+   "hoc vien y duoc hoc co truyen viet nam",
+   "học viện y dược học cổ truyền việt nam"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-giao-duc-the-chat-dai-hoc-hue",
+  "name": "Khoa Giáo Dục Thể Chất - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "Khoa Giáo Dục Thể Chất - Đại học Huế",
+   "khoa giao duc the chat - dai hoc hue",
+   "khoa giáo dục thể chất - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-y-duoc-dai-hoc-da-nang",
+  "name": "Khoa Y Dược - Đại học Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "Khoa Y Dược - Đại học Đà Nẵng",
+   "khoa y duoc - dai hoc da nang",
+   "khoa y dược - đại học đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-cac-khoa-hoc-lien-nganh-dai-hoc-quoc-gia-ha-noi",
+  "name": "Khoa Các khoa học liên ngành - Đại học Quốc gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Khoa Các khoa học liên ngành - Đại học Quốc gia Hà Nội",
+   "khoa cac khoa hoc lien nganh - dai hoc quoc gia ha noi",
+   "khoa các khoa học liên ngành - đại học quốc gia hà nội"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-du-lich-dai-hoc-hue",
+  "name": "Khoa Du Lịch - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "Khoa Du Lịch - Đại học Huế",
+   "khoa du lich - dai hoc hue",
+   "khoa du lịch - đại học huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-ngoai-ngu-dai-hoc-thai-nguyen",
+  "name": "Khoa Ngoại Ngữ - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "Khoa Ngoại Ngữ - Đại học Thái Nguyên",
+   "khoa ngoai ngu - dai hoc thai nguyen",
+   "khoa ngoại ngữ - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-quoc-te-dai-hoc-thai-nguyen",
+  "name": "Khoa Quốc Tế - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "Khoa Quốc Tế - Đại học Thái Nguyên",
+   "khoa quoc te - dai hoc thai nguyen",
+   "khoa quốc tế - đại học thái nguyên"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-quoc-te-dh-hue",
+  "name": "Khoa Quốc Tế - ĐH Huế",
+  "province": "Huế",
+  "aliases": [
+   "Khoa Quốc Tế - ĐH Huế",
+   "khoa quoc te - dh hue",
+   "khoa quốc tế - đh huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "khoa-ky-thuat-va-cong-nghe-dh-hue",
+  "name": "Khoa Kỹ thuật và Công Nghệ - ĐH Huế",
+  "province": "Huế",
+  "aliases": [
+   "Khoa Kỹ thuật và Công Nghệ - ĐH Huế",
+   "khoa ky thuat va cong nghe - dh hue",
+   "khoa kỹ thuật và công nghệ - đh huế"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "phan-hieu-dai-hoc-da-nang-tai-kon-tum",
+  "name": "Phân Hiệu Đại học Đà Nẵng tại Kon Tum",
+  "province": "Kon Tum",
+  "aliases": [
+   "Phân Hiệu Đại học Đà Nẵng tại Kon Tum",
+   "phan hieu dai hoc da nang tai kon tum",
+   "phân hiệu đại học đà nẵng tại kon tum"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "phan-hieu-dai-hoc-hue-tai-quang-tri",
+  "name": "Phân Hiệu Đại học Huế tại Quảng Trị",
+  "province": "Huế",
+  "aliases": [
+   "Phân Hiệu Đại học Huế tại Quảng Trị",
+   "phan hieu dai hoc hue tai quang tri",
+   "phân hiệu đại học huế tại quảng trị"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "phan-hieu-dh-tai-nguyen-va-moi-truong-tai-thanh-hoa",
+  "name": "Phân hiệu ĐH Tài nguyên và Môi trường tại Thanh Hoá",
+  "province": "Thanh Hóa",
+  "aliases": [
+   "Phân hiệu ĐH Tài nguyên và Môi trường tại Thanh Hoá",
+   "phan hieu dh tai nguyen va moi truong tai thanh hoa",
+   "phân hiệu đh tài nguyên và môi trường tại thanh hoá"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-phong-hoa",
+  "name": "Trường Sĩ Quan Phòng Hóa",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Sĩ Quan Phòng Hóa",
+   "truong si quan phong hoa",
+   "trường sĩ quan phòng hóa"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-khong-quan-he-dai-hoc",
+  "name": "Trường Sĩ Quan Không Quân - Hệ Đại học",
+  "province": "Khánh Hòa",
+  "aliases": [
+   "Trường Sĩ Quan Không Quân - Hệ Đại học",
+   "truong si quan khong quan - he dai hoc",
+   "trường sĩ quan không quân - hệ đại học"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-luc-quan-1-dai-hoc-tran-quoc-tuan",
+  "name": "Trường Sĩ Quan Lục Quân 1 - Đại học Trần Quốc Tuấn",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Sĩ Quan Lục Quân 1 - Đại học Trần Quốc Tuấn",
+   "truong si quan luc quan 1 - dai hoc tran quoc tuan",
+   "trường sĩ quan lục quân 1 - đại học trần quốc tuấn"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-chinh-tri-dai-hoc-chinh-tri",
+  "name": "Trường Sĩ Quan Chính Trị - Đại học Chính Trị",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Sĩ Quan Chính Trị - Đại học Chính Trị",
+   "truong si quan chinh tri - dai hoc chinh tri",
+   "trường sĩ quan chính trị - đại học chính trị"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-cong-binh-he-quan-su-dai-hoc-ngo-quyen",
+  "name": "Trường Sĩ Quan Công Binh - Hệ Quân sự - Đại học Ngô Quyền",
+  "province": "Bình Dương",
+  "aliases": [
+   "Trường Sĩ Quan Công Binh - Hệ Quân sự - Đại học Ngô Quyền",
+   "truong si quan cong binh - he quan su - dai hoc ngo quyen",
+   "trường sĩ quan công binh - hệ quân sự - đại học ngô quyền"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-phao-binh",
+  "name": "Trường Sĩ Quan Pháo Binh",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Sĩ Quan Pháo Binh",
+   "truong si quan phao binh",
+   "trường sĩ quan pháo binh"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-luc-quan-2-dai-hoc-nguyen-hue",
+  "name": "Trường Sĩ Quan Lục Quân 2 - Đại học Nguyễn Huệ",
+  "province": "Đồng Nai",
+  "aliases": [
+   "Trường Sĩ Quan Lục Quân 2 - Đại học Nguyễn Huệ",
+   "truong si quan luc quan 2 - dai hoc nguyen hue",
+   "trường sĩ quan lục quân 2 - đại học nguyễn huệ"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-tang-thiet-giap",
+  "name": "Trường Sĩ Quan Tăng - Thiết Giáp",
+  "province": "Vĩnh Phúc",
+  "aliases": [
+   "Trường Sĩ Quan Tăng - Thiết Giáp",
+   "truong si quan tang - thiet giap",
+   "trường sĩ quan tăng - thiết giáp"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-dac-cong",
+  "name": "Trường Sĩ Quan Đặc Công",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Sĩ Quan Đặc Công",
+   "truong si quan dac cong",
+   "trường sĩ quan đặc công"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "truong-si-quan-thong-tin-he-quan-su-dai-hoc-thong-tin-lien-lac",
+  "name": "Trường Sĩ Quan Thông Tin - Hệ Quân sự - Đại học Thông Tin Liên Lạc",
+  "province": "Khánh Hòa",
+  "aliases": [
+   "Trường Sĩ Quan Thông Tin - Hệ Quân sự - Đại học Thông Tin Liên Lạc",
+   "truong si quan thong tin - he quan su - dai hoc thong tin lien lac",
+   "trường sĩ quan thông tin - hệ quân sự - đại học thông tin liên lạc"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "vien-nghien-cuu-va-dao-tao-viet-anh-dai-hoc-da-nang",
+  "name": "Viện Nghiên cứu và Đào tạo Việt - Anh - Đại học Đà Nẵng",
+  "province": "Đà Nẵng",
+  "aliases": [
+   "Viện Nghiên cứu và Đào tạo Việt - Anh - Đại học Đà Nẵng",
+   "vien nghien cuu va dao tao viet - anh - dai hoc da nang",
+   "viện nghiên cứu và đào tạo việt - anh - đại học đà nẵng"
+  ],
+  "source_id": "src_cutoff_2025_scrape"
+ },
+ {
+  "id": "cao-dang-cong-nghe-va-kinh-te-bao-loc",
+  "name": "Cao Đẳng Công Nghệ Và Kinh Tế Bảo Lộc",
+  "province": "Lâm Đồng",
+  "aliases": [
+   "Cao Đẳng Công Nghệ Và Kinh Tế Bảo Lộc"
+  ],
+  "source_id": "src_936b527131"
+ },
+ {
+  "id": "dai-hoc-an-giang-dai-hoc-quoc-gia-tp-hcm",
+  "name": "Đại học An Giang - Đại học Quốc gia TP HCM",
+  "province": "An Giang",
+  "aliases": [
+   "Đại học An Giang - Đại học Quốc gia TP HCM"
+  ],
+  "source_id": "src_ed7f2e4ba3"
+ },
+ {
+  "id": "dai-hoc-an-ninh-nhan-dan",
+  "name": "Đại học An Ninh Nhân Dân",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học An Ninh Nhân Dân"
+  ],
+  "source_id": "src_f431b13765"
+ },
+ {
+  "id": "dai-hoc-bach-khoa-ha-noi",
+  "name": "Đại học Bách khoa Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "bach khoa ha noi",
+   "bkhn",
+   "bách khoa hn",
+   "bách khoa hà nội",
+   "dh bách khoa",
+   "hust",
+   "Đại học Bách khoa Hà Nội",
+   "đại học bách khoa hà nội"
+  ],
+  "source_id": "src_7f3f943dff"
+ },
+ {
+  "id": "dai-hoc-can-tho",
+  "name": "Đại học Cần Thơ",
+  "province": "Cần Thơ",
+  "aliases": [
+   "Đại học Cần Thơ"
+  ],
+  "source_id": "src_fc699fd582"
+ },
+ {
+  "id": "dai-hoc-canh-sat-nhan-dan",
+  "name": "Đại học Cảnh Sát Nhân Dân",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Cảnh Sát Nhân Dân"
+  ],
+  "source_id": "src_b5e596c72b"
+ },
+ {
+  "id": "dai-hoc-cong-doan",
+  "name": "Đại học Công đoàn",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Công đoàn"
+  ],
+  "source_id": "src_d7a6dca1fb"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Công nghệ - Đại học Quốc gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+  ],
+  "source_id": "src_38653fbd05"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-thong-tin-dai-hoc-quoc-gia-tp-hcm",
+  "name": "Đại học Công nghệ Thông tin - Đại học Quốc gia TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Công nghệ Thông tin - Đại học Quốc gia TP HCM"
+  ],
+  "source_id": "src_646b139a07"
+ },
+ {
+  "id": "dai-hoc-cong-nghe-thong-tin-va-truyen-thong-dai-hoc-thai-nguyen",
+  "name": "Đại học Công Nghệ Thông Tin và Truyền Thông - Đại học Thái Nguyên",
+  "province": "Thái Nguyên",
+  "aliases": [
+   "Đại học Công Nghệ Thông Tin và Truyền Thông - Đại học Thái Nguyên"
+  ],
+  "source_id": "src_baaf49b55a"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-va-thuong-mai-ha-noi",
+  "name": "Đại học Công nghiệp và Thương mại Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Công nghiệp và Thương mại Hà Nội"
+  ],
+  "source_id": "src_0427e2b662"
+ },
+ {
+  "id": "dai-hoc-cong-nghiep-ha-noi",
+  "name": "Đại học Công nghiệp Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Công nghiệp Hà Nội"
+  ],
+  "source_id": "src_bb334670cc"
+ },
+ {
+  "id": "dai-hoc-cong-thuong-tp-hcm",
+  "name": "Đại học Công Thương TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Công Thương TP HCM"
+  ],
+  "source_id": "src_9f1af5e2f7"
+ },
+ {
+  "id": "dai-hoc-quan-ly-va-cong-nghe-hai-phong",
+  "name": "Đại học Quản lý và Công nghệ Hải Phòng",
+  "province": "Hải Phòng",
+  "aliases": [
+   "Đại học Quản lý và Công nghệ Hải Phòng"
+  ],
+  "source_id": "src_3fcb478120"
+ },
+ {
+  "id": "dai-hoc-giao-duc-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Giáo dục - Đại học Quốc gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Giáo dục - Đại học Quốc gia Hà Nội"
+  ],
+  "source_id": "src_7f3777468e"
+ },
+ {
+  "id": "dai-hoc-giao-thong-van-tai-co-so-phia-bac",
+  "name": "Đại học Giao thông Vận tải ( Cơ sở Phía Bắc )",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Giao thông Vận tải ( Cơ sở Phía Bắc )"
+  ],
+  "source_id": "src_b5e7d09eb7"
+ },
+ {
+  "id": "dai-hoc-ha-noi",
+  "name": "Đại học Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Hà Nội"
+  ],
+  "source_id": "src_1fbc19fa57"
+ },
+ {
+  "id": "dai-hoc-hoa-sen",
+  "name": "Đại học Hoa Sen",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Hoa Sen"
+  ],
+  "source_id": "src_0806e896b0"
+ },
+ {
+  "id": "dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Khoa học tự nhiên - Đại học Quốc Gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Khoa học tự nhiên - Đại học Quốc Gia Hà Nội"
+  ],
+  "source_id": "src_0601bb42dc"
+ },
+ {
+  "id": "dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-tp-hcm",
+  "name": "Đại học Khoa học Tự nhiên - Đại học Quốc gia TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Khoa học Tự nhiên - Đại học Quốc gia TP HCM"
+  ],
+  "source_id": "src_5147fb0e8c"
+ },
+ {
+  "id": "dai-hoc-khoa-hoc-xa-hoi-va-nhan-van-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Khoa học Xã hội và Nhân văn - Đại học Quốc gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Khoa học Xã hội và Nhân văn - Đại học Quốc gia Hà Nội"
+  ],
+  "source_id": "src_6c01388334"
+ },
+ {
+  "id": "dai-hoc-kinh-te-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Kinh Tế - Đại học Quốc Gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Kinh Tế - Đại học Quốc Gia Hà Nội"
+  ],
+  "source_id": "src_9d04d7f157"
+ },
+ {
+  "id": "dai-hoc-kinh-te-ky-thuat-cong-nghiep",
+  "name": "Đại học Kinh Tế Kỹ Thuật Công Nghiệp",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Kinh Tế Kỹ Thuật Công Nghiệp"
+  ],
+  "source_id": "src_c1da508e93"
+ },
+ {
+  "id": "dai-hoc-kinh-te-luat-dai-hoc-quoc-gia-tp-hcm",
+  "name": "Đại học Kinh tế - Luật, Đại học Quốc gia TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Kinh tế - Luật, Đại học Quốc gia TP HCM"
+  ],
+  "source_id": "src_1d63cd2403"
+ },
+ {
+  "id": "dai-hoc-kinh-te-tp-hcm",
+  "name": "Đại học Kinh tế TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Kinh tế TP HCM"
+  ],
+  "source_id": "src_f7c7b343ed"
+ },
+ {
+  "id": "hoc-vien-ky-thuat-va-cong-nghe-an-ninh",
+  "name": "Học viện Kỹ thuật và Công nghệ an ninh",
+  "province": "Bắc Ninh",
+  "aliases": [
+   "Học viện Kỹ thuật và Công nghệ an ninh"
+  ],
+  "source_id": "src_a32e47da8a"
+ },
+ {
+  "id": "dai-hoc-ky-thuat-hau-can-cong-an-nhan-dan-phia-nam",
+  "name": "Đại học Kỹ Thuật - Hậu Cần Công An Nhân Dân ( Phía Nam )",
+  "province": "Đồng Nai",
+  "aliases": [
+   "Đại học Kỹ Thuật - Hậu Cần Công An Nhân Dân ( Phía Nam )"
+  ],
+  "source_id": "src_64493a71ee"
+ },
+ {
+  "id": "dai-hoc-ky-thuat-y-te-hai-duong",
+  "name": "Đại học Kỹ thuật Y tế Hải Dương",
+  "province": "Hải Phòng",
+  "aliases": [
+   "Đại học Kỹ thuật Y tế Hải Dương"
+  ],
+  "source_id": "src_25ed7b04dd"
+ },
+ {
+  "id": "dai-hoc-luat-dai-hoc-hue",
+  "name": "Đại học Luật - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "Đại học Luật - Đại học Huế"
+  ],
+  "source_id": "src_a7bfc3aa99"
+ },
+ {
+  "id": "dai-hoc-luat-ha-noi",
+  "name": "Đại học Luật Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Luật Hà Nội"
+  ],
+  "source_id": "src_6ff19a061d"
+ },
+ {
+  "id": "dai-hoc-mo-ha-noi",
+  "name": "Đại học Mở Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Mở Hà Nội"
+  ],
+  "source_id": "src_eaa00096af"
+ },
+ {
+  "id": "dai-hoc-mo-tp-hcm",
+  "name": "Đại học Mở TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Mở TP HCM"
+  ],
+  "source_id": "src_f93c462500"
+ },
+ {
+  "id": "dai-hoc-nam-can-tho",
+  "name": "Đại học Nam Cần Thơ",
+  "province": "Cần Thơ",
+  "aliases": [
+   "Đại học Nam Cần Thơ"
+  ],
+  "source_id": "src_c9bff6415d"
+ },
+ {
+  "id": "dai-hoc-ngan-hang-tp-hcm",
+  "name": "Đại học Ngân hàng TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Ngân hàng TP HCM"
+  ],
+  "source_id": "src_ccac0d1f9f"
+ },
+ {
+  "id": "dai-hoc-ngoai-ngu-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Ngoại ngữ - Đại học Quốc Gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Ngoại ngữ - Đại học Quốc Gia Hà Nội"
+  ],
+  "source_id": "src_5a8117e4ee"
+ },
+ {
+  "id": "dai-hoc-ngoai-thuong-phia-bac",
+  "name": "Đại học Ngoại thương (phía Bắc)",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Ngoại thương (phía Bắc)"
+  ],
+  "source_id": "src_7829755492"
+ },
+ {
+  "id": "dai-hoc-nguyen-tat-thanh",
+  "name": "Đại học Nguyễn Tất Thành",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Nguyễn Tất Thành"
+  ],
+  "source_id": "src_d8e13d124f"
+ },
+ {
+  "id": "hoc-vien-hanh-chinh-va-quan-tri-cong",
+  "name": "Học viện Hành chính và Quản trị công",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Hành chính và Quản trị công"
+  ],
+  "source_id": "src_b3747f251d"
+ },
+ {
+  "id": "dai-hoc-nong-lam-tp-hcm",
+  "name": "Đại học Nông Lâm TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Nông Lâm TP HCM"
+  ],
+  "source_id": "src_960e45fdaa"
+ },
+ {
+  "id": "hoc-vien-phong-chay-chua-chay-va-cuu-nan-cuu-ho",
+  "name": "Học viện Phòng cháy chữa cháy và Cứu nạn cứu hộ",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Phòng cháy chữa cháy và Cứu nạn cứu hộ"
+  ],
+  "source_id": "src_280be42b8a"
+ },
+ {
+  "id": "dai-hoc-phong-chay-chua-chay-phia-nam",
+  "name": "Đại học Phòng Cháy Chữa Cháy (phía Nam)",
+  "province": "Đồng Nai",
+  "aliases": [
+   "Đại học Phòng Cháy Chữa Cháy (phía Nam)"
+  ],
+  "source_id": "src_2effc7dd57"
+ },
+ {
+  "id": "dai-hoc-quoc-te-dai-hoc-quoc-gia-tp-hcm",
+  "name": "Đại học Quốc tế - Đại học Quốc gia TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Quốc tế - Đại học Quốc gia TP HCM"
+  ],
+  "source_id": "src_df4a64a70a"
+ },
+ {
+  "id": "dai-hoc-sai-gon",
+  "name": "Đại học Sài Gòn",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Sài Gòn"
+  ],
+  "source_id": "src_8602893351"
+ },
+ {
+  "id": "dai-hoc-su-pham-ha-noi",
+  "name": "Đại học Sư phạm Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Sư phạm Hà Nội"
+  ],
+  "source_id": "src_9cea0a2151"
+ },
+ {
+  "id": "dai-hoc-su-pham-the-duc-the-thao-ha-noi",
+  "name": "Đại Học Sư Phạm Thể Dục Thể Thao Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "dai hoc su pham the duc the thao ha noi",
+   "Đại Học Sư Phạm Thể Dục Thể Thao Hà Nội",
+   "đại học sư phạm thể dục thể thao hà nội"
+  ],
+  "source_id": "src_6325c76c39"
+ },
+ {
+  "id": "dai-hoc-thang-long",
+  "name": "Đại học Thăng Long",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Thăng Long"
+  ],
+  "source_id": "src_f6d90af207"
+ },
+ {
+  "id": "dai-hoc-thuong-mai",
+  "name": "Đại học Thương mại",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Thương mại"
+  ],
+  "source_id": "src_6598132620"
+ },
+ {
+  "id": "dai-hoc-ton-duc-thang",
+  "name": "Đại học Tôn Đức Thắng",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Tôn Đức Thắng"
+  ],
+  "source_id": "src_1cee14aa63"
+ },
+ {
+  "id": "dai-hoc-van-hien",
+  "name": "Đại học Văn Hiến",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Văn Hiến"
+  ],
+  "source_id": "src_f2effa2f3d"
+ },
+ {
+  "id": "dai-hoc-van-lang",
+  "name": "Đại học Văn Lang",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Văn Lang"
+  ],
+  "source_id": "src_d912f391da"
+ },
+ {
+  "id": "dai-hoc-viet-nhat-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Việt Nhật - Đại học Quốc gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Việt Nhật - Đại học Quốc gia Hà Nội"
+  ],
+  "source_id": "src_5dda39c49b"
+ },
+ {
+  "id": "dai-hoc-y-duoc-dai-hoc-quoc-gia-ha-noi",
+  "name": "Đại học Y Dược - Đại học Quốc Gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Y Dược - Đại học Quốc Gia Hà Nội"
+  ],
+  "source_id": "src_08a3649d05"
+ },
+ {
+  "id": "dai-hoc-y-duoc-hai-phong",
+  "name": "Đại học Y Dược Hải Phòng",
+  "province": "Hải Phòng",
+  "aliases": [
+   "Đại học Y Dược Hải Phòng"
+  ],
+  "source_id": "src_f46ee2b9e1"
+ },
+ {
+  "id": "dai-hoc-y-duoc-thai-binh",
+  "name": "Đại học Y Dược Thái Bình",
+  "province": "Hưng Yên",
+  "aliases": [
+   "Đại học Y Dược Thái Bình"
+  ],
+  "source_id": "src_939bb78c62"
+ },
+ {
+  "id": "dai-hoc-y-duoc-tp-hcm",
+  "name": "Đại học Y Dược TP HCM",
+  "province": "TP HCM",
+  "aliases": [
+   "dh y duoc tphcm",
+   "ump",
+   "y duoc tphcm",
+   "y dược tphcm",
+   "y tphcm",
+   "Đại học Y Dược TP HCM"
+  ],
+  "source_id": "src_93bc56ff36"
+ },
+ {
+  "id": "dai-hoc-y-ha-noi",
+  "name": "Đại học Y Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Đại học Y Hà Nội"
+  ],
+  "source_id": "src_172c8a516d"
+ },
+ {
+  "id": "dai-hoc-y-khoa-pham-ngoc-thach",
+  "name": "Đại học Y khoa Phạm Ngọc Thạch",
+  "province": "TP HCM",
+  "aliases": [
+   "Đại học Y khoa Phạm Ngọc Thạch"
+  ],
+  "source_id": "src_12a05e3f23"
+ },
+ {
+  "id": "hoc-vien-an-ninh-nhan-dan",
+  "name": "Học viện An Ninh Nhân Dân",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện An Ninh Nhân Dân"
+  ],
+  "source_id": "src_39bec0b3af"
+ },
+ {
+  "id": "hoc-vien-bao-chi-va-tuyen-truyen",
+  "name": "Học viện Báo chí và Tuyên truyền",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Báo chí và Tuyên truyền"
+  ],
+  "source_id": "src_3e6f265d4f"
+ },
+ {
+  "id": "hoc-vien-canh-sat-nhan-dan",
+  "name": "Học viện Cảnh sát nhân dân",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Cảnh sát nhân dân"
+  ],
+  "source_id": "src_7009b68b83"
+ },
+ {
+  "id": "hoc-vien-chinh-tri-cong-an-nhan-dan",
+  "name": "Học viện Chính Trị Công An Nhân Dân",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Chính Trị Công An Nhân Dân"
+  ],
+  "source_id": "src_86633e3bc2"
+ },
+ {
+  "id": "hoc-vien-hang-khong-viet-nam",
+  "name": "Học viện Hàng không Việt Nam",
+  "province": "TP HCM",
+  "aliases": [
+   "Học viện Hàng không Việt Nam"
+  ],
+  "source_id": "src_55d69f95ba"
+ },
+ {
+  "id": "hoc-vien-hau-can-he-dan-su",
+  "name": "Học Viện Hậu Cần - Hệ Dân sự",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học Viện Hậu Cần - Hệ Dân sự"
+  ],
+  "source_id": "src_cdc91fff47"
+ },
+ {
+  "id": "hoc-vien-ngan-hang",
+  "name": "Học viện Ngân hàng",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Ngân hàng"
+  ],
+  "source_id": "src_93fe967e06"
+ },
+ {
+  "id": "hoc-vien-ngoai-giao",
+  "name": "Học viện Ngoại giao",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Ngoại giao"
+  ],
+  "source_id": "src_7e6e58a033"
+ },
+ {
+  "id": "hoc-vien-nong-nghiep-viet-nam",
+  "name": "Học viện Nông nghiệp Việt Nam",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Nông nghiệp Việt Nam"
+  ],
+  "source_id": "src_48b8614967"
+ },
+ {
+  "id": "hoc-vien-quan-y-he-quan-su",
+  "name": "Học viện Quân Y - Hệ Quân sự",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Quân Y - Hệ Quân sự"
+  ],
+  "source_id": "src_df4d28c70b"
+ },
+ {
+  "id": "hoc-vien-tai-chinh",
+  "name": "Học viện Tài chính",
+  "province": "Hà Nội",
+  "aliases": [
+   "Học viện Tài chính"
+  ],
+  "source_id": "src_4a02a74c17"
+ },
+ {
+  "id": "truong-du-lich-dai-hoc-hue",
+  "name": "Trường Du lịch - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "Trường Du lịch - Đại học Huế"
+  ],
+  "source_id": "src_e2a8878457"
+ },
+ {
+  "id": "khoa-ky-thuat-va-cong-nghe-dai-hoc-hue",
+  "name": "Khoa Kỹ thuật và Công Nghệ - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "Khoa Kỹ thuật và Công Nghệ - Đại học Huế"
+  ],
+  "source_id": "src_07c53f7622"
+ },
+ {
+  "id": "truong-luat-dai-hoc-quoc-gia-ha-noi",
+  "name": "Trường Luật - Đại học Quốc gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Luật - Đại học Quốc gia Hà Nội"
+  ],
+  "source_id": "src_db1b4e6792"
+ },
+ {
+  "id": "truong-quan-tri-va-kinh-doanh-dai-hoc-quoc-gia-ha-noi",
+  "name": "Trường Quản trị và Kinh doanh - Đại học Quốc gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Quản trị và Kinh doanh - Đại học Quốc gia Hà Nội"
+  ],
+  "source_id": "src_73291ac6ee"
+ },
+ {
+  "id": "truong-quoc-te-dai-hoc-quoc-gia-ha-noi",
+  "name": "Trường Quốc Tế - Đại học Quốc Gia Hà Nội",
+  "province": "Hà Nội",
+  "aliases": [
+   "Trường Quốc Tế - Đại học Quốc Gia Hà Nội"
+  ],
+  "source_id": "src_d6a1e55332"
+ },
+ {
+  "id": "khoa-quoc-te-dai-hoc-hue",
+  "name": "Khoa Quốc Tế - Đại học Huế",
+  "province": "Huế",
+  "aliases": [
+   "Khoa Quốc Tế - Đại học Huế"
+  ],
+  "source_id": "src_d1a72fee70"
+ },
+ {
+  "id": "truong-dai-hoc-khoa-hoc-suc-khoe",
+  "name": "Trường Đại học Khoa học Sức khỏe",
+  "province": "TP HCM",
+  "aliases": [
+   "Trường Đại học Khoa học Sức khỏe"
+  ],
+  "source_id": "src_9a9c689878"
+ },
+ {
+  "id": "truong-si-quan-ki-thuat-quan-su-he-quan-su-dai-hoc-tran-dai-nghia",
+  "name": "Trường Sĩ Quan Kĩ Thuật Quân Sự -  Hệ Quân sự - Đại Học Trần Đại Nghĩa",
+  "province": "TP HCM",
+  "aliases": [
+   "Trường Sĩ Quan Kĩ Thuật Quân Sự -  Hệ Quân sự - Đại Học Trần Đại Nghĩa"
+  ],
+  "source_id": "src_04070bdec2"
+ }
+]

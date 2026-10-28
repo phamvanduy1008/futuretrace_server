@@ -19,8 +19,48 @@ const config = {
   lang: 'vi',
 };
 
-// Valid token pack amounts
-const VALID_TOKEN_AMOUNTS = [100, 250, 550, 1200, 2500, 5000];
+// Bảng giá do server quy định (khớp StorePage.tsx). Không bao giờ tin giá client gửi lên.
+const TOKEN_PACK_PRICES = { 100: 29000, 250: 59000, 550: 119000, 1200: 229000, 2500: 449000, 5000: 799000 };
+const VALID_TOKEN_AMOUNTS = Object.keys(TOKEN_PACK_PRICES).map(Number);
+
+const hmac = (raw) => crypto.createHmac('sha256', config.secretKey).update(raw).digest('hex');
+
+const safeEqualHex = (a, b) => {
+  const bufA = Buffer.from(String(a || ''), 'hex');
+  const bufB = Buffer.from(String(b || ''), 'hex');
+  return bufA.length === bufB.length && bufA.length > 0 && crypto.timingSafeEqual(bufA, bufB);
+};
+
+/**
+ * Cộng token cho đơn đã thanh toán. Idempotent (processed_orders) và chỉ cộng khi
+ * số tiền MoMo xác nhận đúng bằng giá gói.
+ */
+const creditPaidOrder = async (orderId, paidAmount, metadata) => {
+  const { userId, tokenAmount } = parseOrderId(orderId);
+  const expectedPrice = TOKEN_PACK_PRICES[tokenAmount];
+  if (!expectedPrice || Number(paidAmount) !== expectedPrice) {
+    console.warn(`[Payment] Amount mismatch for ${orderId}: paid=${paidAmount}, expected=${expectedPrice}`);
+    return false;
+  }
+  const updateResult = await User.updateOne(
+    { _id: userId, processed_orders: { $ne: orderId } },
+    { $inc: { token: tokenAmount }, $addToSet: { processed_orders: orderId } }
+  );
+  if (updateResult.modifiedCount !== 1) return false;
+
+  const Transaction = require('../models/Transaction');
+  await Transaction.create({
+    userId,
+    amount: Number(paidAmount),
+    tokenAmount,
+    paymentMethod: 'momo',
+    status: 'success',
+    orderId,
+    description: `Mua gói ${tokenAmount} token qua MoMo`,
+    metadata
+  });
+  return true;
+};
 
 const parseOrderId = (orderId) => {
   // Format: userId_tokenAmount_timestamp
@@ -32,7 +72,7 @@ const parseOrderId = (orderId) => {
 };
 
 // Create payment
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
   try {
     const {
       accessKey,
@@ -49,15 +89,14 @@ router.post('/', async (req, res) => {
 
     const orderData = req.body;
 
-    // Validate orderData
-    if (!orderData.total_price || !orderData.userId) {
-      return res.status(400).json({ message: 'Missing total_price or userId' });
+    const tokenAmount = Number(orderData.tokenAmount);
+    if (!VALID_TOKEN_AMOUNTS.includes(tokenAmount)) {
+      return res.status(400).json({ message: 'Gói token không hợp lệ.' });
     }
 
-    const tokenAmount = VALID_TOKEN_AMOUNTS.includes(orderData.tokenAmount) ? orderData.tokenAmount : 0;
     const extraData = Buffer.from(JSON.stringify({ tokenAmount })).toString('base64');
-    const amount = orderData.total_price.toString();
-    const orderId = `${orderData.userId}_${tokenAmount}_${new Date().getTime()}`;
+    const amount = String(TOKEN_PACK_PRICES[tokenAmount]);
+    const orderId = `${req.user.userId}_${tokenAmount}_${new Date().getTime()}`;
     const requestId = orderId;
 
     const rawSignature =
@@ -72,10 +111,7 @@ router.post('/', async (req, res) => {
       '&requestId=' + requestId +
       '&requestType=' + requestType;
 
-    const signature = crypto
-      .createHmac('sha256', secretKey)
-      .update(rawSignature)
-      .digest('hex');
+    const signature = hmac(rawSignature);
 
     const requestBody = JSON.stringify({
       partnerCode: partnerCode,
@@ -158,36 +194,10 @@ router.post('/check-status', async (req, res) => {
     };
     const result = await axios(options);
 
-    // If transaction is successful, add tokens to user
+    // Chỉ cộng token khi MoMo xác nhận thành công VÀ số tiền khớp giá gói
     if (result.data.resultCode === 0) {
-      const { userId, tokenAmount } = parseOrderId(orderId);
-
       try {
-        const user = await User.findById(userId);
-        if (user && tokenAmount > 0) {
-          // Use atomic update to prevent double-crediting
-          const updateResult = await User.updateOne(
-            { _id: userId, processed_orders: { $ne: orderId } },
-            {
-              $inc: { token: tokenAmount },
-              $addToSet: { processed_orders: orderId }
-            }
-          );
-
-          if (updateResult.modifiedCount === 1) {
-            const Transaction = require('../models/Transaction');
-            await Transaction.create({
-              userId,
-              amount: result.data.amount || 0,
-              tokenAmount,
-              paymentMethod: 'momo',
-              status: 'success',
-              orderId: orderId,
-              description: `Mua gói ${tokenAmount} token qua MoMo`,
-              metadata: result.data
-            });
-          }
-        }
+        await creditPaidOrder(orderId, result.data.amount, result.data);
       } catch (err) {
         console.error("Error updating user tokens:", err);
       }
@@ -200,9 +210,28 @@ router.post('/check-status', async (req, res) => {
   }
 });
 
-// Callback/IPN Handler
-router.post('/callback', (req, res) => {
-  console.log("MoMo IPN Callback received:", req.body);
+// Callback/IPN Handler - xác minh chữ ký HMAC-SHA256 theo đặc tả MoMo v2 trước khi cộng token
+router.post('/callback', async (req, res) => {
+  const b = req.body || {};
+  const rawSignature =
+    `accessKey=${config.accessKey}&amount=${b.amount}&extraData=${b.extraData}` +
+    `&message=${b.message}&orderId=${b.orderId}&orderInfo=${b.orderInfo}` +
+    `&orderType=${b.orderType}&partnerCode=${b.partnerCode}&payType=${b.payType}` +
+    `&requestId=${b.requestId}&responseTime=${b.responseTime}&resultCode=${b.resultCode}` +
+    `&transId=${b.transId}`;
+
+  if (!safeEqualHex(hmac(rawSignature), b.signature)) {
+    console.warn('[MoMo IPN] Invalid signature for order', b.orderId);
+    return res.status(400).json({ message: 'Invalid signature' });
+  }
+
+  try {
+    if (Number(b.resultCode) === 0) {
+      await creditPaidOrder(b.orderId, b.amount, b);
+    }
+  } catch (err) {
+    console.error('[MoMo IPN] Credit error:', err);
+  }
   return res.status(204).send();
 });
 // POST /api/payment/claim-free-pack

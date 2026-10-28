@@ -1,0 +1,815 @@
+{
+  "Bán hàng - Kinh doanh": {
+    "industry": "Bán hàng - Kinh doanh",
+    "total_postings": 58932,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 10.7,
+      "college_percent": 24.8
+    },
+    "top_hiring_companies": [
+      "Hệ Thống Anh Ngữ Quốc Tế Ocean Edu - Công Ty Cổ Phần Giải Pháp Giáo Dục Hưng Yên",
+      "Công Ty Cổ Phần Viễn Thông Fpt",
+      "Công ty TNHH Manpower Việt Nam",
+      "Công Ty Cổ Phần Green Speed",
+      "Chi Nhánh Công Ty TNHH Nhà Nước Một Thành Viên Thương Mại Và Xuất Nhập Khẩu Viettel - Trung Tâm Bán Lẻ"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Bán Hàng",
+      "Nhân Viên Kinh Doanh Thị Trường",
+      "Trưởng Phòng Kinh Doanh",
+      "Nhân Viên Chăm Sóc Khách Hàng"
+    ]
+  },
+  "Chăm sóc khách hàng": {
+    "industry": "Chăm sóc khách hàng",
+    "total_postings": 56083,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 4.8,
+      "college_percent": 19.8
+    },
+    "top_hiring_companies": [
+      "Công Ty Tài Chính TNHH Hd Saison",
+      "Công Ty Cổ Phần BPO Mắt Bão",
+      "Công Ty Cổ Phần Bellsystem24 Việt Nam",
+      "Công Ty Cổ Phần Truyền Thông Kim Cương",
+      "Công Ty TNHH Vietnam Concentrix Services"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Chăm Sóc Khách Hàng",
+      "Nhân Viên Bán Hàng",
+      "Nhân Viên Kinh Doanh Thị Trường",
+      "Nhân Viên Kinh Doanh - Đi Làm Ngay"
+    ]
+  },
+  "Kế toán / Kiểm toán": {
+    "industry": "Kế toán / Kiểm toán",
+    "total_postings": 50242,
+    "salary_vnd_million": {
+      "min_median": 10.0,
+      "avg_median": 10.0,
+      "max_median": 10.0
+    },
+    "experience_salary": {
+      "Nhân viên": {
+        "min": 10.0,
+        "max": 10.0,
+        "count": 34
+      }
+    },
+    "education_requirement": {
+      "university_percent": 22.8,
+      "college_percent": 37.2
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Vacxin Việt Nam",
+      "Công Ty TNHH MTV Gas Á Châu",
+      "Tập Đoàn Tân Á Đại Thành",
+      "Công Ty TNHH Tập Đoàn Rita Võ",
+      "Công Ty TNHH Dịch Vụ Tài Nguyên Nhân Sự Yi Qi Ying"
+    ],
+    "sample_roles": [
+      "Kế Toán Tổng Hợp",
+      "Nhân Viên Kế Toán",
+      "Kế Toán Viên",
+      "Kế Toán Nội Bộ",
+      "Kế Toán Trưởng"
+    ]
+  },
+  "Xây dựng": {
+    "industry": "Xây dựng",
+    "total_postings": 29757,
+    "salary_vnd_million": {
+      "min_median": 15.0,
+      "avg_median": 17.5,
+      "max_median": 20.0
+    },
+    "experience_salary": {
+      "Nhân viên": {
+        "min": 15.0,
+        "max": 20.0,
+        "count": 280
+      },
+      "Trưởng nhóm": {
+        "min": 20.5,
+        "max": 32.5,
+        "count": 10
+      }
+    },
+    "education_requirement": {
+      "university_percent": 32.2,
+      "college_percent": 31.1
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Vinhomes",
+      "Công Ty Cổ Phần Thiết Kế Và Xây Dựng Giza Việt Nam",
+      "Công Ty TNHH Siam City Cement (Việt Nam)",
+      "Công Ty Cổ Phần Phát Triển Và Đầu Tư Xây Dựng Vincons",
+      "Công Ty Cổ Phần Tập Đoàn Đèo Cả"
+    ],
+    "sample_roles": [
+      "Kỹ Sư Xây Dựng",
+      "Nhân Viên Kinh Doanh",
+      "Kiến Trúc Sư",
+      "Nhân Viên Thiết Kế Nội Thất",
+      "Giám Sát Công Trình"
+    ]
+  },
+  "Cơ khí - Ô tô - Tự động hóa / Sản xuất - Lắp ráp - Chế biến": {
+    "industry": "Cơ khí - Ô tô - Tự động hóa / Sản xuất - Lắp ráp - Chế biến",
+    "total_postings": 24861,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 13.7,
+      "college_percent": 23.4
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Tập Đoàn Dat",
+      "Công Ty Cổ Phần Tập Đoàn Công Nghiệp Việt",
+      "Công Ty TNHH Tập Đoàn Rita Võ",
+      "Công Ty Cổ Phần Ô Tô Gmg",
+      "Công Ty Cổ Phần Công Nghiệp Weldcom"
+    ],
+    "sample_roles": [
+      "Kỹ Sư Cơ Khí",
+      "Nhân Viên Kỹ Thuật",
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Kỹ Thuật Cơ Khí",
+      "Nhân Viên Vận Hành Máy"
+    ]
+  },
+  "Khoa học - Kỹ thuật": {
+    "industry": "Khoa học - Kỹ thuật",
+    "total_postings": 24001,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 23.3,
+      "college_percent": 31.0
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Vacxin Việt Nam",
+      "Công Ty TNHH Phát Triển Nhân Lực Quốc Gia Hrvalu",
+      "Chi Nhánh Công Ty TNHH Nhà Nước Một Thành Viên Thương Mại Và Xuất Nhập Khẩu Viettel - Trung Tâm Bán Lẻ",
+      "Công Ty TNHH Bao Bì Alpla (Việt Nam)",
+      "Công Ty Cổ Phần Tập Đoàn Dat"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kỹ Thuật",
+      "Nhân Viên Kinh Doanh",
+      "Kỹ Sư Cơ Khí",
+      "Kỹ Sư Xây Dựng",
+      "Nhân Viên Kỹ Thuật Điện"
+    ]
+  },
+  "Lao động phổ thông": {
+    "industry": "Lao động phổ thông",
+    "total_postings": 23285,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 10.0,
+      "max_median": 12.0
+    },
+    "experience_salary": {
+      "Nhân viên": {
+        "min": 7.5,
+        "max": 11.0,
+        "count": 21
+      }
+    },
+    "education_requirement": {
+      "university_percent": 0.3,
+      "college_percent": 1.2
+    },
+    "top_hiring_companies": [
+      "Công Ty Tài Chính TNHH Hd Saison",
+      "Công Ty TNHH Yakult Việt Nam",
+      "Công Ty Cổ Phần Dịch Vụ Thương Mại Tổng Hợp Wincommerce",
+      "Công Ty Tài Chính Trách Nhiệm Hữu Hạn Một Thành Viên Home Credit Việt Nam",
+      "Khối Bán Lẻ Thực Phẩm (Go!, Tops Market, Go!) - Công Ty TNHH Dịch Vụ EB"
+    ],
+    "sample_roles": [
+      "Lao Động Phổ Thông",
+      "Nhân Viên Phục Vụ",
+      "Nhân Viên Bán Hàng",
+      "Nhân Viên Kho",
+      "Nhân Viên Bảo Vệ"
+    ]
+  },
+  "Giáo dục - Đào tạo / Biên phiên dịch": {
+    "industry": "Giáo dục - Đào tạo / Biên phiên dịch",
+    "total_postings": 18533,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 19.0,
+      "college_percent": 29.9
+    },
+    "top_hiring_companies": [
+      "Công Ty TNHH Dịch Vụ Tài Nguyên Nhân Sự Yi Qi Ying",
+      "Công Ty TNHH Vietnam Concentrix Services",
+      "Hệ Thống Anh Ngữ Quốc Tế Ocean Edu - Công Ty Cổ Phần Giải Pháp Giáo Dục Hưng Yên",
+      "Công Ty Cổ Phần Bellsystem24 Việt Nam",
+      "Công Ty TNHH Polytex Far Eastern (Việt Nam)"
+    ],
+    "sample_roles": [
+      "Nhân Viên Marketing",
+      "Nhân Viên Digital Marketing",
+      "Nhân Viên Content Marketing",
+      "Nhân Viên Phiên Dịch Tiếng Trung",
+      "Nhân Viên Kinh Doanh"
+    ]
+  },
+  "Marketing": {
+    "industry": "Marketing",
+    "total_postings": 16137,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 23.0,
+      "college_percent": 33.8
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Viễn Thông Fpt",
+      "Công Ty TNHH Đầu Tư Thương Mại Và Du Lịch Quốc Tế Hòa Bình",
+      "Công Ty TNHH Một Thành Viên Nhơn Mỹ",
+      "Công Ty Cổ Phần Veetex",
+      "Công Ty Cổ Phần Mega Sun"
+    ],
+    "sample_roles": [
+      "Nhân Viên Marketing",
+      "Nhân Viên Content Marketing",
+      "Nhân Viên Digital Marketing",
+      "Trưởng Phòng Marketing",
+      "Chuyên Viên Marketing"
+    ]
+  },
+  "Giáo dục - Đào tạo / Chăm sóc khách hàng": {
+    "industry": "Giáo dục - Đào tạo / Chăm sóc khách hàng",
+    "total_postings": 15697,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 25.4,
+      "college_percent": 32.8
+    },
+    "top_hiring_companies": [
+      "Hệ Thống Anh Ngữ Quốc Tế Ocean Edu",
+      "Công Ty Cổ Phần Dayone Asia",
+      "Công Ty TNHH Ila Việt Nam",
+      "Công Ty Cổ Phần Quốc Tế Anh Văn Hội Việt Mỹ",
+      "Công Ty CP ĐT PT Giáo Dục Quốc Tế Hoàng Gia"
+    ],
+    "sample_roles": [
+      "Nhân Viên Tư Vấn Tuyển Sinh",
+      "Giáo Viên Mầm Non",
+      "Giáo Viên Tiếng Anh",
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Tuyển Sinh"
+    ]
+  },
+  "Điện - Điện tử - Điện lạnh / Vận hành - Bảo trì - Bảo dưỡng": {
+    "industry": "Điện - Điện tử - Điện lạnh / Vận hành - Bảo trì - Bảo dưỡng",
+    "total_postings": 15127,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 14.6,
+      "college_percent": 22.8
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Viễn Thông Fpt",
+      "Công Ty Cổ Phần Tập Đoàn Dat",
+      "Công Ty Cổ Phần Green Speed",
+      "Công Ty Cổ Phần Vinhomes",
+      "Công Ty Tài Chính TNHH Hd Saison"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kỹ Thuật Điện",
+      "Nhân Viên Kỹ Thuật",
+      "Kỹ Sư Điện",
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Bảo Trì"
+    ]
+  },
+  "Dược phẩm / Y tế - Chăm sóc sức khỏe": {
+    "industry": "Dược phẩm / Y tế - Chăm sóc sức khỏe",
+    "total_postings": 15123,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 12.6,
+      "college_percent": 19.8
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Vacxin Việt Nam",
+      "Công Ty TNHH Mega Lifesciences (Việt Nam)",
+      "Công Ty Cổ Phần Dược Phẩm La Terre France",
+      "Công Ty Cổ Phần Bệnh Viện Đa Khoa Tâm Anh Tp. Hồ Chí Minh",
+      "Công Ty Cổ Phần Dược Phẩm Bến Tre"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kinh Doanh",
+      "Trình Dược Viên",
+      "Điều Dưỡng Viên",
+      "Trình Dược Viên OTC",
+      "Nhân Viên Điều Dưỡng"
+    ]
+  },
+  "Vận hành - Bảo trì - Bảo dưỡng": {
+    "industry": "Vận hành - Bảo trì - Bảo dưỡng",
+    "total_postings": 15050,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 16.9,
+      "college_percent": 23.6
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Bellsystem24 Việt Nam",
+      "Công Ty Cổ Phần Dịch Vụ Thương Mại Tổng Hợp Wincommerce",
+      "Công Ty TNHH Hunufa",
+      "Công Ty Cổ Phần Viễn Thông Fpt",
+      "Công Ty Cổ Phần BT INTERNATIONAL"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kỹ Thuật",
+      "Nhân Viên Bảo Trì",
+      "Nhân Viên Vận Hành Máy",
+      "Nhân Viên Kỹ Thuật Điện",
+      "Nhân Viên Kinh Doanh"
+    ]
+  },
+  "Khách sạn - Nhà hàng - Du lịch / Bán sỉ - Bán lẻ - Quản lý cửa hàng": {
+    "industry": "Khách sạn - Nhà hàng - Du lịch / Bán sỉ - Bán lẻ - Quản lý cửa hàng",
+    "total_postings": 14449,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 5.5,
+      "college_percent": 13.9
+    },
+    "top_hiring_companies": [
+      "Khối Bán Lẻ Thực Phẩm (Go!, Tops Market, Go!) - Công Ty TNHH Dịch Vụ EB",
+      "Công Ty Cổ Phần Maison Retail Management International",
+      "Hệ Thống Anh Ngữ Quốc Tế Ocean Edu - Công Ty Cổ Phần Giải Pháp Giáo Dục Hưng Yên",
+      "Công Ty Tài Chính TNHH Hd Saison",
+      "Công ty TNHH Manpower Việt Nam"
+    ],
+    "sample_roles": [
+      "Nhân Viên Bán Hàng",
+      "Nhân Viên Kinh Doanh",
+      "Quản Lý Cửa Hàng",
+      "Nhân Viên Chăm Sóc Khách Hàng",
+      "Tuyển Nhân Viên Bán Hàng"
+    ]
+  },
+  "Nhân sự / Hành chính - Thư ký": {
+    "industry": "Nhân sự / Hành chính - Thư ký",
+    "total_postings": 12800,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 24.1,
+      "college_percent": 34.9
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Green Speed",
+      "Công Ty Cổ Phần Vacxin Việt Nam",
+      "Công Ty Cổ Phần Bellsystem24 Việt Nam",
+      "Công Ty TNHH Một Thành Viên Nhơn Mỹ",
+      "Công Ty Cổ Phần Vinhomes"
+    ],
+    "sample_roles": [
+      "Nhân Viên Hành Chính Nhân Sự",
+      "Nhân Viên Tuyển Dụng",
+      "Nhân Viên Nhân Sự",
+      "Chuyên Viên Tuyển Dụng",
+      "Trưởng Phòng Hành Chính Nhân Sự"
+    ]
+  },
+  "Bất động sản": {
+    "industry": "Bất động sản",
+    "total_postings": 11469,
+    "salary_vnd_million": {
+      "min_median": 17.0,
+      "avg_median": 18.5,
+      "max_median": 20.0
+    },
+    "experience_salary": {
+      "Nhân viên": {
+        "min": 17.5,
+        "max": 22.5,
+        "count": 12
+      }
+    },
+    "education_requirement": {
+      "university_percent": 10.5,
+      "college_percent": 13.2
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Tập Đoàn Thiên Khôi",
+      "Công Ty Cổ Phần Đầu Tư Kinh Doanh Địa Ốc Đất Phúc",
+      "Công Ty Cổ Phần Bất Động Sản Thiên Khôi",
+      "Công Ty Cổ Phần Vinhomes",
+      "CÔNG TY CP SÀN GIAO DỊCH BẤT ĐỘNG SẢN DELTA"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kinh Doanh",
+      "Chuyên Viên Kinh Doanh",
+      "Nhân Viên Kinh Doanh Bất Động Sản",
+      "Trưởng Phòng Kinh Doanh",
+      "Chuyên Viên Kinh Doanh Bất Động Sản"
+    ]
+  },
+  "Thực phẩm - Đồ uống / Công nghệ thực phẩm - Dinh dưỡng": {
+    "industry": "Thực phẩm - Đồ uống / Công nghệ thực phẩm - Dinh dưỡng",
+    "total_postings": 11430,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 9.4,
+      "college_percent": 19.3
+    },
+    "top_hiring_companies": [
+      "Công Ty TNHH Vietnam Concentrix Services",
+      "Công Ty TNHH Jollibee Việt Nam",
+      "CÔNG TY TNHH DG GROUP",
+      "Công Ty Cổ Phần Công Nghệ Sen Đỏ",
+      "Công Ty Cổ Phần Dịch Vụ Thương Mại Tổng Hợp Wincommerce"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Bán Hàng",
+      "Nhân Viên QC",
+      "Nhân Viên Kinh Doanh Thị Trường",
+      "Nhân Viên Phục Vụ"
+    ]
+  },
+  "Tài chính - Đầu tư - Chứng Khoán": {
+    "industry": "Tài chính - Đầu tư - Chứng Khoán",
+    "total_postings": 11082,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 21.2,
+      "college_percent": 32.6
+    },
+    "top_hiring_companies": [
+      "Công Ty Tài Chính TNHH Hd Saison",
+      "Công Ty Cổ Phần Vacxin Việt Nam",
+      "Công Ty Tài Chính Trách Nhiệm Hữu Hạn Một Thành Viên Home Credit Việt Nam",
+      "Công Ty Tài Chính TNHH MTV Quốc Tế Việt Nam Jaccs",
+      "Cty Tài Chính TNHH MTV Mirae Asset (Việt Nam)"
+    ],
+    "sample_roles": [
+      "Kế Toán Tổng Hợp",
+      "Nhân Viên Kế Toán",
+      "Nhân Viên Kinh Doanh",
+      "Kế Toán Nội Bộ",
+      "Kế Toán Trưởng"
+    ]
+  },
+  "Khách sạn - Nhà hàng - Du lịch": {
+    "industry": "Khách sạn - Nhà hàng - Du lịch",
+    "total_postings": 9957,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 7.9,
+      "college_percent": 17.1
+    },
+    "top_hiring_companies": [
+      "Công Ty CP Tập Đoàn Mường Thanh",
+      "Công Ty Cổ Phần Pizza 4Ps",
+      "Công Ty Cổ Phần Tập Đoàn Golden Gate",
+      "Công Ty Cổ Phần Sbay Việt Nam",
+      "Công Ty TNHH Silverland Bến Thành"
+    ],
+    "sample_roles": [
+      "Nhân Viên Phục Vụ",
+      "Nhân Viên Lễ Tân",
+      "Quản Lý Nhà Hàng",
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Phụ Bếp"
+    ]
+  },
+  "Ngân hàng / Tài chính - Đầu tư - Chứng Khoán": {
+    "industry": "Ngân hàng / Tài chính - Đầu tư - Chứng Khoán",
+    "total_postings": 9540,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 15.4,
+      "college_percent": 12.9
+    },
+    "top_hiring_companies": [
+      "Công Ty Tài Chính TNHH Hd Saison",
+      "ABBank - Ngân Hàng TMCP An Bình",
+      "Cty Tài Chính TNHH MTV Mirae Asset (Việt Nam)",
+      "Ngân Hàng TNHH Một Thành Viên Shinhan Việt Nam",
+      "Công Ty TNHH Callus"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Kế Toán",
+      "Kế Toán Tổng Hợp",
+      "Nhân Viên Tư Vấn Tài Chính",
+      "Chuyên Viên Khách Hàng Cá Nhân"
+    ]
+  },
+  "Hành chính - Thư ký": {
+    "industry": "Hành chính - Thư ký",
+    "total_postings": 9340,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 18.3,
+      "college_percent": 33.6
+    },
+    "top_hiring_companies": [
+      "Công Ty TNHH Callus",
+      "Công Ty Cổ Phần Truyền Thông Kim Cương",
+      "Công Ty TNHH Bảo Hiểm Nhân Thọ Dai-Ichi Việt Nam",
+      "Công Ty Cổ Phần Giao Hàng Tiết Kiệm",
+      "Công Ty TNHH Bảo Hiểm Nhân Thọ Fwd Việt Nam"
+    ],
+    "sample_roles": [
+      "Nhân Viên Hành Chính Nhân Sự",
+      "Nhân Viên Văn Phòng",
+      "Nhân Viên Hành Chính",
+      "Trợ Lý Giám Đốc",
+      "Nhân Viên Hành Chính Văn Phòng"
+    ]
+  },
+  "Vận Tải - Lái xe - Giao nhận": {
+    "industry": "Vận Tải - Lái xe - Giao nhận",
+    "total_postings": 9333,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 5.4,
+      "college_percent": 14.2
+    },
+    "top_hiring_companies": [
+      "Công Ty TNHH SPX Express",
+      "Công Ty Cổ Phần Giao Hàng Tiết Kiệm",
+      "Công Ty Cổ Phần Di Chuyển Xanh Và Thông Minh GSM",
+      "Công Ty Tài Chính TNHH MTV Quốc Tế Việt Nam Jaccs",
+      "Công Ty Cổ Phần The Supra"
+    ],
+    "sample_roles": [
+      "Nhân Viên Lái Xe",
+      "Nhân Viên Giao Hàng",
+      "Nhân Viên Giao Nhận Hàng Hóa",
+      "Lái Xe Ô Tô",
+      "Tài Xế Lái Xe"
+    ]
+  },
+  "Xuất Nhập Khẩu / Thu mua - Kho Vận - Chuỗi cung ứng": {
+    "industry": "Xuất Nhập Khẩu / Thu mua - Kho Vận - Chuỗi cung ứng",
+    "total_postings": 8306,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 25.0,
+      "college_percent": 39.5
+    },
+    "top_hiring_companies": [
+      "Công Ty TNHH Thương Mại Tân Viễn Đông",
+      "Công Ty TNHH Phát Triển Nhân Lực Quốc Gia Hrvalu",
+      "Công Ty TNHH S.F. Express",
+      "Công Ty TNHH Npv Express & Logistics",
+      "Công Ty Cổ Phần Găng Tay Htc"
+    ],
+    "sample_roles": [
+      "Nhân Viên Xuất Nhập Khẩu",
+      "Nhân Viên Chứng Từ Xuất Nhập Khẩu",
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Kinh Doanh Xuất Nhập Khẩu",
+      "Nhân Viên Khai Báo Hải Quan"
+    ]
+  },
+  "Thu mua - Kho Vận - Chuỗi cung ứng": {
+    "industry": "Thu mua - Kho Vận - Chuỗi cung ứng",
+    "total_postings": 7510,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 8.4,
+      "college_percent": 25.6
+    },
+    "top_hiring_companies": [
+      "Công Ty TNHH SPX Express",
+      "Công Ty Cổ Phần Dịch Vụ Thương Mại Tổng Hợp Wincommerce",
+      "Công Ty Cổ Phần Ttv Hrs Sài Gòn",
+      "Công Ty Cổ Phần Giao Hàng Tiết Kiệm",
+      "Công Ty Cổ Phần Công Nghệ Sen Đỏ"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kho",
+      "Nhân Viên Thu Mua",
+      "Nhân Viên Thủ Kho",
+      "Nhân Viên Mua Hàng",
+      "Nhân Viên Kho Hàng"
+    ]
+  },
+  "Dệt may - Da giày - Thời trang": {
+    "industry": "Dệt may - Da giày - Thời trang",
+    "total_postings": 6204,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 8.5,
+      "college_percent": 22.5
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Maison Retail Management International",
+      "Công Ty TNHH Thời Trang Và Mỹ Phẩm Âu Châu (Acfc)",
+      "Công Ty CP May Sài Gòn 3",
+      "Công Ty TNHH Pungkook Sai Gon II",
+      "Công Ty Cổ Phần Tập Đoàn Thái Tuấn"
+    ],
+    "sample_roles": [
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên Bán Hàng",
+      "Nhân Viên Thiết Kế Rập",
+      "Nhân Viên Quản Lý Đơn Hàng",
+      "Nhân Viên Theo Dõi Đơn Hàng"
+    ]
+  },
+  "Kiến trúc - Thiết kế nội ngoại thất": {
+    "industry": "Kiến trúc - Thiết kế nội ngoại thất",
+    "total_postings": 5671,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 33.6,
+      "college_percent": 29.4
+    },
+    "top_hiring_companies": [
+      "TTDECOR",
+      "Công Ty CP Thiết Kế Nội Thất Icon",
+      "Công Ty TNHH Thiết Kế Xây Dựng Tk Design",
+      "Công ty TNHH Thiết Kế XD Kiến An Vinh",
+      "Công Ty Cổ Phần Thiết Kế Kiến Trúc- Nội Thất- Xây Dựng Aaa"
+    ],
+    "sample_roles": [
+      "Kiến Trúc Sư",
+      "Nhân Viên Thiết Kế Nội Thất",
+      "Nhân Viên Thiết Kế",
+      "Thiết Kế Nội Thất",
+      "Nhân Viên Kinh Doanh"
+    ]
+  },
+  "Thực tập sinh / Lao động phổ thông": {
+    "industry": "Thực tập sinh / Lao động phổ thông",
+    "total_postings": 5661,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 10.1,
+      "college_percent": 15.4
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Bellsystem24 Việt Nam",
+      "Công Ty Cổ Phần Quốc Tế Anh Văn Hội Việt Mỹ",
+      "Công Ty TNHH Thương Mại Và Dịch Vụ Nina",
+      "Công Ty Cổ Phần Viễn Thông Fpt",
+      "Công Ty Cổ Phần Dịch Vụ Thương Mại Tổng Hợp Wincommerce"
+    ],
+    "sample_roles": [
+      "Thực Tập Sinh Kinh Doanh",
+      "Thực Tập Sinh Marketing",
+      "Thực Tập Sinh Kế Toán",
+      "Thực Tập Sinh Nhân Sự",
+      "Nhân Viên Kinh Doanh"
+    ]
+  },
+  "IT Phần mềm": {
+    "industry": "IT Phần mềm",
+    "total_postings": 5405,
+    "salary_vnd_million": {
+      "min_median": 8.0,
+      "avg_median": 13.0,
+      "max_median": 18.0
+    },
+    "experience_salary": {},
+    "education_requirement": {
+      "university_percent": 31.3,
+      "college_percent": 28.1
+    },
+    "top_hiring_companies": [
+      "Công Ty Cổ Phần Viễn Thông Fpt",
+      "Công Ty Cổ Phần Vacxin Việt Nam",
+      "Công Ty CP Dịch Vụ Kim My",
+      "Công Ty Tài Chính TNHH MTV Quốc Tế Việt Nam Jaccs",
+      "Công Ty TNHH Lisod Việt Nam"
+    ],
+    "sample_roles": [
+      "Nhân Viên IT",
+      "Lập Trình Viên",
+      "Chuyên Viên IT",
+      "Nhân Viên Kinh Doanh",
+      "Nhân Viên IT Helpdesk"
+    ]
+  }
+}

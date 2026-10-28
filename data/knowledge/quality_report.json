@@ -1,0 +1,254 @@
+{
+ "built_at": "2026-10-22",
+ "schools": 252,
+ "programs": 6872,
+ "programs_with_tuition": 1228,
+ "programs_with_crosswalk": 6759,
+ "crosswalk_fit": {
+  "weak": 1445,
+  "strong": 2160,
+  "approx": 2948,
+  "none": 206,
+  "missing": 113
+ },
+ "crosswalk_review_status": "reviewed_20261021_HoangLe_NguyenLe",
+ "crosswalk_errors": [],
+ "programs_floor_score": 1466,
+ "years_covered": [
+  2025,
+  2026
+ ],
+ "programs_with_multi_year_history": 4116,
+ "methods_covered": [
+  "THPT"
+ ],
+ "verified_share": 0.0,
+ "issues_by_type": {
+  "cutoff_out_of_30_scale": 696,
+  "duplicate_row": 2922,
+  "missing_school_or_code": 154,
+  "conflicting_cutoff_same_program": 13,
+  "no_crosswalk": 113
+ },
+ "issues_sample": [
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học Cửu Long | Công tác xã hội | 7760101 | 2025",
+   "value": 151.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại Học Sư Phạm Thể Dục Thể Thao Hà Nội | Giáo dục Quốc phòng - An ninh | 7140208 | 2025",
+   "value": 37.21
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại Học Sư Phạm Nghệ Thuật Trung Ương | Hội hoạ | 7210103 | 2025",
+   "value": 30.25
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Học viện Chính sách và Phát triển | Ngôn ngữ Anh | 7220201 | 2025",
+   "value": 30.02
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Bảo vệ thực vật | 7620112 | 2026",
+   "value": 64.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Chăn nuôi | 7620105 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Chính trị học | 7310201 | 2026",
+   "value": 74.3
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Công nghệ thông tin | 7480201 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Công nghệ nông nghiệp số | 7620190 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Công nghệ sinh học | 7420201 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Công nghệ kỹ thuật hoá học | 7510401 | 2026",
+   "value": 63.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Công nghệ kỹ thuật Môi trường | 7510406 | 2026",
+   "value": 60.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Công nghệ sau thu hoạch | 7540104 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Công nghệ thực phẩm | 7540101 | 2026",
+   "value": 66.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Đảm bảo chất lượng và an toàn thực phẩm | 7540106 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | ĐH Nuôi trồng thủy sản | 7620301 | 2026",
+   "value": 60.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Giáo dục Chính trị | 7140205 | 2026",
+   "value": 82.06
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Giáo dục Tiểu học | 7140202 | 2026",
+   "value": 82.79
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Giáo dục Mầm non | 7140201 | 2026",
+   "value": 78.9
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Kế toán | 7340301 | 2026",
+   "value": 57.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Khoa học cây trồng | 7620110 | 2026",
+   "value": 59.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Khoa học dữ liệu (Data Science) | 7460108 | 2026",
+   "value": 52.2
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Kinh tế quốc tế | 7310106 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Kinh doanh nông nghiệp số | 7620191 | 2026",
+   "value": 58.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Kỹ thuật phần mềm | 7480103 | 2026",
+   "value": 50.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Marketing | 7340115 | 2026",
+   "value": 55.5
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Ngành Luật | 7380101 | 2026",
+   "value": 66.67
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Ngôn ngữ Anh | 7220201 | 2026",
+   "value": 67.6
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Phát triển nông thôn | 7620116 | 2026",
+   "value": 55.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Quản lý tài nguyên và môi trường | 7850101 | 2026",
+   "value": 62.1
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Quản trị Kinh doanh | 7340101 | 2026",
+   "value": 52.0
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Lịch sử | 7140218 | 2026",
+   "value": 86.49
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Tiếng Anh | 7140231 | 2026",
+   "value": 84.37
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Vật lý | 7140211 | 2026",
+   "value": 86.21
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm khoa học tự nhiên | 7140247 | 2026",
+   "value": 82.81
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Sinh học | 7140213 | 2026",
+   "value": 82.39
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Địa lý | 7140219 | 2026",
+   "value": 84.29
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Toán học | 7140209 | 2026",
+   "value": 87.98
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Ngữ văn | 7140217 | 2026",
+   "value": 84.8
+  },
+  {
+   "type": "cutoff_out_of_30_scale",
+   "record": "Đại học An Giang - Đại học Quốc gia TP HCM | Sư phạm Hóa học | 7140212 | 2026",
+   "value": 86.6
+  }
+ ],
+ "top_provinces": {
+  "Hà Nội": 89,
+  "TP HCM": 40,
+  "Huế": 17,
+  "Đà Nẵng": 12,
+  "Thái Nguyên": 9,
+  "Đồng Nai": 7,
+  "Bình Dương": 6,
+  "Khánh Hòa": 6,
+  "Cần Thơ": 6,
+  "Nghệ An": 4
+ },
+ "known_gaps": [
+  "Chỉ có 1 năm điểm chuẩn (2025) và 1 phương thức (điểm thi THPT): chưa đủ cho mô hình xác suất trúng tuyển",
+  "Thiếu nhiều trường lớn: HUST, NEU, FTU Hà Nội, UEH, HCMUT, HCMUS, ĐHQG HN, HMU, UMP, ĐH Cần Thơ, TDTU...",
+  "Học phí chỉ có ở một phần nhỏ chương trình và chưa rõ đơn vị (năm hay học kỳ)",
+  "Chưa có tỷ lệ sinh viên có việc làm theo ngành/trường",
+  "Nguồn bảng điểm chuẩn chưa được đối chiếu với thông báo chính thức của trường"
+ ]
+}
